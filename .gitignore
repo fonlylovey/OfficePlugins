@@ -1,0 +1,14 @@
+[core]
+autocrlf = false
+filemode = false
+safecrlf = true
+obj
+bin
+/OfficePlugins/.vs
+*.vsto
+Application Files
+/OfficePlugins/BIMPPTPlugin/BIMPPTPlugin.csproj.user
+/OfficePlugins/BIMWordPlugin/*.user
+/OfficePlugins/BIMProjectPlugin/*.user
+/OfficePlugins/BIMExcelPlugin/*.user
+.vs
