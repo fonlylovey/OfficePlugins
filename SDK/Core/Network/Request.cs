@@ -238,10 +238,10 @@ namespace Core
             {
                 using (HttpClient httpClient = new HttpClient())
                 {
-                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    httpClient.DefaultRequestHeaders.Add("Accept-Charset", "iso-8859-1");
-                    httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
-                    httpClient.DefaultRequestHeaders.Add(".ENDPOINT", "WEB");
+                    //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    //httpClient.DefaultRequestHeaders.Add("Accept-Charset", "iso-8859-1");
+                    //httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
+                    //httpClient.DefaultRequestHeaders.Add(".ENDPOINT", "WEB");
                     httpClient.Timeout = new TimeSpan(0, 1, 0);
                     
                     String strFileName = "";

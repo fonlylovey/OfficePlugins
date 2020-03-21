@@ -24,7 +24,7 @@ namespace PPTPlugin
                     ResourceData theData = new ResourceData();
                     theData.ID = item["tbid"].ToString();
                     theData.Name = item["tbname"].ToString();
-                    theData.Label = item["tllb"].ToString();
+                    //theData.Label = item["tllb"].ToString();
                     theData.IconUrl = item["tbsltlj"].ToString();
                     theData.FileUrl = item["tblj"].ToString();
                     list.Add(theData);
