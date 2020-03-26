@@ -28,300 +28,509 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Panel leftPlane;
-            this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.LTMenu = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockWidget));
+            this.LBPanel = new System.Windows.Forms.Panel();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.resourceList = new System.Windows.Forms.TableLayoutPanel();
+            this.LTPanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button10 = new System.Windows.Forms.Button();
+            this.textBox = new System.Windows.Forms.TextBox();
+            this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pageBox = new System.Windows.Forms.TextBox();
+            this.labelPage = new System.Windows.Forms.Label();
+            this.label_All = new System.Windows.Forms.Label();
+            this.label_Type = new System.Windows.Forms.Label();
+            this.label_Mark = new System.Windows.Forms.Label();
+            this.label_Records = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.imageList_button = new System.Windows.Forms.ImageList(this.components);
+            this.button_prePage = new System.Windows.Forms.Button();
+            this.button_nextPage = new System.Windows.Forms.Button();
+            this.QueryButton = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
             leftPlane = new System.Windows.Forms.Panel();
-            this.VMenu.SuspendLayout();
             leftPlane.SuspendLayout();
-            this.LTMenu.SuspendLayout();
+            this.LBPanel.SuspendLayout();
+            this.LTPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.VMenu.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // leftPlane
+            // 
+            leftPlane.Controls.Add(this.LBPanel);
+            leftPlane.Controls.Add(this.resourceList);
+            leftPlane.Controls.Add(this.LTPanel);
+            leftPlane.Dock = System.Windows.Forms.DockStyle.Fill;
+            leftPlane.Location = new System.Drawing.Point(0, 0);
+            leftPlane.Name = "leftPlane";
+            leftPlane.Size = new System.Drawing.Size(210, 600);
+            leftPlane.TabIndex = 8;
+            // 
+            // LBPanel
+            // 
+            this.LBPanel.Controls.Add(this.flowLayoutPanel1);
+            this.LBPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LBPanel.Location = new System.Drawing.Point(0, 548);
+            this.LBPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.LBPanel.MaximumSize = new System.Drawing.Size(0, 52);
+            this.LBPanel.MinimumSize = new System.Drawing.Size(0, 52);
+            this.LBPanel.Name = "LBPanel";
+            this.LBPanel.Size = new System.Drawing.Size(210, 52);
+            this.LBPanel.TabIndex = 8;
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "find.png");
+            this.imageList.Images.SetKeyName(1, "left.png");
+            this.imageList.Images.SetKeyName(2, "right.png");
+            // 
+            // resourceList
+            // 
+            this.resourceList.BackColor = System.Drawing.Color.White;
+            this.resourceList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.resourceList.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.resourceList.ColumnCount = 2;
+            this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.resourceList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resourceList.Location = new System.Drawing.Point(0, 82);
+            this.resourceList.Margin = new System.Windows.Forms.Padding(0);
+            this.resourceList.MaximumSize = new System.Drawing.Size(210, 0);
+            this.resourceList.MinimumSize = new System.Drawing.Size(210, 0);
+            this.resourceList.Name = "resourceList";
+            this.resourceList.RowCount = 2;
+            this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.resourceList.Size = new System.Drawing.Size(210, 518);
+            this.resourceList.TabIndex = 7;
+            // 
+            // LTPanel
+            // 
+            this.LTPanel.Controls.Add(this.flowLayoutPanel3);
+            this.LTPanel.Controls.Add(this.flowLayoutPanel2);
+            this.LTPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LTPanel.Location = new System.Drawing.Point(0, 0);
+            this.LTPanel.MinimumSize = new System.Drawing.Size(0, 82);
+            this.LTPanel.Name = "LTPanel";
+            this.LTPanel.Size = new System.Drawing.Size(210, 82);
+            this.LTPanel.TabIndex = 0;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.Controls.Add(this.label_All);
+            this.flowLayoutPanel3.Controls.Add(this.label_Type);
+            this.flowLayoutPanel3.Controls.Add(this.label_Mark);
+            this.flowLayoutPanel3.Controls.Add(this.label_Records);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 52);
+            this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 30);
+            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 30);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(210, 30);
+            this.flowLayoutPanel3.TabIndex = 2;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Controls.Add(this.textBox);
+            this.flowLayoutPanel2.Controls.Add(this.QueryButton);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(210, 52);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // textBox
+            // 
+            this.textBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox.Location = new System.Drawing.Point(57, 13);
+            this.textBox.MinimumSize = new System.Drawing.Size(110, 28);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(110, 28);
+            this.textBox.TabIndex = 0;
+            this.textBox.Text = "搜索";
             // 
             // VMenu
             // 
             this.VMenu.BackColor = System.Drawing.Color.LightGray;
-            this.VMenu.Controls.Add(this.button2);
-            this.VMenu.Controls.Add(this.button3);
-            this.VMenu.Controls.Add(this.button4);
-            this.VMenu.Controls.Add(this.button5);
-            this.VMenu.Controls.Add(this.button6);
-            this.VMenu.Controls.Add(this.button7);
-            this.VMenu.Controls.Add(this.button8);
-            this.VMenu.Controls.Add(this.button9);
+            this.VMenu.Controls.Add(this.radioButton1);
+            this.VMenu.Controls.Add(this.radioButton2);
+            this.VMenu.Controls.Add(this.radioButton3);
+            this.VMenu.Controls.Add(this.radioButton4);
+            this.VMenu.Controls.Add(this.radioButton5);
+            this.VMenu.Controls.Add(this.radioButton6);
+            this.VMenu.Controls.Add(this.radioButton7);
+            this.VMenu.Controls.Add(this.radioButton8);
             this.VMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.VMenu.Location = new System.Drawing.Point(282, 0);
+            this.VMenu.Location = new System.Drawing.Point(210, 0);
             this.VMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.VMenu.MaximumSize = new System.Drawing.Size(50, 0);
-            this.VMenu.MinimumSize = new System.Drawing.Size(50, 0);
+            this.VMenu.MaximumSize = new System.Drawing.Size(40, 0);
+            this.VMenu.MinimumSize = new System.Drawing.Size(40, 0);
             this.VMenu.Name = "VMenu";
-            this.VMenu.Padding = new System.Windows.Forms.Padding(9);
-            this.VMenu.Size = new System.Drawing.Size(50, 422);
+            this.VMenu.Padding = new System.Windows.Forms.Padding(0, 9, 9, 9);
+            this.VMenu.Size = new System.Drawing.Size(40, 600);
             this.VMenu.TabIndex = 3;
             // 
-            // button2
+            // flowLayoutPanel1
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Location = new System.Drawing.Point(9, 9);
-            this.button2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button2.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button2.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 32);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "模板";
-            this.button2.UseVisualStyleBackColor = true;
+            this.flowLayoutPanel1.Controls.Add(this.button_prePage);
+            this.flowLayoutPanel1.Controls.Add(this.pageBox);
+            this.flowLayoutPanel1.Controls.Add(this.button_nextPage);
+            this.flowLayoutPanel1.Controls.Add(this.labelPage);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(210, 52);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // button3
+            // pageBox
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button3.Location = new System.Drawing.Point(9, 45);
-            this.button3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button3.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button3.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 32);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "图例";
-            this.button3.UseVisualStyleBackColor = true;
+            this.pageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pageBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.pageBox.Location = new System.Drawing.Point(69, 9);
+            this.pageBox.Margin = new System.Windows.Forms.Padding(9);
+            this.pageBox.MaximumSize = new System.Drawing.Size(32, 32);
+            this.pageBox.MaxLength = 32;
+            this.pageBox.MinimumSize = new System.Drawing.Size(32, 32);
+            this.pageBox.Name = "pageBox";
+            this.pageBox.Size = new System.Drawing.Size(32, 26);
+            this.pageBox.TabIndex = 9;
+            this.pageBox.Text = "1";
+            this.pageBox.WordWrap = false;
+            this.pageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pageBox_KeyDown);
             // 
-            // button4
+            // labelPage
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button4.Location = new System.Drawing.Point(9, 81);
-            this.button4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button4.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button4.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(32, 32);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "图标";
-            this.button4.UseVisualStyleBackColor = true;
+            this.labelPage.AutoSize = true;
+            this.labelPage.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelPage.Location = new System.Drawing.Point(19, 59);
+            this.labelPage.Margin = new System.Windows.Forms.Padding(9);
+            this.labelPage.MaximumSize = new System.Drawing.Size(40, 32);
+            this.labelPage.MinimumSize = new System.Drawing.Size(40, 32);
+            this.labelPage.Name = "labelPage";
+            this.labelPage.Size = new System.Drawing.Size(40, 32);
+            this.labelPage.TabIndex = 8;
+            this.labelPage.Text = "1/5";
+            this.labelPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button5
+            // label_All
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button5.Location = new System.Drawing.Point(9, 117);
-            this.button5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button5.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button5.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(32, 32);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "市场";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label_All.AutoSize = true;
+            this.label_All.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_All.Location = new System.Drawing.Point(3, 0);
+            this.label_All.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_All.Name = "label_All";
+            this.label_All.Size = new System.Drawing.Size(32, 28);
+            this.label_All.TabIndex = 9;
+            this.label_All.Text = "全部";
+            this.label_All.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_All.Click += new System.EventHandler(this.label_All_Click);
             // 
-            // button6
+            // label_Type
             // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button6.Location = new System.Drawing.Point(9, 153);
-            this.button6.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button6.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button6.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(32, 32);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "产品";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label_Type.AutoSize = true;
+            this.label_Type.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Type.Location = new System.Drawing.Point(41, 0);
+            this.label_Type.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_Type.Name = "label_Type";
+            this.label_Type.Size = new System.Drawing.Size(32, 28);
+            this.label_Type.TabIndex = 10;
+            this.label_Type.Text = "分类";
+            this.label_Type.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Type.Click += new System.EventHandler(this.label_Type_Click);
             // 
-            // button7
+            // label_Mark
             // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button7.Location = new System.Drawing.Point(9, 189);
-            this.button7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button7.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button7.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(32, 32);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "预测";
-            this.button7.UseVisualStyleBackColor = true;
+            this.label_Mark.AutoSize = true;
+            this.label_Mark.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Mark.Location = new System.Drawing.Point(79, 0);
+            this.label_Mark.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_Mark.Name = "label_Mark";
+            this.label_Mark.Size = new System.Drawing.Size(56, 28);
+            this.label_Mark.TabIndex = 11;
+            this.label_Mark.Text = "我的收藏";
+            this.label_Mark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Mark.Click += new System.EventHandler(this.label_Mark_Click);
             // 
-            // button8
+            // label_Records
             // 
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button8.Location = new System.Drawing.Point(9, 225);
-            this.button8.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button8.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button8.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 32);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "宏观";
-            this.button8.UseVisualStyleBackColor = true;
+            this.label_Records.AutoSize = true;
+            this.label_Records.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Records.Location = new System.Drawing.Point(141, 0);
+            this.label_Records.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_Records.Name = "label_Records";
+            this.label_Records.Size = new System.Drawing.Size(56, 28);
+            this.label_Records.TabIndex = 12;
+            this.label_Records.Text = "历史记录";
+            this.label_Records.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Records.Click += new System.EventHandler(this.label_Records_Click);
             // 
-            // button9
+            // button1
             // 
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button9.Location = new System.Drawing.Point(9, 261);
-            this.button9.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.button9.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button9.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(32, 32);
-            this.button9.TabIndex = 7;
-            this.button9.Text = "咨询";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(3, 13);
+            this.button1.MaximumSize = new System.Drawing.Size(48, 28);
+            this.button1.MinimumSize = new System.Drawing.Size(48, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 28);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "筛选";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // leftPlane
+            // imageList_button
             // 
-            leftPlane.Controls.Add(this.panel2);
-            leftPlane.Controls.Add(this.LTMenu);
-            leftPlane.Dock = System.Windows.Forms.DockStyle.Fill;
-            leftPlane.Location = new System.Drawing.Point(15, 0);
-            leftPlane.Name = "leftPlane";
-            leftPlane.Size = new System.Drawing.Size(267, 422);
-            leftPlane.TabIndex = 8;
+            this.imageList_button.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_button.ImageStream")));
+            this.imageList_button.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList_button.Images.SetKeyName(0, "产品.png");
+            this.imageList_button.Images.SetKeyName(1, "宏观.png");
+            this.imageList_button.Images.SetKeyName(2, "市场.png");
+            this.imageList_button.Images.SetKeyName(3, "图标.png");
+            this.imageList_button.Images.SetKeyName(4, "预测.png");
+            this.imageList_button.Images.SetKeyName(5, "政策.png");
             // 
-            // panel2
+            // button_prePage
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 370);
-            this.panel2.MaximumSize = new System.Drawing.Size(0, 52);
-            this.panel2.MinimumSize = new System.Drawing.Size(0, 52);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 52);
-            this.panel2.TabIndex = 8;
+            this.button_prePage.BackColor = System.Drawing.Color.Transparent;
+            this.button_prePage.FlatAppearance.BorderSize = 0;
+            this.button_prePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_prePage.ImageKey = "left.png";
+            this.button_prePage.ImageList = this.imageList;
+            this.button_prePage.Location = new System.Drawing.Point(19, 9);
+            this.button_prePage.Margin = new System.Windows.Forms.Padding(9);
+            this.button_prePage.MaximumSize = new System.Drawing.Size(32, 32);
+            this.button_prePage.MinimumSize = new System.Drawing.Size(32, 32);
+            this.button_prePage.Name = "button_prePage";
+            this.button_prePage.Size = new System.Drawing.Size(32, 32);
+            this.button_prePage.TabIndex = 6;
+            this.button_prePage.UseVisualStyleBackColor = false;
+            this.button_prePage.Click += new System.EventHandler(this.button_prePage_Click);
             // 
-            // LTMenu
+            // button_nextPage
             // 
-            this.LTMenu.Controls.Add(this.flowLayoutPanel3);
-            this.LTMenu.Controls.Add(this.resourceList);
-            this.LTMenu.Controls.Add(this.flowLayoutPanel2);
-            this.LTMenu.Controls.Add(this.button10);
-            this.LTMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LTMenu.Location = new System.Drawing.Point(0, 0);
-            this.LTMenu.MinimumSize = new System.Drawing.Size(0, 100);
-            this.LTMenu.Name = "LTMenu";
-            this.LTMenu.Size = new System.Drawing.Size(267, 136);
-            this.LTMenu.TabIndex = 0;
+            this.button_nextPage.BackColor = System.Drawing.Color.Transparent;
+            this.button_nextPage.FlatAppearance.BorderSize = 0;
+            this.button_nextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_nextPage.ImageKey = "right.png";
+            this.button_nextPage.ImageList = this.imageList;
+            this.button_nextPage.Location = new System.Drawing.Point(119, 9);
+            this.button_nextPage.Margin = new System.Windows.Forms.Padding(9);
+            this.button_nextPage.MaximumSize = new System.Drawing.Size(32, 32);
+            this.button_nextPage.MinimumSize = new System.Drawing.Size(32, 32);
+            this.button_nextPage.Name = "button_nextPage";
+            this.button_nextPage.Size = new System.Drawing.Size(32, 32);
+            this.button_nextPage.TabIndex = 7;
+            this.button_nextPage.UseVisualStyleBackColor = false;
+            this.button_nextPage.Click += new System.EventHandler(this.button_nextPage_Click);
             // 
-            // flowLayoutPanel3
+            // QueryButton
             // 
-            this.flowLayoutPanel3.Controls.Add(this.button14);
-            this.flowLayoutPanel3.Controls.Add(this.button13);
-            this.flowLayoutPanel3.Controls.Add(this.button11);
-            this.flowLayoutPanel3.Controls.Add(this.button12);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 55);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(267, 81);
-            this.flowLayoutPanel3.TabIndex = 2;
+            this.QueryButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.QueryButton.BackColor = System.Drawing.Color.LightGray;
+            this.QueryButton.FlatAppearance.BorderSize = 0;
+            this.QueryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QueryButton.ImageKey = "find.png";
+            this.QueryButton.ImageList = this.imageList;
+            this.QueryButton.Location = new System.Drawing.Point(173, 13);
+            this.QueryButton.MaximumSize = new System.Drawing.Size(32, 32);
+            this.QueryButton.MinimumSize = new System.Drawing.Size(28, 28);
+            this.QueryButton.Name = "QueryButton";
+            this.QueryButton.Size = new System.Drawing.Size(28, 28);
+            this.QueryButton.TabIndex = 1;
+            this.QueryButton.UseVisualStyleBackColor = false;
+            this.QueryButton.Click += new System.EventHandler(this.QueryButton_Click);
             // 
-            // button14
+            // radioButton1
             // 
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(3, 3);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(40, 23);
-            this.button14.TabIndex = 9;
-            this.button14.Text = "分类";
-            this.button14.UseVisualStyleBackColor = true;
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.FlatAppearance.BorderSize = 0;
+            this.radioButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton1.ImageKey = "(无)";
+            this.radioButton1.ImageList = this.imageList_button;
+            this.radioButton1.Location = new System.Drawing.Point(0, 14);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton1.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton1.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(32, 32);
+            this.radioButton1.TabIndex = 15;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "模板";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // radioButton2
             // 
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(49, 3);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(62, 22);
-            this.button13.TabIndex = 8;
-            this.button13.Text = "历史记录";
-            this.button13.UseVisualStyleBackColor = true;
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.FlatAppearance.BorderSize = 0;
+            this.radioButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton2.ImageKey = "(无)";
+            this.radioButton2.ImageList = this.imageList_button;
+            this.radioButton2.Location = new System.Drawing.Point(0, 56);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton2.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton2.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(32, 32);
+            this.radioButton2.TabIndex = 16;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "图例";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // radioButton3
             // 
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(117, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(40, 23);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "全部";
-            this.button11.UseVisualStyleBackColor = true;
+            this.radioButton3.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.FlatAppearance.BorderSize = 0;
+            this.radioButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton3.ImageKey = "图标.png";
+            this.radioButton3.ImageList = this.imageList_button;
+            this.radioButton3.Location = new System.Drawing.Point(0, 98);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton3.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton3.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(32, 32);
+            this.radioButton3.TabIndex = 17;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // radioButton4
             // 
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(163, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(62, 22);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "我的收藏";
-            this.button12.UseVisualStyleBackColor = true;
+            this.radioButton4.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.FlatAppearance.BorderSize = 0;
+            this.radioButton4.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton4.ImageKey = "市场.png";
+            this.radioButton4.ImageList = this.imageList_button;
+            this.radioButton4.Location = new System.Drawing.Point(0, 140);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton4.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton4.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(32, 32);
+            this.radioButton4.TabIndex = 18;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // resourceList
+            // radioButton5
             // 
-            this.resourceList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.resourceList.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.resourceList.ColumnCount = 2;
-            this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.resourceList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resourceList.Location = new System.Drawing.Point(0, 55);
-            this.resourceList.Margin = new System.Windows.Forms.Padding(0);
-            this.resourceList.Name = "resourceList";
-            this.resourceList.RowCount = 2;
-            this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.resourceList.Size = new System.Drawing.Size(267, 81);
-            this.resourceList.TabIndex = 7;
+            this.radioButton5.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.FlatAppearance.BorderSize = 0;
+            this.radioButton5.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton5.ImageKey = "产品.png";
+            this.radioButton5.ImageList = this.imageList_button;
+            this.radioButton5.Location = new System.Drawing.Point(0, 182);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton5.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton5.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(32, 32);
+            this.radioButton5.TabIndex = 19;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel2
+            // radioButton6
             // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(267, 55);
-            this.flowLayoutPanel2.TabIndex = 1;
+            this.radioButton6.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.FlatAppearance.BorderSize = 0;
+            this.radioButton6.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton6.ImageKey = "预测.png";
+            this.radioButton6.ImageList = this.imageList_button;
+            this.radioButton6.Location = new System.Drawing.Point(0, 224);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton6.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton6.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(32, 32);
+            this.radioButton6.TabIndex = 20;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // radioButton7
             // 
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(-42, 10);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(40, 23);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "分类";
-            this.button10.UseVisualStyleBackColor = true;
+            this.radioButton7.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.FlatAppearance.BorderSize = 0;
+            this.radioButton7.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton7.ImageKey = "宏观.png";
+            this.radioButton7.ImageList = this.imageList_button;
+            this.radioButton7.Location = new System.Drawing.Point(0, 266);
+            this.radioButton7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton7.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton7.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(32, 32);
+            this.radioButton7.TabIndex = 21;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.FlatAppearance.BorderSize = 0;
+            this.radioButton8.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton8.ImageKey = "(无)";
+            this.radioButton8.ImageList = this.imageList_button;
+            this.radioButton8.Location = new System.Drawing.Point(0, 308);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton8.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton8.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(32, 32);
+            this.radioButton8.TabIndex = 22;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "资讯";
+            this.radioButton8.UseVisualStyleBackColor = true;
             // 
             // DockWidget
             // 
@@ -331,37 +540,54 @@
             this.Controls.Add(leftPlane);
             this.Controls.Add(this.VMenu);
             this.Margin = new System.Windows.Forms.Padding(0);
+            this.MaximumSize = new System.Drawing.Size(280, 1080);
+            this.MinimumSize = new System.Drawing.Size(250, 600);
             this.Name = "DockWidget";
-            this.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Size = new System.Drawing.Size(332, 422);
+            this.Size = new System.Drawing.Size(250, 600);
             this.SizeChanged += new System.EventHandler(this.DockWidget_SizeChanged);
-            this.VMenu.ResumeLayout(false);
             leftPlane.ResumeLayout(false);
-            this.LTMenu.ResumeLayout(false);
+            this.LBPanel.ResumeLayout(false);
+            this.LTPanel.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.VMenu.ResumeLayout(false);
+            this.VMenu.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel VMenu;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel LTMenu;
+        private System.Windows.Forms.Panel LBPanel;
+        private System.Windows.Forms.Panel LTPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.TableLayoutPanel resourceList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox;
+        private System.Windows.Forms.Button QueryButton;
+        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button_prePage;
+        private System.Windows.Forms.TextBox pageBox;
+        private System.Windows.Forms.Button button_nextPage;
+        private System.Windows.Forms.Label labelPage;
+        private System.Windows.Forms.Label label_All;
+        private System.Windows.Forms.Label label_Type;
+        private System.Windows.Forms.Label label_Mark;
+        private System.Windows.Forms.Label label_Records;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ImageList imageList_button;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
     }
 }

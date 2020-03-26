@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.progressCtrl = new Controls.ProgressCtrl();
+            this.progressCtrl = new CustomControls.ProgressCtrl();
             this.SuspendLayout();
             // 
             // progressCtrl
@@ -41,7 +41,7 @@
             this.progressCtrl.MinimumSize = new System.Drawing.Size(350, 120);
             this.progressCtrl.Name = "progressCtrl";
             this.progressCtrl.Padding = new System.Windows.Forms.Padding(20, 15, 20, 15);
-            this.progressCtrl.progressState = Controls.ProgressCtrl.ProgressState.Progress;
+            this.progressCtrl.progressState = CustomControls.ProgressCtrl.ProgressState.Progress;
             this.progressCtrl.Size = new System.Drawing.Size(540, 120);
             this.progressCtrl.TabIndex = 0;
             this.progressCtrl.Value = 0;
@@ -66,6 +66,6 @@
 
         #endregion
 
-        private Controls.ProgressCtrl progressCtrl;
+        private CustomControls.ProgressCtrl progressCtrl;
     }
 }

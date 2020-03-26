@@ -23,22 +23,25 @@ namespace PPTPlugin
 
         private async void button_temp_Click(object sender, RibbonControlEventArgs e)
         {
-            List<ResourceData> imageList = await RequestHandle.GetTempList();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList(imageList);
+            App.ResourceType = ResourceType.Template;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private async void button_sign_Click(object sender, RibbonControlEventArgs e)
         {
-            List<ResourceData> imageList = await RequestHandle.GetSignList();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList(imageList);
+            App.ResourceType = ResourceType.legend;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private async void button_icon_Click(object sender, RibbonControlEventArgs e)
         {
-            List<ResourceData> imageList = await RequestHandle.GetIconList();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList(imageList);
+            App.ResourceType = ResourceType.Icon;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 

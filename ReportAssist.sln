@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "SDK\Base\Base.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "SDK\Core\Core.csproj", "{41BDC150-082F-4130-B921-CA00C36D8477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "SDK\Controls\Controls.csproj", "{9FCCB5F4-D348-4B19-8167-A32DE4945F95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "SDK\Controls\CustomControls.csproj", "{9FCCB5F4-D348-4B19-8167-A32DE4945F95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Widgets", "SDK\Widgets\Widgets.csproj", "{D3A197E4-5622-4471-9A83-BD30D8450924}"
 EndProject

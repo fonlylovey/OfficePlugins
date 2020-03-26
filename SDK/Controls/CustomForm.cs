@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Controls
+namespace CustomControls
 {
 	public partial class CustomForm : Form
 	{

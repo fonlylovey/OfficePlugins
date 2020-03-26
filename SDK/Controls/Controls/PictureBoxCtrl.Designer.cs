@@ -1,4 +1,4 @@
-﻿namespace Controls
+﻿namespace CustomControls
 {
 	partial class PictureBoxCtrl
 	{
@@ -39,7 +39,7 @@
             this.checkPicture.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkPicture.AutoCheck = false;
             this.checkPicture.BackColor = System.Drawing.Color.Transparent;
-            this.checkPicture.BackgroundImage = global::Controls.Properties.Resources.checked_false;
+            this.checkPicture.BackgroundImage = global::CustomControls.Properties.Resources.checked_false;
             this.checkPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.checkPicture.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkPicture.FlatAppearance.BorderSize = 0;
@@ -60,7 +60,7 @@
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.InitialImage = global::Controls.Properties.Resources.Image_bg;
+            this.pictureBox.InitialImage = global::CustomControls.Properties.Resources.Image_bg;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox.Name = "pictureBox";

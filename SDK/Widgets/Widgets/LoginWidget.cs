@@ -2,7 +2,7 @@
 using Microsoft.Win32;
 using Base;
 using Core;
-using Controls;
+using CustomControls;
 
 
 namespace Widgets

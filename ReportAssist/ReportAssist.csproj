@@ -33,7 +33,7 @@
     <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
+    <ApplicationVersion>1.0.0.2</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -178,7 +178,7 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="Common\DataModel.cs" />
+    <Compile Include="Common\App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -251,15 +251,17 @@
     </Compile>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\产品.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SDK\Base\Base.csproj">
       <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
       <Name>Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SDK\Controls\Controls.csproj">
+    <ProjectReference Include="..\SDK\Controls\CustomControls.csproj">
       <Project>{9fccb5f4-d348-4b19-8167-a32de4945f95}</Project>
-      <Name>Controls</Name>
+      <Name>CustomControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\SDK\Core\Core.csproj">
       <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
@@ -292,7 +294,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="PowerPoint" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="PowerPoint" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\PowerPoint\InstallRoot\Path#powerpnt.exe" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="PowerPoint" GeneratedCodeNamespace="PPTPlugin" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" PublishedHash="09FAA3CF0F36E3577D29C05DD6CEC13C4C567F2F" />
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="09FAA3CF0F36E3577D29C05DD6CEC13C4C567F2F" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>

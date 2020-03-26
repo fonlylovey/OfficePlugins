@@ -46,12 +46,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\ConstructionAlbum.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Widgets\ConstructionAlbum.Designer.cs">
-      <DependentUpon>ConstructionAlbum.cs</DependentUpon>
-    </Compile>
     <Compile Include="Widgets\LoginWidget.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +79,6 @@
     <EmbeddedResource Include="Widgets\PromptBox.resx">
       <DependentUpon>PromptBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\ConstructionAlbum.resx">
-      <DependentUpon>ConstructionAlbum.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -110,9 +101,9 @@
       <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
       <Name>Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Controls\Controls.csproj">
+    <ProjectReference Include="..\Controls\CustomControls.csproj">
       <Project>{9fccb5f4-d348-4b19-8167-a32de4945f95}</Project>
-      <Name>Controls</Name>
+      <Name>CustomControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>

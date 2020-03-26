@@ -1,4 +1,4 @@
-﻿namespace Controls
+﻿namespace CustomControls
 {
 	partial class CustomForm
 	{
@@ -37,7 +37,7 @@
             // CustomTitle
             // 
             CustomTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(210)))), ((int)(((byte)(213)))));
-            CustomTitle.BackgroundImage = global::Controls.Properties.Resources.Title_bg;
+            CustomTitle.BackgroundImage = global::CustomControls.Properties.Resources.Title_bg;
             CustomTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             CustomTitle.Controls.Add(this.label_title);
             CustomTitle.Cursor = System.Windows.Forms.Cursors.Hand;

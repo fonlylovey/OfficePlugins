@@ -1,4 +1,4 @@
-﻿namespace Controls
+﻿namespace CustomControls
 {
 	partial class ProgressCtrl
 	{

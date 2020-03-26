@@ -11,14 +11,22 @@ namespace PPTPlugin
 {
     public class RequestHandle
     {
-        public static async Task<List<ResourceData>> GetIconList()
+        public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
-            List<ResourceData> list = new List<ResourceData>();
-            String strUrl = @"http://60.30.69.48/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy=1&ts=5&gjz=ppt&tblb=";
+            ResourceModel resModel = new ResourceModel();
+            String strUrl = @"http://60.30.69.48/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tblb={2}&gjz={3}";
+            strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
+            if (!String.IsNullOrEmpty(strQuery))
+            {
+                strUrl += "&gjz=" + strQuery;
+            }
+
             try
             {
                 JObject jsondata = await Request.HttpGet(strUrl);
-                JArray dataArray = jsondata["data"].ToObject<JArray>();
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.PageCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach(JToken item in dataArray)
                 {
                     ResourceData theData = new ResourceData();
@@ -27,24 +35,29 @@ namespace PPTPlugin
                     //theData.Label = item["tllb"].ToString();
                     theData.IconUrl = item["tbsltlj"].ToString();
                     theData.FileUrl = item["tblj"].ToString();
-                    list.Add(theData);
+                    resModel.ResourceList.Add(theData);
                 }
             }
             catch(Exception ex)
             {
                 Logger.LogError(ex.ToString());
             }
-            return list;
+            return resModel;
         }
 
-        public static async Task<List<ResourceData>> GetTempList()
+        public static async Task<ResourceModel> GetTempList(int pageIndex = 1, int prePageCount = 5, String strQuery = "ppt", String strType="")
         {
-            List<ResourceData> list = new List<ResourceData>();
-            String strUrl = @"http://60.30.69.48/ppttools/res/getMbByUid?token=1&uid=18435106586&ksy=1&ts=5&gjz=ppt&mblb=";
+            ResourceModel resModel = new ResourceModel();
+            String strUrl = @"http://60.30.69.48/ppttools/res/getMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb={2}&gjz={3}";
+            strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
+            
             try
             {
+
                 JObject jsondata = await Request.HttpGet(strUrl);
-                JArray dataArray = jsondata["data"].ToObject<JArray>();
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.PageCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {
                     ResourceData theData = new ResourceData();
@@ -53,24 +66,32 @@ namespace PPTPlugin
                     theData.Label = item["mblb"].ToString();
                     theData.IconUrl = item["mbsltlj"].ToString();
                     theData.FileUrl = item["mblj"].ToString();
-                    list.Add(theData);
+                    resModel.ResourceList.Add(theData);
                 }
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex.ToString());
             }
-            return list;
+            return resModel;
         }
 
-        public static async Task<List<ResourceData>> GetSignList()
+        public static async Task<ResourceModel> GetSignList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
-            List<ResourceData> list = new List<ResourceData>();
-            String strUrl = @"http://60.30.69.48/ppttools/res/getTlByUid?token=1&uid=18435106586&ksy=1&ts=5&gjz=ppt&tllb=";
+            ResourceModel resModel = new ResourceModel();
+            String strUrl = @"http://60.30.69.48/ppttools/res/getTlByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tllb={2}&gjz={3}";
+            strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
+            if (!String.IsNullOrEmpty(strQuery))
+            {
+                strUrl += "&gjz=" + strQuery;
+            }
             try
             {
+
                 JObject jsondata = await Request.HttpGet(strUrl);
-                JArray dataArray = jsondata["data"].ToObject<JArray>();
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.PageCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {
                     ResourceData theData = new ResourceData();
@@ -79,14 +100,14 @@ namespace PPTPlugin
                     theData.Label = item["tllb"].ToString();
                     theData.IconUrl = item["tlsltlj"].ToString();
                     theData.FileUrl = item["tllj"].ToString();
-                    list.Add(theData);
+                    resModel.ResourceList.Add(theData);
                 }
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex.ToString());
             }
-            return list;
+            return resModel;
         }
     }
 }

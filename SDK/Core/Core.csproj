@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreAPI.cs" />
+    <Compile Include="DataModel.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Network\Request.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

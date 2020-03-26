@@ -12,14 +12,15 @@ namespace PPTPlugin
     {
         public CustomTaskPane TaskWidget = null;
         public DockWidget RightWidget = null;
+        
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             RightWidget = new DockWidget();
             TaskWidget = CustomTaskPanes.Add(RightWidget, "模板选择");
             TaskWidget.DockPosition =
             Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-            TaskWidget.Width = 300;
-            TaskWidget.Visible = true;
+            TaskWidget.Width = 270;
+            TaskWidget.Visible = false;
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
