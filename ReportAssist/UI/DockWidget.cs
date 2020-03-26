@@ -60,10 +60,7 @@ namespace PPTPlugin
                 {
                     PicturePlane pictureBox = new PicturePlane();
                     pictureBox.Dock = DockStyle.Fill;
-                    pictureBox.Picture.Cursor = System.Windows.Forms.Cursors.Hand;
-                    pictureBox.Margin = new Padding(0);
                     pictureBox.SetImage(resModel.ResourceList[index - 1].IconUrl);
-                    pictureBox.SetPreVirwImage(resModel.ResourceList[index - 1].IconUrl);
                     pictureBox.Picture.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(PictureBoxCtrl_DoubleClick);
                     pictureBox.Tag = resModel.ResourceList[index - 1];
                     pictureBox.Picture.Tag = resModel.ResourceList[index - 1];
@@ -73,6 +70,7 @@ namespace PPTPlugin
                     {
                         pictureBox.SetMenuVisible(false);
                         pictureBox.SetPreviewVisible(false);
+                        pictureBox.Padding = new Padding(5);
                     }
                     else
                     {

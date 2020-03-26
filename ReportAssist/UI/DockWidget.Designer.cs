@@ -32,26 +32,25 @@
             System.Windows.Forms.Panel leftPlane;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockWidget));
             this.LBPanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_prePage = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.pageBox = new System.Windows.Forms.TextBox();
+            this.button_nextPage = new System.Windows.Forms.Button();
+            this.labelPage = new System.Windows.Forms.Label();
             this.resourceList = new System.Windows.Forms.TableLayoutPanel();
             this.LTPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox = new System.Windows.Forms.TextBox();
-            this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pageBox = new System.Windows.Forms.TextBox();
-            this.labelPage = new System.Windows.Forms.Label();
             this.label_All = new System.Windows.Forms.Label();
-            this.label_Type = new System.Windows.Forms.Label();
             this.label_Mark = new System.Windows.Forms.Label();
             this.label_Records = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.imageList_button = new System.Windows.Forms.ImageList(this.components);
-            this.button_prePage = new System.Windows.Forms.Button();
-            this.button_nextPage = new System.Windows.Forms.Button();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.QueryButton = new System.Windows.Forms.Button();
+            this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.imageList_button = new System.Windows.Forms.ImageList(this.components);
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -62,11 +61,11 @@
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
             this.LBPanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.LTPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.VMenu.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPlane
@@ -92,6 +91,37 @@
             this.LBPanel.Size = new System.Drawing.Size(210, 52);
             this.LBPanel.TabIndex = 8;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.button_prePage);
+            this.flowLayoutPanel1.Controls.Add(this.pageBox);
+            this.flowLayoutPanel1.Controls.Add(this.button_nextPage);
+            this.flowLayoutPanel1.Controls.Add(this.labelPage);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(210, 52);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // button_prePage
+            // 
+            this.button_prePage.BackColor = System.Drawing.Color.Transparent;
+            this.button_prePage.FlatAppearance.BorderSize = 0;
+            this.button_prePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_prePage.ImageKey = "left.png";
+            this.button_prePage.ImageList = this.imageList;
+            this.button_prePage.Location = new System.Drawing.Point(19, 9);
+            this.button_prePage.Margin = new System.Windows.Forms.Padding(9);
+            this.button_prePage.MaximumSize = new System.Drawing.Size(32, 32);
+            this.button_prePage.MinimumSize = new System.Drawing.Size(32, 32);
+            this.button_prePage.Name = "button_prePage";
+            this.button_prePage.Size = new System.Drawing.Size(32, 32);
+            this.button_prePage.TabIndex = 6;
+            this.button_prePage.UseVisualStyleBackColor = false;
+            this.button_prePage.Click += new System.EventHandler(this.button_prePage_Click);
+            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
@@ -100,13 +130,60 @@
             this.imageList.Images.SetKeyName(1, "left.png");
             this.imageList.Images.SetKeyName(2, "right.png");
             // 
+            // pageBox
+            // 
+            this.pageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pageBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.pageBox.Location = new System.Drawing.Point(69, 9);
+            this.pageBox.Margin = new System.Windows.Forms.Padding(9);
+            this.pageBox.MaximumSize = new System.Drawing.Size(32, 32);
+            this.pageBox.MaxLength = 32;
+            this.pageBox.MinimumSize = new System.Drawing.Size(32, 32);
+            this.pageBox.Name = "pageBox";
+            this.pageBox.Size = new System.Drawing.Size(32, 26);
+            this.pageBox.TabIndex = 9;
+            this.pageBox.Text = "1";
+            this.pageBox.WordWrap = false;
+            this.pageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pageBox_KeyDown);
+            // 
+            // button_nextPage
+            // 
+            this.button_nextPage.BackColor = System.Drawing.Color.Transparent;
+            this.button_nextPage.FlatAppearance.BorderSize = 0;
+            this.button_nextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_nextPage.ImageKey = "right.png";
+            this.button_nextPage.ImageList = this.imageList;
+            this.button_nextPage.Location = new System.Drawing.Point(119, 9);
+            this.button_nextPage.Margin = new System.Windows.Forms.Padding(9);
+            this.button_nextPage.MaximumSize = new System.Drawing.Size(32, 32);
+            this.button_nextPage.MinimumSize = new System.Drawing.Size(32, 32);
+            this.button_nextPage.Name = "button_nextPage";
+            this.button_nextPage.Size = new System.Drawing.Size(32, 32);
+            this.button_nextPage.TabIndex = 7;
+            this.button_nextPage.UseVisualStyleBackColor = false;
+            this.button_nextPage.Click += new System.EventHandler(this.button_nextPage_Click);
+            // 
+            // labelPage
+            // 
+            this.labelPage.AutoSize = true;
+            this.labelPage.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelPage.Location = new System.Drawing.Point(19, 59);
+            this.labelPage.Margin = new System.Windows.Forms.Padding(9);
+            this.labelPage.MaximumSize = new System.Drawing.Size(40, 32);
+            this.labelPage.MinimumSize = new System.Drawing.Size(40, 32);
+            this.labelPage.Name = "labelPage";
+            this.labelPage.Size = new System.Drawing.Size(40, 32);
+            this.labelPage.TabIndex = 8;
+            this.labelPage.Text = "1/5";
+            this.labelPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // resourceList
             // 
             this.resourceList.BackColor = System.Drawing.Color.White;
             this.resourceList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.resourceList.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.resourceList.ColumnCount = 2;
             this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
             this.resourceList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resourceList.Location = new System.Drawing.Point(0, 82);
             this.resourceList.Margin = new System.Windows.Forms.Padding(0);
@@ -134,7 +211,6 @@
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel3.Controls.Add(this.label_All);
-            this.flowLayoutPanel3.Controls.Add(this.label_Type);
             this.flowLayoutPanel3.Controls.Add(this.label_Mark);
             this.flowLayoutPanel3.Controls.Add(this.label_Records);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,6 +220,45 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(210, 30);
             this.flowLayoutPanel3.TabIndex = 2;
+            // 
+            // label_All
+            // 
+            this.label_All.AutoSize = true;
+            this.label_All.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_All.Location = new System.Drawing.Point(3, 0);
+            this.label_All.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_All.Name = "label_All";
+            this.label_All.Size = new System.Drawing.Size(32, 28);
+            this.label_All.TabIndex = 9;
+            this.label_All.Text = "全部";
+            this.label_All.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_All.Click += new System.EventHandler(this.label_All_Click);
+            // 
+            // label_Mark
+            // 
+            this.label_Mark.AutoSize = true;
+            this.label_Mark.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Mark.Location = new System.Drawing.Point(41, 0);
+            this.label_Mark.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_Mark.Name = "label_Mark";
+            this.label_Mark.Size = new System.Drawing.Size(56, 28);
+            this.label_Mark.TabIndex = 11;
+            this.label_Mark.Text = "我的收藏";
+            this.label_Mark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Mark.Click += new System.EventHandler(this.label_Mark_Click);
+            // 
+            // label_Records
+            // 
+            this.label_Records.AutoSize = true;
+            this.label_Records.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Records.Location = new System.Drawing.Point(103, 0);
+            this.label_Records.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_Records.Name = "label_Records";
+            this.label_Records.Size = new System.Drawing.Size(56, 28);
+            this.label_Records.TabIndex = 12;
+            this.label_Records.Text = "历史记录";
+            this.label_Records.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Records.Click += new System.EventHandler(this.label_Records_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -158,6 +273,17 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(210, 52);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 13);
+            this.button1.MaximumSize = new System.Drawing.Size(48, 28);
+            this.button1.MinimumSize = new System.Drawing.Size(48, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 28);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "筛选";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // textBox
             // 
             this.textBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -166,9 +292,26 @@
             this.textBox.Location = new System.Drawing.Point(57, 13);
             this.textBox.MinimumSize = new System.Drawing.Size(110, 28);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(110, 28);
+            this.textBox.Size = new System.Drawing.Size(110, 26);
             this.textBox.TabIndex = 0;
             this.textBox.Text = "搜索";
+            // 
+            // QueryButton
+            // 
+            this.QueryButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.QueryButton.BackColor = System.Drawing.Color.LightGray;
+            this.QueryButton.FlatAppearance.BorderSize = 0;
+            this.QueryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QueryButton.ImageKey = "find.png";
+            this.QueryButton.ImageList = this.imageList;
+            this.QueryButton.Location = new System.Drawing.Point(173, 13);
+            this.QueryButton.MaximumSize = new System.Drawing.Size(32, 32);
+            this.QueryButton.MinimumSize = new System.Drawing.Size(28, 28);
+            this.QueryButton.Name = "QueryButton";
+            this.QueryButton.Size = new System.Drawing.Size(28, 28);
+            this.QueryButton.TabIndex = 1;
+            this.QueryButton.UseVisualStyleBackColor = false;
+            this.QueryButton.Click += new System.EventHandler(this.QueryButton_Click);
             // 
             // VMenu
             // 
@@ -192,175 +335,6 @@
             this.VMenu.Size = new System.Drawing.Size(40, 600);
             this.VMenu.TabIndex = 3;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.button_prePage);
-            this.flowLayoutPanel1.Controls.Add(this.pageBox);
-            this.flowLayoutPanel1.Controls.Add(this.button_nextPage);
-            this.flowLayoutPanel1.Controls.Add(this.labelPage);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(210, 52);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // pageBox
-            // 
-            this.pageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pageBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pageBox.Location = new System.Drawing.Point(69, 9);
-            this.pageBox.Margin = new System.Windows.Forms.Padding(9);
-            this.pageBox.MaximumSize = new System.Drawing.Size(32, 32);
-            this.pageBox.MaxLength = 32;
-            this.pageBox.MinimumSize = new System.Drawing.Size(32, 32);
-            this.pageBox.Name = "pageBox";
-            this.pageBox.Size = new System.Drawing.Size(32, 26);
-            this.pageBox.TabIndex = 9;
-            this.pageBox.Text = "1";
-            this.pageBox.WordWrap = false;
-            this.pageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pageBox_KeyDown);
-            // 
-            // labelPage
-            // 
-            this.labelPage.AutoSize = true;
-            this.labelPage.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelPage.Location = new System.Drawing.Point(19, 59);
-            this.labelPage.Margin = new System.Windows.Forms.Padding(9);
-            this.labelPage.MaximumSize = new System.Drawing.Size(40, 32);
-            this.labelPage.MinimumSize = new System.Drawing.Size(40, 32);
-            this.labelPage.Name = "labelPage";
-            this.labelPage.Size = new System.Drawing.Size(40, 32);
-            this.labelPage.TabIndex = 8;
-            this.labelPage.Text = "1/5";
-            this.labelPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_All
-            // 
-            this.label_All.AutoSize = true;
-            this.label_All.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_All.Location = new System.Drawing.Point(3, 0);
-            this.label_All.MinimumSize = new System.Drawing.Size(0, 28);
-            this.label_All.Name = "label_All";
-            this.label_All.Size = new System.Drawing.Size(32, 28);
-            this.label_All.TabIndex = 9;
-            this.label_All.Text = "全部";
-            this.label_All.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_All.Click += new System.EventHandler(this.label_All_Click);
-            // 
-            // label_Type
-            // 
-            this.label_Type.AutoSize = true;
-            this.label_Type.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Type.Location = new System.Drawing.Point(41, 0);
-            this.label_Type.MinimumSize = new System.Drawing.Size(0, 28);
-            this.label_Type.Name = "label_Type";
-            this.label_Type.Size = new System.Drawing.Size(32, 28);
-            this.label_Type.TabIndex = 10;
-            this.label_Type.Text = "分类";
-            this.label_Type.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Type.Click += new System.EventHandler(this.label_Type_Click);
-            // 
-            // label_Mark
-            // 
-            this.label_Mark.AutoSize = true;
-            this.label_Mark.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Mark.Location = new System.Drawing.Point(79, 0);
-            this.label_Mark.MinimumSize = new System.Drawing.Size(0, 28);
-            this.label_Mark.Name = "label_Mark";
-            this.label_Mark.Size = new System.Drawing.Size(56, 28);
-            this.label_Mark.TabIndex = 11;
-            this.label_Mark.Text = "我的收藏";
-            this.label_Mark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Mark.Click += new System.EventHandler(this.label_Mark_Click);
-            // 
-            // label_Records
-            // 
-            this.label_Records.AutoSize = true;
-            this.label_Records.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Records.Location = new System.Drawing.Point(141, 0);
-            this.label_Records.MinimumSize = new System.Drawing.Size(0, 28);
-            this.label_Records.Name = "label_Records";
-            this.label_Records.Size = new System.Drawing.Size(56, 28);
-            this.label_Records.TabIndex = 12;
-            this.label_Records.Text = "历史记录";
-            this.label_Records.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Records.Click += new System.EventHandler(this.label_Records_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 13);
-            this.button1.MaximumSize = new System.Drawing.Size(48, 28);
-            this.button1.MinimumSize = new System.Drawing.Size(48, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "筛选";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // imageList_button
-            // 
-            this.imageList_button.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_button.ImageStream")));
-            this.imageList_button.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList_button.Images.SetKeyName(0, "产品.png");
-            this.imageList_button.Images.SetKeyName(1, "宏观.png");
-            this.imageList_button.Images.SetKeyName(2, "市场.png");
-            this.imageList_button.Images.SetKeyName(3, "图标.png");
-            this.imageList_button.Images.SetKeyName(4, "预测.png");
-            this.imageList_button.Images.SetKeyName(5, "政策.png");
-            // 
-            // button_prePage
-            // 
-            this.button_prePage.BackColor = System.Drawing.Color.Transparent;
-            this.button_prePage.FlatAppearance.BorderSize = 0;
-            this.button_prePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_prePage.ImageKey = "left.png";
-            this.button_prePage.ImageList = this.imageList;
-            this.button_prePage.Location = new System.Drawing.Point(19, 9);
-            this.button_prePage.Margin = new System.Windows.Forms.Padding(9);
-            this.button_prePage.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button_prePage.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button_prePage.Name = "button_prePage";
-            this.button_prePage.Size = new System.Drawing.Size(32, 32);
-            this.button_prePage.TabIndex = 6;
-            this.button_prePage.UseVisualStyleBackColor = false;
-            this.button_prePage.Click += new System.EventHandler(this.button_prePage_Click);
-            // 
-            // button_nextPage
-            // 
-            this.button_nextPage.BackColor = System.Drawing.Color.Transparent;
-            this.button_nextPage.FlatAppearance.BorderSize = 0;
-            this.button_nextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_nextPage.ImageKey = "right.png";
-            this.button_nextPage.ImageList = this.imageList;
-            this.button_nextPage.Location = new System.Drawing.Point(119, 9);
-            this.button_nextPage.Margin = new System.Windows.Forms.Padding(9);
-            this.button_nextPage.MaximumSize = new System.Drawing.Size(32, 32);
-            this.button_nextPage.MinimumSize = new System.Drawing.Size(32, 32);
-            this.button_nextPage.Name = "button_nextPage";
-            this.button_nextPage.Size = new System.Drawing.Size(32, 32);
-            this.button_nextPage.TabIndex = 7;
-            this.button_nextPage.UseVisualStyleBackColor = false;
-            this.button_nextPage.Click += new System.EventHandler(this.button_nextPage_Click);
-            // 
-            // QueryButton
-            // 
-            this.QueryButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.QueryButton.BackColor = System.Drawing.Color.LightGray;
-            this.QueryButton.FlatAppearance.BorderSize = 0;
-            this.QueryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QueryButton.ImageKey = "find.png";
-            this.QueryButton.ImageList = this.imageList;
-            this.QueryButton.Location = new System.Drawing.Point(173, 13);
-            this.QueryButton.MaximumSize = new System.Drawing.Size(32, 32);
-            this.QueryButton.MinimumSize = new System.Drawing.Size(28, 28);
-            this.QueryButton.Name = "QueryButton";
-            this.QueryButton.Size = new System.Drawing.Size(28, 28);
-            this.QueryButton.TabIndex = 1;
-            this.QueryButton.UseVisualStyleBackColor = false;
-            this.QueryButton.Click += new System.EventHandler(this.QueryButton_Click);
-            // 
             // radioButton1
             // 
             this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
@@ -382,6 +356,17 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "模板";
             this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // imageList_button
+            // 
+            this.imageList_button.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_button.ImageStream")));
+            this.imageList_button.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList_button.Images.SetKeyName(0, "产品.png");
+            this.imageList_button.Images.SetKeyName(1, "宏观.png");
+            this.imageList_button.Images.SetKeyName(2, "市场.png");
+            this.imageList_button.Images.SetKeyName(3, "图标.png");
+            this.imageList_button.Images.SetKeyName(4, "预测.png");
+            this.imageList_button.Images.SetKeyName(5, "政策.png");
             // 
             // radioButton2
             // 
@@ -547,6 +532,8 @@
             this.SizeChanged += new System.EventHandler(this.DockWidget_SizeChanged);
             leftPlane.ResumeLayout(false);
             this.LBPanel.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.LTPanel.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
@@ -554,8 +541,6 @@
             this.flowLayoutPanel2.PerformLayout();
             this.VMenu.ResumeLayout(false);
             this.VMenu.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +561,6 @@
         private System.Windows.Forms.Button button_nextPage;
         private System.Windows.Forms.Label labelPage;
         private System.Windows.Forms.Label label_All;
-        private System.Windows.Forms.Label label_Type;
         private System.Windows.Forms.Label label_Mark;
         private System.Windows.Forms.Label label_Records;
         private System.Windows.Forms.Button button1;

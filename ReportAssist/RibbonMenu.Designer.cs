@@ -34,6 +34,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
             Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label3;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label4;
@@ -63,13 +64,7 @@
             Microsoft.Office.Tools.Ribbon.RibbonLabel label25;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label23;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label24;
-            Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-            Microsoft.Office.Tools.Ribbon.RibbonBox box2;
-            Microsoft.Office.Tools.Ribbon.RibbonButton button23;
-            Microsoft.Office.Tools.Ribbon.RibbonButton button24;
-            Microsoft.Office.Tools.Ribbon.RibbonBox box1;
-            Microsoft.Office.Tools.Ribbon.RibbonButton button25;
-            Microsoft.Office.Tools.Ribbon.RibbonButton button26;
+            this.button_login = this.Factory.CreateRibbonButton();
             this.button_temp = this.Factory.CreateRibbonButton();
             this.button_sign = this.Factory.CreateRibbonButton();
             this.button_icon = this.Factory.CreateRibbonButton();
@@ -87,7 +82,7 @@
             this.button17 = this.Factory.CreateRibbonButton();
             this.button18 = this.Factory.CreateRibbonButton();
             this.tab1 = this.Factory.CreateRibbonTab();
-            this.button_Login = this.Factory.CreateRibbonButton();
+            group1 = this.Factory.CreateRibbonGroup();
             group2 = this.Factory.CreateRibbonGroup();
             label3 = this.Factory.CreateRibbonLabel();
             label4 = this.Factory.CreateRibbonLabel();
@@ -117,23 +112,29 @@
             label25 = this.Factory.CreateRibbonLabel();
             label23 = this.Factory.CreateRibbonLabel();
             label24 = this.Factory.CreateRibbonLabel();
-            group1 = this.Factory.CreateRibbonGroup();
-            box2 = this.Factory.CreateRibbonBox();
-            button23 = this.Factory.CreateRibbonButton();
-            button24 = this.Factory.CreateRibbonButton();
-            box1 = this.Factory.CreateRibbonBox();
-            button25 = this.Factory.CreateRibbonButton();
-            button26 = this.Factory.CreateRibbonButton();
+            group1.SuspendLayout();
             group2.SuspendLayout();
             group3.SuspendLayout();
             group4.SuspendLayout();
             group5.SuspendLayout();
             group6.SuspendLayout();
             this.tab1.SuspendLayout();
-            group1.SuspendLayout();
-            box2.SuspendLayout();
-            box1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // group1
+            // 
+            group1.Items.Add(this.button_login);
+            group1.Label = "账户";
+            group1.Name = "group1";
+            // 
+            // button_login
+            // 
+            this.button_login.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_login.Image = global::PPTPlugin.Properties.Resources.Login;
+            this.button_login.Label = "登录\n";
+            this.button_login.Name = "button_login";
+            this.button_login.ShowImage = true;
+            this.button_login.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_login_Click);
             // 
             // group2
             // 
@@ -155,6 +156,7 @@
             // button_temp
             // 
             this.button_temp.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_temp.Image = global::PPTPlugin.Properties.Resources.ModeLib;
             this.button_temp.Label = "模板库\n";
             this.button_temp.Name = "button_temp";
             this.button_temp.ShowImage = true;
@@ -168,6 +170,7 @@
             // button_sign
             // 
             this.button_sign.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_sign.Image = global::PPTPlugin.Properties.Resources.ImageLib;
             this.button_sign.Label = "图例库\n";
             this.button_sign.Name = "button_sign";
             this.button_sign.ShowImage = true;
@@ -181,6 +184,7 @@
             // button_icon
             // 
             this.button_icon.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_icon.Image = global::PPTPlugin.Properties.Resources.IconLib;
             this.button_icon.Label = "图标库\n";
             this.button_icon.Name = "button_icon";
             this.button_icon.ShowImage = true;
@@ -213,6 +217,7 @@
             // button_market
             // 
             this.button_market.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_market.Image = global::PPTPlugin.Properties.Resources.Market;
             this.button_market.Label = "市场\n";
             this.button_market.Name = "button_market";
             this.button_market.ShowImage = true;
@@ -225,6 +230,7 @@
             // button_product
             // 
             this.button_product.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_product.Image = global::PPTPlugin.Properties.Resources.Production;
             this.button_product.Label = "产品\n";
             this.button_product.Name = "button_product";
             this.button_product.ShowImage = true;
@@ -237,6 +243,7 @@
             // button7
             // 
             this.button7.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button7.Image = global::PPTPlugin.Properties.Resources.Prediction;
             this.button7.Label = "预测\n";
             this.button7.Name = "button7";
             this.button7.ShowImage = true;
@@ -249,6 +256,7 @@
             // button8
             // 
             this.button8.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button8.Image = global::PPTPlugin.Properties.Resources.MacroView;
             this.button8.Label = "宏观\n";
             this.button8.Name = "button8";
             this.button8.ShowImage = true;
@@ -280,6 +288,7 @@
             // button9
             // 
             this.button9.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button9.Image = global::PPTPlugin.Properties.Resources.Policy;
             this.button9.Label = "政策\n";
             this.button9.Name = "button9";
             this.button9.ShowImage = true;
@@ -292,6 +301,7 @@
             // button10
             // 
             this.button10.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button10.Image = global::PPTPlugin.Properties.Resources.Enterprise;
             this.button10.Label = "企业\n";
             this.button10.Name = "button10";
             this.button10.ShowImage = true;
@@ -304,6 +314,7 @@
             // button11
             // 
             this.button11.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button11.Image = global::PPTPlugin.Properties.Resources.CarType;
             this.button11.Label = "车型产品";
             this.button11.Name = "button11";
             this.button11.ShowImage = true;
@@ -316,6 +327,7 @@
             // button16
             // 
             this.button16.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button16.Image = global::PPTPlugin.Properties.Resources.Technology;
             this.button16.Label = "技术\n";
             this.button16.Name = "button16";
             this.button16.ShowImage = true;
@@ -345,6 +357,7 @@
             // button13
             // 
             this.button13.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button13.Image = global::PPTPlugin.Properties.Resources.Export;
             this.button13.Label = "导出\n";
             this.button13.Name = "button13";
             this.button13.ShowImage = true;
@@ -357,6 +370,7 @@
             // button14
             // 
             this.button14.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button14.Image = global::PPTPlugin.Properties.Resources.ZipFile;
             this.button14.Label = "文件压缩";
             this.button14.Name = "button14";
             this.button14.ShowImage = true;
@@ -369,6 +383,7 @@
             // button15
             // 
             this.button15.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button15.Image = global::PPTPlugin.Properties.Resources.Share;
             this.button15.Label = "分享\n";
             this.button15.Name = "button15";
             this.button15.ShowImage = true;
@@ -404,6 +419,7 @@
             // button17
             // 
             this.button17.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button17.Image = global::PPTPlugin.Properties.Resources.AboutUs;
             this.button17.Label = "关于我们";
             this.button17.Name = "button17";
             this.button17.ShowImage = true;
@@ -421,6 +437,7 @@
             // button18
             // 
             this.button18.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button18.Image = global::PPTPlugin.Properties.Resources.Setting;
             this.button18.Label = "设置\n";
             this.button18.Name = "button18";
             this.button18.ShowImage = true;
@@ -447,63 +464,14 @@
             this.tab1.Label = "智妍";
             this.tab1.Name = "tab1";
             // 
-            // group1
-            // 
-            group1.Items.Add(box2);
-            group1.Items.Add(this.button_Login);
-            group1.Items.Add(box1);
-            group1.Label = "登录";
-            group1.Name = "group1";
-            // 
-            // box2
-            // 
-            box2.Items.Add(button23);
-            box2.Items.Add(button24);
-            box2.Name = "box2";
-            // 
-            // button23
-            // 
-            button23.Enabled = false;
-            button23.Label = " ";
-            button23.Name = "button23";
-            // 
-            // button24
-            // 
-            button24.Enabled = false;
-            button24.Label = " ";
-            button24.Name = "button24";
-            // 
-            // button_Login
-            // 
-            this.button_Login.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button_Login.Label = "登录\n";
-            this.button_Login.Name = "button_Login";
-            this.button_Login.ShowImage = true;
-            // 
-            // box1
-            // 
-            box1.Items.Add(button25);
-            box1.Items.Add(button26);
-            box1.Name = "box1";
-            // 
-            // button25
-            // 
-            button25.Enabled = false;
-            button25.Label = " ";
-            button25.Name = "button25";
-            // 
-            // button26
-            // 
-            button26.Enabled = false;
-            button26.Label = " ";
-            button26.Name = "button26";
-            // 
             // RibbonMenu
             // 
             this.Name = "RibbonMenu";
             this.RibbonType = "Microsoft.PowerPoint.Presentation";
             this.Tabs.Add(this.tab1);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.RibbonMenu_Load);
+            group1.ResumeLayout(false);
+            group1.PerformLayout();
             group2.ResumeLayout(false);
             group2.PerformLayout();
             group3.ResumeLayout(false);
@@ -516,12 +484,6 @@
             group6.PerformLayout();
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            group1.ResumeLayout(false);
-            group1.PerformLayout();
-            box2.ResumeLayout(false);
-            box2.PerformLayout();
-            box1.ResumeLayout(false);
-            box1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -529,6 +491,7 @@
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_login;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_temp;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_sign;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_icon;
@@ -545,7 +508,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button15;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button17;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button18;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_Login;
     }
 
     partial class ThisRibbonCollection
