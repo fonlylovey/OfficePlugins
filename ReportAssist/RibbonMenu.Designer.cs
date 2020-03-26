@@ -35,8 +35,6 @@
         private void InitializeComponent()
         {
             Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-            Microsoft.Office.Tools.Ribbon.RibbonLabel label1;
-            Microsoft.Office.Tools.Ribbon.RibbonLabel label2;
             Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label3;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label4;
@@ -85,8 +83,6 @@
             this.button18 = this.Factory.CreateRibbonButton();
             this.tab1 = this.Factory.CreateRibbonTab();
             group1 = this.Factory.CreateRibbonGroup();
-            label1 = this.Factory.CreateRibbonLabel();
-            label2 = this.Factory.CreateRibbonLabel();
             group2 = this.Factory.CreateRibbonGroup();
             label3 = this.Factory.CreateRibbonLabel();
             label4 = this.Factory.CreateRibbonLabel();
@@ -127,16 +123,9 @@
             // 
             // group1
             // 
-            group1.Items.Add(label1);
             group1.Items.Add(this.button_login);
-            group1.Items.Add(label2);
             group1.Label = "账户";
             group1.Name = "group1";
-            // 
-            // label1
-            // 
-            label1.Label = " ";
-            label1.Name = "label1";
             // 
             // button_login
             // 
@@ -146,11 +135,6 @@
             this.button_login.Name = "button_login";
             this.button_login.ShowImage = true;
             this.button_login.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_login_Click);
-            // 
-            // label2
-            // 
-            label2.Label = " ";
-            label2.Name = "label2";
             // 
             // group2
             // 
