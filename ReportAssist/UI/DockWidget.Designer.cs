@@ -44,7 +44,7 @@
             this.label_Mark = new System.Windows.Forms.Label();
             this.label_Records = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_filter = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
             this.QueryButton = new System.Windows.Forms.Button();
             this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
@@ -86,12 +86,12 @@
             // 
             this.LBPanel.Controls.Add(this.flowLayoutPanel1);
             this.LBPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LBPanel.Location = new System.Drawing.Point(0, 548);
+            this.LBPanel.Location = new System.Drawing.Point(0, 560);
             this.LBPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.LBPanel.MaximumSize = new System.Drawing.Size(0, 52);
-            this.LBPanel.MinimumSize = new System.Drawing.Size(0, 52);
+            this.LBPanel.MaximumSize = new System.Drawing.Size(0, 40);
+            this.LBPanel.MinimumSize = new System.Drawing.Size(0, 40);
             this.LBPanel.Name = "LBPanel";
-            this.LBPanel.Size = new System.Drawing.Size(220, 52);
+            this.LBPanel.Size = new System.Drawing.Size(220, 40);
             this.LBPanel.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -104,8 +104,8 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 52);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 40);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button_prePage
@@ -115,8 +115,8 @@
             this.button_prePage.FlatAppearance.BorderSize = 0;
             this.button_prePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_prePage.Image = global::PPTPlugin.Properties.Resources.prePage;
-            this.button_prePage.Location = new System.Drawing.Point(19, 9);
-            this.button_prePage.Margin = new System.Windows.Forms.Padding(9);
+            this.button_prePage.Location = new System.Drawing.Point(14, 4);
+            this.button_prePage.Margin = new System.Windows.Forms.Padding(9, 4, 9, 0);
             this.button_prePage.MaximumSize = new System.Drawing.Size(32, 32);
             this.button_prePage.MinimumSize = new System.Drawing.Size(32, 32);
             this.button_prePage.Name = "button_prePage";
@@ -131,13 +131,13 @@
             this.pageBox.BackColor = System.Drawing.Color.White;
             this.pageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pageBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pageBox.Location = new System.Drawing.Point(69, 9);
-            this.pageBox.Margin = new System.Windows.Forms.Padding(9);
+            this.pageBox.Location = new System.Drawing.Point(64, 4);
+            this.pageBox.Margin = new System.Windows.Forms.Padding(9, 4, 9, 0);
             this.pageBox.MaximumSize = new System.Drawing.Size(32, 32);
             this.pageBox.MaxLength = 32;
             this.pageBox.MinimumSize = new System.Drawing.Size(32, 32);
             this.pageBox.Name = "pageBox";
-            this.pageBox.Size = new System.Drawing.Size(32, 26);
+            this.pageBox.Size = new System.Drawing.Size(32, 32);
             this.pageBox.TabIndex = 9;
             this.pageBox.Text = "1";
             this.pageBox.WordWrap = false;
@@ -150,8 +150,8 @@
             this.button_nextPage.FlatAppearance.BorderSize = 0;
             this.button_nextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_nextPage.Image = global::PPTPlugin.Properties.Resources.nextPage;
-            this.button_nextPage.Location = new System.Drawing.Point(119, 9);
-            this.button_nextPage.Margin = new System.Windows.Forms.Padding(9);
+            this.button_nextPage.Location = new System.Drawing.Point(114, 4);
+            this.button_nextPage.Margin = new System.Windows.Forms.Padding(9, 4, 9, 0);
             this.button_nextPage.MaximumSize = new System.Drawing.Size(32, 32);
             this.button_nextPage.MinimumSize = new System.Drawing.Size(32, 32);
             this.button_nextPage.Name = "button_nextPage";
@@ -165,14 +165,14 @@
             // 
             this.labelPage.AutoSize = true;
             this.labelPage.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelPage.Location = new System.Drawing.Point(169, 9);
-            this.labelPage.Margin = new System.Windows.Forms.Padding(9);
-            this.labelPage.MaximumSize = new System.Drawing.Size(40, 32);
-            this.labelPage.MinimumSize = new System.Drawing.Size(40, 32);
+            this.labelPage.Location = new System.Drawing.Point(155, 4);
+            this.labelPage.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.labelPage.MaximumSize = new System.Drawing.Size(60, 4032);
+            this.labelPage.MinimumSize = new System.Drawing.Size(60, 32);
             this.labelPage.Name = "labelPage";
-            this.labelPage.Size = new System.Drawing.Size(40, 32);
+            this.labelPage.Size = new System.Drawing.Size(60, 32);
             this.labelPage.TabIndex = 8;
-            this.labelPage.Text = "1/5";
+            this.labelPage.Text = "99/99";
             this.labelPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // resourceList
@@ -183,7 +183,7 @@
             this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.resourceList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
             this.resourceList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resourceList.Location = new System.Drawing.Point(0, 82);
+            this.resourceList.Location = new System.Drawing.Point(0, 72);
             this.resourceList.Margin = new System.Windows.Forms.Padding(0);
             this.resourceList.MaximumSize = new System.Drawing.Size(210, 0);
             this.resourceList.MinimumSize = new System.Drawing.Size(210, 0);
@@ -191,7 +191,7 @@
             this.resourceList.RowCount = 2;
             this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.resourceList.Size = new System.Drawing.Size(210, 518);
+            this.resourceList.Size = new System.Drawing.Size(210, 528);
             this.resourceList.TabIndex = 7;
             // 
             // LTPanel
@@ -200,9 +200,10 @@
             this.LTPanel.Controls.Add(this.flowLayoutPanel2);
             this.LTPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LTPanel.Location = new System.Drawing.Point(0, 0);
-            this.LTPanel.MinimumSize = new System.Drawing.Size(0, 82);
+            this.LTPanel.MaximumSize = new System.Drawing.Size(0, 72);
+            this.LTPanel.MinimumSize = new System.Drawing.Size(0, 72);
             this.LTPanel.Name = "LTPanel";
-            this.LTPanel.Size = new System.Drawing.Size(220, 82);
+            this.LTPanel.Size = new System.Drawing.Size(220, 72);
             this.LTPanel.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -212,7 +213,7 @@
             this.flowLayoutPanel3.Controls.Add(this.label_Mark);
             this.flowLayoutPanel3.Controls.Add(this.label_Records);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 52);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 44);
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -265,27 +266,28 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Controls.Add(this.button_filter);
             this.flowLayoutPanel2.Controls.Add(this.textBox);
             this.flowLayoutPanel2.Controls.Add(this.QueryButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(220, 52);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(220, 44);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
-            // button1
+            // button_filter
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(3, 13);
-            this.button1.MaximumSize = new System.Drawing.Size(48, 28);
-            this.button1.MinimumSize = new System.Drawing.Size(48, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "筛选";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_filter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_filter.Location = new System.Drawing.Point(3, 13);
+            this.button_filter.MaximumSize = new System.Drawing.Size(48, 28);
+            this.button_filter.MinimumSize = new System.Drawing.Size(48, 28);
+            this.button_filter.Name = "button_filter";
+            this.button_filter.Size = new System.Drawing.Size(48, 28);
+            this.button_filter.TabIndex = 2;
+            this.button_filter.Text = "筛选";
+            this.button_filter.UseVisualStyleBackColor = true;
+            this.button_filter.Click += new System.EventHandler(this.button_filter_Click);
             // 
             // textBox
             // 
@@ -516,7 +518,7 @@
             this.Controls.Add(this.VMenu);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(260, 1080);
-            this.MinimumSize = new System.Drawing.Size(250, 600);
+            this.MinimumSize = new System.Drawing.Size(250, 400);
             this.Name = "DockWidget";
             this.Size = new System.Drawing.Size(260, 600);
             this.SizeChanged += new System.EventHandler(this.DockWidget_SizeChanged);
@@ -552,7 +554,7 @@
         private System.Windows.Forms.Label label_All;
         private System.Windows.Forms.Label label_Mark;
         private System.Windows.Forms.Label label_Records;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_filter;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label label_TB;
         private System.Windows.Forms.Label label_MB;

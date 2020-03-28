@@ -20,6 +20,11 @@ namespace CustomControls
             MenuPanel.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
 
+        public void SetMarkVisible(bool isVisible)
+        {
+            markButton.Visible = isVisible;
+        }
+
         public void SetMenuVisible(bool isVisible)
         {
             MenuVisible = isVisible;
@@ -119,8 +124,8 @@ namespace CustomControls
 
         private void MenuPanel_Resize(object sender, EventArgs e)
         {
-            int x = Width - applyButton.Width;
-            int y = Height - applyButton.Height;
+            int x = Width - applyButton.Width - Padding.Left - Padding.Right;
+            int y = Height - applyButton.Height - Padding.Left - Padding.Right;
             applyButton.Location = new Point(x/2, y/2);
         }
     }

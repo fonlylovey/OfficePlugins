@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 namespace PPTPlugin
 {
@@ -17,7 +18,7 @@ namespace PPTPlugin
         private int PageCount = 1;
         private int PrePageCount = 5;
         private String FilterText = "";
-
+        private FilterWidget m_filterWidget = new FilterWidget();
         public void ResetButton()
         {
             foreach (Control control in VMenu.Controls)
@@ -44,10 +45,27 @@ namespace PPTPlugin
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
 
-                //Globals.ThisAddIn.Application.ActivePresentation.Merge(strPath);
                 Globals.ThisAddIn.Application.Presentations.Open(strPath);
             }
         }
+
+        public static void ApplyIcon(Object data)
+        {
+            ResourceData resourceData = data as ResourceData;
+            if (resourceData != null)
+            {
+                string strUrl = resourceData.FileUrl;
+                string strPath = Request.HttpDownload(strUrl).Result;
+                PowerPoint.Slide slide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
+                if (slide != null)
+                {
+                    slide.Shapes.AddPicture(strPath, Microsoft.Office.Core.MsoTriState.msoFalse,
+                        Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50
+                         );
+                }
+            }
+        }
+
 
         private async Task<ResourceModel> GetResource()
         {

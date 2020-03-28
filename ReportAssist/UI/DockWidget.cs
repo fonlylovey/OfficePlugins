@@ -35,6 +35,8 @@ namespace PPTPlugin
                 Invoke(@delegate);
             }
             else
+
+
             {
                 resourceList.Controls.Clear();
             }
@@ -51,16 +53,19 @@ namespace PPTPlugin
                     pictureBox.Picture.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(PictureBoxCtrl_DoubleClick);
                     pictureBox.Tag = resModel.ResourceList[index - 1];
                     pictureBox.Picture.Tag = resModel.ResourceList[index - 1];
-                    pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
+                    
 
                     if (App.ResourceType == ResourceType.Icon)
                     {
-                        pictureBox.SetMenuVisible(false);
+                        pictureBox.SetMarkVisible(false);
+                        pictureBox.SetMenuVisible(true);
                         pictureBox.Padding = new Padding(5);
+                        pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyIcon);
                     }
                     else
                     {
                         pictureBox.SetMenuVisible(true);
+                        pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
                     }
 
                     if (resourceList.InvokeRequired)
@@ -108,7 +113,6 @@ namespace PPTPlugin
                         Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50
                          );
                 }
-                //Globals.ThisAddIn.Application.ActivePresentation.Slides;
             }
         }
 
@@ -188,6 +192,12 @@ namespace PPTPlugin
 
         }
 
-       
+        private void button_filter_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            m_filterWidget.Location = button.PointToScreen(
+                new Point(button.Location.X - m_filterWidget.Width, button.Location.Y));
+            m_filterWidget.Show();
+        }
     }
 }
