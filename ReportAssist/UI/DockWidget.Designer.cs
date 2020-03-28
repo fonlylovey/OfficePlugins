@@ -30,11 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Panel leftPlane;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockWidget));
             this.LBPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_prePage = new System.Windows.Forms.Button();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.pageBox = new System.Windows.Forms.TextBox();
             this.button_nextPage = new System.Windows.Forms.Button();
             this.labelPage = new System.Windows.Forms.Label();
@@ -50,7 +48,6 @@
             this.QueryButton = new System.Windows.Forms.Button();
             this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.imageList_button = new System.Windows.Forms.ImageList(this.components);
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -58,6 +55,10 @@
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
             this.LBPanel.SuspendLayout();
@@ -111,7 +112,6 @@
             this.button_prePage.FlatAppearance.BorderSize = 0;
             this.button_prePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_prePage.ImageKey = "left.png";
-            this.button_prePage.ImageList = this.imageList;
             this.button_prePage.Location = new System.Drawing.Point(19, 9);
             this.button_prePage.Margin = new System.Windows.Forms.Padding(9);
             this.button_prePage.MaximumSize = new System.Drawing.Size(32, 32);
@@ -121,14 +121,6 @@
             this.button_prePage.TabIndex = 6;
             this.button_prePage.UseVisualStyleBackColor = false;
             this.button_prePage.Click += new System.EventHandler(this.button_prePage_Click);
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "find.png");
-            this.imageList.Images.SetKeyName(1, "left.png");
-            this.imageList.Images.SetKeyName(2, "right.png");
             // 
             // pageBox
             // 
@@ -152,7 +144,6 @@
             this.button_nextPage.FlatAppearance.BorderSize = 0;
             this.button_nextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_nextPage.ImageKey = "right.png";
-            this.button_nextPage.ImageList = this.imageList;
             this.button_nextPage.Location = new System.Drawing.Point(119, 9);
             this.button_nextPage.Margin = new System.Windows.Forms.Padding(9);
             this.button_nextPage.MaximumSize = new System.Drawing.Size(32, 32);
@@ -299,11 +290,11 @@
             // QueryButton
             // 
             this.QueryButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.QueryButton.BackColor = System.Drawing.Color.LightGray;
+            this.QueryButton.BackColor = System.Drawing.Color.Transparent;
+            this.QueryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.QueryButton.FlatAppearance.BorderSize = 0;
             this.QueryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QueryButton.ImageKey = "find.png";
-            this.QueryButton.ImageList = this.imageList;
+            this.QueryButton.ImageKey = "(无)";
             this.QueryButton.Location = new System.Drawing.Point(173, 13);
             this.QueryButton.MaximumSize = new System.Drawing.Size(32, 32);
             this.QueryButton.MinimumSize = new System.Drawing.Size(28, 28);
@@ -324,6 +315,9 @@
             this.VMenu.Controls.Add(this.radioButton6);
             this.VMenu.Controls.Add(this.radioButton7);
             this.VMenu.Controls.Add(this.radioButton8);
+            this.VMenu.Controls.Add(this.radioButton9);
+            this.VMenu.Controls.Add(this.radioButton10);
+            this.VMenu.Controls.Add(this.radioButton11);
             this.VMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.VMenu.Location = new System.Drawing.Point(210, 0);
@@ -344,8 +338,7 @@
             this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton1.ImageKey = "(无)";
-            this.radioButton1.ImageList = this.imageList_button;
+            this.radioButton1.Image = global::PPTPlugin.Properties.Resources.模板;
             this.radioButton1.Location = new System.Drawing.Point(0, 14);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton1.MaximumSize = new System.Drawing.Size(32, 32);
@@ -354,19 +347,8 @@
             this.radioButton1.Size = new System.Drawing.Size(32, 32);
             this.radioButton1.TabIndex = 15;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "模板";
+            this.toolTip.SetToolTip(this.radioButton1, "模板");
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // imageList_button
-            // 
-            this.imageList_button.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_button.ImageStream")));
-            this.imageList_button.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList_button.Images.SetKeyName(0, "产品.png");
-            this.imageList_button.Images.SetKeyName(1, "宏观.png");
-            this.imageList_button.Images.SetKeyName(2, "市场.png");
-            this.imageList_button.Images.SetKeyName(3, "图标.png");
-            this.imageList_button.Images.SetKeyName(4, "预测.png");
-            this.imageList_button.Images.SetKeyName(5, "政策.png");
             // 
             // radioButton2
             // 
@@ -377,8 +359,7 @@
             this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton2.ImageKey = "(无)";
-            this.radioButton2.ImageList = this.imageList_button;
+            this.radioButton2.Image = global::PPTPlugin.Properties.Resources.图标;
             this.radioButton2.Location = new System.Drawing.Point(0, 56);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton2.MaximumSize = new System.Drawing.Size(32, 32);
@@ -387,7 +368,7 @@
             this.radioButton2.Size = new System.Drawing.Size(32, 32);
             this.radioButton2.TabIndex = 16;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "图例";
+            this.toolTip.SetToolTip(this.radioButton2, "图标");
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
@@ -399,8 +380,7 @@
             this.radioButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton3.ImageKey = "图标.png";
-            this.radioButton3.ImageList = this.imageList_button;
+            this.radioButton3.Image = global::PPTPlugin.Properties.Resources.图例;
             this.radioButton3.Location = new System.Drawing.Point(0, 98);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton3.MaximumSize = new System.Drawing.Size(32, 32);
@@ -409,6 +389,7 @@
             this.radioButton3.Size = new System.Drawing.Size(32, 32);
             this.radioButton3.TabIndex = 17;
             this.radioButton3.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton3, "图例");
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton4
@@ -420,8 +401,7 @@
             this.radioButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton4.ImageKey = "市场.png";
-            this.radioButton4.ImageList = this.imageList_button;
+            this.radioButton4.Image = global::PPTPlugin.Properties.Resources.市场;
             this.radioButton4.Location = new System.Drawing.Point(0, 140);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton4.MaximumSize = new System.Drawing.Size(32, 32);
@@ -430,6 +410,7 @@
             this.radioButton4.Size = new System.Drawing.Size(32, 32);
             this.radioButton4.TabIndex = 18;
             this.radioButton4.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton4, "市场");
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton5
@@ -441,8 +422,7 @@
             this.radioButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton5.ImageKey = "产品.png";
-            this.radioButton5.ImageList = this.imageList_button;
+            this.radioButton5.Image = global::PPTPlugin.Properties.Resources.产品;
             this.radioButton5.Location = new System.Drawing.Point(0, 182);
             this.radioButton5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton5.MaximumSize = new System.Drawing.Size(32, 32);
@@ -451,6 +431,7 @@
             this.radioButton5.Size = new System.Drawing.Size(32, 32);
             this.radioButton5.TabIndex = 19;
             this.radioButton5.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton5, "产品");
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // radioButton6
@@ -462,8 +443,7 @@
             this.radioButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton6.ImageKey = "预测.png";
-            this.radioButton6.ImageList = this.imageList_button;
+            this.radioButton6.Image = global::PPTPlugin.Properties.Resources.预测;
             this.radioButton6.Location = new System.Drawing.Point(0, 224);
             this.radioButton6.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton6.MaximumSize = new System.Drawing.Size(32, 32);
@@ -472,6 +452,7 @@
             this.radioButton6.Size = new System.Drawing.Size(32, 32);
             this.radioButton6.TabIndex = 20;
             this.radioButton6.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton6, "预测");
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // radioButton7
@@ -483,8 +464,7 @@
             this.radioButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton7.ImageKey = "宏观.png";
-            this.radioButton7.ImageList = this.imageList_button;
+            this.radioButton7.Image = global::PPTPlugin.Properties.Resources.宏观;
             this.radioButton7.Location = new System.Drawing.Point(0, 266);
             this.radioButton7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton7.MaximumSize = new System.Drawing.Size(32, 32);
@@ -493,6 +473,7 @@
             this.radioButton7.Size = new System.Drawing.Size(32, 32);
             this.radioButton7.TabIndex = 21;
             this.radioButton7.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton7, "宏观");
             this.radioButton7.UseVisualStyleBackColor = true;
             // 
             // radioButton8
@@ -504,8 +485,7 @@
             this.radioButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.radioButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton8.ImageKey = "(无)";
-            this.radioButton8.ImageList = this.imageList_button;
+            this.radioButton8.Image = global::PPTPlugin.Properties.Resources.政策;
             this.radioButton8.Location = new System.Drawing.Point(0, 308);
             this.radioButton8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.radioButton8.MaximumSize = new System.Drawing.Size(32, 32);
@@ -514,8 +494,72 @@
             this.radioButton8.Size = new System.Drawing.Size(32, 32);
             this.radioButton8.TabIndex = 22;
             this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "资讯";
+            this.toolTip.SetToolTip(this.radioButton8, "政策");
             this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.FlatAppearance.BorderSize = 0;
+            this.radioButton9.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton9.Image = global::PPTPlugin.Properties.Resources.企业;
+            this.radioButton9.Location = new System.Drawing.Point(0, 350);
+            this.radioButton9.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton9.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton9.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(32, 32);
+            this.radioButton9.TabIndex = 23;
+            this.radioButton9.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton9, "企业");
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.FlatAppearance.BorderSize = 0;
+            this.radioButton10.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton10.Image = global::PPTPlugin.Properties.Resources.车型;
+            this.radioButton10.Location = new System.Drawing.Point(0, 392);
+            this.radioButton10.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton10.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton10.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(32, 32);
+            this.radioButton10.TabIndex = 24;
+            this.radioButton10.TabStop = true;
+            this.toolTip.SetToolTip(this.radioButton10, "车型");
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.FlatAppearance.BorderSize = 0;
+            this.radioButton11.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.radioButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.radioButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.radioButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton11.Image = global::PPTPlugin.Properties.Resources.技术;
+            this.radioButton11.Location = new System.Drawing.Point(0, 434);
+            this.radioButton11.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.radioButton11.MaximumSize = new System.Drawing.Size(32, 32);
+            this.radioButton11.MinimumSize = new System.Drawing.Size(32, 32);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(32, 32);
+            this.radioButton11.TabIndex = 25;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolTip.SetToolTip(this.radioButton11, "技术");
+            this.radioButton11.UseVisualStyleBackColor = true;
             // 
             // DockWidget
             // 
@@ -554,7 +598,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Button QueryButton;
-        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button_prePage;
         private System.Windows.Forms.TextBox pageBox;
@@ -564,7 +607,6 @@
         private System.Windows.Forms.Label label_Mark;
         private System.Windows.Forms.Label label_Records;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ImageList imageList_button;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -573,5 +615,9 @@
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton11;
     }
 }
