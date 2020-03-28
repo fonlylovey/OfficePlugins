@@ -21,38 +21,54 @@ namespace PPTPlugin
             
         }
 
-        private async void button_temp_Click(object sender, RibbonControlEventArgs e)
+        private void button_temp_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Template;
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
-        private async void button_sign_Click(object sender, RibbonControlEventArgs e)
+        private void button_sign_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.legend;
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
-        private async void button_icon_Click(object sender, RibbonControlEventArgs e)
+        private void button_icon_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Icon;
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
             Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private async void button_image_Click(object sender, RibbonControlEventArgs e)
-        {
-            
         }
 
         private void button_label_Click(object sender, RibbonControlEventArgs e)
         {
 
+        }
+
+        private void button_market_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Market;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
+            Globals.ThisAddIn.TaskWidget.Visible = true;
+        }
+
+        private void button_policy_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Policy;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
+            Globals.ThisAddIn.TaskWidget.Visible = true;
         }
     }
 }

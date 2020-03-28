@@ -72,7 +72,7 @@
             this.button_product = this.Factory.CreateRibbonButton();
             this.button7 = this.Factory.CreateRibbonButton();
             this.button8 = this.Factory.CreateRibbonButton();
-            this.button9 = this.Factory.CreateRibbonButton();
+            this.button_policy = this.Factory.CreateRibbonButton();
             this.button10 = this.Factory.CreateRibbonButton();
             this.button11 = this.Factory.CreateRibbonButton();
             this.button16 = this.Factory.CreateRibbonButton();
@@ -221,6 +221,7 @@
             this.button_market.Label = "市场\n";
             this.button_market.Name = "button_market";
             this.button_market.ShowImage = true;
+            this.button_market.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_market_Click);
             // 
             // label8
             // 
@@ -269,7 +270,7 @@
             // group4
             // 
             group4.Items.Add(label12);
-            group4.Items.Add(this.button9);
+            group4.Items.Add(this.button_policy);
             group4.Items.Add(label13);
             group4.Items.Add(this.button10);
             group4.Items.Add(label14);
@@ -285,13 +286,14 @@
             label12.Label = " ";
             label12.Name = "label12";
             // 
-            // button9
+            // button_policy
             // 
-            this.button9.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button9.Image = global::PPTPlugin.Properties.Resources.Policy;
-            this.button9.Label = "政策\n";
-            this.button9.Name = "button9";
-            this.button9.ShowImage = true;
+            this.button_policy.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_policy.Image = global::PPTPlugin.Properties.Resources.Policy;
+            this.button_policy.Label = "政策\n";
+            this.button_policy.Name = "button_policy";
+            this.button_policy.ShowImage = true;
+            this.button_policy.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_policy_Click);
             // 
             // label13
             // 
@@ -499,7 +501,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_product;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button7;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button8;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button9;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_policy;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button10;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button11;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button16;

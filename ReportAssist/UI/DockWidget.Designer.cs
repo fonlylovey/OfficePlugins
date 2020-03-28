@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Panel leftPlane;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockWidget));
             this.LBPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_prePage = new System.Windows.Forms.Button();
@@ -47,17 +48,17 @@
             this.textBox = new System.Windows.Forms.TextBox();
             this.QueryButton = new System.Windows.Forms.Button();
             this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.label_MB = new System.Windows.Forms.Label();
+            this.label_TL = new System.Windows.Forms.Label();
+            this.label_TB = new System.Windows.Forms.Label();
+            this.label_SC = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
@@ -71,13 +72,14 @@
             // 
             // leftPlane
             // 
+            leftPlane.BackColor = System.Drawing.Color.White;
             leftPlane.Controls.Add(this.LBPanel);
             leftPlane.Controls.Add(this.resourceList);
             leftPlane.Controls.Add(this.LTPanel);
             leftPlane.Dock = System.Windows.Forms.DockStyle.Fill;
             leftPlane.Location = new System.Drawing.Point(0, 0);
             leftPlane.Name = "leftPlane";
-            leftPlane.Size = new System.Drawing.Size(210, 600);
+            leftPlane.Size = new System.Drawing.Size(220, 600);
             leftPlane.TabIndex = 8;
             // 
             // LBPanel
@@ -89,7 +91,7 @@
             this.LBPanel.MaximumSize = new System.Drawing.Size(0, 52);
             this.LBPanel.MinimumSize = new System.Drawing.Size(0, 52);
             this.LBPanel.Name = "LBPanel";
-            this.LBPanel.Size = new System.Drawing.Size(210, 52);
+            this.LBPanel.Size = new System.Drawing.Size(220, 52);
             this.LBPanel.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -103,15 +105,16 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(210, 52);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 52);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button_prePage
             // 
             this.button_prePage.BackColor = System.Drawing.Color.Transparent;
+            this.button_prePage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_prePage.FlatAppearance.BorderSize = 0;
             this.button_prePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_prePage.ImageKey = "left.png";
+            this.button_prePage.Image = global::PPTPlugin.Properties.Resources.prePage;
             this.button_prePage.Location = new System.Drawing.Point(19, 9);
             this.button_prePage.Margin = new System.Windows.Forms.Padding(9);
             this.button_prePage.MaximumSize = new System.Drawing.Size(32, 32);
@@ -119,11 +122,13 @@
             this.button_prePage.Name = "button_prePage";
             this.button_prePage.Size = new System.Drawing.Size(32, 32);
             this.button_prePage.TabIndex = 6;
+            this.toolTip.SetToolTip(this.button_prePage, "上一页");
             this.button_prePage.UseVisualStyleBackColor = false;
             this.button_prePage.Click += new System.EventHandler(this.button_prePage_Click);
             // 
             // pageBox
             // 
+            this.pageBox.BackColor = System.Drawing.Color.White;
             this.pageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pageBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.pageBox.Location = new System.Drawing.Point(69, 9);
@@ -141,9 +146,10 @@
             // button_nextPage
             // 
             this.button_nextPage.BackColor = System.Drawing.Color.Transparent;
+            this.button_nextPage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_nextPage.FlatAppearance.BorderSize = 0;
             this.button_nextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_nextPage.ImageKey = "right.png";
+            this.button_nextPage.Image = global::PPTPlugin.Properties.Resources.nextPage;
             this.button_nextPage.Location = new System.Drawing.Point(119, 9);
             this.button_nextPage.Margin = new System.Windows.Forms.Padding(9);
             this.button_nextPage.MaximumSize = new System.Drawing.Size(32, 32);
@@ -151,6 +157,7 @@
             this.button_nextPage.Name = "button_nextPage";
             this.button_nextPage.Size = new System.Drawing.Size(32, 32);
             this.button_nextPage.TabIndex = 7;
+            this.toolTip.SetToolTip(this.button_nextPage, "下一页");
             this.button_nextPage.UseVisualStyleBackColor = false;
             this.button_nextPage.Click += new System.EventHandler(this.button_nextPage_Click);
             // 
@@ -158,7 +165,7 @@
             // 
             this.labelPage.AutoSize = true;
             this.labelPage.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelPage.Location = new System.Drawing.Point(19, 59);
+            this.labelPage.Location = new System.Drawing.Point(169, 9);
             this.labelPage.Margin = new System.Windows.Forms.Padding(9);
             this.labelPage.MaximumSize = new System.Drawing.Size(40, 32);
             this.labelPage.MinimumSize = new System.Drawing.Size(40, 32);
@@ -195,7 +202,7 @@
             this.LTPanel.Location = new System.Drawing.Point(0, 0);
             this.LTPanel.MinimumSize = new System.Drawing.Size(0, 82);
             this.LTPanel.Name = "LTPanel";
-            this.LTPanel.Size = new System.Drawing.Size(210, 82);
+            this.LTPanel.Size = new System.Drawing.Size(220, 82);
             this.LTPanel.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -209,14 +216,16 @@
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(210, 30);
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(220, 30);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // label_All
             // 
             this.label_All.AutoSize = true;
+            this.label_All.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_All.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_All.Location = new System.Drawing.Point(3, 0);
+            this.label_All.Location = new System.Drawing.Point(33, 0);
             this.label_All.MinimumSize = new System.Drawing.Size(0, 28);
             this.label_All.Name = "label_All";
             this.label_All.Size = new System.Drawing.Size(32, 28);
@@ -228,8 +237,9 @@
             // label_Mark
             // 
             this.label_Mark.AutoSize = true;
+            this.label_Mark.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_Mark.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Mark.Location = new System.Drawing.Point(41, 0);
+            this.label_Mark.Location = new System.Drawing.Point(71, 0);
             this.label_Mark.MinimumSize = new System.Drawing.Size(0, 28);
             this.label_Mark.Name = "label_Mark";
             this.label_Mark.Size = new System.Drawing.Size(56, 28);
@@ -241,8 +251,9 @@
             // label_Records
             // 
             this.label_Records.AutoSize = true;
+            this.label_Records.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_Records.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Records.Location = new System.Drawing.Point(103, 0);
+            this.label_Records.Location = new System.Drawing.Point(133, 0);
             this.label_Records.MinimumSize = new System.Drawing.Size(0, 28);
             this.label_Records.Name = "label_Records";
             this.label_Records.Size = new System.Drawing.Size(56, 28);
@@ -261,11 +272,12 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(210, 52);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(220, 52);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(3, 13);
             this.button1.MaximumSize = new System.Drawing.Size(48, 28);
             this.button1.MinimumSize = new System.Drawing.Size(48, 28);
@@ -292,9 +304,10 @@
             this.QueryButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.QueryButton.BackColor = System.Drawing.Color.Transparent;
             this.QueryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.QueryButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.QueryButton.FlatAppearance.BorderSize = 0;
             this.QueryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QueryButton.ImageKey = "(无)";
+            this.QueryButton.Image = global::PPTPlugin.Properties.Resources.find;
             this.QueryButton.Location = new System.Drawing.Point(173, 13);
             this.QueryButton.MaximumSize = new System.Drawing.Size(32, 32);
             this.QueryButton.MinimumSize = new System.Drawing.Size(28, 28);
@@ -307,259 +320,192 @@
             // VMenu
             // 
             this.VMenu.BackColor = System.Drawing.Color.LightGray;
-            this.VMenu.Controls.Add(this.radioButton1);
-            this.VMenu.Controls.Add(this.radioButton2);
-            this.VMenu.Controls.Add(this.radioButton3);
-            this.VMenu.Controls.Add(this.radioButton4);
-            this.VMenu.Controls.Add(this.radioButton5);
-            this.VMenu.Controls.Add(this.radioButton6);
-            this.VMenu.Controls.Add(this.radioButton7);
-            this.VMenu.Controls.Add(this.radioButton8);
-            this.VMenu.Controls.Add(this.radioButton9);
-            this.VMenu.Controls.Add(this.radioButton10);
-            this.VMenu.Controls.Add(this.radioButton11);
+            this.VMenu.Controls.Add(this.label_MB);
+            this.VMenu.Controls.Add(this.label_TL);
+            this.VMenu.Controls.Add(this.label_TB);
+            this.VMenu.Controls.Add(this.label_SC);
+            this.VMenu.Controls.Add(this.label5);
+            this.VMenu.Controls.Add(this.label6);
+            this.VMenu.Controls.Add(this.label7);
+            this.VMenu.Controls.Add(this.label8);
+            this.VMenu.Controls.Add(this.label9);
+            this.VMenu.Controls.Add(this.label10);
+            this.VMenu.Controls.Add(this.label11);
             this.VMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.VMenu.Location = new System.Drawing.Point(210, 0);
+            this.VMenu.Location = new System.Drawing.Point(220, 0);
             this.VMenu.Margin = new System.Windows.Forms.Padding(0);
             this.VMenu.MaximumSize = new System.Drawing.Size(40, 0);
             this.VMenu.MinimumSize = new System.Drawing.Size(40, 0);
             this.VMenu.Name = "VMenu";
-            this.VMenu.Padding = new System.Windows.Forms.Padding(0, 9, 9, 9);
+            this.VMenu.Padding = new System.Windows.Forms.Padding(0, 9, 0, 9);
             this.VMenu.Size = new System.Drawing.Size(40, 600);
             this.VMenu.TabIndex = 3;
             // 
-            // radioButton1
+            // label_MB
             // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatAppearance.BorderSize = 0;
-            this.radioButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton1.Image = global::PPTPlugin.Properties.Resources.模板;
-            this.radioButton1.Location = new System.Drawing.Point(0, 14);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton1.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton1.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(32, 32);
-            this.radioButton1.TabIndex = 15;
-            this.radioButton1.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton1, "模板");
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label_MB.AutoSize = true;
+            this.label_MB.Image = global::PPTPlugin.Properties.Resources.模板;
+            this.label_MB.Location = new System.Drawing.Point(0, 9);
+            this.label_MB.Margin = new System.Windows.Forms.Padding(0);
+            this.label_MB.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_MB.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_MB.Name = "label_MB";
+            this.label_MB.Size = new System.Drawing.Size(38, 38);
+            this.label_MB.TabIndex = 27;
+            this.label_MB.Tag = "0";
+            this.toolTip.SetToolTip(this.label_MB, "模板");
+            this.label_MB.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton2
+            // label_TL
             // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatAppearance.BorderSize = 0;
-            this.radioButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton2.Image = global::PPTPlugin.Properties.Resources.图标;
-            this.radioButton2.Location = new System.Drawing.Point(0, 56);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton2.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton2.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(32, 32);
-            this.radioButton2.TabIndex = 16;
-            this.radioButton2.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton2, "图标");
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.label_TL.AutoSize = true;
+            this.label_TL.Image = global::PPTPlugin.Properties.Resources.图例;
+            this.label_TL.Location = new System.Drawing.Point(0, 47);
+            this.label_TL.Margin = new System.Windows.Forms.Padding(0);
+            this.label_TL.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_TL.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_TL.Name = "label_TL";
+            this.label_TL.Size = new System.Drawing.Size(38, 38);
+            this.label_TL.TabIndex = 28;
+            this.label_TL.Tag = "2";
+            this.toolTip.SetToolTip(this.label_TL, "图例");
+            this.label_TL.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton3
+            // label_TB
             // 
-            this.radioButton3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.FlatAppearance.BorderSize = 0;
-            this.radioButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton3.Image = global::PPTPlugin.Properties.Resources.图例;
-            this.radioButton3.Location = new System.Drawing.Point(0, 98);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton3.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton3.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(32, 32);
-            this.radioButton3.TabIndex = 17;
-            this.radioButton3.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton3, "图例");
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.label_TB.AutoSize = true;
+            this.label_TB.Image = global::PPTPlugin.Properties.Resources.图标;
+            this.label_TB.Location = new System.Drawing.Point(0, 85);
+            this.label_TB.Margin = new System.Windows.Forms.Padding(0);
+            this.label_TB.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_TB.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_TB.Name = "label_TB";
+            this.label_TB.Size = new System.Drawing.Size(38, 38);
+            this.label_TB.TabIndex = 26;
+            this.label_TB.Tag = "1";
+            this.toolTip.SetToolTip(this.label_TB, "图标");
+            this.label_TB.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton4
+            // label_SC
             // 
-            this.radioButton4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.FlatAppearance.BorderSize = 0;
-            this.radioButton4.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton4.Image = global::PPTPlugin.Properties.Resources.市场;
-            this.radioButton4.Location = new System.Drawing.Point(0, 140);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton4.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton4.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(32, 32);
-            this.radioButton4.TabIndex = 18;
-            this.radioButton4.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton4, "市场");
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.label_SC.AutoSize = true;
+            this.label_SC.Image = global::PPTPlugin.Properties.Resources.市场;
+            this.label_SC.Location = new System.Drawing.Point(0, 123);
+            this.label_SC.Margin = new System.Windows.Forms.Padding(0);
+            this.label_SC.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_SC.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_SC.Name = "label_SC";
+            this.label_SC.Size = new System.Drawing.Size(38, 38);
+            this.label_SC.TabIndex = 29;
+            this.label_SC.Tag = "3";
+            this.toolTip.SetToolTip(this.label_SC, "市场");
+            this.label_SC.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton5
+            // label5
             // 
-            this.radioButton5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.FlatAppearance.BorderSize = 0;
-            this.radioButton5.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton5.Image = global::PPTPlugin.Properties.Resources.产品;
-            this.radioButton5.Location = new System.Drawing.Point(0, 182);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton5.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton5.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(32, 32);
-            this.radioButton5.TabIndex = 19;
-            this.radioButton5.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton5, "产品");
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
+            this.label5.Location = new System.Drawing.Point(0, 161);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label5.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 38);
+            this.label5.TabIndex = 30;
+            this.label5.Tag = "kk";
+            this.toolTip.SetToolTip(this.label5, "产品");
+            this.label5.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton6
+            // label6
             // 
-            this.radioButton6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.FlatAppearance.BorderSize = 0;
-            this.radioButton6.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton6.Image = global::PPTPlugin.Properties.Resources.预测;
-            this.radioButton6.Location = new System.Drawing.Point(0, 224);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton6.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton6.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(32, 32);
-            this.radioButton6.TabIndex = 20;
-            this.radioButton6.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton6, "预测");
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Image = global::PPTPlugin.Properties.Resources.预测;
+            this.label6.Location = new System.Drawing.Point(0, 199);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label6.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 38);
+            this.label6.TabIndex = 31;
+            this.label6.Tag = "l";
+            this.toolTip.SetToolTip(this.label6, "预测");
+            this.label6.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton7
+            // label7
             // 
-            this.radioButton7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.FlatAppearance.BorderSize = 0;
-            this.radioButton7.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton7.Image = global::PPTPlugin.Properties.Resources.宏观;
-            this.radioButton7.Location = new System.Drawing.Point(0, 266);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton7.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton7.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(32, 32);
-            this.radioButton7.TabIndex = 21;
-            this.radioButton7.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton7, "宏观");
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Image = global::PPTPlugin.Properties.Resources.宏观;
+            this.label7.Location = new System.Drawing.Point(0, 237);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label7.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 38);
+            this.label7.TabIndex = 32;
+            this.label7.Tag = "l";
+            this.toolTip.SetToolTip(this.label7, "宏观");
+            this.label7.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton8
+            // label8
             // 
-            this.radioButton8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.FlatAppearance.BorderSize = 0;
-            this.radioButton8.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton8.Image = global::PPTPlugin.Properties.Resources.政策;
-            this.radioButton8.Location = new System.Drawing.Point(0, 308);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton8.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton8.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(32, 32);
-            this.radioButton8.TabIndex = 22;
-            this.radioButton8.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton8, "政策");
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Image = global::PPTPlugin.Properties.Resources.政策;
+            this.label8.Location = new System.Drawing.Point(0, 275);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label8.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 38);
+            this.label8.TabIndex = 33;
+            this.label8.Tag = "4";
+            this.toolTip.SetToolTip(this.label8, "政策");
+            this.label8.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton9
+            // label9
             // 
-            this.radioButton9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.FlatAppearance.BorderSize = 0;
-            this.radioButton9.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton9.Image = global::PPTPlugin.Properties.Resources.企业;
-            this.radioButton9.Location = new System.Drawing.Point(0, 350);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton9.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton9.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(32, 32);
-            this.radioButton9.TabIndex = 23;
-            this.radioButton9.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton9, "企业");
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Image = global::PPTPlugin.Properties.Resources.企业;
+            this.label9.Location = new System.Drawing.Point(0, 313);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label9.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 38);
+            this.label9.TabIndex = 34;
+            this.label9.Tag = "l";
+            this.toolTip.SetToolTip(this.label9, "企业");
+            this.label9.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton10
+            // label10
             // 
-            this.radioButton10.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.FlatAppearance.BorderSize = 0;
-            this.radioButton10.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton10.Image = global::PPTPlugin.Properties.Resources.车型;
-            this.radioButton10.Location = new System.Drawing.Point(0, 392);
-            this.radioButton10.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton10.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton10.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(32, 32);
-            this.radioButton10.TabIndex = 24;
-            this.radioButton10.TabStop = true;
-            this.toolTip.SetToolTip(this.radioButton10, "车型");
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Image = global::PPTPlugin.Properties.Resources.车型;
+            this.label10.Location = new System.Drawing.Point(0, 351);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label10.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 38);
+            this.label10.TabIndex = 35;
+            this.label10.Tag = "l";
+            this.toolTip.SetToolTip(this.label10, "车型");
+            this.label10.Click += new System.EventHandler(this.label_Click);
             // 
-            // radioButton11
+            // label11
             // 
-            this.radioButton11.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.FlatAppearance.BorderSize = 0;
-            this.radioButton11.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.radioButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.radioButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.radioButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton11.Image = global::PPTPlugin.Properties.Resources.技术;
-            this.radioButton11.Location = new System.Drawing.Point(0, 434);
-            this.radioButton11.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.radioButton11.MaximumSize = new System.Drawing.Size(32, 32);
-            this.radioButton11.MinimumSize = new System.Drawing.Size(32, 32);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(32, 32);
-            this.radioButton11.TabIndex = 25;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolTip.SetToolTip(this.radioButton11, "技术");
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Image = global::PPTPlugin.Properties.Resources.技术;
+            this.label11.Location = new System.Drawing.Point(0, 389);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label11.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 38);
+            this.label11.TabIndex = 36;
+            this.label11.Tag = "l";
+            this.toolTip.SetToolTip(this.label11, "技术");
+            this.label11.Click += new System.EventHandler(this.label_Click);
             // 
             // DockWidget
             // 
@@ -569,10 +515,10 @@
             this.Controls.Add(leftPlane);
             this.Controls.Add(this.VMenu);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(280, 1080);
+            this.MaximumSize = new System.Drawing.Size(260, 1080);
             this.MinimumSize = new System.Drawing.Size(250, 600);
             this.Name = "DockWidget";
-            this.Size = new System.Drawing.Size(250, 600);
+            this.Size = new System.Drawing.Size(260, 600);
             this.SizeChanged += new System.EventHandler(this.DockWidget_SizeChanged);
             leftPlane.ResumeLayout(false);
             this.LBPanel.ResumeLayout(false);
@@ -607,17 +553,17 @@
         private System.Windows.Forms.Label label_Mark;
         private System.Windows.Forms.Label label_Records;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.Label label_TB;
+        private System.Windows.Forms.Label label_MB;
+        private System.Windows.Forms.Label label_TL;
+        private System.Windows.Forms.Label label_SC;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
