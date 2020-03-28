@@ -461,7 +461,7 @@
             this.tab1.Groups.Add(group4);
             this.tab1.Groups.Add(group5);
             this.tab1.Groups.Add(group6);
-            this.tab1.Label = "智妍";
+            this.tab1.Label = "FAW PPTer";
             this.tab1.Name = "tab1";
             // 
             // RibbonMenu
