@@ -23,20 +23,7 @@ namespace PPTPlugin
 
         public async void UpdateResourceList()
         {
-            ResourceModel resModel = null;
-            switch (App.ResourceType)
-            {
-                case ResourceType.Template:
-                    resModel = await RequestHandle.GetTempList(CurrentIndex, PrePageCount, FilterText, "");
-                    break;
-                case ResourceType.Icon:
-                    resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, FilterText, "");
-                    break;
-                case ResourceType.legend:
-                    resModel = await RequestHandle.GetSignList(CurrentIndex, PrePageCount, FilterText, "");
-                    break;
-            }
-            PageCount = resModel.PageCount;
+            ResourceModel resModel = await GetResource();
             resourceList.SuspendLayout();
             if (resourceList.InvokeRequired)
             {
@@ -48,6 +35,8 @@ namespace PPTPlugin
                 Invoke(@delegate);
             }
             else
+
+
             {
                 resourceList.Controls.Clear();
             }
@@ -64,18 +53,19 @@ namespace PPTPlugin
                     pictureBox.Picture.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(PictureBoxCtrl_DoubleClick);
                     pictureBox.Tag = resModel.ResourceList[index - 1];
                     pictureBox.Picture.Tag = resModel.ResourceList[index - 1];
-                    pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
+                    
 
                     if (App.ResourceType == ResourceType.Icon)
                     {
-                        pictureBox.SetMenuVisible(false);
-                        pictureBox.SetPreviewVisible(false);
+                        pictureBox.SetMarkVisible(false);
+                        pictureBox.SetMenuVisible(true);
                         pictureBox.Padding = new Padding(5);
+                        pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyIcon);
                     }
                     else
                     {
                         pictureBox.SetMenuVisible(true);
-                        pictureBox.SetPreviewVisible(true);
+                        pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
                     }
 
                     if (resourceList.InvokeRequired)
@@ -123,7 +113,6 @@ namespace PPTPlugin
                         Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50
                          );
                 }
-                //Globals.ThisAddIn.Application.ActivePresentation.Slides;
             }
         }
 
@@ -165,73 +154,7 @@ namespace PPTPlugin
             UpdateResourceList();
         }
 
-        public void ResetPageCount()
-        {
-            int listWidgetH = this.Height - LTPanel.Height;//减去顶部菜单的高度
-
-            int w = 206;
-            int h = 125;
-            if (App.ResourceType == ResourceType.Icon)
-            {
-                resourceList.ColumnCount = 3;
-                h = 68;
-                w = 68;
-            }
-            else
-            {
-                resourceList.ColumnCount = 1;
-                h = 125;
-                w = 206;
-            }
-
-            int rows = listWidgetH / h;
-            if (rows > 0)
-            {
-                int mod = listWidgetH % h;
-                if (mod > h)
-                {
-                    rows++;
-                }
-                resourceList.RowCount = rows;
-                int rowIndex = 0;
-                resourceList.RowStyles.Clear();
-                resourceList.ColumnStyles.Clear();
-                while (rowIndex <= rows)
-                {
-                    RowStyle rowStyle = new RowStyle(System.Windows.Forms.SizeType.Absolute, h);
-                    resourceList.RowStyles.Add(rowStyle);
-
-                    ColumnStyle colStyle = new ColumnStyle(System.Windows.Forms.SizeType.Absolute, w);
-                    resourceList.ColumnStyles.Add(colStyle);
-                    rowIndex++;
-                }
-            }
-            PrePageCount = resourceList.RowCount * resourceList.ColumnCount;
-        }
-
-        private delegate void AddControl(Control control);
-        private delegate void ClearControl();
-        private int CurrentIndex = 1;
-        private int PageCount = 1;
-        private int PrePageCount = 5;
-        private String FilterText = "";
-        public static void ApplyTemplate(Object data)
-        {
-            ResourceData resourceData = data as ResourceData;
-            if(resourceData != null)
-            {
-                string strUrl = resourceData.FileUrl;
-                string strPath = Request.HttpDownload(strUrl).Result;
-                Globals.ThisAddIn.Application.Presentations.Open(strPath);
-            }
-        }
-
         private void label_All_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Type_Click(object sender, EventArgs e)
         {
 
         }
@@ -244,6 +167,37 @@ namespace PPTPlugin
         private void label_Records_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label_Click(object sender, EventArgs e)
+        {
+            Label button = sender as Label;
+            if (button != null)
+            {
+                button.BackColor = Color.White;
+            }
+            if(button.Tag != null)
+            {
+               if (Enum.TryParse<ResourceType>(button.Tag.ToString(), out App.ResourceType))
+                {
+                    Globals.ThisAddIn.RightWidget.ResetPageCount();
+                    Globals.ThisAddIn.RightWidget.UpdateResourceList();
+                }
+               else
+               {
+                    App.ResourceType = ResourceType.None;
+               }
+               ResetButton();
+            }
+
+        }
+
+        private void button_filter_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            m_filterWidget.Location = button.PointToScreen(
+                new Point(button.Location.X - m_filterWidget.Width, button.Location.Y));
+            m_filterWidget.Show();
         }
     }
 }

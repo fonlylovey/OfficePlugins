@@ -14,7 +14,7 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strUrl = @"http://60.30.69.48/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tblb={2}&gjz={3}";
+            String strUrl = @"http://xxw.autoinfo.org.cn/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tblb={2}&gjz={3}";
             strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
             if (!String.IsNullOrEmpty(strQuery))
             {
@@ -81,10 +81,7 @@ namespace PPTPlugin
             ResourceModel resModel = new ResourceModel();
             String strUrl = @"http://60.30.69.48/ppttools/res/getTlByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tllb={2}&gjz={3}";
             strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
-            if (!String.IsNullOrEmpty(strQuery))
-            {
-                strUrl += "&gjz=" + strQuery;
-            }
+           
             try
             {
 
@@ -108,6 +105,73 @@ namespace PPTPlugin
                 Logger.LogError(ex.ToString());
             }
             return resModel;
+        }
+        
+        public static async Task<ResourceModel> GetPolicyList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strUrl = @"http://xxw.autoinfo.org.cn/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E6%94%BF%E7%AD%96";
+            strUrl = String.Format(strUrl, pageIndex, prePageCount);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.PageCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["mbid"].ToString();
+                    theData.Name = item["mblb"].ToString();
+                    theData.Label = item["mbname"].ToString();
+                    theData.IconUrl = item["mbsltlj"].ToString();
+                    theData.FileUrl = item["mblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
+
+        public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strUrl = @"http://xxw.autoinfo.org.cn/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
+            strUrl = String.Format(strUrl, pageIndex, prePageCount);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.PageCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["mbid"].ToString();
+                    theData.Name = item["mblb"].ToString();
+                    theData.Label = item["mbname"].ToString();
+                    theData.IconUrl = item["mbsltlj"].ToString();
+                    theData.FileUrl = item["mblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
+
+
+        public static async void Login(String username, String password)
+        {
+            String strUrl = @"http://60.30.69.48/ppttools/login?username={0}&password={1}";
+            strUrl = String.Format(strUrl, username, password);
         }
     }
 }

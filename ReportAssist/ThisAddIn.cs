@@ -19,7 +19,7 @@ namespace PPTPlugin
             TaskWidget = CustomTaskPanes.Add(RightWidget, "模板选择");
             TaskWidget.DockPosition =
             Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-            TaskWidget.Width = 270;
+            TaskWidget.Width = 260;
             TaskWidget.Visible = false;
         }
 

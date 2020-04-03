@@ -33,7 +33,7 @@
     <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.2</ApplicationVersion>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -189,6 +189,15 @@
     <Compile Include="UI\DockWidget.Designer.cs">
       <DependentUpon>DockWidget.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DockWidgetPrivate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FilterWidget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FilterWidget.Designer.cs">
+      <DependentUpon>FilterWidget.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -204,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DockWidget.resx">
       <DependentUpon>DockWidget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FilterWidget.resx">
+      <DependentUpon>FilterWidget.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -267,6 +279,45 @@
       <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
       <Name>Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\市场.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\车型.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\宏观.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\技术.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\模板.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\企业.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\图例.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\预测.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\政策.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prePage.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
