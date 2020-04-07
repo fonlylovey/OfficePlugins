@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "SDK\Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Widgets", "SDK\Widgets\Widgets.csproj", "{D3A197E4-5622-4471-9A83-BD30D8450924}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdate", "SDK\AutoUpdate\AutoUpdate.csproj", "{F7026BB0-93A2-4565-87A3-D615ADD358DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D3A197E4-5622-4471-9A83-BD30D8450924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3A197E4-5622-4471-9A83-BD30D8450924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3A197E4-5622-4471-9A83-BD30D8450924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
