@@ -198,6 +198,18 @@
     <Compile Include="UI\FilterWidget.Designer.cs">
       <DependentUpon>FilterWidget.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\LoginWidget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LoginWidget.Designer.cs">
+      <DependentUpon>LoginWidget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdateWidget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateWidget.Designer.cs">
+      <DependentUpon>UpdateWidget.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -216,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FilterWidget.resx">
       <DependentUpon>FilterWidget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoginWidget.resx">
+      <DependentUpon>LoginWidget.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -279,6 +294,10 @@
       <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SDK\Widgets\Widgets.csproj">
+      <Project>{D3A197E4-5622-4471-9A83-BD30D8450924}</Project>
+      <Name>Widgets</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\市场.png" />
@@ -318,6 +337,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\prePage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Logo1.png" />
+    <Content Include="Resources\Logo2.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

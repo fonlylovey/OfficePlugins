@@ -6,6 +6,8 @@ using Microsoft.Office.Tools.Ribbon;
 using Base;
 using Core;
 using Newtonsoft.Json.Linq;
+using Widgets;
+using System.Windows.Forms;
 
 namespace PPTPlugin
 {
@@ -13,12 +15,25 @@ namespace PPTPlugin
     {
         private void RibbonMenu_Load(object sender, RibbonUIEventArgs e)
         {
-            Request.HttpLogin("", "");
+            
         }
 
-        private void button_login_Click(object sender, RibbonControlEventArgs e)
+        private async void button_login_Click(object sender, RibbonControlEventArgs e)
         {
-            
+            LoginWidget loginWidget = new LoginWidget();
+            DialogResult result = loginWidget.ShowDialog();
+            if(result == DialogResult.OK && String.IsNullOrEmpty(Rigel.UserID))
+            {
+                PromptBox.Error("登陆失败！");
+            }
+
+            {
+
+                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/logout?sjh={0}";
+                strAPI = String.Format(strAPI, "18800174194");
+                JObject obj = await Request.HttpGet(strAPI);
+                int code = obj.Value<int>("code");
+            }
         }
 
         private void button_temp_Click(object sender, RibbonControlEventArgs e)

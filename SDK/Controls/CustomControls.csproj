@@ -57,6 +57,12 @@
     <Compile Include="Controls\CustomTable.Designer.cs">
       <DependentUpon>CustomTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LineEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LineEdit.Designer.cs">
+      <DependentUpon>LineEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PictureBoxCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>

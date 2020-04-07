@@ -5,7 +5,9 @@ using System.Windows.Forms;
 namespace CustomControls
 {
 	public partial class CustomForm : Form
-	{
+	{ 
+		public int BorderWidth { get; set; } = 0;
+		public Color BorderColor { get; set; } = Color.Red;
 		public bool DragResizeEnable { get; set; } = false;
 		public String TitleText { get; set;}
 
@@ -22,9 +24,13 @@ namespace CustomControls
 
 		protected void CustomForm_Paint(object sender, PaintEventArgs e)
 		{
-			Pen pen = new Pen(Color.FromArgb(184, 184, 184), 1);
-			e.Graphics.DrawRectangle(pen, 0, 0, this.Width - 1, this.Height - 1);
-			label_title.Text = TitleText;
+			if(BorderWidth > 0)
+			{
+				Padding = new Padding(BorderWidth);
+				Pen pen = new Pen(BorderColor, BorderWidth);
+				e.Graphics.DrawRectangle(pen, 0, 0, this.Width - BorderWidth, this.Height - BorderWidth);
+				label_title.Text = TitleText;
+			}
 		}
 
 		protected void CustomForm_MouseDown(object sender, MouseEventArgs e)

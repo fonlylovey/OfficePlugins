@@ -23,6 +23,7 @@ namespace Core
 
     public static class Request
     {
+        public static String HttpUrl { get; set; } = String.Empty;
         public static async Task<JObject> HttpRequest(JObject data, RequestType methodtype, String url)
         {
             JObject jsonData = null;
@@ -47,6 +48,7 @@ namespace Core
 
         public static async Task<JObject> HttpGet(String url)
         {
+            initClient();
             JObject jsonData = new JObject();
             using (HttpResponseMessage response = await httpClient.GetAsync(url))
             {
@@ -64,10 +66,10 @@ namespace Core
                         strJson = await response.Content.ReadAsStringAsync();
                     }
                     jsonData = CoreAPI.Deserialize<JObject>(strJson);
-                    if(jsonData["code"] != null)
+                    if(jsonData["result"] != null)
                     {
-                        String code = jsonData["code"].ToString();
-                        String msg = jsonData["message"].ToString();
+                        String code = jsonData["result"].ToString();
+                        String msg = jsonData["msg"].ToString();
                         if (code != "0")
                         {
                             Logger.LogError("NetError" + code + msg + url);
@@ -87,6 +89,7 @@ namespace Core
 
         public static async Task<JObject> HttpPost(JObject input, String url)
         {
+            initClient();
             JObject jsonData = new JObject();
             HttpContent content = new StringContent(input.ToString(), Encoding.UTF8, "application/json");
             using (HttpResponseMessage response = await httpClient.PostAsync(url, content))
@@ -105,13 +108,13 @@ namespace Core
                         strJson = await response.Content.ReadAsStringAsync();
                     }
                     jsonData = CoreAPI.Deserialize<JObject>(strJson);
-                    String code = jsonData["code"].ToString();
-                    String msg = jsonData["message"].ToString();
-                    if (code != "0")
-                    {
-                        Logger.LogError("NetError" + code + msg + url);
-                        throw new Exception(msg);
-                    }
+                    //String code = jsonData["result"].ToString();
+                    //String msg = jsonData["msg"].ToString();
+                    //if (code != "0")
+                    //{
+                    //    Logger.LogError("NetError" + code + msg + url);
+                    //    throw new Exception(msg);
+                    //}
                 }
                 else
                 {
@@ -125,6 +128,7 @@ namespace Core
 
         public static async Task<JObject> HttpPost(String url, HttpContent content)
         {
+            initClient();
             dynamic jsonData = null;
             using (HttpResponseMessage response = await httpClient.PostAsync(url, content))
             {
@@ -142,8 +146,8 @@ namespace Core
                         strJson = await response.Content.ReadAsStringAsync();
                     }
                     jsonData = CoreAPI.Deserialize<JObject>(strJson);
-                    String code = jsonData["code"].ToString();
-                    String msg = jsonData["message"].ToString();
+                    String code = jsonData["result"].ToString();
+                    String msg = jsonData["msg"].ToString();
                     if (code != "0")
                     {
                         Logger.LogError("NetError" + code + msg + url);
@@ -160,88 +164,17 @@ namespace Core
             return jsonData;
         }
 
-        public static bool HttpLogin(String strUser, String strPass)
-        {
-            List<KeyValuePair<string, string>> param = new List<KeyValuePair<string, string>>();
-            param.Add(new KeyValuePair<string, string>("account", strUser));
-            param.Add(new KeyValuePair<string, string>("password", strPass));
-
-            /*
-            string strURL = String.Format("{0}/identification/login", Global.HttpUrl);
-            using (HttpClient client = new HttpClient())
-            {
-                HttpContent content = new FormUrlEncodedContent(param);
-                HttpResponseMessage response = client.PostAsync(strURL, content).Result;
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    string responseContent = response.Content.ReadAsStringAsync().Result;
-                    var stream = response.Content.ReadAsStreamAsync().Result;
-                    JObject jsonData = CoreAPI.Deserialize<JObject>(responseContent);
-
-                    if (jsonData["success"] != null && !jsonData["success"].ToObject<bool>())
-                    {
-                        String str = jsonData["errorMsg"].ToString();
-                        throw new Exception(str);
-                    }
-                    Global.UserToken = jsonData["cloudToken"].ToString();
-                    Global.UserName = jsonData["realname"].ToString();
-                    Global.UserID = jsonData["id"].ToString();
-                }
-                else
-                {
-                    String strError = response.StatusCode.GetHashCode().ToString() + "," + response.ReasonPhrase;
-                    Logger.LogError(strError);
-                    throw new Exception(strError);
-                }
-            }
-            */
-            initClient();
-            return true;
-        }
-
-        public static bool HttpLogout()
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-               new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("endpoint", "WEB");
-                client.Timeout = new TimeSpan(0, 1, 0);
-
-                String strAPI = String.Format("{0}/logout", Global.HttpUrl);
-                using (HttpResponseMessage response = client.GetAsync(strAPI).Result)
-                {
-                    httpClient.Dispose();
-                    httpClient = null;
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        String strError = response.StatusCode.GetHashCode().ToString() + "," + response.ReasonPhrase;
-                        Logger.LogError(strError);
-                        return false;
-                    }
-                }
-            }
-        }
-
-        //下载文件
         public static async Task<String> HttpDownload(String url)
         {
+            initClient();
             String strFilePath = "";
             FileStream fileStream = null;
-            Directory.CreateDirectory(Global.BIMTempPath);  //创建临时文件目录
+            Directory.CreateDirectory(Rigel.BIMTempPath);  //创建临时文件目录
 
             try
             {
                 using (HttpClient httpClient = new HttpClient())
                 {
-                    //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    //httpClient.DefaultRequestHeaders.Add("Accept-Charset", "iso-8859-1");
-                    //httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
-                    //httpClient.DefaultRequestHeaders.Add(".ENDPOINT", "WEB");
                     httpClient.Timeout = new TimeSpan(0, 1, 0);
                     
                     String strFileName = "";
@@ -276,7 +209,7 @@ namespace Core
                         byte[] strBuf = new byte[stream.Length];
                         stream.Read(strBuf, 0, strBuf.Length);
 
-                        strFilePath = Global.BIMTempPath + strFileName;
+                        strFilePath = Rigel.BIMTempPath + strFileName;
                         if (System.IO.File.Exists(strFilePath))
                         {
                             //判断是否被占用
@@ -310,198 +243,6 @@ namespace Core
                 }
             }
             return strFilePath;
-        }
-
-        //下载图片
-        public static async Task<String> HttpDownloadImage(String fileID, String category)
-        {
-            if (category.Contains("security") || category.Contains("inspection"))
-            {
-                category = "safe";
-            }
-            else if (category.Contains("quality"))
-            {
-                category = "quality";
-            }
-            fileID = fileID.Replace("/", "@");
-            //bim5d_product/api/v1/projects/${projectId}/anonymous/download/file/${fileId}?category=${category}
-            String strAPI = "{0}/api/v1/projects/{1}/anonymous/download/file/{2}?category={3}";
-            String strUrl = String.Format(strAPI, Global.HttpUrl, Global.ProjectID, fileID, category);
-
-            String strFilePath = "";
-            Directory.CreateDirectory(Global.BIMTempPath);  //创建临时文件目录
-            
-            FileStream fileStream = null;
-            try
-            {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    httpClient.DefaultRequestHeaders.Accept.Add(
-                   new MediaTypeWithQualityHeaderValue("application/json"));
-                    httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
-                    httpClient.DefaultRequestHeaders.Add(".ENDPOINT", "WEB");
-
-                    httpClient.Timeout = new TimeSpan(0, 1, 0);
-
-                    HttpResponseMessage response = await httpClient.GetAsync(strUrl);
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        String strFileName = "";
-                        var stream = response.Content.ReadAsStreamAsync().Result;
-                        if (response.Content.Headers.ContentDisposition != null)
-                        {
-                            strFileName = response.Content.Headers.ContentDisposition.FileName.Replace("mpeg4", "mp4");
-                        }
-                        else
-                            strFileName = System.Guid.NewGuid().ToString() + ".jpg";
-
-                        strFilePath = Global.BIMTempPath + strFileName;
-                        fileStream = new FileStream(strFilePath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
-
-                        byte[] strBuf = new byte[stream.Length];
-                        stream.Read(strBuf, 0, strBuf.Length);
-                        await fileStream.WriteAsync(strBuf, 0, strBuf.Length);
-                    }
-                    else
-                    {
-                        String strError = response.StatusCode.GetHashCode().ToString() + "," + response.RequestMessage;
-                        Logger.LogError(strError);
-                        throw new Exception(strError);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex.ToString());
-                return strFilePath;
-            }
-            finally
-            {
-                if (fileStream != null)
-                {
-                    fileStream.Close();
-                }
-            }
-            return strFilePath;
-        }
-
-        //下载图片
-        public static async Task<String> HttpDownloadImage(String url)
-        {
-            String strFilePath = "";
-            Directory.CreateDirectory(Global.BIMTempPath);  //创建临时文件目录
-
-            FileStream fileStream = null;
-            try
-            {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    httpClient.DefaultRequestHeaders.Accept.Add(
-                   new MediaTypeWithQualityHeaderValue("application/json"));
-                    httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
-                    httpClient.DefaultRequestHeaders.Add(".ENDPOINT", "WEB");
-
-                    httpClient.Timeout = new TimeSpan(0, 1, 0);
-
-                    HttpResponseMessage response = await httpClient.GetAsync(url);
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        String strFileName = "";
-                        var stream = response.Content.ReadAsStreamAsync().Result;
-                        if (response.Content.Headers.ContentDisposition != null)
-                        {
-                            strFileName = response.Content.Headers.ContentDisposition.FileName.Replace("mpeg4", "mp4");
-                        }
-                        else
-                            strFileName = System.Guid.NewGuid().ToString() + ".jpg";
-
-                        strFilePath = Global.BIMTempPath + strFileName;
-                        fileStream = new FileStream(strFilePath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
-
-                        byte[] strBuf = new byte[stream.Length];
-                        stream.Read(strBuf, 0, strBuf.Length);
-                        await fileStream.WriteAsync(strBuf, 0, strBuf.Length);
-                    }
-                    else
-                    {
-                        String strError = response.StatusCode.GetHashCode().ToString() + "," + response.RequestMessage;
-                        Logger.LogError(strError);
-                        throw new Exception(strError);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex.ToString());
-                return strFilePath;
-            }
-            finally
-            {
-                if (fileStream != null)
-                {
-                    fileStream.Close();
-                }
-            }
-            return strFilePath;
-        }
-
-        //下载文件
-        public static async Task<Stream> HttpDownloadImageStream(String fileID, String category = "")
-        {
-            Stream imgStream = null;
-            if(category.Contains("security") || category.Contains("inspection"))
-            {
-                category = "safe";
-            }
-            else if(category.Contains("quality"))
-            {
-                category = "quality";
-            }
-            fileID = fileID.Replace("/", "@");
-            //bim5d_product/api/v1/projects/${projectId}/anonymous/download/file/${fileId}?category=${category}
-            String strAPI = "{0}/api/v1/projects/{1}/anonymous/download/file/{2}?category={3}";
-            String strUrl = String.Format(strAPI, Global.HttpUrl, Global.ProjectID, fileID, category);
-            try
-            {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    httpClient.DefaultRequestHeaders.Accept.Add(
-                   new MediaTypeWithQualityHeaderValue("application/json"));
-                    httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
-                    httpClient.DefaultRequestHeaders.Add(".ENDPOINT", "WEB");
-
-                    httpClient.Timeout = new TimeSpan(0, 1, 0);
-
-                    HttpResponseMessage response = await httpClient.GetAsync(strUrl);
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        int flag = fileID.LastIndexOf('/');
-                        if (flag > 0)
-                        {
-                            flag += 1;
-                            fileID = fileID.Substring(flag, fileID.Length - flag);
-                        }
-
-                        imgStream = response.Content.ReadAsStreamAsync().Result;
-                        if (response.Content.Headers.ContentDisposition != null)
-                        {
-                            //strFileName = response.Content.Headers.ContentDisposition.FileName;
-                        }
-                        
-                    }
-                    else
-                    {
-                        String strError = response.StatusCode.GetHashCode().ToString() + "," + response.RequestMessage;
-                        Logger.LogError(strError);
-                        throw new Exception(strError);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex.ToString());
-            }
-            return imgStream;
         }
 
         // 从文件头得到远程文件的长度
@@ -540,10 +281,6 @@ namespace Core
                 httpClient = new HttpClient(handler);
                 httpClient.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                //httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Global.UserToken);
-                //httpClient.DefaultRequestHeaders.Add("endpoint", "WEB");
-                //httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("GZIP"));
-
                 httpClient.Timeout = new TimeSpan(0, 1, 0);
             }
         }

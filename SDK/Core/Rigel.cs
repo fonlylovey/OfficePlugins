@@ -8,30 +8,21 @@ using System.Xml;
 
 namespace Core
 {
-	public class Global
+	public class Rigel
 	{
         public static int AppHwnd = -1;
-        public static String BIMTempPath = Path.GetTempPath() + "BIM5D\\";
-		public static String PluginDir = "C:\\Program Files\\Glodon\\GlodonPlugin\\";
-		public static String UpdateUrl = String.Empty;
+        public static String BIMTempPath = System.Environment.GetEnvironmentVariable("TEMP");
 		public static String PluginVersion = String.Empty;
-
-		public static String HttpUrl = String.Empty;
-        public static String VersionType = String.Empty;
 
 		//登录
 		public static String UserID = String.Empty;
 		public static String UserName = String.Empty;
 		public static String UserToken = String.Empty;
 
-		//项目
-		public static String ProjectID = String.Empty;
-        public static String ReportName = String.Empty;
-
         public static void InitWorkConfig()
 		{
 			try
-			{
+			{/*
 				string strConfigPath = PluginDir + "Config.xml";
 				if (File.Exists(strConfigPath))
 				{
@@ -52,10 +43,11 @@ namespace Core
                         XmlNode xmlUpdateNode = rootNode.SelectSingleNode("UpdateUrl");
 						if(xmlUpdateNode != null)
 						{
-							UpdateUrl = xmlUpdateNode.InnerText;
+							//UpdateUrl = xmlUpdateNode.InnerText;
 						}
                     }
 				} 
+				*/
 			}
 			catch (Exception e)
 			{
