@@ -28,6 +28,7 @@ namespace BIM.Controls.Controls
             InitializeComponent();
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
+            BackColor = NormalColor;
             m_TextAlign.Alignment = StringAlignment.Center;
             m_TextAlign.LineAlignment = StringAlignment.Center;
             UseVisualStyleBackColor = false;
@@ -107,7 +108,6 @@ namespace BIM.Controls.Controls
             State = ButtonState.Normal;
             BackColor = m_NormalColor;
             base.OnMouseLeave(e);
-
         }
 
         protected override void OnMouseDown(MouseEventArgs mevent)
@@ -115,6 +115,12 @@ namespace BIM.Controls.Controls
             State = ButtonState.Pressed;
             BackColor = m_PressedColor;
             base.OnMouseDown(mevent);
+        }
+        protected override void OnMouseUp(MouseEventArgs mevent)
+        {
+            State = ButtonState.Hover;
+            BackColor = m_HoverColor;
+            base.OnMouseUp(mevent);
         }
 
     }

@@ -15,7 +15,6 @@ namespace BIM.Controls.Controls
         private Color m_NormalColor = Color.White;
         private Color m_HoverColor = Color.White;
         private Color m_PressedColor = Color.White;
-        private Color BackgroundColor = Color.White;
 
         private Image m_NormalImage = null;
         private Image m_HoverImage = null;
