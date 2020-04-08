@@ -74,12 +74,14 @@ namespace PPTPlugin
            bool isLogin =  await RequestHandle.Login(strAccount, identCode, inviteCode);
            if (isLogin)
            {
-
-           }
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

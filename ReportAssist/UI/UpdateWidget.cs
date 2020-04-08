@@ -17,5 +17,25 @@ namespace PPTPlugin
         {
             InitializeComponent();
         }
+
+        private void link_recordList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button_detiles_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_cancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

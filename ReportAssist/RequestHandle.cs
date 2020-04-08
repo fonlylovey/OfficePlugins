@@ -201,6 +201,7 @@ namespace PPTPlugin
                 {
                     JObject dataObj = obj.Value<JObject>("data");
                     Rigel.UserID = dataObj.Value<String>("uid");
+                    Rigel.UserName = mobile;
                     Rigel.UserToken = obj.Value<String>("token");
                     //strAPI = "http://xxw.autoinfo.org.cn/ppttools/if/getUserBySjh?sjh=";
                     //strAPI = String.Format(strAPI, strAccount);
@@ -247,7 +248,7 @@ namespace PPTPlugin
         {
             try
             {
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkToken?token=";
+                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkToken?token={0}";
                 strAPI = String.Format(strAPI, token);
                 JObject obj = await Request.HttpGet(strAPI);
                 int code = obj.Value<int>("code");

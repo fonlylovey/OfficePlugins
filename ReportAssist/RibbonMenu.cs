@@ -32,6 +32,9 @@ namespace PPTPlugin
                 String strUserToken = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken);
                 if(await RequestHandle.TokenValidity(strUserToken))
                 {
+                    Rigel.UserName = strUserName;
+                    Rigel.UserToken = strUserToken;
+                    button_login.Label = Rigel.UserName;
                     return true;
                 }
                 return false;
@@ -54,6 +57,7 @@ namespace PPTPlugin
                 {
                     Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserName, Rigel.UserName);
                     Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken, Rigel.UserToken);
+                    button_login.Label = Rigel.UserName;
                 }
             }
             else

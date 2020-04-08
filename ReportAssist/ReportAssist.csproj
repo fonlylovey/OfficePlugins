@@ -232,6 +232,10 @@
     <EmbeddedResource Include="UI\LoginWidget.resx">
       <DependentUpon>LoginWidget.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdateWidget.resx">
+      <DependentUpon>UpdateWidget.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="FAWPPTer.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -250,7 +254,6 @@
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="FAWPPTer.pfx" />
     <None Include="Resources\AboutUs.png" />
     <None Include="Resources\CarType.png" />
     <None Include="Resources\Email.png" />
@@ -358,7 +361,7 @@
     <ManifestKeyFile>ReportAssist_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BB23C9BA7D1FBDFBDC8E378211C1DE2BAEA70B6F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>7282EB17B3A16D80174D8A55A70989BBB6F92486</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
