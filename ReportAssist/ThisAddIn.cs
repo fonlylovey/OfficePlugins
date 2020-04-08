@@ -5,6 +5,8 @@ using System.Text;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools;
+using Core;
+using CustomControls;
 
 namespace PPTPlugin
 {
@@ -12,7 +14,7 @@ namespace PPTPlugin
     {
         public CustomTaskPane TaskWidget = null;
         public DockWidget RightWidget = null;
-        
+        static public FormMgr FormShower = null;
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             RightWidget = new DockWidget();
@@ -21,6 +23,7 @@ namespace PPTPlugin
             Office.MsoCTPDockPosition.msoCTPDockPositionRight;
             TaskWidget.Width = 260;
             TaskWidget.Visible = false;
+            FormShower = new FormMgr(new IntPtr(this.Application.HWND));
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

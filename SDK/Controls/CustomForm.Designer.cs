@@ -46,7 +46,7 @@
             CustomTitle.MaximumSize = new System.Drawing.Size(0, 32);
             CustomTitle.Name = "CustomTitle";
             CustomTitle.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            CustomTitle.Size = new System.Drawing.Size(100, 32);
+            CustomTitle.Size = new System.Drawing.Size(120, 32);
             CustomTitle.TabIndex = 0;
             CustomTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CustomForm_MouseDown);
             CustomTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomForm_MouseMove);
@@ -73,8 +73,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(100, 100);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(120, 100);
             this.ControlBox = false;
             this.Controls.Add(CustomTitle);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);

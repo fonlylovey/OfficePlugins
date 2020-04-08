@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BIM.Controls
+namespace CustomControls
 {
     public partial class FormMgr : IWin32Window
     {

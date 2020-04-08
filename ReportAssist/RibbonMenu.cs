@@ -2,38 +2,72 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 using Microsoft.Office.Tools.Ribbon;
+using System.Threading.Tasks;
 using Base;
 using Core;
-using Newtonsoft.Json.Linq;
 using Widgets;
-using System.Windows.Forms;
+using CustomControls;
+using AutoUpdate;
 
 namespace PPTPlugin
 {
     public partial class RibbonMenu
     {
-        private void RibbonMenu_Load(object sender, RibbonUIEventArgs e)
+        readonly String StrUserName = "UserName";
+        readonly String StrUserToken = "UserToken";
+
+        private async void RibbonMenu_Load(object sender, RibbonUIEventArgs e)
         {
-            
+            await LoadUserInfo();
+        }
+
+        private async Task<bool> LoadUserInfo()
+        {
+            String strUserName = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserName);
+            if(!String.IsNullOrEmpty(strUserName))
+            {
+                String strUserToken = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken);
+                if(await RequestHandle.TokenValidity(strUserToken))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
 
         private async void button_login_Click(object sender, RibbonControlEventArgs e)
         {
-            LoginWidget loginWidget = new LoginWidget();
-            DialogResult result = loginWidget.ShowDialog();
-            if(result == DialogResult.OK && String.IsNullOrEmpty(Rigel.UserID))
+            DialogResult result = DialogResult.None;
+            if (String.IsNullOrEmpty(Rigel.UserID))
             {
-                PromptBox.Error("登陆失败！");
+                LoginWidget loginWidget = new LoginWidget();
+                result = loginWidget.ShowDialog();
+                if (result == DialogResult.OK && String.IsNullOrEmpty(Rigel.UserID))
+                {
+                    PromptBox.Error("登陆失败！");
+                }
+                else
+                {
+                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserName, Rigel.UserName);
+                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken, Rigel.UserToken);
+                }
             }
-
+            else
             {
-
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/logout?sjh={0}";
-                strAPI = String.Format(strAPI, "18800174194");
-                JObject obj = await Request.HttpGet(strAPI);
-                int code = obj.Value<int>("code");
+                result = PromptBox.Prompt("确认退出登录？");
+                if (result == DialogResult.OK)
+                {
+                    await RequestHandle.Logout(Rigel.UserName);
+                    Rigel.UserID = "";
+                    Rigel.UserToken = "";
+                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken, String.Empty);
+                }
             }
+            
         }
 
         private void button_temp_Click(object sender, RibbonControlEventArgs e)
@@ -84,6 +118,16 @@ namespace PPTPlugin
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
             Globals.ThisAddIn.TaskWidget.Visible = true;
+        }
+
+        private void button_option_Click(object sender, RibbonControlEventArgs e)
+        {
+            UpdateWidget updateWidget = new UpdateWidget();
+            DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
+            if(result == DialogResult.OK)
+            {
+                
+            }
         }
     }
 }

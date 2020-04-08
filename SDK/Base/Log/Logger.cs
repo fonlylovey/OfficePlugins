@@ -22,10 +22,11 @@ namespace Base
                 }
                 if (string.IsNullOrEmpty(LogPath))
                 {
-                    String strTime = DateTime.Now.ToString("yyyy_MM_dd_HHmm");
+                    String strTime = DateTime.Now.ToString("yyyy_MM_dd");
                     LogPath = LogDir + strTime + ".log";
                 }
-                String strContent = type + ":\r\n" + logInfo + "\r\n";
+                String strTimeTick = DateTime.Now.ToString("yyyy_MM_dd hh:mm:ss");
+                String strContent = type + ":\r\n" + strTimeTick + "：" + logInfo + "\r\n";
                 System.IO.File.AppendAllText(LogPath, strContent, System.Text.Encoding.Default);
             }
 			catch(Exception ex)

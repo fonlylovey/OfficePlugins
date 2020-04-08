@@ -3,16 +3,43 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Xml;
-using BIM.Base;
+using Base;
+using Core;
 
-namespace BIM.AutoUpdate
+namespace AutoUpdate
 {
     public class VSTOUpdater
 	{
 		public static String ServerVersion = "";
-		public static UpdateForm UpdateWidget = new UpdateForm();
 
-		public static async Task<bool> GetServerVersion(String fileUrl)
+        public static async Task<bool> CheckUpdate()
+        {
+            try
+            {
+                String strLogUrl = Rigel.UpdateUrl + "ExcelChangeLog.txt"; ;
+                String strVSTOUrl = Rigel.UpdateUrl + "BIMExcelPlugin.vsto";
+
+                await GetServerVersion(strVSTOUrl);
+
+                String strChangeLog = await GetChangeLog(strLogUrl);
+                int local = 0;
+                Int32.TryParse(Rigel.PluginVersion.Replace(".", ""), out local);
+                int server = 0;
+                Int32.TryParse(ServerVersion.Replace(".", ""), out server);
+
+                int index = strChangeLog.IndexOf('\n') + 1;
+                String strDesc = strChangeLog.Substring(0, index);
+                String strLogs = strChangeLog.Substring(index, strChangeLog.Length - index);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+                return false;
+            }
+            return true;
+        }
+
+        public static async Task<bool> GetServerVersion(String fileUrl)
 		{
 			//下载云端vsto
 			String filePath = "";
@@ -21,7 +48,7 @@ namespace BIM.AutoUpdate
                 filePath = await Request.HttpDownload(fileUrl);
 				if(!string.IsNullOrEmpty(filePath))
 				{
-					LoadVersionByXml(filePath);
+					LoadVersionByVSTO(filePath);
 				}
 				return true;
 			}
@@ -64,77 +91,8 @@ namespace BIM.AutoUpdate
 			return strChangeLog;
 		}
 		//检测云端版本，返回是否需要更新
-		public static async Task<bool> CheckUpdate()
-		{
-			try
-			{
-				String strLogUrl = "";
-				String strVSTOUrl = "";
-				if (BIM5D.AppType == PluginType.MS_Word)
-				{
-					strLogUrl = BIM5D.UpdateUrl + "WordChangeLog.txt";
-					strVSTOUrl = BIM5D.UpdateUrl + "BIMWordPlugin.vsto";
-				}
-				else if (BIM5D.AppType == PluginType.MS_Project)
-				{
-					strLogUrl = BIM5D.UpdateUrl + "ProjectChangeLog.txt";
-					strVSTOUrl = BIM5D.UpdateUrl + "BIMProjectPlugin.vsto";
-				}
-				else if (BIM5D.AppType == PluginType.MS_PowerPoint)
-				{
-					strLogUrl = BIM5D.UpdateUrl + "PPTChangeLog.txt";
-					strVSTOUrl = BIM5D.UpdateUrl + "BIMPPTPlugin.vsto";
-				}
-                else if (BIM5D.AppType == PluginType.MS_Excel)
-                {
-                    strLogUrl = BIM5D.UpdateUrl + "ExcelChangeLog.txt";
-                    strVSTOUrl = BIM5D.UpdateUrl + "BIMExcelPlugin.vsto";
-                }
 
-                await GetServerVersion(strVSTOUrl);
-
-				String strChangeLog = await GetChangeLog(strLogUrl);
-				int local = 0;
-                Int32.TryParse(BIM5D.PluginVersion.Replace(".", ""), out local);
-				int server = 0;
-                Int32.TryParse(ServerVersion.Replace(".", ""), out server);
-
-				UpdateWidget.SetCurrentVersion(BIM5D.PluginVersion);
-				UpdateWidget.SetServerVersion(ServerVersion);
-				int index = strChangeLog.IndexOf('\n') + 1;
-				String strDesc = strChangeLog.Substring(0, index);
-                String strLogs = strChangeLog.Substring(index, strChangeLog.Length - index);
-
-				UpdateWidget.SetDescription(strDesc);
-                UpdateWidget.SetChangeLog(strLogs);
-
-				if (local < server)
-				{
-                    if (local < 400126)
-                    {
-						UpdateWidget.SetNeedUpdate(false);
-					}
-                    else
-                    {
-						UpdateWidget.SetNeedUpdate(true);
-					}
-					UpdateWidget.ShowDialog();
-                }
-				else
-				{
-					UpdateWidget.SetNeedUpdate(false);
-					return false;
-				}
-			}
-			catch(Exception ex)
-			{
-				Logger.LogError(ex.ToString());
-				return false;
-			}
-			return true;
-		}
-
-		static String LoadVersionByXml(String xmlPath)
+		static String LoadVersionByVSTO(String xmlPath)
 		{
 			XmlDocument doc = new XmlDocument();
 			doc.Load(xmlPath);

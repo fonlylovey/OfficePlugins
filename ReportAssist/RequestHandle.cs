@@ -167,11 +167,103 @@ namespace PPTPlugin
             return resModel;
         }
 
-
-        public static async void Login(String username, String password)
+        //向目标手机发送验证码
+        public static async Task<int> SendIdentCode(String mobile)
         {
-            String strUrl = @"http://60.30.69.48/ppttools/login?username={0}&password={1}";
-            strUrl = String.Format(strUrl, username, password);
+            int userFlag = -1;
+            try
+            {
+                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/getCode?sjh={0}";
+                strAPI = String.Format(strAPI, mobile);
+                JObject obj = await Request.HttpGet(strAPI);
+                userFlag = obj.Value<int>("flag");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return userFlag;
+        }
+
+        public static async Task<bool> Login(String mobile, String identCode, String inviteCode = "")
+        {
+            
+            String strMsg = "";
+            try
+            {
+                //
+                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkUserLogin?sjh={0}&code={1}&yqm={2}";
+                strAPI = String.Format(strAPI, mobile, identCode, inviteCode);
+                JObject obj = await Request.HttpGet(strAPI);
+                int code = obj.Value<int>("code");
+                strMsg = obj.Value<String>("msg");
+                if (code == 200)
+                {
+                    JObject dataObj = obj.Value<JObject>("data");
+                    Rigel.UserID = dataObj.Value<String>("uid");
+                    Rigel.UserToken = obj.Value<String>("token");
+                    //strAPI = "http://xxw.autoinfo.org.cn/ppttools/if/getUserBySjh?sjh=";
+                    //strAPI = String.Format(strAPI, strAccount);
+                    //obj = await Request.HttpGet(strAPI);
+                    //code = obj.Value<int>("result");
+                    //strMsg = obj.Value<String>("msg");
+                    //if (code == 200)
+                    //{
+                    //}
+                    //else
+                    //{
+                    //    PromptBox.Error(strMsg);
+                    //}
+                    return true;
+                }
+                else
+                {
+                    throw new Exception(code + ":" + strMsg);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static async Task<bool> Logout(String mobile)
+        {
+            try
+            {
+                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/logout?sjh={0}";
+                strAPI = String.Format(strAPI, "18800174194");
+                JObject obj = await Request.HttpGet(strAPI);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        //token有效性验证
+        public static async Task<bool> TokenValidity(String token)
+        {
+            try
+            {
+                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkToken?token=";
+                strAPI = String.Format(strAPI, token);
+                JObject obj = await Request.HttpGet(strAPI);
+                int code = obj.Value<int>("code");
+                if (code == 200)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

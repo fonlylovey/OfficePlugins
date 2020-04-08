@@ -50,12 +50,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\UpdateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\UpdateForm.Designer.cs">
-      <DependentUpon>UpdateForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="VSTOUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,24 +57,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\UpdateForm.resx">
-      <DependentUpon>UpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BIM.Base\BIM.Base.csproj">
-      <Project>{aa995a3f-1a98-4b99-aca1-dd851b980ef5}</Project>
-      <Name>BIM.Base</Name>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
+      <Name>Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BIM.Controls\BIM.Controls.csproj">
-      <Project>{4e4afb75-28cd-415a-b905-f12805e7eb6b}</Project>
-      <Name>BIM.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BIM.Widget\BIM.Widget.csproj">
-      <Project>{1cc8bb28-a46d-4290-a434-9d8d96cdc07c}</Project>
-      <Name>BIM.Widget</Name>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

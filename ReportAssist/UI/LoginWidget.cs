@@ -24,20 +24,18 @@ namespace PPTPlugin
 
         private async void button_inviteCode_Click(object sender, EventArgs e)
         {
-            
-
             if (!string.IsNullOrEmpty(lineEdit_account.Text))
             {
                 try
                 {
-                    String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/getCode?sjh={0}";
-                    strAPI = String.Format(strAPI, lineEdit_account.Text);
-                    JObject obj = await Request.HttpGet(strAPI);
-                    userFlag = obj.Value<int>("flag");
-                    
-                    if(userFlag == 0)//未注册
+                    int userFlag = await RequestHandle.SendIdentCode(lineEdit_account.Text);
+                    if (userFlag == 0)//未注册
                     {
                         lineEdit_inviteCode.Visible = true;
+                    }
+                    else if(userFlag == 1)
+                    {
+                        //none
                     }
                     else//2 出错
                     {
@@ -54,8 +52,7 @@ namespace PPTPlugin
 
         private async void button_login_Click(object sender, EventArgs e)
         {
-        
-            { 
+
             String strAccount = "";
             String identCode = "";
             String inviteCode = "";
@@ -73,43 +70,12 @@ namespace PPTPlugin
             strAccount = lineEdit_account.Text;
             identCode = lineEdit_identCode.Text;
             inviteCode = lineEdit_inviteCode.Text;
-            String strMsg = "";
-            try
-            {
-                //
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkUserLogin?sjh={0}&code={1}&yqm={2}";
-                strAPI = String.Format(strAPI, strAccount, identCode, inviteCode);
-                JObject obj = await Request.HttpGet(strAPI);
-                int code = obj.Value<int>("code");
-                strMsg = obj.Value<String>("msg");
-                if (code == 200)
-                {
-                    strAPI = "http://xxw.autoinfo.org.cn/ppttools/if/getUserBySjh?sjh=";
-                    strAPI = String.Format(strAPI, strAccount);
-                    obj = await Request.HttpGet(strAPI);
-                    code = obj.Value<int>("result");
-                    strMsg = obj.Value<String>("msg");
-                    if (code == 200)
-                    {
 
-                    }
-                    else
-                    {
-                        PromptBox.Error(strMsg);
-                    }
-                }
-                else
-                {
-                    PromptBox.Error(strMsg);
-                }
-            }
-            catch (Exception ex)
-            {
-                PromptBox.Error(ex.Message);
-            }
-            }
+           bool isLogin =  await RequestHandle.Login(strAccount, identCode, inviteCode);
+           if (isLogin)
+           {
 
-            
+           }
         }
 
         private void button_cancel_Click(object sender, EventArgs e)

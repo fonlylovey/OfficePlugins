@@ -80,7 +80,7 @@
             this.button14 = this.Factory.CreateRibbonButton();
             this.button15 = this.Factory.CreateRibbonButton();
             this.button17 = this.Factory.CreateRibbonButton();
-            this.button18 = this.Factory.CreateRibbonButton();
+            this.button_option = this.Factory.CreateRibbonButton();
             this.tab1 = this.Factory.CreateRibbonTab();
             group1 = this.Factory.CreateRibbonGroup();
             group2 = this.Factory.CreateRibbonGroup();
@@ -402,7 +402,7 @@
             group6.Items.Add(this.button17);
             group6.Items.Add(label22);
             group6.Items.Add(label25);
-            group6.Items.Add(this.button18);
+            group6.Items.Add(this.button_option);
             group6.Items.Add(label23);
             group6.Items.Add(label24);
             group6.Label = "更多";
@@ -436,13 +436,14 @@
             label25.Label = " ";
             label25.Name = "label25";
             // 
-            // button18
+            // button_option
             // 
-            this.button18.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button18.Image = global::PPTPlugin.Properties.Resources.Setting;
-            this.button18.Label = "设置\n";
-            this.button18.Name = "button18";
-            this.button18.ShowImage = true;
+            this.button_option.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_option.Image = global::PPTPlugin.Properties.Resources.Setting;
+            this.button_option.Label = "设置\n";
+            this.button_option.Name = "button_option";
+            this.button_option.ShowImage = true;
+            this.button_option.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_option_Click);
             // 
             // label23
             // 
@@ -509,7 +510,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button14;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button15;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button17;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button18;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_option;
     }
 
     partial class ThisRibbonCollection

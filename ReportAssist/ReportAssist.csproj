@@ -30,16 +30,16 @@
     <DefineConstants>VSTO40</DefineConstants>
     <IsWebBootstrapper>False</IsWebBootstrapper>
     <BootstrapperEnabled>false</BootstrapperEnabled>
-    <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
+    <PublishUrl>D:\WorkSpace\BIM_Office\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
     <ApplicationVersion>1.0.0.6</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
-    <UpdateEnabled>true</UpdateEnabled>
-    <UpdateInterval>7</UpdateInterval>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>FAW PPTer</ProductName>
-    <PublisherName>FAW PPTer</PublisherName>
+    <PublisherName>智妍</PublisherName>
     <SupportUrl />
     <FriendlyName>FAW</FriendlyName>
     <OfficeApplicationDescription />
@@ -283,6 +283,10 @@
     <None Include="Resources\产品.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SDK\AutoUpdate\AutoUpdate.csproj">
+      <Project>{f7026bb0-93a2-4565-87a3-d615add358de}</Project>
+      <Name>AutoUpdate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SDK\Base\Base.csproj">
       <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
       <Name>Base</Name>
