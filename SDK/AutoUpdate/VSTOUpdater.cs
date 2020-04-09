@@ -16,7 +16,8 @@ namespace AutoUpdate
         {
             try
             {
-                String strLogUrl = Rigel.UpdateUrl + "ExcelChangeLog.txt"; ;
+				//http://xxw.autoinfo.org.cn/ppttools/static/update/publish
+				String strLogUrl = Rigel.UpdateUrl + "ExcelChangeLog.txt"; ;
                 String strVSTOUrl = Rigel.UpdateUrl + "BIMExcelPlugin.vsto";
 
                 await GetServerVersion(strVSTOUrl);

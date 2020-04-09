@@ -10,7 +10,17 @@ namespace CustomControls
 		public Color BorderColor { get; set; } = Color.Red;
 		public bool DragResizeEnable { get; set; } = false;
 		public String TitleText { get; set;}
-
+		public bool TitleVisible
+		{
+			get
+			{
+				return CustomTitle.Visible;
+			}
+			set
+			{
+				CustomTitle.Visible = value;
+			}
+		}
 		public CustomForm()
 		{
 			InitializeComponent();

@@ -28,28 +28,27 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.Windows.Forms.Panel CustomTitle;
+            this.CustomTitle = new System.Windows.Forms.Panel();
             this.label_title = new System.Windows.Forms.Label();
-            CustomTitle = new System.Windows.Forms.Panel();
-            CustomTitle.SuspendLayout();
+            this.CustomTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // CustomTitle
             // 
-            CustomTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(210)))), ((int)(((byte)(213)))));
-            CustomTitle.BackgroundImage = global::CustomControls.Properties.Resources.Title_bg;
-            CustomTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            CustomTitle.Controls.Add(this.label_title);
-            CustomTitle.Cursor = System.Windows.Forms.Cursors.Hand;
-            CustomTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            CustomTitle.Location = new System.Drawing.Point(0, 0);
-            CustomTitle.MaximumSize = new System.Drawing.Size(0, 32);
-            CustomTitle.Name = "CustomTitle";
-            CustomTitle.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            CustomTitle.Size = new System.Drawing.Size(120, 32);
-            CustomTitle.TabIndex = 0;
-            CustomTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CustomForm_MouseDown);
-            CustomTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomForm_MouseMove);
+            this.CustomTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(210)))), ((int)(((byte)(213)))));
+            this.CustomTitle.BackgroundImage = global::CustomControls.Properties.Resources.Title_bg;
+            this.CustomTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CustomTitle.Controls.Add(this.label_title);
+            this.CustomTitle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CustomTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CustomTitle.Location = new System.Drawing.Point(0, 0);
+            this.CustomTitle.MaximumSize = new System.Drawing.Size(0, 32);
+            this.CustomTitle.Name = "CustomTitle";
+            this.CustomTitle.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.CustomTitle.Size = new System.Drawing.Size(120, 32);
+            this.CustomTitle.TabIndex = 0;
+            this.CustomTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CustomForm_MouseDown);
+            this.CustomTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomForm_MouseMove);
             // 
             // label_title
             // 
@@ -76,14 +75,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(120, 100);
             this.ControlBox = false;
-            this.Controls.Add(CustomTitle);
+            this.Controls.Add(this.CustomTitle);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "CustomForm";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.CustomForm_Paint);
-            CustomTitle.ResumeLayout(false);
-            CustomTitle.PerformLayout();
+            this.CustomTitle.ResumeLayout(false);
+            this.CustomTitle.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -91,5 +90,6 @@
 		#endregion
 
 		private System.Windows.Forms.Label label_title;
-	}
+        private System.Windows.Forms.Panel CustomTitle;
+    }
 }

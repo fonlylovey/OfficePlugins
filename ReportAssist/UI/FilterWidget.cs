@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CustomControls;
 
 namespace PPTPlugin
 {
-    public partial class FilterWidget : Form
+    public partial class FilterWidget : CustomForm
     {
         public FilterWidget()
         {
