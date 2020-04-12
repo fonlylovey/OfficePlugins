@@ -10,14 +10,12 @@ using System.Windows.Forms;
 using Core;
 using CustomControls;
 using Widgets;
-using Newtonsoft.Json.Linq;
 using WinForm.UI.Controls;
 
 namespace PPTPlugin
 {
     public partial class LoginWidget : CustomForm
     {
-        private int userFlag = 0;
         private FErrorProvider errorProvider;
         public LoginWidget()
         {

@@ -28,195 +28,308 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label_currentVersion = new System.Windows.Forms.Label();
-            this.link_recordList = new System.Windows.Forms.LinkLabel();
-            this.button_detiles = new System.Windows.Forms.Button();
-            this.button_cancel = new System.Windows.Forms.Button();
-            this.button_update = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.TabWidget = new System.Windows.Forms.TabControl();
+            this.info_page = new System.Windows.Forms.TabPage();
+            this.history_page = new System.Windows.Forms.TabPage();
+            this.button_close = new WinForm.UI.Controls.CirclePictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fButton1 = new WinForm.UI.Controls.FButton();
+            this.fButton2 = new WinForm.UI.Controls.FButton();
+            this.fButton3 = new WinForm.UI.Controls.FButton();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.richTextBox = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabWidget1 = new CustomControls.Controls.TabWidget(this.components);
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CustomTitle.SuspendLayout();
+            this.TabWidget.SuspendLayout();
+            this.info_page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.button_close)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.tabWidget1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CustomTitle
             // 
-            this.CustomTitle.Location = new System.Drawing.Point(151, 1);
-            this.CustomTitle.Size = new System.Drawing.Size(300, 32);
+            this.CustomTitle.Controls.Add(this.flowLayoutPanel1);
+            this.CustomTitle.Location = new System.Drawing.Point(1, 1);
+            this.CustomTitle.MaximumSize = new System.Drawing.Size(0, 40);
+            this.CustomTitle.MinimumSize = new System.Drawing.Size(0, 40);
+            this.CustomTitle.Size = new System.Drawing.Size(760, 40);
+            this.CustomTitle.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
             // 
-            // pictureBox1
+            // TabWidget
             // 
-            this.pictureBox1.Image = global::PPTPlugin.Properties.Resources.Logo2;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.pictureBox1.MaximumSize = new System.Drawing.Size(148, 45);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(148, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 45);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.TabWidget.Controls.Add(this.info_page);
+            this.TabWidget.Controls.Add(this.history_page);
+            this.TabWidget.Location = new System.Drawing.Point(0, 0);
+            this.TabWidget.Margin = new System.Windows.Forms.Padding(0);
+            this.TabWidget.MaximumSize = new System.Drawing.Size(545, 380);
+            this.TabWidget.MinimumSize = new System.Drawing.Size(545, 380);
+            this.TabWidget.Name = "TabWidget";
+            this.TabWidget.Padding = new System.Drawing.Point(0, 0);
+            this.TabWidget.SelectedIndex = 0;
+            this.TabWidget.Size = new System.Drawing.Size(545, 380);
+            this.TabWidget.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabWidget.TabIndex = 1;
+            this.TabWidget.TabStop = false;
             // 
-            // label_currentVersion
+            // info_page
             // 
-            this.label_currentVersion.AutoSize = true;
-            this.label_currentVersion.Location = new System.Drawing.Point(15, 51);
-            this.label_currentVersion.Margin = new System.Windows.Forms.Padding(15, 6, 3, 3);
-            this.label_currentVersion.Name = "label_currentVersion";
-            this.label_currentVersion.Size = new System.Drawing.Size(96, 17);
-            this.label_currentVersion.TabIndex = 3;
-            this.label_currentVersion.Text = "当前版本:1.0.0.5";
+            this.info_page.Controls.Add(this.tabWidget1);
+            this.info_page.Location = new System.Drawing.Point(4, 26);
+            this.info_page.Margin = new System.Windows.Forms.Padding(0);
+            this.info_page.Name = "info_page";
+            this.info_page.Size = new System.Drawing.Size(537, 350);
+            this.info_page.TabIndex = 1;
+            this.info_page.Text = "信息";
+            this.info_page.UseVisualStyleBackColor = true;
+            this.info_page.Paint += new System.Windows.Forms.PaintEventHandler(this.info_page_Paint);
             // 
-            // link_recordList
+            // history_page
             // 
-            this.link_recordList.AutoSize = true;
-            this.link_recordList.Location = new System.Drawing.Point(15, 91);
-            this.link_recordList.Margin = new System.Windows.Forms.Padding(15, 20, 9, 9);
-            this.link_recordList.Name = "link_recordList";
-            this.link_recordList.Size = new System.Drawing.Size(56, 17);
-            this.link_recordList.TabIndex = 4;
-            this.link_recordList.TabStop = true;
-            this.link_recordList.Text = "历史更新";
-            this.link_recordList.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_recordList_LinkClicked);
+            this.history_page.Location = new System.Drawing.Point(4, 26);
+            this.history_page.Name = "history_page";
+            this.history_page.Padding = new System.Windows.Forms.Padding(3);
+            this.history_page.Size = new System.Drawing.Size(537, 350);
+            this.history_page.TabIndex = 2;
+            this.history_page.Text = "历史";
+            this.history_page.UseVisualStyleBackColor = true;
+            this.history_page.Paint += new System.Windows.Forms.PaintEventHandler(this.info_page_Paint);
             // 
-            // button_detiles
+            // button_close
             // 
-            this.button_detiles.Location = new System.Drawing.Point(15, 122);
-            this.button_detiles.Margin = new System.Windows.Forms.Padding(15, 5, 9, 9);
-            this.button_detiles.Name = "button_detiles";
-            this.button_detiles.Size = new System.Drawing.Size(75, 23);
-            this.button_detiles.TabIndex = 5;
-            this.button_detiles.Text = "功能介绍";
-            this.button_detiles.UseVisualStyleBackColor = true;
-            this.button_detiles.Click += new System.EventHandler(this.button_detiles_Click);
-            // 
-            // button_cancel
-            // 
-            this.button_cancel.Location = new System.Drawing.Point(205, 6);
-            this.button_cancel.Margin = new System.Windows.Forms.Padding(6, 6, 15, 6);
-            this.button_cancel.MaximumSize = new System.Drawing.Size(80, 28);
-            this.button_cancel.MinimumSize = new System.Drawing.Size(80, 28);
-            this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(80, 28);
-            this.button_cancel.TabIndex = 6;
-            this.button_cancel.Text = "取消";
-            this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
-            // 
-            // button_update
-            // 
-            this.button_update.Location = new System.Drawing.Point(104, 6);
-            this.button_update.Margin = new System.Windows.Forms.Padding(6, 6, 15, 6);
-            this.button_update.MaximumSize = new System.Drawing.Size(80, 28);
-            this.button_update.MinimumSize = new System.Drawing.Size(80, 28);
-            this.button_update.Name = "button_update";
-            this.button_update.Size = new System.Drawing.Size(80, 28);
-            this.button_update.TabIndex = 7;
-            this.button_update.Tag = "";
-            this.button_update.Text = "更新";
-            this.button_update.UseVisualStyleBackColor = true;
-            this.button_update.Click += new System.EventHandler(this.button_update_Click);
+            this.button_close.Image = global::PPTPlugin.Properties.Resources.close;
+            this.button_close.IsSelected = false;
+            this.button_close.Location = new System.Drawing.Point(695, 10);
+            this.button_close.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.button_close.MouseMoveImage = global::PPTPlugin.Properties.Resources.close_s;
+            this.button_close.Name = "button_close";
+            this.button_close.Radius = 1;
+            this.button_close.SelectedImage = null;
+            this.button_close.Size = new System.Drawing.Size(45, 25);
+            this.button_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.button_close.TabIndex = 1;
+            this.button_close.TabStop = false;
+            this.button_close.Click += new System.EventHandler(this.button_close_Click);
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.label_currentVersion);
-            this.flowLayoutPanel1.Controls.Add(this.link_recordList);
-            this.flowLayoutPanel1.Controls.Add(this.button_detiles);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 1);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(150, 0);
-            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(148, 0);
+            this.flowLayoutPanel1.Controls.Add(this.button_close);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 230);
-            this.flowLayoutPanel1.TabIndex = 10;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 40);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1, 41);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.MaximumSize = new System.Drawing.Size(210, 480);
+            this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(210, 480);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(210, 480);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Image = global::PPTPlugin.Properties.Resources.Logo2;
+            this.label1.Location = new System.Drawing.Point(30, 150);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 150, 0, 0);
+            this.label1.MaximumSize = new System.Drawing.Size(145, 42);
+            this.label1.MinimumSize = new System.Drawing.Size(145, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 42);
+            this.label1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
+            this.label2.Location = new System.Drawing.Point(30, 204);
+            this.label2.Margin = new System.Windows.Forms.Padding(0, 12, 0, 0);
+            this.label2.MaximumSize = new System.Drawing.Size(145, 42);
+            this.label2.MinimumSize = new System.Drawing.Size(145, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 42);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "PPTer 插件2010";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.button_cancel);
-            this.flowLayoutPanel3.Controls.Add(this.button_update);
+            this.flowLayoutPanel3.Controls.Add(this.fButton1);
+            this.flowLayoutPanel3.Controls.Add(this.fButton2);
+            this.flowLayoutPanel3.Controls.Add(this.fButton3);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 156);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(300, 40);
-            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(280, 40);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 390);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(545, 100);
+            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(545, 100);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(300, 40);
-            this.flowLayoutPanel3.TabIndex = 12;
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(545, 100);
+            this.flowLayoutPanel3.TabIndex = 3;
+            // 
+            // fButton1
+            // 
+            this.fButton1.BackColor = System.Drawing.Color.Transparent;
+            this.fButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.fButton1.ForeColor = System.Drawing.Color.White;
+            this.fButton1.Image = global::PPTPlugin.Properties.Resources.history_btn;
+            this.fButton1.Location = new System.Drawing.Point(0, 0);
+            this.fButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.fButton1.MaximumSize = new System.Drawing.Size(100, 34);
+            this.fButton1.MinimumSize = new System.Drawing.Size(100, 34);
+            this.fButton1.mouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fButton1.Name = "fButton1";
+            this.fButton1.Padding = new System.Windows.Forms.Padding(0, 2, 1, 1);
+            this.fButton1.Size = new System.Drawing.Size(100, 34);
+            this.fButton1.TabIndex = 0;
+            this.fButton1.Click += new System.EventHandler(this.fButton1_Click);
+            // 
+            // fButton2
+            // 
+            this.fButton2.BackColor = System.Drawing.Color.Transparent;
+            this.fButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.fButton2.ForeColor = System.Drawing.Color.White;
+            this.fButton2.Image = global::PPTPlugin.Properties.Resources.about_btn;
+            this.fButton2.Location = new System.Drawing.Point(122, 0);
+            this.fButton2.Margin = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.fButton2.MaximumSize = new System.Drawing.Size(100, 34);
+            this.fButton2.MinimumSize = new System.Drawing.Size(100, 34);
+            this.fButton2.mouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fButton2.Name = "fButton2";
+            this.fButton2.Padding = new System.Windows.Forms.Padding(1, 2, 1, 1);
+            this.fButton2.Size = new System.Drawing.Size(100, 34);
+            this.fButton2.TabIndex = 1;
+            this.fButton2.Click += new System.EventHandler(this.fButton2_Click);
+            // 
+            // fButton3
+            // 
+            this.fButton3.BackColor = System.Drawing.Color.Transparent;
+            this.fButton3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.fButton3.ForeColor = System.Drawing.Color.White;
+            this.fButton3.Image = global::PPTPlugin.Properties.Resources.updata_btn;
+            this.fButton3.Location = new System.Drawing.Point(382, 0);
+            this.fButton3.Margin = new System.Windows.Forms.Padding(160, 0, 0, 0);
+            this.fButton3.MaximumSize = new System.Drawing.Size(100, 34);
+            this.fButton3.MinimumSize = new System.Drawing.Size(100, 34);
+            this.fButton3.mouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fButton3.Name = "fButton3";
+            this.fButton3.Padding = new System.Windows.Forms.Padding(1, 2, 1, 1);
+            this.fButton3.Size = new System.Drawing.Size(100, 34);
+            this.fButton3.TabIndex = 2;
+            this.fButton3.Click += new System.EventHandler(this.fButton3_Click);
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.richTextBox);
+            this.flowLayoutPanel4.Controls.Add(this.TabWidget);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(151, 1);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(211, 41);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel4.MaximumSize = new System.Drawing.Size(300, 0);
-            this.flowLayoutPanel4.MinimumSize = new System.Drawing.Size(300, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(300, 230);
-            this.flowLayoutPanel4.TabIndex = 13;
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(550, 480);
+            this.flowLayoutPanel4.TabIndex = 4;
             // 
-            // richTextBox
+            // tabWidget1
             // 
-            this.richTextBox.BackColor = System.Drawing.Color.White;
-            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox.MaximumSize = new System.Drawing.Size(296, 160);
-            this.richTextBox.MinimumSize = new System.Drawing.Size(296, 150);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.ReadOnly = true;
-            this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox.ShowSelectionMargin = true;
-            this.richTextBox.Size = new System.Drawing.Size(296, 150);
-            this.richTextBox.TabIndex = 13;
-            this.richTextBox.Text = "最新版本：1.0.0.6 \n版本特性：\n-新增导入图标功能\n-新增插入视频功能\n-修改一些bug\n";
+            this.tabWidget1.Controls.Add(this.tabPage1);
+            this.tabWidget1.Controls.Add(this.tabPage2);
+            this.tabWidget1.Location = new System.Drawing.Point(159, 211);
+            this.tabWidget1.Name = "tabWidget1";
+            this.tabWidget1.SelectedIndex = 0;
+            this.tabWidget1.Size = new System.Drawing.Size(200, 100);
+            this.tabWidget1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(192, 70);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 70);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // UpdateWidget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderWidth = 1;
-            this.ClientSize = new System.Drawing.Size(452, 232);
+            this.ClientSize = new System.Drawing.Size(762, 522);
             this.Controls.Add(this.flowLayoutPanel4);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(452, 232);
-            this.MinimumSize = new System.Drawing.Size(452, 232);
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.MinimumSize = new System.Drawing.Size(762, 522);
             this.Name = "UpdateWidget";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateWidget";
             this.TitleVisible = true;
-            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
-            this.Controls.SetChildIndex(this.flowLayoutPanel4, 0);
+            this.Load += new System.EventHandler(this.UpdateWidget_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdateWidget_Paint);
             this.Controls.SetChildIndex(this.CustomTitle, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Controls.SetChildIndex(this.flowLayoutPanel2, 0);
+            this.Controls.SetChildIndex(this.flowLayoutPanel4, 0);
+            this.CustomTitle.ResumeLayout(false);
+            this.CustomTitle.PerformLayout();
+            this.TabWidget.ResumeLayout(false);
+            this.info_page.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.button_close)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.tabWidget1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label_currentVersion;
-        private System.Windows.Forms.LinkLabel link_recordList;
-        private System.Windows.Forms.Button button_detiles;
-        private System.Windows.Forms.Button button_cancel;
-        private System.Windows.Forms.Button button_update;
+        private System.Windows.Forms.TabControl TabWidget;
+        private WinForm.UI.Controls.CirclePictureBox button_close;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private WinForm.UI.Controls.FButton fButton1;
+        private WinForm.UI.Controls.FButton fButton2;
+        private WinForm.UI.Controls.FButton fButton3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.TabPage history_page;
+        private System.Windows.Forms.TabPage info_page;
+        private CustomControls.Controls.TabWidget tabWidget1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

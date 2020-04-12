@@ -35,8 +35,7 @@
             // 
             // CustomTitle
             // 
-            this.CustomTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(210)))), ((int)(((byte)(213)))));
-            this.CustomTitle.BackgroundImage = global::CustomControls.Properties.Resources.Title_bg;
+            this.CustomTitle.BackColor = System.Drawing.Color.White;
             this.CustomTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CustomTitle.Controls.Add(this.label_title);
             this.CustomTitle.Cursor = System.Windows.Forms.Cursors.Hand;

@@ -90,6 +90,12 @@
     <Compile Include="Controls\PushButtonPrivate.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\TabWidget.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabWidget.Designer.cs">
+      <DependentUpon>TabWidget.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomForm.cs">
       <SubType>Form</SubType>
     </Compile>

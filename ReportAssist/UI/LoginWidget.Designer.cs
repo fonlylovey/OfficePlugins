@@ -200,7 +200,7 @@
             this.button_identCode.mouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_identCode.Name = "button_identCode";
             this.button_identCode.Radius = 1;
-            this.button_identCode.Size = new System.Drawing.Size(70, 24);
+            this.button_identCode.Size = new System.Drawing.Size(70, 23);
             this.button_identCode.TabIndex = 9;
             // 
             // flowLayoutPanel3
@@ -305,7 +305,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginWidget";
             this.TitleText = "登陆";
-            this.TitleVisible = true;
             this.Controls.SetChildIndex(this.CustomTitle, 0);
             this.Controls.SetChildIndex(this.flowLayoutPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
