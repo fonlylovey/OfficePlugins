@@ -30,10 +30,10 @@
     <DefineConstants>VSTO40</DefineConstants>
     <IsWebBootstrapper>False</IsWebBootstrapper>
     <BootstrapperEnabled>false</BootstrapperEnabled>
-    <PublishUrl>D:\WorkSpace\BIM_Office\Plugins\publish\</PublishUrl>
+    <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.6</ApplicationVersion>
+    <ApplicationVersion>1.0.0.10</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -349,6 +349,7 @@
   <ItemGroup>
     <Content Include="Resources\Logo1.png" />
     <Content Include="Resources\Logo2.png" />
+    <None Include="Resources\Logout.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

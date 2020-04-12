@@ -90,6 +90,6 @@
 		#endregion
 
 		private System.Windows.Forms.Label label_title;
-        private System.Windows.Forms.Panel CustomTitle;
+        protected System.Windows.Forms.Panel CustomTitle;
     }
 }

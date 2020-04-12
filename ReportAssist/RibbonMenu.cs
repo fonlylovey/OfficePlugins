@@ -55,9 +55,12 @@ namespace PPTPlugin
                 }
                 else
                 {
-                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserName, Rigel.UserName);
-                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken, Rigel.UserToken);
+                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
+                        StrUserName, Rigel.UserName);
+                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
+                        StrUserToken, Rigel.UserToken);
                     button_login.Label = Rigel.UserName;
+                    button_login.Image = Properties.Resources.Login;
                 }
             }
             else
@@ -68,7 +71,10 @@ namespace PPTPlugin
                     await RequestHandle.Logout(Rigel.UserName);
                     Rigel.UserID = "";
                     Rigel.UserToken = "";
-                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken, String.Empty);
+                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
+                        StrUserToken, String.Empty);
+                    button_login.Label = "登陆";
+                    button_login.Image = Properties.Resources.Logout;
                 }
             }
             

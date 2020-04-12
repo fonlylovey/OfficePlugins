@@ -15,6 +15,8 @@ namespace PPTPlugin
     {
         public FilterWidget()
         {
+            this.Height = 388;
+            CustomTitle.Visible = false;
             InitializeComponent();
         }
 
