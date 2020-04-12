@@ -34,6 +34,21 @@ namespace WinForm.UI.Controls
         public int Radius { get { return radius; } set { if (value == radius) return; radius = value; this.Invalidate(); } }
 
 
+        [Category("Skin")]
+        [Description("设置是否使用动画")]
+        [DefaultValue(false)]
+        public bool UseAnimation 
+        { 
+            get 
+            { 
+                return _animationManager.IsAnimating(); 
+            } 
+            set 
+            {
+                _animationManager.SetAnimating(value);
+            } 
+        }
+
         private Color MouseOverBackColor = Color.FromArgb(215, 210, 206);
         [Category("BackColor")]
         [Description("获取或设置当鼠标指针位于控件边框内时按钮工作区的颜色")]
