@@ -306,6 +306,10 @@
       <Project>{D3A197E4-5622-4471-9A83-BD30D8450924}</Project>
       <Name>Widgets</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SDK\WinForm.UI\WinForm.UI.csproj">
+      <Project>{BF9D861D-42AF-4F13-A230-EC9A568DC82B}</Project>
+      <Name>WinForm.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\市场.png" />
@@ -347,6 +351,16 @@
     <None Include="Resources\prePage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\yzm_btn.png" />
+    <None Include="Resources\updata_btn.png" />
+    <None Include="Resources\about_btn.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close-s.png" />
+    <None Include="Resources\history_btn.png" />
+    <None Include="Resources\icon1.png" />
+    <None Include="Resources\icon2.png" />
+    <None Include="Resources\icon3.png" />
+    <None Include="Resources\login_btn.png" />
     <Content Include="Resources\Logo1.png" />
     <Content Include="Resources\Logo2.png" />
     <None Include="Resources\Logout.png" />

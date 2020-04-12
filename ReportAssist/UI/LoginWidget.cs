@@ -11,18 +11,22 @@ using Core;
 using CustomControls;
 using Widgets;
 using Newtonsoft.Json.Linq;
+using WinForm.UI.Controls;
 
 namespace PPTPlugin
 {
     public partial class LoginWidget : CustomForm
     {
         private int userFlag = 0;
+        private FErrorProvider errorProvider;
         public LoginWidget()
         {
             InitializeComponent();
+            errorProvider = new FErrorProvider();
+            button_identCode.SetAnimating(false);
         }
 
-        private async void button_inviteCode_Click(object sender, EventArgs e)
+        private async void button_identCode_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(lineEdit_account.Text))
             {
@@ -39,6 +43,7 @@ namespace PPTPlugin
                     }
                     else//2 出错
                     {
+                        errorProvider.ErrorAlignment = ErrorAlignment.Top;
                         errorProvider.SetError(lineEdit_account, "手机号输入错误");
                     }
                 }
@@ -58,13 +63,15 @@ namespace PPTPlugin
             String inviteCode = "";
             if (string.IsNullOrEmpty(lineEdit_account.Text))
             {
-                errorProvider.SetError(lineEdit_account, "手机号为空");
+                errorProvider.ErrorAlignment = ErrorAlignment.Top;
+                errorProvider.SetError(flowLayoutPanel6, "手机号为空");
                 return;
             }
 
             if (string.IsNullOrEmpty(lineEdit_identCode.Text))
             {
-                errorProvider.SetError(lineEdit_identCode, "验证码为空");
+                errorProvider.ErrorAlignment = ErrorAlignment.Top;
+                errorProvider.SetError(flowLayoutPanel3, "验证码为空");
                 return;
             }
             strAccount = lineEdit_account.Text;

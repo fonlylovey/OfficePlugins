@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Widgets", "SDK\Widgets\Widg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdate", "SDK\AutoUpdate\AutoUpdate.csproj", "{F7026BB0-93A2-4565-87A3-D615ADD358DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm.UI", "SDK\WinForm.UI\WinForm.UI.csproj", "{BF9D861D-42AF-4F13-A230-EC9A568DC82B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7026BB0-93A2-4565-87A3-D615ADD358DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF9D861D-42AF-4F13-A230-EC9A568DC82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF9D861D-42AF-4F13-A230-EC9A568DC82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF9D861D-42AF-4F13-A230-EC9A568DC82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF9D861D-42AF-4F13-A230-EC9A568DC82B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,6 +44,11 @@
             this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
+            // CustomTitle
+            // 
+            this.CustomTitle.Location = new System.Drawing.Point(151, 1);
+            this.CustomTitle.Size = new System.Drawing.Size(300, 32);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PPTPlugin.Properties.Resources.Logo2;
@@ -124,11 +129,11 @@
             this.flowLayoutPanel1.Controls.Add(this.button_detiles);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 33);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 1);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(150, 0);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(148, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 198);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 230);
             this.flowLayoutPanel1.TabIndex = 10;
             // 
             // flowLayoutPanel3
@@ -151,12 +156,12 @@
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(151, 33);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(151, 1);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel4.MaximumSize = new System.Drawing.Size(300, 0);
             this.flowLayoutPanel4.MinimumSize = new System.Drawing.Size(300, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(300, 198);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(300, 230);
             this.flowLayoutPanel4.TabIndex = 13;
             // 
             // richTextBox
@@ -188,6 +193,10 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateWidget";
+            this.TitleVisible = true;
+            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
+            this.Controls.SetChildIndex(this.flowLayoutPanel4, 0);
+            this.Controls.SetChildIndex(this.CustomTitle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

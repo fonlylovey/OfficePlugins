@@ -130,7 +130,7 @@
             // button_login
             // 
             this.button_login.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button_login.Image = global::PPTPlugin.Properties.Resources.Login;
+            this.button_login.Image = global::PPTPlugin.Properties.Resources.Logout;
             this.button_login.Label = "登录\n";
             this.button_login.Name = "button_login";
             this.button_login.ShowImage = true;
