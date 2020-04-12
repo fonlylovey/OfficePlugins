@@ -51,19 +51,23 @@ namespace PPTPlugin
             {
                 LoginWidget loginWidget = new LoginWidget();
                 result = loginWidget.ShowDialog();
-                if (result == DialogResult.OK && String.IsNullOrEmpty(Rigel.UserID))
+                if (result == DialogResult.OK)
                 {
-                    PromptBox.Error("登陆失败！");
-                }
-                else
-                {
-                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
+                    if(String.IsNullOrEmpty(Rigel.UserID))
+                    {
+                        PromptBox.Error("登陆失败！");
+                        return;
+                    }
+                    else
+                    {
+                        Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
                         StrUserName, Rigel.UserName);
-                    Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
-                        StrUserToken, Rigel.UserToken);
-                    button_login.Label = Rigel.UserName;
-                    button_login.Image = Properties.Resources.Login;
-                    ResetButtonEnable(true);
+                        Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
+                            StrUserToken, Rigel.UserToken);
+                        button_login.Label = Rigel.UserName;
+                        button_login.Image = Properties.Resources.Login;
+                        ResetButtonEnable(true);
+                    }
                 }
             }
             else

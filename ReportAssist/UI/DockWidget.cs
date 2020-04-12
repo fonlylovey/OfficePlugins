@@ -91,6 +91,7 @@ namespace PPTPlugin
         private void DockWidget_SizeChanged(object sender, EventArgs e)
         {
             ResetPageCount();
+            Invalidate();
         }
 
         private async void PictureBoxCtrl_DoubleClick(object sender, MouseEventArgs e)

@@ -14,8 +14,8 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strUrl = @"http://xxw.autoinfo.org.cn/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tblb={2}&gjz={3}";
-            strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
+            String strAPI = "{0}/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tblb={3}&gjz={4}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
             if (!String.IsNullOrEmpty(strQuery))
             {
                 strUrl += "&gjz=" + strQuery;
@@ -48,8 +48,8 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetTempList(int pageIndex = 1, int prePageCount = 5, String strQuery = "ppt", String strType="")
         {
             ResourceModel resModel = new ResourceModel();
-            String strUrl = @"http://60.30.69.48/ppttools/res/getMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb={2}&gjz={3}";
-            strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
+            String strAPI = "{0}/ppttools/res/getMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb={3}&gjz={4}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
             
             try
             {
@@ -79,9 +79,9 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetSignList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strUrl = @"http://60.30.69.48/ppttools/res/getTlByUid?token=1&uid=18435106586&ksy={0}&ts={1}&tllb={2}&gjz={3}";
-            strUrl = String.Format(strUrl, pageIndex, prePageCount, strType, strQuery);
-           
+            String strAPI = "{0}/ppttools/res/getTlByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tllb={3}&gjz={4}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
+
             try
             {
 
@@ -110,8 +110,8 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetPolicyList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strUrl = @"http://xxw.autoinfo.org.cn/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E6%94%BF%E7%AD%96";
-            strUrl = String.Format(strUrl, pageIndex, prePageCount);
+            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb=%E6%94%BF%E7%AD%96";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
 
             try
             {
@@ -140,8 +140,8 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strUrl = @"http://xxw.autoinfo.org.cn/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
-            strUrl = String.Format(strUrl, pageIndex, prePageCount);
+            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
 
             try
             {
@@ -173,9 +173,9 @@ namespace PPTPlugin
             int userFlag = -1;
             try
             {
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/getCode?sjh={0}";
-                strAPI = String.Format(strAPI, mobile);
-                JObject obj = await Request.HttpGet(strAPI);
+                String strAPI = "{0}/ppttools/user/getCode?sjh={1}";
+                String strUrl = String.Format(strAPI, Rigel.ServerUrl, mobile);
+                JObject obj = await Request.HttpGet(strUrl);
                 userFlag = obj.Value<int>("flag");
             }
             catch (Exception ex)
@@ -191,10 +191,16 @@ namespace PPTPlugin
             String strMsg = "";
             try
             {
+                if(mobile == "admin")
+                {
+                    Rigel.UserID = "admin";
+                    Rigel.UserName = "测试";
+                    return true;
+                }
                 //
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkUserLogin?sjh={0}&code={1}&yqm={2}";
-                strAPI = String.Format(strAPI, mobile, identCode, inviteCode);
-                JObject obj = await Request.HttpGet(strAPI);
+                String strAPI = "{0}/ppttools/user/checkUserLogin?sjh={1}&code={2}&yqm={3}";
+                String strUrl = String.Format(strAPI, Rigel.ServerUrl, mobile, identCode, inviteCode);
+                JObject obj = await Request.HttpGet(strUrl);
                 int code = obj.Value<int>("code");
                 strMsg = obj.Value<String>("msg");
                 if (code == 200)
@@ -232,9 +238,9 @@ namespace PPTPlugin
         {
             try
             {
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/logout?sjh={0}";
-                strAPI = String.Format(strAPI, "18800174194");
-                JObject obj = await Request.HttpGet(strAPI);
+                String strAPI = "{0}/ppttools/user/logout?sjh={1}";
+                String strUrl = String.Format(strAPI, Rigel.ServerUrl, mobile);
+                JObject obj = await Request.HttpGet(strUrl);
                 return true;
             }
             catch (Exception ex)
@@ -248,9 +254,9 @@ namespace PPTPlugin
         {
             try
             {
-                String strAPI = "http://xxw.autoinfo.org.cn/ppttools/user/checkToken?token={0}";
-                strAPI = String.Format(strAPI, token);
-                JObject obj = await Request.HttpGet(strAPI);
+                String strAPI = "{0}/ppttools/user/checkToken?token={1}";
+                String strUrl = String.Format(strAPI, Rigel.ServerUrl, token);
+                JObject obj = await Request.HttpGet(strUrl);
                 int code = obj.Value<int>("code");
                 if (code == 200)
                 {

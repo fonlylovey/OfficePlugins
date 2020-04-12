@@ -56,12 +56,19 @@ namespace PPTPlugin
             {
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
+                Image image = Image.FromFile(strPath);
+
                 PowerPoint.Slide slide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
                 if (slide != null)
                 {
-                    slide.Shapes.AddPicture(strPath, Microsoft.Office.Core.MsoTriState.msoFalse,
-                        Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50
-                         );
+                    PowerPoint.Shape shape =  slide.Shapes.AddPicture(strPath, 
+                        Microsoft.Office.Core.MsoTriState.msoFalse,
+                        Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50);
+                    if(shape != null && slide.ColorScheme.Count > 0)
+                    {
+                        PowerPoint.RGBColor color = slide.ColorScheme._Index(slide.ColorScheme.Count) as PowerPoint.RGBColor;
+                        shape.Fill.ForeColor.RGB = color.RGB;
+                    }
                 }
             }
         }

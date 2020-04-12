@@ -22,6 +22,7 @@ namespace PPTPlugin
             InitializeComponent();
             errorProvider = new FErrorProvider();
             button_identCode.SetAnimating(false);
+            lineEdit_account.Select();
         }
 
         private async void button_identCode_Click(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace PPTPlugin
                     int userFlag = await RequestHandle.SendIdentCode(lineEdit_account.Text);
                     if (userFlag == 0)//未注册
                     {
-                        lineEdit_inviteCode.Visible = true;
+                        inviteLayout.Visible = true;
                     }
                     else if(userFlag == 1)
                     {
@@ -75,12 +76,18 @@ namespace PPTPlugin
             strAccount = lineEdit_account.Text;
             identCode = lineEdit_identCode.Text;
             inviteCode = lineEdit_inviteCode.Text;
-
-           bool isLogin =  await RequestHandle.Login(strAccount, identCode, inviteCode);
-           if (isLogin)
-           {
-                DialogResult = DialogResult.OK;
-                this.Close();
+            try
+            {
+                bool isLogin = await RequestHandle.Login(strAccount, identCode, inviteCode);
+                if (isLogin)
+                {
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                PromptBox.Error(ex.Message);
             }
         }
 
