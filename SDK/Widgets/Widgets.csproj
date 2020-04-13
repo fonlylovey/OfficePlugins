@@ -78,7 +78,6 @@
     <None Include="Resources\button_pro.png" />
     <None Include="Resources\checked_false.png" />
     <None Include="Resources\checked_true.png" />
-    <None Include="Resources\close.png" />
     <None Include="Resources\Error_icon.png" />
     <None Include="Resources\left_arrow.png" />
     <None Include="Resources\photoBG.png" />
@@ -100,6 +99,16 @@
       <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WinForm.UI\WinForm.UI.csproj">
+      <Project>{BF9D861D-42AF-4F13-A230-EC9A568DC82B}</Project>
+      <Name>WinForm.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

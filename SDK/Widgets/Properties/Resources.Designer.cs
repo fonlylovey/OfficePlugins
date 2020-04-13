@@ -113,6 +113,16 @@ namespace Widgets.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap close_s {
+            get {
+                object obj = ResourceManager.GetObject("close-s", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Error_icon {
             get {
                 object obj = ResourceManager.GetObject("Error_icon", resourceCulture);

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
 using Core;
+using CustomControls;
 
 namespace Widgets
 {
 
-	public partial class PromptBox : Form
+	public partial class PromptBox : CustomForm
     {
 		public enum Buttons
 		{
@@ -62,7 +63,7 @@ namespace Widgets
         {
 			PromptBox box = new PromptBox(button);
 			box.msgImage.Image = Properties.Resources.Warning_icon;
-			box.msgTitle.Text = "警告";
+			box.TitleText = "警告";
 			box.message.Text  = msg ;
 			box.TopLevel = true;
 			box.TopMost = true;
@@ -75,7 +76,7 @@ namespace Widgets
             PromptBox box = new PromptBox(button);
 
 			box.msgImage.Image = Properties.Resources.Error_icon;
-			box.msgTitle.Text = "错误";
+			box.TitleText = "错误";
 			box.message.Text = msg;
 			box.TopLevel = true;
 			box.TopMost = true;
@@ -91,7 +92,8 @@ namespace Widgets
 			box.message.Text = msg;
 			box.TopLevel = true;
 			box.TopMost = true;
-			box.msgTitle.Text = "提示";
+			box.TitleText = "提示";
+			
 			box.ShowDialog();
 
             return box.DialogResult;

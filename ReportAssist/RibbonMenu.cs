@@ -33,6 +33,7 @@ namespace PPTPlugin
                 String strUserToken = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken);
                 if(await RequestHandle.TokenValidity(strUserToken))
                 {
+                    Rigel.UserID = strUserName;
                     Rigel.UserName = strUserName;
                     Rigel.UserToken = strUserToken;
                     button_login.Label = Rigel.UserName;
@@ -55,7 +56,7 @@ namespace PPTPlugin
                 {
                     if(String.IsNullOrEmpty(Rigel.UserID))
                     {
-                        PromptBox.Error("登陆失败！");
+                        PromptBox.Error("登录失败！");
                         return;
                     }
                     else
@@ -80,7 +81,7 @@ namespace PPTPlugin
                     Rigel.UserToken = "";
                     Regditer.WriteReg(Regditer.RootKey.CurrentUser, Rigel.UserRegKey,
                         StrUserToken, String.Empty);
-                    button_login.Label = "登陆";
+                    button_login.Label = "登录\r\n";
                     button_login.Image = Properties.Resources.Logout;
                     ResetButtonEnable(false);
                 }

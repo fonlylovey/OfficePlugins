@@ -45,7 +45,6 @@
             this.label_Records = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_filter = new System.Windows.Forms.Button();
-            this.textBox = new System.Windows.Forms.TextBox();
             this.QueryButton = new System.Windows.Forms.Button();
             this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.label_MB = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox = new WinForm.UI.Controls.FTextBox();
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
             this.LBPanel.SuspendLayout();
@@ -137,7 +137,7 @@
             this.pageBox.MaxLength = 32;
             this.pageBox.MinimumSize = new System.Drawing.Size(32, 32);
             this.pageBox.Name = "pageBox";
-            this.pageBox.Size = new System.Drawing.Size(32, 32);
+            this.pageBox.Size = new System.Drawing.Size(32, 26);
             this.pageBox.TabIndex = 9;
             this.pageBox.Text = "1";
             this.pageBox.WordWrap = false;
@@ -289,18 +289,6 @@
             this.button_filter.UseVisualStyleBackColor = true;
             this.button_filter.Click += new System.EventHandler(this.button_filter_Click);
             // 
-            // textBox
-            // 
-            this.textBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox.Location = new System.Drawing.Point(57, 13);
-            this.textBox.MinimumSize = new System.Drawing.Size(110, 28);
-            this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(110, 26);
-            this.textBox.TabIndex = 0;
-            this.textBox.Text = "搜索";
-            // 
             // QueryButton
             // 
             this.QueryButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -310,7 +298,7 @@
             this.QueryButton.FlatAppearance.BorderSize = 0;
             this.QueryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QueryButton.Image = global::PPTPlugin.Properties.Resources.find;
-            this.QueryButton.Location = new System.Drawing.Point(173, 13);
+            this.QueryButton.Location = new System.Drawing.Point(177, 13);
             this.QueryButton.MaximumSize = new System.Drawing.Size(32, 32);
             this.QueryButton.MinimumSize = new System.Drawing.Size(28, 28);
             this.QueryButton.Name = "QueryButton";
@@ -509,6 +497,19 @@
             this.toolTip.SetToolTip(this.label11, "技术");
             this.label11.Click += new System.EventHandler(this.label_Click);
             // 
+            // textBox
+            // 
+            this.textBox.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.textBox.HotColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(153)))), ((int)(((byte)(240)))));
+            this.textBox.Location = new System.Drawing.Point(54, 15);
+            this.textBox.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.textBox.MaximumSize = new System.Drawing.Size(120, 0);
+            this.textBox.MinimumSize = new System.Drawing.Size(120, 0);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(120, 25);
+            this.textBox.TabIndex = 3;
+            this.textBox.WatermarkText = "搜索";
+            // 
             // DockWidget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -544,7 +545,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel resourceList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Button QueryButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button_prePage;
@@ -567,5 +567,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private WinForm.UI.Controls.FTextBox textBox;
     }
 }
