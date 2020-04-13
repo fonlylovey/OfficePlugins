@@ -164,13 +164,13 @@ namespace PPTPlugin
 
             //咨询
             button_policy.Enabled = value;
-            //button_enterprise.Enabled = value;
-            //button_carType.Enabled = value;
-            //button_technology.Enabled = value;
+            button_enterprise.Enabled = false;
+            button_carType.Enabled = false;
+            button_technology.Enabled = false;
             //工具
-            //button_export.Enabled = value;
-            //button_zip.Enabled = value;
-            //button_share.Enabled = value;
+            button_export.Enabled = false;
+            button_zip.Enabled = false;
+            button_share.Enabled = false;
 
             //更多
             button_about.Enabled = value;
