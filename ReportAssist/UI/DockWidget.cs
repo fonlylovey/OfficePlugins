@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Core;
 using CustomControls;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+using WinForm.UI.Controls;
 
 namespace PPTPlugin
 {
@@ -91,7 +92,7 @@ namespace PPTPlugin
         private void DockWidget_SizeChanged(object sender, EventArgs e)
         {
             ResetPageCount();
-            Invalidate();
+            Update();
         }
 
         private async void PictureBoxCtrl_DoubleClick(object sender, MouseEventArgs e)

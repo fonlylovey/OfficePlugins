@@ -20,9 +20,27 @@ namespace PPTPlugin
             InitializeComponent();
         }
 
+        public void AddFilterItem(List<GroupItem> groups)
+        {
+            foreach(GroupItem group in groups)
+            {
+
+            }
+        }
+
         private void FilterWidget_Deactivate(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void button_ok_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_reset_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -289,6 +289,7 @@
             // button_policy
             // 
             this.button_policy.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_policy.Enabled = false;
             this.button_policy.Image = global::PPTPlugin.Properties.Resources.Policy;
             this.button_policy.Label = "政策\n";
             this.button_policy.Name = "button_policy";
@@ -303,6 +304,7 @@
             // button_enterprise
             // 
             this.button_enterprise.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_enterprise.Enabled = false;
             this.button_enterprise.Image = global::PPTPlugin.Properties.Resources.Enterprise;
             this.button_enterprise.Label = "企业\n";
             this.button_enterprise.Name = "button_enterprise";
@@ -316,6 +318,7 @@
             // button_carType
             // 
             this.button_carType.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_carType.Enabled = false;
             this.button_carType.Image = global::PPTPlugin.Properties.Resources.CarType;
             this.button_carType.Label = "车型产品";
             this.button_carType.Name = "button_carType";
@@ -329,6 +332,7 @@
             // button_technology
             // 
             this.button_technology.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_technology.Enabled = false;
             this.button_technology.Image = global::PPTPlugin.Properties.Resources.Technology;
             this.button_technology.Label = "技术\n";
             this.button_technology.Name = "button_technology";
@@ -359,6 +363,7 @@
             // button_export
             // 
             this.button_export.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_export.Enabled = false;
             this.button_export.Image = global::PPTPlugin.Properties.Resources.Export;
             this.button_export.Label = "导出\n";
             this.button_export.Name = "button_export";
@@ -372,6 +377,7 @@
             // button_zip
             // 
             this.button_zip.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_zip.Enabled = false;
             this.button_zip.Image = global::PPTPlugin.Properties.Resources.ZipFile;
             this.button_zip.Label = "文件压缩";
             this.button_zip.Name = "button_zip";
@@ -385,6 +391,7 @@
             // button_share
             // 
             this.button_share.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_share.Enabled = false;
             this.button_share.Image = global::PPTPlugin.Properties.Resources.Share;
             this.button_share.Label = "分享\n";
             this.button_share.Name = "button_share";

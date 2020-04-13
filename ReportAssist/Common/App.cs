@@ -12,6 +12,14 @@ namespace PPTPlugin
         public static ResourceType ResourceType = ResourceType.Template;
     }
 
+    public class GroupItem
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public bool isChecked = false;
+        List<GroupItem> Children = new List<GroupItem>();
+    }
+
     public class Contart
     {
         public string HeadUrl { get; internal set; }

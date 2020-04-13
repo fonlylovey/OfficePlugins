@@ -181,7 +181,7 @@
             this.lineEdit_account.MaximumSize = new System.Drawing.Size(120, 22);
             this.lineEdit_account.MinimumSize = new System.Drawing.Size(120, 22);
             this.lineEdit_account.Name = "lineEdit_account";
-            this.lineEdit_account.Size = new System.Drawing.Size(120, 22);
+            this.lineEdit_account.Size = new System.Drawing.Size(120, 23);
             this.lineEdit_account.TabIndex = 1;
             this.lineEdit_account.WatermarkText = "请输入手机号";
             this.lineEdit_account.WordWrap = false;
