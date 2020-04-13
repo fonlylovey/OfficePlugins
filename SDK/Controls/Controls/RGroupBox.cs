@@ -1,10 +1,11 @@
 ﻿
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace BIM.Controls
+namespace CustomControls
 {
     public partial class RGroupBox : GroupBox
     {
@@ -18,6 +19,21 @@ namespace BIM.Controls
             set
             {
                 m_isCheckable = value;
+                Refresh();
+            }
+        }
+
+        [DefaultValue(false)]
+        public bool Checked
+        {
+            get
+            {
+                return m_checkBox.Checked;
+            }
+            set
+            {
+                m_checkBox.Checked = value;
+                CheckChange();
                 Refresh();
             }
         }
@@ -50,27 +66,33 @@ namespace BIM.Controls
             }
         }
 
+        public FlowLayoutPanel LayoutPanel = new FlowLayoutPanel();
         public RGroupBox()
         {
-            Text = "";
-            m_margin = new Padding(3);
-            m_isCheckable = true;
-            m_borderColor = Color.DarkGray;
             InitializeComponent();
             createChecked();
+            init();
         }
 
         public RGroupBox(IContainer container)
         {
+            container.Add(this);
+            InitializeComponent();
+            createChecked();
+            init();
+        }
+
+        void init()
+        {
             Text = "";
             m_margin = new Padding(3);
             m_isCheckable = true;
             m_borderColor = Color.DarkGray;
-            container.Add(this);
-            InitializeComponent();
-            createChecked();
+            LayoutPanel.Parent = this;
+            LayoutPanel.Dock = DockStyle.Fill;
+            this.Controls.Add(LayoutPanel);
+            m_checkBox.CheckedChanged += CheckEvent;
         }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             m_checkBox.Text = Text;
@@ -91,6 +113,23 @@ namespace BIM.Controls
             m_checkBox.Parent = this;
             m_checkBox.Text = Text;
             m_checkBox.BringToFront();
+        }
+
+        void CheckEvent(object sender, EventArgs e)
+        {
+            CheckChange();
+        }
+
+        void  CheckChange()
+        {
+            foreach (Control control in LayoutPanel.Controls)
+            {
+                CheckBox check = control as CheckBox;
+                if (check != null)
+                {
+                    check.Checked = m_checkBox.Checked;
+                }
+            }
         }
 
         bool m_isCheckable;

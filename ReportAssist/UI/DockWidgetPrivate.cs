@@ -18,7 +18,6 @@ namespace PPTPlugin
         private int PageCount = 1;
         private int PrePageCount = 5;
         private String FilterText = "";
-        private FilterWidget m_filterWidget = new FilterWidget();
         public void ResetButton()
         {
             foreach (Control control in VMenu.Controls)
@@ -80,19 +79,19 @@ namespace PPTPlugin
             switch (App.ResourceType)
             {
                 case ResourceType.Template:
-                    resModel = await RequestHandle.GetTempList(CurrentIndex, PrePageCount, FilterText, "");
+                    resModel = await RequestHandle.GetTempList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
                 case ResourceType.Icon:
-                    resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, FilterText, "");
+                    resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
-                case ResourceType.legend:
-                    resModel = await RequestHandle.GetSignList(CurrentIndex, PrePageCount, FilterText, "");
+                case ResourceType.Legend:
+                    resModel = await RequestHandle.GetLegendList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
                 case ResourceType.Policy:
-                    resModel = await RequestHandle.GetPolicyList(CurrentIndex, PrePageCount, FilterText, "");
+                    resModel = await RequestHandle.GetPolicyList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
                 case ResourceType.Market:
-                    resModel = await RequestHandle.GetMarketList(CurrentIndex, PrePageCount, FilterText, "");
+                    resModel = await RequestHandle.GetMarketList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
             }
             PageCount = resModel.PageCount;

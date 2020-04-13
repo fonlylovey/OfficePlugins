@@ -98,9 +98,9 @@ namespace PPTPlugin
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
-        private void button_sign_Click(object sender, RibbonControlEventArgs e)
+        private void button_legend_Click(object sender, RibbonControlEventArgs e)
         {
-            App.ResourceType = ResourceType.legend;
+            App.ResourceType = ResourceType.Legend;
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -153,7 +153,7 @@ namespace PPTPlugin
         {
             //资源
             button_temp.Enabled = value;
-            button_sign.Enabled = value;
+            button_legend.Enabled = value;
             button_icon.Enabled = value;
 
             //数据
@@ -176,6 +176,7 @@ namespace PPTPlugin
             button_about.Enabled = value;
             button_option.Enabled = value;
         }
+
     }
 
 }

@@ -11,7 +11,8 @@ namespace PPTPlugin
 {
     public class RequestHandle
     {
-        public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
+        //获取图标数据
+        public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tblb={3}&gjz={4}";
@@ -45,7 +46,8 @@ namespace PPTPlugin
             return resModel;
         }
 
-        public static async Task<ResourceModel> GetTempList(int pageIndex = 1, int prePageCount = 5, String strQuery = "ppt", String strType="")
+        //获取模板数据
+        public static async Task<ResourceModel> GetTempList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb={3}&gjz={4}";
@@ -76,7 +78,8 @@ namespace PPTPlugin
             return resModel;
         }
 
-        public static async Task<ResourceModel> GetSignList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
+        //获取图例数据
+        public static async Task<ResourceModel> GetLegendList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getTlByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tllb={3}&gjz={4}";
@@ -106,8 +109,9 @@ namespace PPTPlugin
             }
             return resModel;
         }
-        
-        public static async Task<ResourceModel> GetPolicyList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
+
+        //获取政策数据
+        public static async Task<ResourceModel> GetPolicyList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb=%E6%94%BF%E7%AD%96";
@@ -137,7 +141,8 @@ namespace PPTPlugin
             return resModel;
         }
 
-        public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strQuery = "", String strType = "")
+        //获取市场数据
+        public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
@@ -271,6 +276,111 @@ namespace PPTPlugin
             {
                 return false;
             }
+        }
+
+        public static List<GroupItem> GetIconFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem("交通");
+            group.Add(gItem);
+            GroupItem item = new GroupItem("驾驶员");
+            gItem.Children.Add(item);
+            item = new GroupItem("普通车辆");
+            gItem.Children.Add(item);
+            item = new GroupItem("交通标志");
+            gItem.Children.Add(item);
+            item = new GroupItem("基础设施");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("节能减排");
+            group.Add(gItem);
+            item = new GroupItem("汽车节能");
+            gItem.Children.Add(item);
+            item = new GroupItem("污染防治");
+            gItem.Children.Add(item);
+            item = new GroupItem("汽车减排");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("新能源");
+            group.Add(gItem);
+            item = new GroupItem("新能源车辆");
+            gItem.Children.Add(item);
+            item = new GroupItem("电池");
+            gItem.Children.Add(item);
+            item = new GroupItem("电极");
+            gItem.Children.Add(item);
+            item = new GroupItem("充电设施");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("智能网联");
+            group.Add(gItem);
+            item = new GroupItem("自动驾驶车辆");
+            gItem.Children.Add(item);
+            item = new GroupItem("智能驾舱");
+            gItem.Children.Add(item);
+            item = new GroupItem("汽车互联");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("共享出行");
+            group.Add(gItem);
+            item = new GroupItem("网约车");
+            gItem.Children.Add(item);
+            item = new GroupItem("汽车租赁");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("工具");
+            group.Add(gItem);
+            item = new GroupItem("人员");
+            gItem.Children.Add(item);
+            item = new GroupItem("数据");
+            gItem.Children.Add(item);
+            item = new GroupItem("经济");
+            gItem.Children.Add(item);
+            return group;
+        }
+
+        public static List<GroupItem> GetTempFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem();
+            group.Add(gItem);
+            GroupItem item = new GroupItem("宏观环境");
+            gItem.Children.Add(item);
+            item = new GroupItem("企业战略");
+            gItem.Children.Add(item);
+            item = new GroupItem("技术产品");
+            gItem.Children.Add(item);
+            item = new GroupItem("市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("商业模式");
+            gItem.Children.Add(item);
+            item = new GroupItem("节能与新能源");
+            gItem.Children.Add(item);
+            item = new GroupItem("智能网联");
+            gItem.Children.Add(item);
+            item = new GroupItem("共享出行");
+            gItem.Children.Add(item);
+            return group;
+        }
+       
+        public static List<GroupItem> GetLegendFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem();
+            group.Add(gItem);
+            GroupItem item = new GroupItem("并列");
+            gItem.Children.Add(item);
+            item = new GroupItem("对比");
+            gItem.Children.Add(item);
+            item = new GroupItem("总分");
+            gItem.Children.Add(item);
+            item = new GroupItem("等级");
+            gItem.Children.Add(item);
+            item = new GroupItem("递进");
+            gItem.Children.Add(item);
+            item = new GroupItem("循环");
+            gItem.Children.Add(item);
+            return group;
         }
     }
 }

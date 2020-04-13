@@ -24,7 +24,7 @@ namespace Core
         None = -1,
         Template = 0, //模板
         Icon = 1, //图标
-        legend = 2, //图例
+        Legend = 2, //图例
         Market = 3,//市场
         Policy = 4, //政策
     }

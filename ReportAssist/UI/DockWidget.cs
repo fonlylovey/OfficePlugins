@@ -134,6 +134,10 @@ namespace PPTPlugin
 
         private void button_prePage_Click(object sender, EventArgs e)
         {
+            if(CurrentIndex == 1)
+            {
+                return;
+            }
             CurrentIndex--;
             labelPage.Text = CurrentIndex + "/" + PageCount;
             pageBox.Text = CurrentIndex.ToString();
@@ -142,6 +146,10 @@ namespace PPTPlugin
 
         private void button_nextPage_Click(object sender, EventArgs e)
         {
+            if(CurrentIndex == PageCount)
+            {
+                return;
+            }
             CurrentIndex++;
             labelPage.Text = CurrentIndex + "/" + PageCount;
             pageBox.Text = CurrentIndex.ToString();
@@ -197,9 +205,28 @@ namespace PPTPlugin
         private void button_filter_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            m_filterWidget.Location = button.PointToScreen(
-                new Point(button.Location.X - m_filterWidget.Width, button.Location.Y));
-            m_filterWidget.Show();
+            FilterWidget filterWidget = new FilterWidget();
+            filterWidget.Location = button.PointToScreen(
+                new Point(button.Location.X - filterWidget.Width, button.Location.Y));
+            List<GroupItem> group = null;
+            if (App.ResourceType == ResourceType.Template)
+            {
+                group = RequestHandle.GetTempFilter();
+            }
+            else if (App.ResourceType == ResourceType.Legend)
+            {
+                group = RequestHandle.GetLegendFilter();
+            }
+            else if (App.ResourceType == ResourceType.Icon)
+            {
+                group = RequestHandle.GetIconFilter();
+            }
+            filterWidget.AddFilterItem(group);
+            filterWidget.ShowDialog();
+            List<String> filterList = filterWidget.Selection;
+            FilterText = string.Join(",", filterList);
+            UpdateResourceList();
         }
+
     }
 }

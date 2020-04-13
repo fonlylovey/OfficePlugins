@@ -90,6 +90,12 @@
     <Compile Include="Controls\PushButtonPrivate.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\RGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RGroupBox.Designer.cs">
+      <DependentUpon>RGroupBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TabWidget.cs">
       <SubType>Component</SubType>
     </Compile>

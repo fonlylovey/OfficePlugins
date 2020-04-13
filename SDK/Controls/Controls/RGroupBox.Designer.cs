@@ -1,4 +1,4 @@
-﻿namespace BIM.Controls
+﻿namespace CustomControls
 {
     partial class RGroupBox
     {

@@ -14,10 +14,14 @@ namespace PPTPlugin
 
     public class GroupItem
     {
+        public GroupItem(String name = "")
+        {
+            Name = name;
+        }
         public string ID { get; set; }
         public string Name { get; set; }
         public bool isChecked = false;
-        List<GroupItem> Children = new List<GroupItem>();
+        public List<GroupItem> Children = new List<GroupItem>();
     }
 
     public class Contart

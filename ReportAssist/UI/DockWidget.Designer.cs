@@ -44,7 +44,9 @@
             this.label_Mark = new System.Windows.Forms.Label();
             this.label_Records = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_filter = new System.Windows.Forms.Button();
             this.textBox = new WinForm.UI.Controls.FTextBox();
+            this.QueryButton = new WinForm.UI.Controls.CirclePictureBox();
             this.VMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.label_MB = new System.Windows.Forms.Label();
             this.label_TL = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.QueryButton = new WinForm.UI.Controls.CirclePictureBox();
-            this.button_filter = new System.Windows.Forms.Button();
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
             this.LBPanel.SuspendLayout();
@@ -67,8 +67,8 @@
             this.LTPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.VMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QueryButton)).BeginInit();
+            this.VMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPlane
@@ -277,6 +277,23 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(220, 44);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
+            // button_filter
+            // 
+            this.button_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.button_filter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_filter.FlatAppearance.BorderSize = 0;
+            this.button_filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_filter.Location = new System.Drawing.Point(3, 15);
+            this.button_filter.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.button_filter.MaximumSize = new System.Drawing.Size(50, 24);
+            this.button_filter.MinimumSize = new System.Drawing.Size(50, 24);
+            this.button_filter.Name = "button_filter";
+            this.button_filter.Size = new System.Drawing.Size(50, 24);
+            this.button_filter.TabIndex = 6;
+            this.button_filter.Text = "筛选";
+            this.button_filter.UseVisualStyleBackColor = false;
+            this.button_filter.Click += new System.EventHandler(this.button_filter_Click);
+            // 
             // textBox
             // 
             this.textBox.Font = new System.Drawing.Font("微软雅黑", 10F);
@@ -286,9 +303,27 @@
             this.textBox.MaximumSize = new System.Drawing.Size(120, 24);
             this.textBox.MinimumSize = new System.Drawing.Size(120, 24);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(120, 24);
+            this.textBox.Size = new System.Drawing.Size(120, 25);
             this.textBox.TabIndex = 3;
             this.textBox.WatermarkText = "搜索";
+            // 
+            // QueryButton
+            // 
+            this.QueryButton.Image = global::PPTPlugin.Properties.Resources.find;
+            this.QueryButton.IsSelected = false;
+            this.QueryButton.Location = new System.Drawing.Point(179, 15);
+            this.QueryButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.QueryButton.MaximumSize = new System.Drawing.Size(24, 24);
+            this.QueryButton.MinimumSize = new System.Drawing.Size(24, 24);
+            this.QueryButton.MouseMoveImage = null;
+            this.QueryButton.Name = "QueryButton";
+            this.QueryButton.Padding = new System.Windows.Forms.Padding(3);
+            this.QueryButton.SelectedImage = null;
+            this.QueryButton.Size = new System.Drawing.Size(24, 24);
+            this.QueryButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.QueryButton.TabIndex = 5;
+            this.QueryButton.TabStop = false;
+            this.QueryButton.Click += new System.EventHandler(this.QueryButton_Click);
             // 
             // VMenu
             // 
@@ -480,41 +515,6 @@
             this.toolTip.SetToolTip(this.label11, "技术");
             this.label11.Click += new System.EventHandler(this.label_Click);
             // 
-            // QueryButton
-            // 
-            this.QueryButton.Image = global::PPTPlugin.Properties.Resources.find;
-            this.QueryButton.IsSelected = false;
-            this.QueryButton.Location = new System.Drawing.Point(179, 15);
-            this.QueryButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.QueryButton.MaximumSize = new System.Drawing.Size(24, 24);
-            this.QueryButton.MinimumSize = new System.Drawing.Size(24, 24);
-            this.QueryButton.MouseMoveImage = null;
-            this.QueryButton.Name = "QueryButton";
-            this.QueryButton.Padding = new System.Windows.Forms.Padding(3);
-            this.QueryButton.SelectedImage = null;
-            this.QueryButton.Size = new System.Drawing.Size(24, 24);
-            this.QueryButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.QueryButton.TabIndex = 5;
-            this.QueryButton.TabStop = false;
-            this.QueryButton.Click += new System.EventHandler(this.QueryButton_Click);
-            // 
-            // button_filter
-            // 
-            this.button_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.button_filter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_filter.FlatAppearance.BorderSize = 0;
-            this.button_filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_filter.Location = new System.Drawing.Point(3, 15);
-            this.button_filter.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.button_filter.MaximumSize = new System.Drawing.Size(50, 24);
-            this.button_filter.MinimumSize = new System.Drawing.Size(50, 24);
-            this.button_filter.Name = "button_filter";
-            this.button_filter.Size = new System.Drawing.Size(50, 24);
-            this.button_filter.TabIndex = 6;
-            this.button_filter.Text = "筛选";
-            this.button_filter.UseVisualStyleBackColor = false;
-            this.button_filter.Click += new System.EventHandler(this.button_filter_Click);
-            // 
             // DockWidget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -537,9 +537,9 @@
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QueryButton)).EndInit();
             this.VMenu.ResumeLayout(false);
             this.VMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QueryButton)).EndInit();
             this.ResumeLayout(false);
 
         }

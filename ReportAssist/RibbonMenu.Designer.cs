@@ -66,7 +66,7 @@
             Microsoft.Office.Tools.Ribbon.RibbonLabel label24;
             this.button_login = this.Factory.CreateRibbonButton();
             this.button_temp = this.Factory.CreateRibbonButton();
-            this.button_sign = this.Factory.CreateRibbonButton();
+            this.button_legend = this.Factory.CreateRibbonButton();
             this.button_icon = this.Factory.CreateRibbonButton();
             this.button_market = this.Factory.CreateRibbonButton();
             this.button_product = this.Factory.CreateRibbonButton();
@@ -141,7 +141,7 @@
             group2.Items.Add(label3);
             group2.Items.Add(this.button_temp);
             group2.Items.Add(label4);
-            group2.Items.Add(this.button_sign);
+            group2.Items.Add(this.button_legend);
             group2.Items.Add(label5);
             group2.Items.Add(this.button_icon);
             group2.Items.Add(label6);
@@ -167,14 +167,14 @@
             label4.Label = " ";
             label4.Name = "label4";
             // 
-            // button_sign
+            // button_legend
             // 
-            this.button_sign.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button_sign.Image = global::PPTPlugin.Properties.Resources.ImageLib;
-            this.button_sign.Label = "图例库\n";
-            this.button_sign.Name = "button_sign";
-            this.button_sign.ShowImage = true;
-            this.button_sign.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_sign_Click);
+            this.button_legend.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_legend.Image = global::PPTPlugin.Properties.Resources.ImageLib;
+            this.button_legend.Label = "图例库\n";
+            this.button_legend.Name = "button_legend";
+            this.button_legend.ShowImage = true;
+            this.button_legend.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_legend_Click);
             // 
             // label5
             // 
@@ -503,7 +503,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_login;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_temp;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_sign;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_legend;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_icon;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_market;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_product;
