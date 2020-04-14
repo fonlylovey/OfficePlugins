@@ -15,6 +15,7 @@ namespace Core
     public class ResourceModel
     {
         public int PageCount { set; get; } = 0;
+        public int ResCount { set; get; } = 0;
 
         public List<ResourceData> ResourceList = new List<ResourceData>();
     }

@@ -63,14 +63,14 @@ namespace PPTPlugin
             if (string.IsNullOrEmpty(lineEdit_account.Text))
             {
                 errorProvider.ErrorAlignment = ErrorAlignment.Top;
-                errorProvider.SetError(flowLayoutPanel6, "手机号为空");
+                errorProvider.SetError(account_Layout, "手机号为空");
                 return;
             }
 
             if (string.IsNullOrEmpty(lineEdit_identCode.Text))
             {
                 errorProvider.ErrorAlignment = ErrorAlignment.Top;
-                errorProvider.SetError(flowLayoutPanel3, "验证码为空");
+                errorProvider.SetError(ident_Layout, "验证码为空");
                 return;
             }
             strAccount = lineEdit_account.Text;

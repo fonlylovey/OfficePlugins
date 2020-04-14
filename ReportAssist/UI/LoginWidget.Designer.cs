@@ -34,14 +34,14 @@
             this.button_cancel = new WinForm.UI.Controls.CirclePictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.account_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.lineEdit_account = new WinForm.UI.Controls.FTextBox();
             this.button_identCode = new WinForm.UI.Controls.FButton();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ident_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.lineEdit_identCode = new WinForm.UI.Controls.FTextBox();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.invite_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.lineEdit_inviteCode = new WinForm.UI.Controls.FTextBox();
             this.button_login = new WinForm.UI.Controls.FButton();
@@ -50,9 +50,9 @@
             this.flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.button_cancel)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
+            this.account_Layout.SuspendLayout();
+            this.ident_Layout.SuspendLayout();
+            this.invite_Layout.SuspendLayout();
             this.SuspendLayout();
             // 
             // CustomTitle
@@ -77,9 +77,9 @@
             this.inviteLayout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inviteLayout.Controls.Add(this.flowLayoutPanel5);
             this.inviteLayout.Controls.Add(this.flowLayoutPanel1);
-            this.inviteLayout.Controls.Add(this.flowLayoutPanel6);
-            this.inviteLayout.Controls.Add(this.flowLayoutPanel3);
-            this.inviteLayout.Controls.Add(this.flowLayoutPanel8);
+            this.inviteLayout.Controls.Add(this.account_Layout);
+            this.inviteLayout.Controls.Add(this.ident_Layout);
+            this.inviteLayout.Controls.Add(this.invite_Layout);
             this.inviteLayout.Controls.Add(this.button_login);
             this.inviteLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.inviteLayout.Location = new System.Drawing.Point(1, 1);
@@ -145,21 +145,21 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 28);
             this.label1.TabIndex = 5;
-            this.label1.Text = "欢迎您登陆";
+            this.label1.Text = "欢迎您登录";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel6
+            // account_Layout
             // 
-            this.flowLayoutPanel6.Controls.Add(this.label2);
-            this.flowLayoutPanel6.Controls.Add(this.lineEdit_account);
-            this.flowLayoutPanel6.Controls.Add(this.button_identCode);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(32, 164);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0, 13, 0, 0);
-            this.flowLayoutPanel6.MaximumSize = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel6.MinimumSize = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel6.TabIndex = 7;
+            this.account_Layout.Controls.Add(this.label2);
+            this.account_Layout.Controls.Add(this.lineEdit_account);
+            this.account_Layout.Controls.Add(this.button_identCode);
+            this.account_Layout.Location = new System.Drawing.Point(32, 164);
+            this.account_Layout.Margin = new System.Windows.Forms.Padding(0, 13, 0, 0);
+            this.account_Layout.MaximumSize = new System.Drawing.Size(245, 40);
+            this.account_Layout.MinimumSize = new System.Drawing.Size(245, 40);
+            this.account_Layout.Name = "account_Layout";
+            this.account_Layout.Size = new System.Drawing.Size(245, 40);
+            this.account_Layout.TabIndex = 7;
             // 
             // label2
             // 
@@ -205,17 +205,17 @@
             this.button_identCode.TabIndex = 9;
             this.button_identCode.Click += new System.EventHandler(this.button_identCode_Click);
             // 
-            // flowLayoutPanel3
+            // ident_Layout
             // 
-            this.flowLayoutPanel3.Controls.Add(this.label3);
-            this.flowLayoutPanel3.Controls.Add(this.lineEdit_identCode);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(32, 207);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel3.TabIndex = 0;
+            this.ident_Layout.Controls.Add(this.label3);
+            this.ident_Layout.Controls.Add(this.lineEdit_identCode);
+            this.ident_Layout.Location = new System.Drawing.Point(32, 207);
+            this.ident_Layout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.ident_Layout.MaximumSize = new System.Drawing.Size(245, 40);
+            this.ident_Layout.MinimumSize = new System.Drawing.Size(245, 40);
+            this.ident_Layout.Name = "ident_Layout";
+            this.ident_Layout.Size = new System.Drawing.Size(245, 40);
+            this.ident_Layout.TabIndex = 0;
             // 
             // label3
             // 
@@ -242,18 +242,18 @@
             this.lineEdit_identCode.WatermarkText = "请输入验证码";
             this.lineEdit_identCode.WordWrap = false;
             // 
-            // flowLayoutPanel8
+            // invite_Layout
             // 
-            this.flowLayoutPanel8.Controls.Add(this.label5);
-            this.flowLayoutPanel8.Controls.Add(this.lineEdit_inviteCode);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(32, 247);
-            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel8.MaximumSize = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel8.MinimumSize = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(245, 40);
-            this.flowLayoutPanel8.TabIndex = 11;
-            this.flowLayoutPanel8.Visible = false;
+            this.invite_Layout.Controls.Add(this.label5);
+            this.invite_Layout.Controls.Add(this.lineEdit_inviteCode);
+            this.invite_Layout.Location = new System.Drawing.Point(32, 247);
+            this.invite_Layout.Margin = new System.Windows.Forms.Padding(0);
+            this.invite_Layout.MaximumSize = new System.Drawing.Size(245, 40);
+            this.invite_Layout.MinimumSize = new System.Drawing.Size(245, 40);
+            this.invite_Layout.Name = "invite_Layout";
+            this.invite_Layout.Size = new System.Drawing.Size(245, 40);
+            this.invite_Layout.TabIndex = 11;
+            this.invite_Layout.Visible = false;
             // 
             // label5
             // 
@@ -319,12 +319,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.button_cancel)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
+            this.account_Layout.ResumeLayout(false);
+            this.account_Layout.PerformLayout();
+            this.ident_Layout.ResumeLayout(false);
+            this.ident_Layout.PerformLayout();
+            this.invite_Layout.ResumeLayout(false);
+            this.invite_Layout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,17 +333,17 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel inviteLayout;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel ident_Layout;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.FlowLayoutPanel account_Layout;
         private WinForm.UI.Controls.FTextBox lineEdit_account;
         private System.Windows.Forms.Label label3;
         private WinForm.UI.Controls.FTextBox lineEdit_identCode;
         private WinForm.UI.Controls.FButton button_login;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+        private System.Windows.Forms.FlowLayoutPanel invite_Layout;
         private System.Windows.Forms.Label label5;
         private WinForm.UI.Controls.FTextBox lineEdit_inviteCode;
         private WinForm.UI.Controls.CirclePictureBox button_cancel;

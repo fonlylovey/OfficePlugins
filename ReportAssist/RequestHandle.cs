@@ -26,7 +26,7 @@ namespace PPTPlugin
             {
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["page"].ToObject<JObject>();
-                resModel.PageCount = pageData["count"].ToObject<int>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
                 JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach(JToken item in dataArray)
                 {
@@ -58,7 +58,7 @@ namespace PPTPlugin
 
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["page"].ToObject<JObject>();
-                resModel.PageCount = pageData["count"].ToObject<int>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
                 JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {
@@ -90,7 +90,7 @@ namespace PPTPlugin
 
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["page"].ToObject<JObject>();
-                resModel.PageCount = pageData["count"].ToObject<int>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
                 JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {
@@ -121,7 +121,7 @@ namespace PPTPlugin
             {
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["page"].ToObject<JObject>();
-                resModel.PageCount = pageData["count"].ToObject<int>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
                 JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {
@@ -152,7 +152,7 @@ namespace PPTPlugin
             {
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["page"].ToObject<JObject>();
-                resModel.PageCount = pageData["count"].ToObject<int>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
                 JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {

@@ -94,7 +94,12 @@ namespace PPTPlugin
                     resModel = await RequestHandle.GetMarketList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
             }
-            PageCount = resModel.PageCount;
+
+            PageCount = resModel.PageCount / PrePageCount;
+            if(resModel.PageCount % PrePageCount > 0)
+            {
+                PageCount++;
+            }
 
             return resModel;
         }
