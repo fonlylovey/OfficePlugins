@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools;
 using Core;
 using CustomControls;
+using AutoUpdate;
+using System.Windows.Forms;
+using System.Deployment.Application;
+using Base;
 
 namespace PPTPlugin
 {
@@ -16,20 +18,39 @@ namespace PPTPlugin
         public DockWidget RightWidget = null;
         static public FormMgr FormShower = null;
         public Dictionary<PowerPoint.DocumentWindow, CustomTaskPane> TaskPaneDict = null;
-        private void ThisAddIn_Startup(object sender, System.EventArgs e)
+        private async void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             TaskPaneDict = new Dictionary<PowerPoint.DocumentWindow, CustomTaskPane>();
-            //RightWidget = new DockWidget();
-            //TaskWidget = CustomTaskPanes.Add(RightWidget, "模板选择");
-            //TaskWidget.DockPosition =
-            //Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-            //TaskWidget.Width = 260;
-            //TaskWidget.Visible = true;
-            //TaskWidget = CustomTaskPanes.Add(RightWidget, "模板选择");
+
+            Rigel.InitWorkConfig();
+            await VSTOUpdater.CheckUpdate();
             FormShower = new FormMgr(new IntPtr(this.Application.HWND));
-            Rigel.ServerUrl = "http://114.115.234.131";
             App.ResourceType = ResourceType.None;
             this.Application.WindowActivate += WindowActivate_Event;
+
+            Rigel.PluginVersion = "0.0.0.0";
+            var aaaa = System.Reflection.Assembly.GetExecutingAssembly();
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                ApplicationDeployment applicationDeployment = ApplicationDeployment.CurrentDeployment;
+                Logger.LogInfo("UpdatedVersion:" + applicationDeployment.UpdatedVersion.ToString());
+                Logger.LogInfo("CurrentVersion" + applicationDeployment.CurrentVersion.ToString());
+                Rigel.PluginVersion = applicationDeployment.CurrentVersion.ToString();
+            }
+
+            if (VSTOUpdater.NeedUpdate)
+            {
+                UpdateWidget updateWidget = new UpdateWidget();
+                updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
+                VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
+                VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
+                updateWidget.setInfo(slogan, content);
+                DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
+                if (result == DialogResult.OK)
+                {
+                    VSTOUpdater.Update(); ;
+                }
+            }
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

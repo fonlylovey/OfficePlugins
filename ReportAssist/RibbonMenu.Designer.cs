@@ -235,6 +235,7 @@
             this.button_product.Label = "产品\n";
             this.button_product.Name = "button_product";
             this.button_product.ShowImage = true;
+            this.button_product.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_product_Click);
             // 
             // label9
             // 
@@ -248,19 +249,21 @@
             this.button_predict.Label = "预测\n";
             this.button_predict.Name = "button_predict";
             this.button_predict.ShowImage = true;
+            this.button_predict.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_predict_Click);
             // 
             // label10
             // 
             label10.Label = " ";
             label10.Name = "label10";
             // 
-            // button_mocro
+            // button_macro
             // 
             this.button_macro.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.button_macro.Image = global::PPTPlugin.Properties.Resources.MacroView;
             this.button_macro.Label = "宏观\n";
-            this.button_macro.Name = "button_mocro";
+            this.button_macro.Name = "button_macro";
             this.button_macro.ShowImage = true;
+            this.button_macro.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_macro_Click);
             // 
             // label15
             // 
@@ -432,6 +435,7 @@
             this.button_about.Label = "关于我们";
             this.button_about.Name = "button_about";
             this.button_about.ShowImage = true;
+            this.button_about.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_about_Click);
             // 
             // label22
             // 
@@ -471,7 +475,7 @@
             this.tab1.Groups.Add(group4);
             this.tab1.Groups.Add(group5);
             this.tab1.Groups.Add(group6);
-            this.tab1.Label = "FAW PPTer";
+            this.tab1.Label = "Auto PPTer";
             this.tab1.Name = "tab1";
             // 
             // RibbonMenu

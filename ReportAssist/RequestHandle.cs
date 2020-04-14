@@ -173,11 +173,11 @@ namespace PPTPlugin
         }
 
         //获取产品数据
-        public static async Task<ResourceModel> GetProductList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        public static async Task<ResourceModel> GetProductList(int pageIndex = 1, int prePageCount = 5, String strType = "产品", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+            String strAPI = "{0}/ppttools/res/getCpByUid?token=1&ksy={1}&ts={2}&mblb={3}&gjz={4}&uid=18435106586";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
 
             try
             {
@@ -204,11 +204,11 @@ namespace PPTPlugin
         }
 
         //获取预测数据
-        public static async Task<ResourceModel> GetPredictList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        public static async Task<ResourceModel> GetPredictList(int pageIndex = 1, int prePageCount = 5, String strType = "预测", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+            String strAPI = "{0}/ppttools/res/getYcByUid?token=1&ksy={1}&ts={2}&mblb={3}&gjz={4}&uid=18435106586";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
 
             try
             {
@@ -235,11 +235,11 @@ namespace PPTPlugin
         }
 
         //获取宏观数据
-        public static async Task<ResourceModel> GetMacroList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        public static async Task<ResourceModel> GetMacroList(int pageIndex = 1, int prePageCount = 5, String strType = "宏观", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+            String strAPI = "{0}/ppttools/res/getHgByUid?token=1&ksy={1}&ts={2}&mblb={3}&gjz={4}&uid=18435106586";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
 
             try
             {

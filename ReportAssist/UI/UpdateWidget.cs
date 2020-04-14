@@ -21,6 +21,23 @@ namespace PPTPlugin
             viewAdapter = new ListViewAdapter();
             recordList.Adapter = viewAdapter;
         }
+
+        public void setVersion(String strLocal, String strServer)
+        {
+            label_local.Text = "当前版本：" + strLocal;
+            label_server.Text = "最新版本：" + strServer;
+        }
+
+        public void setInfo(String strSlogan, String strContent)
+        {
+            label_name.Text = strSlogan;
+            textBox_content.Text = strContent;
+        }
+
+        public void setNeedUpdate(bool isUpdate)
+        {
+            button_update.Enabled = isUpdate;
+        }
         private void button_history_Click(object sender, EventArgs e)
         {
             Contart data = new Contart();
@@ -79,7 +96,8 @@ namespace PPTPlugin
 
         private void button_update_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void button_close_Click(object sender, EventArgs e)

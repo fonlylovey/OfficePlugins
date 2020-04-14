@@ -93,6 +93,15 @@ namespace PPTPlugin
                 case ResourceType.Market:
                     resModel = await RequestHandle.GetMarketList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
+                case ResourceType.Product:
+                    resModel = await RequestHandle.GetProductList(CurrentIndex, PrePageCount, "产品", FilterText);
+                    break;
+                case ResourceType.Predict:
+                    resModel = await RequestHandle.GetPredictList(CurrentIndex, PrePageCount, "预测", FilterText);
+                    break;
+                case ResourceType.Macro:
+                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "宏观", FilterText);
+                    break;
             }
 
             PageCount = resModel.PageCount / PrePageCount;

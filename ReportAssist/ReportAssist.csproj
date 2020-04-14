@@ -25,7 +25,7 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RootNamespace>PPTPlugin</RootNamespace>
-    <AssemblyName>PPTer</AssemblyName>
+    <AssemblyName>Auto PPTer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <IsWebBootstrapper>False</IsWebBootstrapper>
@@ -33,12 +33,12 @@
     <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.17</ApplicationVersion>
+    <ApplicationVersion>1.0.0.18</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>PPTer</ProductName>
+    <ProductName>Auto PPTer</ProductName>
     <PublisherName>中国汽车技术研究中心</PublisherName>
     <SupportUrl />
     <FriendlyName>Auto PPTer</FriendlyName>
@@ -130,8 +130,11 @@
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -184,6 +187,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RequestHandle.cs" />
+    <Compile Include="UI\AboutWidget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AboutWidget.designer.cs">
+      <DependentUpon>AboutWidget.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DockWidget.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +232,9 @@
     </Compile>
     <EmbeddedResource Include="RibbonMenu.resx">
       <DependentUpon>RibbonMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AboutWidget.resx">
+      <DependentUpon>AboutWidget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DockWidget.resx">
       <DependentUpon>DockWidget.cs</DependentUpon>
@@ -287,32 +299,6 @@
     <None Include="Resources\产品.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDK\AutoUpdate\AutoUpdate.csproj">
-      <Project>{f7026bb0-93a2-4565-87a3-d615add358de}</Project>
-      <Name>AutoUpdate</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SDK\Base\Base.csproj">
-      <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
-      <Name>Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SDK\Controls\CustomControls.csproj">
-      <Project>{9fccb5f4-d348-4b19-8167-a32de4945f95}</Project>
-      <Name>CustomControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SDK\Core\Core.csproj">
-      <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SDK\Widgets\Widgets.csproj">
-      <Project>{D3A197E4-5622-4471-9A83-BD30D8450924}</Project>
-      <Name>Widgets</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SDK\WinForm.UI\WinForm.UI.csproj">
-      <Project>{BF9D861D-42AF-4F13-A230-EC9A568DC82B}</Project>
-      <Name>WinForm.UI</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\市场.png" />
   </ItemGroup>
   <ItemGroup>
@@ -366,6 +352,32 @@
     <Content Include="Resources\Logo1.png" />
     <Content Include="Resources\Logo2.png" />
     <None Include="Resources\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDK\AutoUpdate\AutoUpdate.csproj">
+      <Project>{f7026bb0-93a2-4565-87a3-d615add358de}</Project>
+      <Name>AutoUpdate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDK\Base\Base.csproj">
+      <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDK\Controls\CustomControls.csproj">
+      <Project>{9fccb5f4-d348-4b19-8167-a32de4945f95}</Project>
+      <Name>CustomControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDK\Core\Core.csproj">
+      <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDK\Widgets\Widgets.csproj">
+      <Project>{d3a197e4-5622-4471-9a83-bd30d8450924}</Project>
+      <Name>Widgets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDK\WinForm.UI\WinForm.UI.csproj">
+      <Project>{bf9d861d-42af-4f13-a230-ec9a568dc82b}</Project>
+      <Name>WinForm.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

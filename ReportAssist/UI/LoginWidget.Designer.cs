@@ -188,18 +188,18 @@
             // 
             // button_identCode
             // 
-            this.button_identCode.BackColor = System.Drawing.Color.Transparent;
+            this.button_identCode.BackColor = System.Drawing.Color.Empty;
             this.button_identCode.BackgroundImage = global::PPTPlugin.Properties.Resources.yzm_btn;
-            this.button_identCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_identCode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_identCode.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_identCode.ForeColor = System.Drawing.Color.White;
-            this.button_identCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_identCode.Location = new System.Drawing.Point(144, 0);
             this.button_identCode.Margin = new System.Windows.Forms.Padding(0);
             this.button_identCode.MaximumSize = new System.Drawing.Size(70, 23);
             this.button_identCode.MinimumSize = new System.Drawing.Size(70, 23);
             this.button_identCode.mouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_identCode.Name = "button_identCode";
+            this.button_identCode.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.button_identCode.Radius = 1;
             this.button_identCode.Size = new System.Drawing.Size(70, 23);
             this.button_identCode.TabIndex = 9;
@@ -283,6 +283,7 @@
             // button_login
             // 
             this.button_login.BackColor = System.Drawing.Color.Transparent;
+            this.button_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_login.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_login.ForeColor = System.Drawing.Color.White;
             this.button_login.Image = global::PPTPlugin.Properties.Resources.login_btn;

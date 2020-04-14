@@ -38,7 +38,7 @@ namespace PPTPlugin
                     button_identCode.Enabled = false;
                     m_TotalTime = 0;
                     m_timer.Start();
-                    button_identCode.Image = Properties.Resources.nor_btn;
+                    button_identCode.BackgroundImage = Properties.Resources.nor_btn;
                     if (userFlag == 0)//未注册
                     {
                         invite_Layout.Visible = true;
@@ -109,11 +109,16 @@ namespace PPTPlugin
             m_TotalTime++;
             if(m_TotalTime == 30)
             {
-                String strText = String.Format("{0}s后再次发送", m_TotalTime);
-                button_identCode.Text = strText;
                 button_identCode.Enabled = true;
                 m_timer.Stop();
-                button_identCode.Image = Properties.Resources.yzm_btn;
+                button_identCode.BackgroundImage = Properties.Resources.yzm_btn;
+                button_identCode.Text = "";
+            }
+            else
+            {
+                String strText = String.Format("{0}s后发送", m_TotalTime);
+                button_identCode.Text = strText;
+                button_identCode.Refresh();
             }
         }
 

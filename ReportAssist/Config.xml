@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<PluginOption>
-	<!--ServerUrl 登录网页的环境-->
-	<ServerUrl>https://xmgl.glodon.com</ServerUrl>
-
-	<!--UpdateUrl请任何人都不要修改（任何人！任何人！任何人！）
-	跟开发者、测试者、环境、插件版本都没有任何关系关系-->
-	<UpdateUrl>https://xmgl.glodon.com/bim5d_product/office/plugins/</UpdateUrl>
-</PluginOption>

@@ -1,0 +1,1159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TG.INI</name>
+    </assembly>
+    <members>
+        <member name="T:TG.INI.Controls.IniEditor">
+            <summary>
+            A visual editor for INI files.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.#ctor">
+            <summary>
+            Creates a new instance of IniEditor.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.#ctor(TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Initializes a new IniEditor with a predefined <see cref="T:TG.INI.Encryption.IEncryptionHandler"/>.
+            </summary>
+            <param name="encryption"></param>
+        </member>
+        <member name="E:TG.INI.Controls.IniEditor.DirtyChanged">
+            <summary>
+            This event is invoked when the <see cref="P:TG.INI.Controls.IniEditor.Dirty"/> property is changed.
+            </summary>
+        </member>
+        <member name="E:TG.INI.Controls.IniEditor.DisplayModeChanged">
+            <summary>
+            This event is invoked when the <see cref="P:TG.INI.Controls.IniEditor.DisplayMode"/> property is changed.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Controls.IniEditor.DisplayModes">
+            <summary>
+            Represents modes of the GUI.
+            </summary>
+        </member>
+        <member name="F:TG.INI.Controls.IniEditor.DisplayModes.Standalone">
+            <summary>
+            This will cause a top tool bar to be shown that includes a New, Open and Save button.
+            </summary>
+        </member>
+        <member name="F:TG.INI.Controls.IniEditor.DisplayModes.Dialog">
+            <summary>
+            This will hide the top tool bar and show an Ok and Cancel button at the bottom of the window.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.CanEncrypt">
+            <summary>
+            Gets whether an EncryptionKey property is set and the length is greater than zero.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.Dirty">
+            <summary>
+            Gets or sets if the document has changed.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.DisplayMode">
+            <summary>
+            Gets or sets how the editor window is setup.
+            </summary>
+            <remarks>
+            There are two options available for this property; Standalone and Dialog.
+            When the Standalone option is selected, a tool bar is shown with the buttons New, Open and Save.
+            When the Dialog option is shown, the tool bar is hidden and OK and Cancel button is shown at the bottom of the window.
+            </remarks>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.Document">
+            <summary>
+            Gets or sets the <see cref="T:TG.INI.IniDocument"/> that is being viewed.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.DocumentPath">
+            <summary>
+            Gets or sets the file path to a INI file. This is only used in Standalone mode.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.EncryptionHandler">
+            <summary>
+            Get or set the <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to use. This is mostly used while in <see cref="F:TG.INI.Controls.IniEditor.DisplayModes.Standalone"/> but can be used to change the handler for an existing <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.Privileges">
+            <summary>
+            Gets or sets the user privileges of the editor.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Controls.IniEditor.Title">
+            <summary>
+            Gets or sets the Text title property.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.LoadDocument(TG.INI.IniDocument)">
+            <summary>
+            Loads an <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="iniDocument"></param>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.OnDirtyChanged">
+            <summary>
+            This method is invoked when the <see cref="P:TG.INI.Controls.IniEditor.Dirty"/> property is modified.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.OnDisplayModeChanged">
+            <summary>
+            This method is invoked when the <see cref="P:TG.INI.Controls.IniEditor.DisplayMode"/> property is modified.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.OpenDocument(System.String)">
+            <summary>
+            Opens a INI document from file.
+            </summary>
+            <param name="path">The file path do the document.</param>
+        </member>
+        <member name="F:TG.INI.Controls.IniEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TG.INI.Controls.IniEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TG.INI.EnumExtensions">
+            <summary>
+            Extensions for enums.
+            </summary>
+        </member>
+        <member name="M:TG.INI.EnumExtensions.HasFlag(System.Enum,System.Enum)">
+            <summary>
+            A FX 3.5 way to mimic the FX4 "HasFlag" method.
+            </summary>
+            <param name="variable">The tested enum.</param>10
+            <param name="value">The value to test.</param>
+            <returns>True if the flag is set. Otherwise false.</returns>
+        </member>
+        <member name="T:TG.INI.EditorPrivileges">
+            <summary>
+            Defines the privileges 
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.ReadOnly">
+            <summary>
+            Disables all editing.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.AddSections">
+            <summary>
+            Allows users to add new sections.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.RemoveSections">
+            <summary>
+            Allows users to remove sections.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.AddEntries">
+            <summary>
+            Allows users to add new entries.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.RemoveEntries">
+            <summary>
+            Allows users to remove entries.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.ChangeKeys">
+            <summary>
+            Allows users to change the Key column values.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.ChangeValues">
+            <summary>
+            Allows users to change the Value column values.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EditorPrivileges.All">
+            <summary>
+            Allows users to all functionality within the editor.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Encryption.IEncryptionHandler">
+            <summary>
+            An interface for handling encryption.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.Decrypt(System.Byte[])">
+            <summary>
+            Decrypts a byte array to a byte array.
+            </summary>
+            <param name="bytes">A byte array to decrypt.</param>
+            <returns>Unencrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.DecryptBase64(System.String)">
+            <summary>
+            Decrypts a base64 string to an unencrypted Unicode string.
+            </summary>
+            <param name="base64">Base64 string to decrypt.</param>
+            <returns>Unencrypted string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.DecryptBase64ToByte(System.String)">
+            <summary>
+            Decrypts a base64 string to an unencrypted byte array.
+            </summary>
+            <param name="base64">Base64 string to decrypt.</param>
+            <returns>Unencrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.DecryptToString(System.Byte[])">
+            <summary>
+            Decrypts byte array to a Unicode string.
+            </summary>
+            <param name="bytes">The byte data to decrypt.</param>
+            <returns>Unencrypted string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts a byte array to a byte array.
+            </summary>
+            <param name="bytes">A byte array to encrypt.</param>
+            <returns>Encrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.Encrypt(System.String)">
+            <summary>
+            Encrypts text to a byte array.
+            </summary>
+            <param name="text">The string of text to encrypt.</param>
+            <returns>Encrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.EncryptBase64(System.Byte[])">
+            <summary>
+            Encrypts a byte array to a base64 string.
+            </summary>
+            <param name="bytes">A byte array to encrypt.</param>
+            <returns>Encrypted base64 string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IEncryptionHandler.EncryptBase64(System.String)">
+            <summary>
+            Encrypts text to a base64 string.
+            </summary>
+            <param name="text">The string of text to encrypt.</param>
+            <returns>Encrypted base64 string.</returns>
+        </member>
+        <member name="T:TG.INI.Encryption.IniRijndaelEncryption">
+            <summary>
+            Provides <see cref="T:System.Security.Cryptography.Rijndael"/> encryption.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.#ctor(System.Byte[])">
+            <summary>
+            Creates an instance of <see cref="T:TG.INI.Encryption.IniRijndaelEncryption"/>.
+            </summary>
+            <param name="key">The key, no larger than 32 bytes, to use during encryption and decryption.</param>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.#ctor(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:TG.INI.Encryption.IniRijndaelEncryption"/>.
+            </summary>
+            <param name="key">The key to use during encryption and decryption.</param>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts a byte array to a byte array.
+            </summary>
+            <param name="bytes">A byte array to encrypt.</param>
+            <returns>Encrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.Encrypt(System.String)">
+            <summary>
+            Encrypts text to a byte array.
+            </summary>
+            <param name="text">The string of text to encrypt.</param>
+            <returns>Encrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.EncryptBase64(System.String)">
+            <summary>
+            Encrypts text to a base64 string.
+            </summary>
+            <param name="text">The string of text to encrypt.</param>
+            <returns>Encrypted base64 string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.EncryptBase64(System.Byte[])">
+            <summary>
+            Encrypts a byte array to a base64 string.
+            </summary>
+            <param name="bytes">A byte array to encrypt.</param>
+            <returns>Encrypted base64 string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.Decrypt(System.Byte[])">
+            <summary>
+            Decrypts a byte array to a byte array.
+            </summary>
+            <param name="bytes">A byte array to decrypt.</param>
+            <returns>Unencrypted byte array.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.DecryptToString(System.Byte[])">
+            <summary>
+            Decrypts byte array to a Unicode string.
+            </summary>
+            <param name="bytes">The byte data to decrypt.</param>
+            <returns>Unencrypted string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.DecryptBase64(System.String)">
+            <summary>
+            Decrypts a base64 string to an unencrypted Unicode string.
+            </summary>
+            <param name="base64">Base64 string to decrypt.</param>
+            <returns>Unencrypted string.</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.DecryptBase64ToByte(System.String)">
+            <summary>
+            Decrypts a base64 string to an unencrypted byte array.
+            </summary>
+            <param name="base64">Base64 string to decrypt.</param>
+            <returns>Unencrypted byte array.</returns>
+        </member>
+        <member name="P:TG.INI.Encryption.IniRijndaelEncryption.EncryptionKey">
+            <summary>
+            Gets the encryption key value currently set.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.EncryptionKeyAsString">
+            <summary>
+            Returns the EncryptionKey as a UTF8 string.
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="M:TG.INI.Encryption.IniRijndaelEncryption.Dispose">
+            <summary>
+            Disposes the Crypto class.
+            </summary>
+        </member>
+        <member name="T:TG.INI.EntryTypes">
+            <summary>
+            Represents the type of entry the line is within an INI file.
+            </summary>
+        </member>
+        <member name="F:TG.INI.EntryTypes.WhiteSpace">
+            <summary>
+            Represents a blank line.
+            </summary>
+        </member>
+        <member name="T:TG.INI.IniComment">
+            <summary>
+            This class represents a INI comment line.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniComment.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniComment"/>.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniComment.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniComment"/> with the comment value provided.
+            </summary>
+            <param name="value">The comment value of this <see cref="T:TG.INI.IniComment"/></param>
+        </member>
+        <member name="P:TG.INI.IniComment.EntryType">
+            <summary>
+            Gets value <see cref="F:TG.INI.EntryTypes.Comment"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniComment.Value">
+            <summary>
+            Gets or Sets the comment value.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniComment.ToString">
+            <summary>
+            Returns comment output.
+            </summary>
+            <returns>Returns comment output.</returns>
+        </member>
+        <member name="T:TG.INI.IniConfiguration`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniConfiguration`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniConfiguration`1"/>.
+            </summary>        
+            <param name="path">The path to an INI file.</param>
+        </member>
+        <member name="M:TG.INI.IniConfiguration`1.#ctor(System.String,TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniConfiguration`1"/>.
+            </summary>        
+            <param name="path">The path to an INI file.</param>
+            <param name="encryptionHandler">The <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to user for encrypting values.</param>
+        </member>
+        <member name="M:TG.INI.IniConfiguration`1.Load">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:TG.INI.IniDocument">
+            <summary>
+            Represents an INI file structure.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor">
+            <summary>
+            Initializes a new <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniDocument"/> then reads from a path.
+            </summary>
+            <param name="path">The path to an INI file.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor(TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniDocument"/> with a designated <see cref="T:TG.INI.Encryption.IEncryptionHandler"/>.
+            </summary>
+            <param name="encryptionHandler">The <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to be set to <see cref="P:TG.INI.IniDocument.EncryptionHandler"/>.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor(System.String,TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniDocument"/> then reads from a path.
+            </summary>
+            <param name="path">The path to an INI file.</param>
+            <param name="encryptionHandler">The <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to user for decrypting values.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniDocument"/> then reads from a stream. 
+            </summary>
+            <param name="stream">The stream to read from.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor(System.IO.Stream,TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniDocument"/> then reads from a stream. 
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="encryptionHandler">The <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to user for decrypting values.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniDocument"/> and deserializes the provided object.
+            </summary>
+            <param name="obj">The object to deserialize.</param>
+        </member>
+        <member name="P:TG.INI.IniDocument.Item(System.String)">
+            <summary>
+            Gets a <see cref="T:TG.INI.IniSection"/> by name.
+            </summary>
+            <param name="SectionName">The name of the <see cref="T:TG.INI.IniSection"/> to get.</param>
+            <returns>The <see cref="T:TG.INI.IniSection"/>, if found; otherwise null.</returns>
+        </member>
+        <member name="P:TG.INI.IniDocument.CommentLineIndicator">
+            <summary>
+            Gets or Sets the string that indicates a line is a comment.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniDocument.GlobalSection">
+            <summary>
+            Gets the Global section of the INI file.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniDocument.Sections">
+            <summary>
+            Gets a collection of <see cref="T:TG.INI.IniSection"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniDocument.EncryptionHandler">
+            <summary>
+            Get or set the <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to use for encryption.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniDocument.HasEncryptionHandler">
+            <summary>
+            Gets if the <see cref="P:TG.INI.IniDocument.EncryptionHandler"/> property is not null.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniDocument.QuoteAllValues">
+            <summary>
+            Gets or Sets whether all <see cref="P:TG.INI.IniKeyValue.Value"/> properties should be quoted on output.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniDocument.ToString">
+            <summary>
+            Returns the INI data as string.
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="M:TG.INI.IniDocument.Parse(System.String)">
+            <summary>
+            Parses an INI string.
+            </summary>
+            <param name="iniData">A string of INI text data.</param>
+            <returns><see cref="T:TG.INI.IniDocument"/></returns>
+        </member>
+        <member name="M:TG.INI.IniDocument.Parse(System.String,TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Parses an INI string.
+            </summary>
+            <param name="iniData">A string of INI text data.</param>
+            <param name="globalEncryptionHandler">The <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to use for decryption.</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniDocument"/>.</returns>
+        </member>
+        <member name="M:TG.INI.IniDocument.Clone">
+            <summary>
+            Clones the current <see cref="T:TG.INI.IniDocument"/> and creates a new instance.
+            </summary>
+            <returns>A new instance of <see cref="T:TG.INI.IniDocument"/> with copied values of the current <see cref="T:TG.INI.IniDocument"/>.</returns>
+        </member>
+        <member name="M:TG.INI.IniDocument.Read(System.String)">
+            <summary>
+            Reads an INI file and parses the data.
+            </summary>
+            <param name="path">Path to the INI file.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.Read(System.IO.Stream)">
+            <summary>
+            Reads an INI file from a stream and parses the data.
+            </summary>
+            <param name="stream">A stream to read from.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.Read(System.IO.TextReader)">
+            <summary>
+            Reads an INI file and parses the data.
+            </summary>
+            <param name="reader">A <see cref="T:System.IO.TextReader"/> used to read the INI data.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.Write(System.IO.TextWriter)">
+            <summary>
+            Writes the content of <see cref="T:TG.INI.IniDocument"/> to a <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+            <param name="writer">The <see cref="T:System.IO.TextWriter"/> to write to.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.Write(System.IO.Stream)">
+            <summary>
+            Writes the content of <see cref="T:TG.INI.IniDocument"/> to a <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream"/> to write to.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.Write(System.String)">
+            <summary>
+            Writes the content of <see cref="T:TG.INI.IniDocument"/> to a file./>.
+            </summary>
+            <param name="path">The file path to write to.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.GetKeyValue(System.String)">
+            <summary>
+            Navigates to a section and looks for a key from the path.
+            </summary>
+            <param name="path">A string containing the section name separated by a backslash followed by the key name. If key/value is within the global section, enter the key name only.</param>
+            <returns>Returns the <see cref="T:TG.INI.IniKeyValue"/> if found; otherwise null is returned.</returns>
+        </member>
+        <member name="M:TG.INI.IniDocument.GetKeyValue(System.String,System.Boolean)">
+            <summary>
+            Navigates to a section and looks for a key from the path.
+            </summary>
+            <param name="path">A string containing the section name separated by a backslash followed by the key name. If key/value is within the global section, enter the key name only.</param>
+            <param name="createIfNotExists">If true and either the section or key does not exist, they will be automatically created.</param>
+            <returns>Returns the <see cref="T:TG.INI.IniKeyValue"/> if found; otherwise null is returned.</returns>
+        </member>
+        <member name="M:TG.INI.IniDocument.ShowEditor">
+            <summary>
+            Shows the IniEditor window for the current IniDocument.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniDocument.ShowEditor(TG.INI.EditorPrivileges)">
+            <summary>
+            Shows the IniEditor window for the current IniDocument.
+            </summary>
+            <param name="privileges">>The privileges that the editor should have.</param>
+        </member>
+        <member name="M:TG.INI.IniDocument.Dispose">
+            <summary>
+            Disposes the document.
+            </summary>
+        </member>
+        <member name="T:TG.INI.IniEntry">
+            <summary>
+            This is the base class that represents an INI entry.
+            </summary>
+        </member>
+        <member name="E:TG.INI.IniEntry.ValueChanged">
+            <summary>
+            Event that is called when a value has changed.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniEntry.EntryType">
+            <summary>
+            Gets the type of entry represented by <see cref="T:TG.INI.EntryTypes"/>. 
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniEntry.ParentDocument">
+            <summary>
+            Gets the parent <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniEntry.Value">
+            <summary>
+            Gets or Sets the string value of the entry.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniEntry.ToString">
+            <summary>
+            Returns a string that represents the entry.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:TG.INI.IniEntry.OnParentChanged">
+            <summary>
+            This method is invoked when that ParentDocument property has changed.
+            </summary>
+        </member>
+        <member name="T:TG.INI.IniKeyValue">
+            <summary>
+            This class represents a key/value line. Ex. Year=2015
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniKeyValue.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniKeyValue"/>.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniKeyValue.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniKeyValue"/> with a key and string value.
+            </summary>
+            <param name="key">The key name.</param>
+            <param name="value">The string value.</param>
+        </member>
+        <member name="M:TG.INI.IniKeyValue.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniKeyValue"/> with a key and int value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:TG.INI.IniKeyValue.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniKeyValue"/> with a key, value and if the value should be encrypted.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="encryptValue"></param>
+        </member>
+        <member name="M:TG.INI.IniKeyValue.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniKeyValue"/> with a key, value and if the value should be encrypted and quoted.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="encryptValue"></param>
+            <param name="quoteValue"></param>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.EntryType">
+            <summary>
+            Get value <see cref="F:TG.INI.EntryTypes.KeyValue"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.Key">
+            <summary>
+            Gets or Sets the key for this entry.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.QuoteValue">
+            <summary>
+            Gets or Sets whether values should be enclosed in quotation marks.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.BaseValue">
+            <summary>
+            Gets or Sets the base string value of the <see cref="T:TG.INI.IniKeyValue"/>. 
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.Value">
+            <summary>
+            Gets or Sets the string value of the entry.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueBoolean">
+            <summary>
+            Gets or Sets the value as a <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueDateTime">
+            <summary>
+            Gets or Sets the value as a <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueDecimal">
+            <summary>
+            Gets or Sets the value as a decimal type.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueFloat">
+            <summary>
+            Gets or Sets the value as a float type.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueDouble">
+            <summary>
+            Gets or Sets the value as a double type.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueByte">
+            <summary>
+            Gets or Sets the value as an byte type.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueInt16">
+            <summary>
+            Gets or Sets the value as a short type.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueInt">
+            <summary>
+            Gets or Sets the value as an integer type.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueInt64">
+            <summary>
+            Gets or Sets the value as a 64 bit integer.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValuePoint">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.Point"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValuePointF">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.PointF"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueSize">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.Size"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueSizeF">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.SizeF"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueRectangle">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.Rectangle"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueRectangleF">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.RectangleF"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.ValueColor">
+            <summary>
+            Get or set a <see cref="T:System.Drawing.Color"/> value.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniKeyValue.EncryptValue">
+            <summary>
+            Gets or Sets if the value should be encrypted.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniKeyValue.ToString">
+            <summary>
+            Returns the INI key/value output.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TG.INI.IniSection">
+            <summary>
+            This class represents a section of INI.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniSection.#ctor(System.String)">
+            <summary>
+            Initializes a new <see cref="T:TG.INI.IniSection"/> with the provided name.
+            </summary>
+            <param name="name">The name of the new section.</param>
+        </member>
+        <member name="P:TG.INI.IniSection.Name">
+            <summary>
+            Gets or Sets the section name.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniSection.ParentDocument">
+            <summary>
+            Gets the parent <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniSection.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:TG.INI.IniEntry"/> at the given index within the collection.
+            </summary>
+            <param name="index">The index to retrieve the <see cref="T:TG.INI.IniEntry"/>.</param>
+            <returns>The <see cref="T:TG.INI.IniEntry"/> at the given index.</returns>
+        </member>
+        <member name="P:TG.INI.IniSection.Item(System.String)">
+            <summary>
+            Gets an <see cref="T:TG.INI.IniKeyValue"/> with a matching key value.
+            </summary>
+            <param name="key">The key to match to a <see cref="T:TG.INI.IniKeyValue"/>.</param>
+            <returns>The matching <see cref="T:TG.INI.IniKeyValue"/>; otherwise a new <see cref="T:TG.INI.IniKeyValue"/> will be returned.</returns>
+        </member>
+        <member name="M:TG.INI.IniSection.Add(TG.INI.IniEntry)">
+            <summary>
+            Adds an <see cref="T:TG.INI.IniEntry"/> to the section.
+            </summary>
+            <param name="entry">The <see cref="T:TG.INI.IniEntry"/> to add.</param>
+        </member>
+        <member name="M:TG.INI.IniSection.Add(TG.INI.IniKeyValue)">
+            <summary>
+            Adds an <see cref="T:TG.INI.IniKeyValue"/> to this section.
+            </summary>
+            <param name="keyValue">The <see cref="T:TG.INI.IniKeyValue"/> to add.</param>
+        </member>
+        <member name="M:TG.INI.IniSection.AddKeyValue(System.String,System.String)">
+            <summary>
+            Adds a new key/value entry to the section.
+            </summary>
+            <param name="key">The key of the entry.</param>
+            <param name="value">The value of the entry.</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniKeyValue"/>.</returns>
+        </member>
+        <member name="M:TG.INI.IniSection.AddKeyValue(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new key/value entry to the section.
+            </summary>
+            <param name="key">The key of the entry.</param>
+            <param name="value">The value of the entry.</param>
+            <param name="encryptValue">Should the value be encrypted?</param>
+            <param name="quoteValue">Should the value be quoted?</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniKeyValue"/>.</returns>
+        </member>
+        <member name="M:TG.INI.IniSection.AddComment(System.String)">
+            <summary>
+            Initialize a new instance of <see cref="T:TG.INI.IniComment"/> and add it to the section.
+            </summary>
+            <param name="value">The comment value.</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniComment"/>.</returns>
+        </member>
+        <member name="M:TG.INI.IniSection.ContainsKey(System.String)">
+            <summary>
+            Checks if a key exists in the section.
+            </summary>
+            <param name="key">The key to look for.</param>
+            <returns>Returns true if the key exists in the series; otherwise false.</returns>
+        </member>
+        <member name="M:TG.INI.IniSection.ToString">
+            <summary>
+            Returns the INI section output.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TG.INI.IniWhiteSpace.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniWhiteSpace"/>.
+            </summary>
+        </member>
+        <member name="M:TG.INI.IniWhiteSpace.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniWhiteSpace"/> with a provided number of spaces.
+            </summary>
+            <param name="spaces">The number of spaces the new instance represents.</param>
+        </member>
+        <member name="M:TG.INI.IniWhiteSpace.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.IniWhiteSpace"/> with a provided white space string.
+            </summary>
+            <param name="whiteSpace">A string containing spaces. All other characters are ignored.</param>
+        </member>
+        <member name="P:TG.INI.IniWhiteSpace.EntryType">
+            <summary>
+            Gets value <see cref="F:TG.INI.EntryTypes.WhiteSpace"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniWhiteSpace.Spaces">
+            <summary>
+            Gets or Sets the number of spaces contained in this <see cref="T:TG.INI.IniWhiteSpace"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.IniWhiteSpace.Value">
+            <summary>
+            Gets or Sets the space string of the white space.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Properties.Resources.Lock16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:TG.INI.SectionCollection">
+            <summary>
+            A collection to store <see cref="T:TG.INI.IniSection"/>.
+            </summary>
+        </member>
+        <member name="M:TG.INI.SectionCollection.#ctor(TG.INI.IniDocument)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.SectionCollection"/>.
+            </summary>
+        </member>
+        <member name="P:TG.INI.SectionCollection.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:TG.INI.IniSection"/> by name.
+            </summary>
+            <param name="name">The name of the <see cref="T:TG.INI.IniSection"/> to get.</param>
+            <returns>The <see cref="T:TG.INI.IniSection"/>, if found; otherwise a new <see cref="T:TG.INI.IniSection"/> will be created.</returns>
+        </member>
+        <member name="P:TG.INI.SectionCollection.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:TG.INI.IniSection"/> as a given index.
+            </summary>
+            <param name="index">The index of the section.</param>
+            <returns><see cref="T:TG.INI.IniSection"/></returns>
+        </member>
+        <member name="M:TG.INI.SectionCollection.Add(TG.INI.IniSection)">
+            <summary>
+            Adds an <see cref="T:TG.INI.IniSection"/> to the collection.
+            </summary>
+            <param name="section">The <see cref="T:TG.INI.IniSection"/> to be added.</param>
+            <returns>The value of param section.</returns>
+        </member>
+        <member name="M:TG.INI.SectionCollection.Add(System.String)">
+            <summary>
+            Initializes a new <see cref="T:TG.INI.IniSection"/> with the provided name and adds it to the collection.
+            </summary>
+            <param name="name">The name of the section.</param>
+            <returns>The instance of the new <see cref="T:TG.INI.IniSection"/>.</returns>
+        </member>
+        <member name="M:TG.INI.SectionCollection.Contains(System.String)">
+            <summary>
+            Determines if the collection contains a section with the provided name.
+            </summary>
+            <param name="name">The name of the section to find.</param>
+            <returns>True if the collection contains the section; otherwise false.</returns>
+        </member>
+        <member name="M:TG.INI.SectionCollection.Find(System.String)">
+            <summary>
+            Searches the collection for an <see cref="T:TG.INI.IniSection"/> by the name.
+            </summary>
+            <param name="name">The name of the <see cref="T:TG.INI.IniSection"/> to find.</param>
+            <returns>The <see cref="T:TG.INI.IniSection"/>, if found; otherwise null.</returns>
+        </member>
+        <member name="M:TG.INI.SectionCollection.Remove(TG.INI.IniSection)">
+            <summary>
+            Remove an <see cref="T:TG.INI.IniSection"/> from the collection.
+            </summary>
+            <param name="section"></param>
+        </member>
+        <member name="M:TG.INI.SectionCollection.Remove(System.String)">
+            <summary>
+            Remove an <see cref="T:TG.INI.IniSection"/> from the collection, by name.
+            </summary>
+            <param name="name">The name of the section to remove.</param>
+        </member>
+        <member name="P:TG.INI.SectionCollection.ParentDocument">
+            <summary>
+            Gets the parent <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Serialization.IniEncryptValueAttribute">
+            <summary>
+            This attribute instructs the serializer to encrypt the string value.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Serialization.IniIgnorePropertyAttribute">
+            <summary>
+            Indicates that a property should be ignored when serializing.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniIgnorePropertyAttribute.#ctor">
+            <summary>
+            Default constructor where <see cref="P:TG.INI.Serialization.IniIgnorePropertyAttribute.Ignore"/> is true.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniIgnorePropertyAttribute.#ctor(System.Boolean)">
+            <summary>
+            Constructor where you define if the property should be ignored.
+            </summary>
+            <param name="ignore"></param>
+        </member>
+        <member name="P:TG.INI.Serialization.IniIgnorePropertyAttribute.Ignore">
+            <summary>
+            Should the property be ignored.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Serialization.IniPropertyAttribute">
+            <summary>
+            This attribute can be used to indicate that a private property should be serialized or to serialize/deserialize a property as a different name.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniPropertyAttribute.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.Serialization.IniPropertyAttribute"/>
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniPropertyAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:TG.INI.Serialization.IniPropertyAttribute"/>
+            </summary>
+            <param name="nameOverride">A name that should be used in place of the original property name.</param>
+        </member>
+        <member name="P:TG.INI.Serialization.IniPropertyAttribute.PropertyNameOverride">
+            <summary>
+            Gets an overridden property name.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Serialization.IniPropertyAttribute.HasPropertyNameOverride">
+            <summary>
+            Gets whether the <see cref="P:TG.INI.Serialization.IniPropertyAttribute.PropertyNameOverride"/> has been set with a value.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Serialization.IniQuoteValueAttribute">
+            <summary>
+            Tells the serializer to quote the value.
+            </summary>
+        </member>
+        <member name="T:TG.INI.Serialization.IniSerialization">
+            <summary>
+            Used to serialize simple object to INI and deserialize INI to a simple object.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.#ctor">
+            <summary>
+            Creates a new instance.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.#ctor(TG.INI.Encryption.IEncryptionHandler)">
+            <summary>
+            Creates a new instance and specifies the <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to use when serializing and deserializing.
+            </summary>
+        </member>
+        <member name="P:TG.INI.Serialization.IniSerialization.EncryptionHandler">
+            <summary>
+            Specifies the <see cref="T:TG.INI.Encryption.IEncryptionHandler"/> to use when serializing and deserializing.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.Deserialize``1(TG.INI.IniDocument)">
+            <summary>
+            Deserializes the <see cref="T:TG.INI.IniDocument"/> into the provided type.
+            </summary>
+            <typeparam name="T">The type of object that should be created and returned.</typeparam>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> containing the values to be applied.</param>
+            <returns>A new instance of T type.</returns>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.DeserializeDocument``1(TG.INI.IniDocument)">
+            <summary>
+            Deserializes the <see cref="T:TG.INI.IniDocument"/> into the provided type.
+            </summary>
+            <typeparam name="T">The type of object that should be created and returned.</typeparam>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> containing the values to be applied.</param>
+            <returns>A new instance of T type.</returns>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.DeserializeInto(TG.INI.IniDocument,System.Object)">
+            <summary>
+            Deserializes the provided <see cref="T:TG.INI.IniDocument"/> into the obj.
+            </summary>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> to deserialize.</param>
+            <param name="obj">The object to deserialize into.</param>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.DeserializeDocumentInto(TG.INI.IniDocument,System.Object)">
+            <summary>
+            Deserializes the provided <see cref="T:TG.INI.IniDocument"/> into the obj.
+            </summary>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> to deserialize.</param>
+            <param name="obj">The object to deserialize into.</param>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.SerializeObject(System.Object)">
+            <summary>
+            Serialize an object into a new <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniDocument"/> containing the key/values of the object's properties.</returns>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.SerializeObjectToNewDocument(System.Object)">
+            <summary>
+            Serialize an object into a new <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniDocument"/> containing the key/values of the object's properties.</returns>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.SerializeObjectInto(System.Object,TG.INI.IniDocument)">
+            <summary>
+            Serialize an object into an <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> to add the properties and their values into.</param>
+        </member>
+        <member name="M:TG.INI.Serialization.IniSerialization.SerializeObjectIntoDocument(System.Object,TG.INI.IniDocument)">
+            <summary>
+            Serialize an object into an <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> to add the properties and their values into.</param>
+        </member>
+        <member name="T:TG.INI.Serialization.ISerializer">
+            <summary>
+            Interface for serializing and deserializing INI files.
+            </summary>
+        </member>
+        <member name="M:TG.INI.Serialization.ISerializer.SerializeObject(System.Object)">
+            <summary>
+            Serialize an object into a new <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <returns>A new instance of <see cref="T:TG.INI.IniDocument"/> containing the key/values of the object's properties.</returns>
+        </member>
+        <member name="M:TG.INI.Serialization.ISerializer.SerializeObjectInto(System.Object,TG.INI.IniDocument)">
+            <summary>
+            Serialize an object into an <see cref="T:TG.INI.IniDocument"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> to add the properties and their values into.</param>
+        </member>
+        <member name="M:TG.INI.Serialization.ISerializer.Deserialize``1(TG.INI.IniDocument)">
+            <summary>
+            Deserializes the <see cref="T:TG.INI.IniDocument"/> into the provided type.
+            </summary>
+            <typeparam name="T">The type of object that should be created and returned.</typeparam>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> containing the values to be applied.</param>
+            <returns>A new instance of T type.</returns>
+        </member>
+        <member name="M:TG.INI.Serialization.ISerializer.DeserializeInto(TG.INI.IniDocument,System.Object)">
+            <summary>
+            Deserializes the provided <see cref="T:TG.INI.IniDocument"/> into the obj.
+            </summary>
+            <param name="document">The <see cref="T:TG.INI.IniDocument"/> to deserialize.</param>
+            <param name="obj">The object to deserialize into.</param>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.ExtensionAttribute">
+            <summary>
+            Extensions attribute required for the EnumExtensions class
+            </summary>
+        </member>
+    </members>
+</doc>

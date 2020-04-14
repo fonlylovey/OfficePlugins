@@ -28,5 +28,8 @@ namespace Core
         Legend = 2, //图例
         Market = 3,//市场
         Policy = 4, //政策
+        Product = 5, //产品
+        Predict = 6, //预测
+        Macro = 7 //宏观
     }
 }

@@ -221,11 +221,14 @@ namespace PPTPlugin
             {
                 group = RequestHandle.GetIconFilter();
             }
-            filterWidget.AddFilterItem(group);
-            filterWidget.ShowDialog();
-            List<String> filterList = filterWidget.Selection;
-            FilterText = string.Join(",", filterList);
-            UpdateResourceList();
+            if(group != null)
+            {
+                filterWidget.AddFilterItem(group);
+                filterWidget.ShowDialog();
+                List<String> filterList = filterWidget.Selection;
+                FilterText = string.Join(",", filterList);
+                UpdateResourceList();
+            }
         }
 
     }

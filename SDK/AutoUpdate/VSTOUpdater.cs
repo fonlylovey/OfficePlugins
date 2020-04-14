@@ -1,37 +1,42 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Xml;
 using Base;
 using Core;
+using TG.INI;
+using System.Diagnostics;
+using System.IO;
 
 namespace AutoUpdate
 {
     public class VSTOUpdater
 	{
+		public static bool NeedUpdate = false;
 		public static String ServerVersion = "";
-
-        public static async Task<bool> CheckUpdate()
+		public static Dictionary<String, String> UpdateLog = new Dictionary<string, string>();
+		public static async Task<bool> CheckUpdate()
         {
             try
             {
 				//http://xxw.autoinfo.org.cn/ppttools/static/update/publish
-				String strLogUrl = Rigel.UpdateUrl + "ExcelChangeLog.txt"; ;
-                String strVSTOUrl = Rigel.UpdateUrl + "BIMExcelPlugin.vsto";
+				String strLogUrl = Rigel.UpdateUrl + "UpdateLog.ini"; ;
+                String strVSTOUrl = Rigel.UpdateUrl + "PPTer.vsto";
 
                 await GetServerVersion(strVSTOUrl);
 
-                String strChangeLog = await GetChangeLog(strLogUrl);
+                await GetChangeLog(strLogUrl);
                 int local = 0;
                 Int32.TryParse(Rigel.PluginVersion.Replace(".", ""), out local);
                 int server = 0;
                 Int32.TryParse(ServerVersion.Replace(".", ""), out server);
-
-                int index = strChangeLog.IndexOf('\n') + 1;
-                String strDesc = strChangeLog.Substring(0, index);
-                String strLogs = strChangeLog.Substring(index, strChangeLog.Length - index);
-            }
+				if (local < server)
+				{
+					NeedUpdate = true;
+				}
+				else
+					NeedUpdate = false;
+			}
             catch (Exception ex)
             {
                 Logger.LogError(ex.ToString());
@@ -40,7 +45,71 @@ namespace AutoUpdate
             return true;
         }
 
-        public static async Task<bool> GetServerVersion(String fileUrl)
+		public static void Update()
+		{
+			String strinstall = Rigel.PluginDir + "Plugins/InstallVSTO.bat";
+			try
+			{
+				if (File.Exists(strinstall))
+				{
+					ProcessStartInfo startInfo = new ProcessStartInfo(strinstall);
+					//设置不在新窗口中启动新的进程
+					startInfo.CreateNoWindow = true;
+					//不使用操作系统使用的shell启动进程
+					startInfo.UseShellExecute = false;
+					//将输出信息重定向
+					startInfo.RedirectStandardOutput = true;
+					Process process = Process.Start(startInfo);
+
+					if (process != null)
+					{
+						process.WaitForExit();
+					}
+				}
+				else
+				{
+					Logger.LogError("没有找到升级文件：" + strinstall);
+				}
+			}
+			catch (Exception ex)
+			{
+				Logger.LogError(ex.ToString());
+			}
+		}
+
+		public static void UninstallPlugin()
+		{
+			String strUninstall = Rigel.PluginDir + "Plugins/UninstallVSTO.bat";
+			try
+			{
+				if (File.Exists(strUninstall))
+				{
+					ProcessStartInfo startInfo = new ProcessStartInfo(strUninstall);
+					//设置不在新窗口中启动新的进程
+					startInfo.CreateNoWindow = true;
+					//不使用操作系统使用的shell启动进程
+					startInfo.UseShellExecute = false;
+					//将输出信息重定向
+					startInfo.RedirectStandardOutput = true;
+					Process process = Process.Start(startInfo);
+
+					if (process != null)
+					{
+						process.WaitForExit();
+					}
+				}
+				else
+				{
+					Logger.LogError("没有找到升级文件：" + strUninstall);
+				}
+			}
+			catch(Exception ex)
+			{
+				Logger.LogError(ex.ToString());
+			}
+		}
+
+		private static async Task<bool> GetServerVersion(String fileUrl)
 		{
 			//下载云端vsto
 			String filePath = "";
@@ -64,32 +133,31 @@ namespace AutoUpdate
 			}
 		}
 
-		public static async Task<String> GetChangeLog(String fileUrl)
+		private static async Task<bool> GetChangeLog(String fileUrl)
 		{
-			//下载云端vsto
-			String strChangeLog = "";
+			UpdateLog.Clear();
 			String filePath;
-			FileStream file = null;
+			IniDocument document = null;
 			try
 			{
                 filePath = await Request.HttpDownload(fileUrl);
-				file = new FileStream(filePath, FileMode.Open);
-				byte[] byteArray = new byte[file.Length];
-				int x = await file.ReadAsync(byteArray, 0, (int)file.Length);
-				strChangeLog = System.Text.Encoding.UTF8.GetString(byteArray);
+				document = new IniDocument(filePath);
+				if(document != null)
+				{
+
+					IniKeyValue pair = document["setting"]["slogan"];
+					String str = pair == null ? "" : pair.Value;
+					UpdateLog.Add("slogan", str);
+					pair = pair = document["setting"]["content"];
+					str = pair == null ? "" : pair.Value;
+					UpdateLog.Add("content", str);
+				}
+				return true;
 			}
 			catch
 			{
-				throw new Exception("检查更新失败");
+				return false;
 			}
-			finally
-			{
-				if(file != null)
-				{
-					file.Close();
-				}
-			}
-			return strChangeLog;
 		}
 		//检测云端版本，返回是否需要更新
 

@@ -139,13 +139,51 @@ namespace PPTPlugin
             Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
+        private void button_product_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Product;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
+            Globals.ThisAddIn.TaskWidget.Visible = true;
+        }
+
+        private void button_predict_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Predict;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
+            Globals.ThisAddIn.TaskWidget.Visible = true;
+        }
+
+        private void button_macro_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Macro;
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
+            Globals.ThisAddIn.TaskWidget.Visible = true;
+        }
+
+        private void button_about_Click(object sender, RibbonControlEventArgs e)
+        {
+            AboutWidget aboutWidget = new AboutWidget();
+            DialogResult result = ThisAddIn.FormShower.ShowDialog(aboutWidget);
+        }
+
         private void button_option_Click(object sender, RibbonControlEventArgs e)
         {
             UpdateWidget updateWidget = new UpdateWidget();
+            updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
+            VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
+            VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
+            updateWidget.setInfo(slogan, content);
+            updateWidget.setNeedUpdate(false);
             DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
             if(result == DialogResult.OK)
             {
-                
+                VSTOUpdater.Update(); ;
             }
         }
 
@@ -177,6 +215,7 @@ namespace PPTPlugin
             button_option.Enabled = value;
         }
 
+        
     }
 
 }
