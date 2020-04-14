@@ -352,6 +352,7 @@
     <None Include="Resources\prePage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\nor_btn.png" />
     <None Include="Resources\yzm_btn.png" />
     <None Include="Resources\updata_btn.png" />
     <None Include="Resources\about_btn.png" />

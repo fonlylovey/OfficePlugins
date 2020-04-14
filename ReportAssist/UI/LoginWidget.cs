@@ -23,6 +23,9 @@ namespace PPTPlugin
             errorProvider = new FErrorProvider();
             button_identCode.SetAnimating(false);
             lineEdit_account.Select();
+            m_timer = new Timer();
+            m_timer.Interval = 1000;
+            m_timer.Tick += OnTick;
         }
 
         private async void button_identCode_Click(object sender, EventArgs e)
@@ -32,6 +35,10 @@ namespace PPTPlugin
                 try
                 {
                     int userFlag = await RequestHandle.SendIdentCode(lineEdit_account.Text);
+                    button_identCode.Enabled = false;
+                    m_TotalTime = 0;
+                    m_timer.Start();
+                    button_identCode.Image = Properties.Resources.nor_btn;
                     if (userFlag == 0)//未注册
                     {
                         invite_Layout.Visible = true;
@@ -96,5 +103,21 @@ namespace PPTPlugin
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void OnTick(object sender, EventArgs eventArgs)
+        {
+            m_TotalTime++;
+            if(m_TotalTime == 30)
+            {
+                String strText = String.Format("{0}s后再次发送", m_TotalTime);
+                button_identCode.Text = strText;
+                button_identCode.Enabled = true;
+                m_timer.Stop();
+                button_identCode.Image = Properties.Resources.yzm_btn;
+            }
+        }
+
+        private Timer m_timer;
+        private int m_TotalTime;
     }
 }

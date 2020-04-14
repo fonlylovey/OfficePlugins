@@ -309,7 +309,7 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginWidget";
-            this.TitleText = "登陆";
+            this.TitleText = "登录";
             this.TitleVisible = true;
             this.Controls.SetChildIndex(this.CustomTitle, 0);
             this.Controls.SetChildIndex(this.Layout1, 0);

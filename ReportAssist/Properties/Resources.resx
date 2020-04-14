@@ -259,4 +259,7 @@
   <data name="yzm_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yzm_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="nor_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nor_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
