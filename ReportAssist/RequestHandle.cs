@@ -145,7 +145,7 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
+            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb=%E5%B8%82%E5%9C%BA";
             String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
 
             try

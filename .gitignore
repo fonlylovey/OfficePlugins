@@ -12,3 +12,4 @@ Application Files
 /OfficePlugins/BIMProjectPlugin/*.user
 /OfficePlugins/BIMExcelPlugin/*.user
 .vs
+/ReportAssist/catarc.pfx
