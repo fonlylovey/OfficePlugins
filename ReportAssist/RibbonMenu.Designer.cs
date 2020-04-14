@@ -71,7 +71,7 @@
             this.button_market = this.Factory.CreateRibbonButton();
             this.button_product = this.Factory.CreateRibbonButton();
             this.button_predict = this.Factory.CreateRibbonButton();
-            this.button_mocro = this.Factory.CreateRibbonButton();
+            this.button_macro = this.Factory.CreateRibbonButton();
             this.button_policy = this.Factory.CreateRibbonButton();
             this.button_enterprise = this.Factory.CreateRibbonButton();
             this.button_carType = this.Factory.CreateRibbonButton();
@@ -204,7 +204,7 @@
             group3.Items.Add(label9);
             group3.Items.Add(this.button_predict);
             group3.Items.Add(label10);
-            group3.Items.Add(this.button_mocro);
+            group3.Items.Add(this.button_macro);
             group3.Items.Add(label15);
             group3.Label = "数据";
             group3.Name = "group3";
@@ -256,11 +256,11 @@
             // 
             // button_mocro
             // 
-            this.button_mocro.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button_mocro.Image = global::PPTPlugin.Properties.Resources.MacroView;
-            this.button_mocro.Label = "宏观\n";
-            this.button_mocro.Name = "button_mocro";
-            this.button_mocro.ShowImage = true;
+            this.button_macro.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_macro.Image = global::PPTPlugin.Properties.Resources.MacroView;
+            this.button_macro.Label = "宏观\n";
+            this.button_macro.Name = "button_mocro";
+            this.button_macro.ShowImage = true;
             // 
             // label15
             // 
@@ -508,7 +508,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_market;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_product;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_predict;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_mocro;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_macro;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_policy;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_enterprise;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_carType;

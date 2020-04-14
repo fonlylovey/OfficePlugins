@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.inviteLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.Layout1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_cancel = new WinForm.UI.Controls.CirclePictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,7 +46,7 @@
             this.lineEdit_inviteCode = new WinForm.UI.Controls.FTextBox();
             this.button_login = new WinForm.UI.Controls.FButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.inviteLayout.SuspendLayout();
+            this.Layout1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.button_cancel)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -72,24 +72,24 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // inviteLayout
+            // Layout1
             // 
-            this.inviteLayout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.inviteLayout.Controls.Add(this.flowLayoutPanel5);
-            this.inviteLayout.Controls.Add(this.flowLayoutPanel1);
-            this.inviteLayout.Controls.Add(this.account_Layout);
-            this.inviteLayout.Controls.Add(this.ident_Layout);
-            this.inviteLayout.Controls.Add(this.invite_Layout);
-            this.inviteLayout.Controls.Add(this.button_login);
-            this.inviteLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.inviteLayout.Location = new System.Drawing.Point(1, 1);
-            this.inviteLayout.Margin = new System.Windows.Forms.Padding(0);
-            this.inviteLayout.MaximumSize = new System.Drawing.Size(290, 430);
-            this.inviteLayout.MinimumSize = new System.Drawing.Size(290, 430);
-            this.inviteLayout.Name = "inviteLayout";
-            this.inviteLayout.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
-            this.inviteLayout.Size = new System.Drawing.Size(290, 430);
-            this.inviteLayout.TabIndex = 2;
+            this.Layout1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Layout1.Controls.Add(this.flowLayoutPanel5);
+            this.Layout1.Controls.Add(this.flowLayoutPanel1);
+            this.Layout1.Controls.Add(this.account_Layout);
+            this.Layout1.Controls.Add(this.ident_Layout);
+            this.Layout1.Controls.Add(this.invite_Layout);
+            this.Layout1.Controls.Add(this.button_login);
+            this.Layout1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.Layout1.Location = new System.Drawing.Point(1, 1);
+            this.Layout1.Margin = new System.Windows.Forms.Padding(0);
+            this.Layout1.MaximumSize = new System.Drawing.Size(290, 430);
+            this.Layout1.MinimumSize = new System.Drawing.Size(290, 430);
+            this.Layout1.Name = "Layout1";
+            this.Layout1.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.Layout1.Size = new System.Drawing.Size(290, 430);
+            this.Layout1.TabIndex = 2;
             // 
             // flowLayoutPanel5
             // 
@@ -302,7 +302,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BorderWidth = 1;
             this.ClientSize = new System.Drawing.Size(292, 432);
-            this.Controls.Add(this.inviteLayout);
+            this.Controls.Add(this.Layout1);
             this.MaximumSize = new System.Drawing.Size(292, 432);
             this.MinimumSize = new System.Drawing.Size(292, 432);
             this.Name = "LoginWidget";
@@ -312,9 +312,9 @@
             this.TitleText = "登陆";
             this.TitleVisible = true;
             this.Controls.SetChildIndex(this.CustomTitle, 0);
-            this.Controls.SetChildIndex(this.inviteLayout, 0);
+            this.Controls.SetChildIndex(this.Layout1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.inviteLayout.ResumeLayout(false);
+            this.Layout1.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.button_cancel)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -332,7 +332,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel inviteLayout;
+        private System.Windows.Forms.FlowLayoutPanel Layout1;
         private System.Windows.Forms.FlowLayoutPanel ident_Layout;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;

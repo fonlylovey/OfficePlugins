@@ -34,7 +34,7 @@ namespace PPTPlugin
                     int userFlag = await RequestHandle.SendIdentCode(lineEdit_account.Text);
                     if (userFlag == 0)//未注册
                     {
-                        inviteLayout.Visible = true;
+                        invite_Layout.Visible = true;
                     }
                     else if(userFlag == 1)
                     {

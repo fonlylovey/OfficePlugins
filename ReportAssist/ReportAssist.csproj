@@ -25,7 +25,7 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RootNamespace>PPTPlugin</RootNamespace>
-    <AssemblyName>FAW PPTer</AssemblyName>
+    <AssemblyName>PPTer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <IsWebBootstrapper>False</IsWebBootstrapper>
@@ -33,15 +33,15 @@
     <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.14</ApplicationVersion>
+    <ApplicationVersion>1.0.0.16</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>FAW PPTer</ProductName>
-    <PublisherName>智妍</PublisherName>
+    <ProductName>PPTer</ProductName>
+    <PublisherName>中国汽车技术研究中心</PublisherName>
     <SupportUrl />
-    <FriendlyName>FAW</FriendlyName>
+    <FriendlyName>Auto PPTer</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>

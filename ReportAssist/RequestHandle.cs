@@ -172,6 +172,99 @@ namespace PPTPlugin
             return resModel;
         }
 
+        //获取产品数据
+        public static async Task<ResourceModel> GetProductList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["mbid"].ToString();
+                    theData.Name = item["mblb"].ToString();
+                    theData.Label = item["mbname"].ToString();
+                    theData.IconUrl = item["mbsltlj"].ToString();
+                    theData.FileUrl = item["mblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
+
+        //获取预测数据
+        public static async Task<ResourceModel> GetPredictList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["mbid"].ToString();
+                    theData.Name = item["mblb"].ToString();
+                    theData.Label = item["mbname"].ToString();
+                    theData.IconUrl = item["mbsltlj"].ToString();
+                    theData.FileUrl = item["mblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
+
+        //获取宏观数据
+        public static async Task<ResourceModel> GetMacroList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={0}&ts={1}&mblb=%E5%B8%82%E5%9C%BA";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["page"].ToObject<JObject>();
+                resModel.ResCount = pageData["count"].ToObject<int>();
+                JArray dataArray = pageData["data"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["mbid"].ToString();
+                    theData.Name = item["mblb"].ToString();
+                    theData.Label = item["mbname"].ToString();
+                    theData.IconUrl = item["mbsltlj"].ToString();
+                    theData.FileUrl = item["mblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
+
         //向目标手机发送验证码
         public static async Task<int> SendIdentCode(String mobile)
         {

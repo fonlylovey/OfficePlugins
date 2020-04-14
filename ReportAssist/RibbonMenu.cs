@@ -160,7 +160,7 @@ namespace PPTPlugin
             button_market.Enabled = value;
             button_product.Enabled = value;
             button_predict.Enabled = value;
-            button_mocro.Enabled = value;
+            button_macro.Enabled = value;
 
             //咨询
             button_policy.Enabled = value;
