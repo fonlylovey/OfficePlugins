@@ -21,7 +21,7 @@ namespace AutoUpdate
             {
 				//http://xxw.autoinfo.org.cn/ppttools/static/update/publish
 				String strLogUrl = Rigel.UpdateUrl + "UpdateLog.ini"; ;
-                String strVSTOUrl = Rigel.UpdateUrl + "PPTer.vsto";
+                String strVSTOUrl = Rigel.UpdateUrl + "Auto PPTer.vsto";
 
                 await GetServerVersion(strVSTOUrl);
 
