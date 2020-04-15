@@ -341,7 +341,7 @@ namespace PPTPlugin
                 JObject obj = await Request.HttpGet(strUrl);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -365,7 +365,7 @@ namespace PPTPlugin
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }

@@ -68,9 +68,17 @@
       <Project>{0019878b-8e90-4391-9cc6-453feab439e8}</Project>
       <Name>Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Controls\CustomControls.csproj">
+      <Project>{9FCCB5F4-D348-4B19-8167-A32DE4945F95}</Project>
+      <Name>CustomControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{41bdc150-082f-4130-b921-ca00c36d8477}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Widgets\Widgets.csproj">
+      <Project>{d3a197e4-5622-4471-9a83-bd30d8450924}</Project>
+      <Name>Widgets</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
