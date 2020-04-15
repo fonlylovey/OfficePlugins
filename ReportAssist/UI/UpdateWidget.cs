@@ -37,6 +37,15 @@ namespace PPTPlugin
         public void setNeedUpdate(bool isUpdate)
         {
             button_update.Enabled = isUpdate;
+            if(isUpdate)
+            {
+                button_update.Image = Properties.Resources.updata_btn;
+            }
+            else
+            {
+                button_update.Image = Properties.Resources.updata_btn_1;
+            }
+
         }
         private void button_history_Click(object sender, EventArgs e)
         {

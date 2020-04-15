@@ -413,6 +413,16 @@ namespace PPTPlugin.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap updata_btn_1 {
+            get {
+                object obj = ResourceManager.GetObject("updata_btn_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap yzm_btn {
             get {
                 object obj = ResourceManager.GetObject("yzm_btn", resourceCulture);
