@@ -164,19 +164,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Image = global::PPTPlugin.Properties.Resources.icon1;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.MaximumSize = new System.Drawing.Size(24, 24);
-            this.label2.MinimumSize = new System.Drawing.Size(24, 24);
+            this.label2.MaximumSize = new System.Drawing.Size(40, 24);
+            this.label2.MinimumSize = new System.Drawing.Size(40, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 24);
+            this.label2.Size = new System.Drawing.Size(40, 24);
             this.label2.TabIndex = 6;
+            this.label2.Text = "手机号:";
             // 
             // lineEdit_account
             // 
             this.lineEdit_account.HotColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(153)))), ((int)(((byte)(240)))));
-            this.lineEdit_account.Location = new System.Drawing.Point(24, 0);
+            this.lineEdit_account.Location = new System.Drawing.Point(40, 0);
             this.lineEdit_account.Margin = new System.Windows.Forms.Padding(0);
             this.lineEdit_account.MaximumSize = new System.Drawing.Size(120, 22);
             this.lineEdit_account.MinimumSize = new System.Drawing.Size(120, 22);
@@ -193,7 +194,7 @@
             this.button_identCode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_identCode.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_identCode.ForeColor = System.Drawing.Color.White;
-            this.button_identCode.Location = new System.Drawing.Point(144, 0);
+            this.button_identCode.Location = new System.Drawing.Point(160, 0);
             this.button_identCode.Margin = new System.Windows.Forms.Padding(0);
             this.button_identCode.MaximumSize = new System.Drawing.Size(70, 23);
             this.button_identCode.MinimumSize = new System.Drawing.Size(70, 23);
@@ -220,19 +221,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Image = global::PPTPlugin.Properties.Resources.icon3;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.MaximumSize = new System.Drawing.Size(24, 24);
-            this.label3.MinimumSize = new System.Drawing.Size(24, 24);
+            this.label3.MaximumSize = new System.Drawing.Size(40, 24);
+            this.label3.MinimumSize = new System.Drawing.Size(40, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 24);
+            this.label3.Size = new System.Drawing.Size(40, 24);
             this.label3.TabIndex = 9;
+            this.label3.Text = "验证码:";
             // 
             // lineEdit_identCode
             // 
             this.lineEdit_identCode.HotColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(153)))), ((int)(((byte)(240)))));
-            this.lineEdit_identCode.Location = new System.Drawing.Point(24, 0);
+            this.lineEdit_identCode.Location = new System.Drawing.Point(40, 0);
             this.lineEdit_identCode.Margin = new System.Windows.Forms.Padding(0);
             this.lineEdit_identCode.MaximumSize = new System.Drawing.Size(190, 22);
             this.lineEdit_identCode.MinimumSize = new System.Drawing.Size(190, 22);
@@ -258,19 +260,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Image = global::PPTPlugin.Properties.Resources.icon2;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.MaximumSize = new System.Drawing.Size(24, 24);
-            this.label5.MinimumSize = new System.Drawing.Size(24, 24);
+            this.label5.MinimumSize = new System.Drawing.Size(40, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 24);
+            this.label5.Size = new System.Drawing.Size(40, 24);
             this.label5.TabIndex = 9;
+            this.label5.Text = "邀请码:";
             // 
             // lineEdit_inviteCode
             // 
             this.lineEdit_inviteCode.HotColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(153)))), ((int)(((byte)(240)))));
-            this.lineEdit_inviteCode.Location = new System.Drawing.Point(24, 0);
+            this.lineEdit_inviteCode.Location = new System.Drawing.Point(40, 0);
             this.lineEdit_inviteCode.Margin = new System.Windows.Forms.Padding(0);
             this.lineEdit_inviteCode.MaximumSize = new System.Drawing.Size(190, 22);
             this.lineEdit_inviteCode.MinimumSize = new System.Drawing.Size(190, 22);

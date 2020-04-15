@@ -38,7 +38,7 @@ namespace PPTPlugin
                 Rigel.PluginVersion = applicationDeployment.CurrentVersion.ToString();
             }
 
-            if (VSTOUpdater.NeedUpdate)
+            /*if (VSTOUpdater.NeedUpdate)
             {
                 UpdateWidget updateWidget = new UpdateWidget();
                 updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
@@ -50,7 +50,7 @@ namespace PPTPlugin
                 {
                     VSTOUpdater.Update(); ;
                 }
-            }
+            }*/
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
