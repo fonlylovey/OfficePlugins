@@ -179,7 +179,7 @@ namespace PPTPlugin
             VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
             VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
             updateWidget.setInfo(slogan, content);
-            updateWidget.setNeedUpdate(false);
+            updateWidget.setNeedUpdate(VSTOUpdater.NeedUpdate);
             DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
             if(result == DialogResult.OK)
             {
