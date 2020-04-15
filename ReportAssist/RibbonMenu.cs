@@ -183,7 +183,7 @@ namespace PPTPlugin
             DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
             if(result == DialogResult.OK)
             {
-                VSTOUpdater.Update(); ;
+                VSTOUpdater.Update();
             }
         }
 

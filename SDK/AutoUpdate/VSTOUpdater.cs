@@ -7,6 +7,7 @@ using Core;
 using TG.INI;
 using System.Diagnostics;
 using System.IO;
+using Widgets;
 
 namespace AutoUpdate
 {
@@ -45,8 +46,9 @@ namespace AutoUpdate
             return true;
         }
 
-		public static void Update()
+		public static bool Update()
 		{
+			UninstallPlugin();
 			String strinstall = Rigel.PluginDir + "Plugins/InstallVSTO.bat";
 			try
 			{
@@ -64,17 +66,23 @@ namespace AutoUpdate
 					if (process != null)
 					{
 						process.WaitForExit();
+						PromptBox.Prompt("更新完成，即将将重新启动软件。");
+						System.Environment.Exit(0);
+						return true;
 					}
 				}
 				else
 				{
-					Logger.LogError("没有找到升级文件：" + strinstall);
+					PromptBox.Prompt("没有找到升级文件：" + strinstall);
 				}
+				return false;
 			}
 			catch (Exception ex)
 			{
 				Logger.LogError(ex.ToString());
+				PromptBox.Prompt("非常抱歉更新失败，请联系工作人员！");
 			}
+			return false;
 		}
 
 		public static void UninstallPlugin()
