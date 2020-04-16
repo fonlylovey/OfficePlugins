@@ -66,8 +66,6 @@ namespace AutoUpdate
 					if (process != null)
 					{
 						process.WaitForExit();
-						PromptBox.Prompt("更新完成，即将将重新启动软件。");
-						System.Environment.Exit(0);
 						return true;
 					}
 				}
