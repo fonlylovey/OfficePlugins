@@ -54,12 +54,60 @@ namespace PPTPlugin
             }*/
         }
 
+        public String getTypeName(ResourceType type)
+        {
+            String strName = "模板";
+            switch(type)
+            {
+                case ResourceType.Template:
+                    strName = "模板";
+                    break;
+                case ResourceType.Icon:
+                    strName = "图标";
+                    break;
+                case ResourceType.Legend:
+                    strName = "图例";
+                    break;
+                case ResourceType.Market:
+                    strName = "市场";
+                    break;
+                case ResourceType.Policy:
+                    strName = "政策";
+                    break;
+                case ResourceType.Product:
+                    strName = "图标";
+                    break;
+                case ResourceType.Predict:
+                    strName = "预测";
+                    break;
+                case ResourceType.Macro:
+                    strName = "宏观";
+                    break;
+                default:
+                    strName = "模板";
+                    break;
+                //case ResourceType.Icon:
+                //    strName = "图标";
+                //    break;
+                //case ResourceType.Icon:
+                //    strName = "图标";
+                //    break;
+
+            }
+
+            return strName;
+        }
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
 
 
         private void WindowActivate_Event(PowerPoint.Presentation Pres, PowerPoint.DocumentWindow Wn)
+        {
+            ResetSidebar();
+        }
+        
+        public void ResetSidebar()
         {
             try
             {
@@ -68,7 +116,7 @@ namespace PPTPlugin
                     CustomTaskPanes.Remove(TaskWidget);
                 }
                 RightWidget = new DockWidget();
-                TaskWidget = CustomTaskPanes.Add(RightWidget, "模板选择");
+                TaskWidget = CustomTaskPanes.Add(RightWidget, getTypeName(App.ResourceType) + "选择");
                 TaskWidget.DockPosition =
                 Office.MsoCTPDockPosition.msoCTPDockPositionRight;
                 TaskWidget.Width = 260;
@@ -83,14 +131,14 @@ namespace PPTPlugin
                 {
                     TaskWidget.Visible = false;
                 }
-                
+
             }
             catch
             {
 
             }
-            
         }
+
         #region VSTO 生成的代码
 
         /// <summary>

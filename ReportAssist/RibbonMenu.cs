@@ -89,81 +89,24 @@ namespace PPTPlugin
             
         }
 
-        private void button_temp_Click(object sender, RibbonControlEventArgs e)
+        private void button_Res_Click(object sender, RibbonControlEventArgs e)
         {
-            App.ResourceType = ResourceType.Template;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_legend_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Legend;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_icon_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Icon;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_label_Click(object sender, RibbonControlEventArgs e)
-        {
-
-        }
-
-        private void button_market_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Market;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_policy_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Policy;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_product_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Product;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_predict_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Predict;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
-        }
-
-        private void button_macro_Click(object sender, RibbonControlEventArgs e)
-        {
-            App.ResourceType = ResourceType.Macro;
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            RibbonButton button = sender as RibbonButton;
+            if (button.Tag != null)
+            {
+                if (Enum.TryParse<ResourceType>(button.Tag.ToString(), out App.ResourceType))
+                {
+                    Globals.ThisAddIn.ResetSidebar();
+                    Globals.ThisAddIn.RightWidget.ResetPageCount();
+                    Globals.ThisAddIn.RightWidget.UpdateResourceList();
+                    Globals.ThisAddIn.RightWidget.ResetButton();
+                }
+                else
+                {
+                    App.ResourceType = ResourceType.None;
+                }
+                Globals.ThisAddIn.TaskWidget.Visible = true;
+            }
         }
 
         private void button_about_Click(object sender, RibbonControlEventArgs e)
@@ -231,6 +174,7 @@ namespace PPTPlugin
             button_option.Enabled = value;
         }
 
+        
     }
 
 }

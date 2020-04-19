@@ -52,13 +52,13 @@
             this.label_TL = new System.Windows.Forms.Label();
             this.label_TB = new System.Windows.Forms.Label();
             this.label_SC = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label_CP = new System.Windows.Forms.Label();
+            this.label_YC = new System.Windows.Forms.Label();
+            this.label_HG = new System.Windows.Forms.Label();
+            this.label_ZC = new System.Windows.Forms.Label();
+            this.label_QY = new System.Windows.Forms.Label();
+            this.label_CX = new System.Windows.Forms.Label();
+            this.label_JS = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
@@ -332,13 +332,13 @@
             this.VMenu.Controls.Add(this.label_TL);
             this.VMenu.Controls.Add(this.label_TB);
             this.VMenu.Controls.Add(this.label_SC);
-            this.VMenu.Controls.Add(this.label5);
-            this.VMenu.Controls.Add(this.label6);
-            this.VMenu.Controls.Add(this.label7);
-            this.VMenu.Controls.Add(this.label8);
-            this.VMenu.Controls.Add(this.label9);
-            this.VMenu.Controls.Add(this.label10);
-            this.VMenu.Controls.Add(this.label11);
+            this.VMenu.Controls.Add(this.label_CP);
+            this.VMenu.Controls.Add(this.label_YC);
+            this.VMenu.Controls.Add(this.label_HG);
+            this.VMenu.Controls.Add(this.label_ZC);
+            this.VMenu.Controls.Add(this.label_QY);
+            this.VMenu.Controls.Add(this.label_CX);
+            this.VMenu.Controls.Add(this.label_JS);
             this.VMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.VMenu.Location = new System.Drawing.Point(220, 0);
@@ -410,110 +410,110 @@
             this.toolTip.SetToolTip(this.label_SC, "市场");
             this.label_SC.Click += new System.EventHandler(this.label_Click);
             // 
-            // label5
+            // label_CP
             // 
-            this.label5.AutoSize = true;
-            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(0, 161);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label5.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 38);
-            this.label5.TabIndex = 30;
-            this.label5.Tag = "kk";
-            this.toolTip.SetToolTip(this.label5, "产品");
-            this.label5.Click += new System.EventHandler(this.label_Click);
+            this.label_CP.AutoSize = true;
+            this.label_CP.Image = ((System.Drawing.Image)(resources.GetObject("label_CP.Image")));
+            this.label_CP.Location = new System.Drawing.Point(0, 161);
+            this.label_CP.Margin = new System.Windows.Forms.Padding(0);
+            this.label_CP.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_CP.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_CP.Name = "label_CP";
+            this.label_CP.Size = new System.Drawing.Size(38, 38);
+            this.label_CP.TabIndex = 30;
+            this.label_CP.Tag = "5";
+            this.toolTip.SetToolTip(this.label_CP, "产品");
+            this.label_CP.Click += new System.EventHandler(this.label_Click);
             // 
-            // label6
+            // label_YC
             // 
-            this.label6.AutoSize = true;
-            this.label6.Image = global::PPTPlugin.Properties.Resources.预测;
-            this.label6.Location = new System.Drawing.Point(0, 199);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label6.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 38);
-            this.label6.TabIndex = 31;
-            this.label6.Tag = "l";
-            this.toolTip.SetToolTip(this.label6, "预测");
-            this.label6.Click += new System.EventHandler(this.label_Click);
+            this.label_YC.AutoSize = true;
+            this.label_YC.Image = global::PPTPlugin.Properties.Resources.预测;
+            this.label_YC.Location = new System.Drawing.Point(0, 199);
+            this.label_YC.Margin = new System.Windows.Forms.Padding(0);
+            this.label_YC.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_YC.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_YC.Name = "label_YC";
+            this.label_YC.Size = new System.Drawing.Size(38, 38);
+            this.label_YC.TabIndex = 31;
+            this.label_YC.Tag = "6";
+            this.toolTip.SetToolTip(this.label_YC, "预测");
+            this.label_YC.Click += new System.EventHandler(this.label_Click);
             // 
-            // label7
+            // label_HG
             // 
-            this.label7.AutoSize = true;
-            this.label7.Image = global::PPTPlugin.Properties.Resources.宏观;
-            this.label7.Location = new System.Drawing.Point(0, 237);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label7.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 38);
-            this.label7.TabIndex = 32;
-            this.label7.Tag = "l";
-            this.toolTip.SetToolTip(this.label7, "宏观");
-            this.label7.Click += new System.EventHandler(this.label_Click);
+            this.label_HG.AutoSize = true;
+            this.label_HG.Image = global::PPTPlugin.Properties.Resources.宏观;
+            this.label_HG.Location = new System.Drawing.Point(0, 237);
+            this.label_HG.Margin = new System.Windows.Forms.Padding(0);
+            this.label_HG.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_HG.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_HG.Name = "label_HG";
+            this.label_HG.Size = new System.Drawing.Size(38, 38);
+            this.label_HG.TabIndex = 32;
+            this.label_HG.Tag = "7";
+            this.toolTip.SetToolTip(this.label_HG, "宏观");
+            this.label_HG.Click += new System.EventHandler(this.label_Click);
             // 
-            // label8
+            // label_ZC
             // 
-            this.label8.AutoSize = true;
-            this.label8.Image = global::PPTPlugin.Properties.Resources.政策;
-            this.label8.Location = new System.Drawing.Point(0, 275);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label8.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 38);
-            this.label8.TabIndex = 33;
-            this.label8.Tag = "4";
-            this.toolTip.SetToolTip(this.label8, "政策");
-            this.label8.Click += new System.EventHandler(this.label_Click);
+            this.label_ZC.AutoSize = true;
+            this.label_ZC.Image = global::PPTPlugin.Properties.Resources.政策;
+            this.label_ZC.Location = new System.Drawing.Point(0, 275);
+            this.label_ZC.Margin = new System.Windows.Forms.Padding(0);
+            this.label_ZC.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_ZC.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_ZC.Name = "label_ZC";
+            this.label_ZC.Size = new System.Drawing.Size(38, 38);
+            this.label_ZC.TabIndex = 33;
+            this.label_ZC.Tag = "4";
+            this.toolTip.SetToolTip(this.label_ZC, "政策");
+            this.label_ZC.Click += new System.EventHandler(this.label_Click);
             // 
-            // label9
+            // label_QY
             // 
-            this.label9.AutoSize = true;
-            this.label9.Image = global::PPTPlugin.Properties.Resources.企业;
-            this.label9.Location = new System.Drawing.Point(0, 313);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label9.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 38);
-            this.label9.TabIndex = 34;
-            this.label9.Tag = "l";
-            this.toolTip.SetToolTip(this.label9, "企业");
-            this.label9.Click += new System.EventHandler(this.label_Click);
+            this.label_QY.AutoSize = true;
+            this.label_QY.Image = global::PPTPlugin.Properties.Resources.企业;
+            this.label_QY.Location = new System.Drawing.Point(0, 313);
+            this.label_QY.Margin = new System.Windows.Forms.Padding(0);
+            this.label_QY.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_QY.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_QY.Name = "label_QY";
+            this.label_QY.Size = new System.Drawing.Size(38, 38);
+            this.label_QY.TabIndex = 34;
+            this.label_QY.Tag = "l";
+            this.toolTip.SetToolTip(this.label_QY, "企业");
+            this.label_QY.Click += new System.EventHandler(this.label_Click);
             // 
-            // label10
+            // label_CX
             // 
-            this.label10.AutoSize = true;
-            this.label10.Image = global::PPTPlugin.Properties.Resources.车型;
-            this.label10.Location = new System.Drawing.Point(0, 351);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label10.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 38);
-            this.label10.TabIndex = 35;
-            this.label10.Tag = "l";
-            this.toolTip.SetToolTip(this.label10, "车型");
-            this.label10.Click += new System.EventHandler(this.label_Click);
+            this.label_CX.AutoSize = true;
+            this.label_CX.Image = global::PPTPlugin.Properties.Resources.车型;
+            this.label_CX.Location = new System.Drawing.Point(0, 351);
+            this.label_CX.Margin = new System.Windows.Forms.Padding(0);
+            this.label_CX.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_CX.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_CX.Name = "label_CX";
+            this.label_CX.Size = new System.Drawing.Size(38, 38);
+            this.label_CX.TabIndex = 35;
+            this.label_CX.Tag = "l";
+            this.toolTip.SetToolTip(this.label_CX, "车型");
+            this.label_CX.Click += new System.EventHandler(this.label_Click);
             // 
-            // label11
+            // label_JS
             // 
-            this.label11.AutoSize = true;
-            this.label11.Image = global::PPTPlugin.Properties.Resources.技术;
-            this.label11.Location = new System.Drawing.Point(0, 389);
-            this.label11.Margin = new System.Windows.Forms.Padding(0);
-            this.label11.MaximumSize = new System.Drawing.Size(38, 38);
-            this.label11.MinimumSize = new System.Drawing.Size(38, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 38);
-            this.label11.TabIndex = 36;
-            this.label11.Tag = "l";
-            this.toolTip.SetToolTip(this.label11, "技术");
-            this.label11.Click += new System.EventHandler(this.label_Click);
+            this.label_JS.AutoSize = true;
+            this.label_JS.Image = global::PPTPlugin.Properties.Resources.技术;
+            this.label_JS.Location = new System.Drawing.Point(0, 389);
+            this.label_JS.Margin = new System.Windows.Forms.Padding(0);
+            this.label_JS.MaximumSize = new System.Drawing.Size(38, 38);
+            this.label_JS.MinimumSize = new System.Drawing.Size(38, 38);
+            this.label_JS.Name = "label_JS";
+            this.label_JS.Size = new System.Drawing.Size(38, 38);
+            this.label_JS.TabIndex = 36;
+            this.label_JS.Tag = "l";
+            this.toolTip.SetToolTip(this.label_JS, "技术");
+            this.label_JS.Click += new System.EventHandler(this.label_Click);
             // 
             // DockWidget
             // 
@@ -564,13 +564,13 @@
         private System.Windows.Forms.Label label_MB;
         private System.Windows.Forms.Label label_TL;
         private System.Windows.Forms.Label label_SC;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label_CP;
+        private System.Windows.Forms.Label label_YC;
+        private System.Windows.Forms.Label label_HG;
+        private System.Windows.Forms.Label label_ZC;
+        private System.Windows.Forms.Label label_QY;
+        private System.Windows.Forms.Label label_CX;
+        private System.Windows.Forms.Label label_JS;
         private WinForm.UI.Controls.FTextBox textBox;
         private WinForm.UI.Controls.CirclePictureBox QueryButton;
         private System.Windows.Forms.Button button_filter;
