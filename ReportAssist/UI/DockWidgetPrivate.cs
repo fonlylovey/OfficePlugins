@@ -71,11 +71,11 @@ namespace PPTPlugin
                     PowerPoint.Shape shape =  slide.Shapes.AddPicture(strPath, 
                         Microsoft.Office.Core.MsoTriState.msoFalse,
                         Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50);
-                    if(shape != null && slide.ColorScheme.Count > 0)
+                   /* if(shape != null && slide.ColorScheme.Count > 0)
                     {
                         PowerPoint.RGBColor color = slide.ColorScheme._Index(slide.ColorScheme.Count) as PowerPoint.RGBColor;
                         shape.Fill.ForeColor.RGB = color.RGB;
-                    }
+                    }*/
                 }
             }
         }

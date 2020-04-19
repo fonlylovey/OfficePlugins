@@ -142,11 +142,11 @@ namespace PPTPlugin
         }
 
         //获取市场数据
-        public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        public static async Task<ResourceModel> GetMarketList(int pageIndex = 1, int prePageCount = 5, String strType = "市场", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}/ppttools/res/getXxMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb=%E5%B8%82%E5%9C%BA";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount);
+            String strAPI = "{0}/ppttools/res/getSjMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb={3}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount,strType);
 
             try
             {
@@ -341,7 +341,7 @@ namespace PPTPlugin
                 JObject obj = await Request.HttpGet(strUrl);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -365,7 +365,7 @@ namespace PPTPlugin
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }

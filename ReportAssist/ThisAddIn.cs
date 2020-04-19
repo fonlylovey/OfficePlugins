@@ -23,12 +23,11 @@ namespace PPTPlugin
             TaskPaneDict = new Dictionary<PowerPoint.DocumentWindow, CustomTaskPane>();
 
             Rigel.InitWorkConfig();
-            await VSTOUpdater.CheckUpdate();
             FormShower = new FormMgr(new IntPtr(this.Application.HWND));
             App.ResourceType = ResourceType.None;
             this.Application.WindowActivate += WindowActivate_Event;
 
-            Rigel.PluginVersion = "0.0.0.0";
+            Rigel.PluginVersion = "1.0.0.25";
             var aaaa = System.Reflection.Assembly.GetExecutingAssembly();
             if (ApplicationDeployment.IsNetworkDeployed)
             {
@@ -37,20 +36,22 @@ namespace PPTPlugin
                 Logger.LogInfo("CurrentVersion" + applicationDeployment.CurrentVersion.ToString());
                 Rigel.PluginVersion = applicationDeployment.CurrentVersion.ToString();
             }
-
+            await VSTOUpdater.CheckUpdate();
+            /*
             if (VSTOUpdater.NeedUpdate)
             {
                 UpdateWidget updateWidget = new UpdateWidget();
-                updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
-                VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
-                VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
-                updateWidget.setInfo(slogan, content);
+                updateWidget.setNeedUpdate(VSTOUpdater.NeedUpdate);
+                //updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
+                //VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
+                //VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
+                //updateWidget.setInfo(slogan, content);
                 DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
                 if (result == DialogResult.OK)
                 {
                     VSTOUpdater.Update(); ;
                 }
-            }
+            }*/
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

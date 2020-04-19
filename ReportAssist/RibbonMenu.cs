@@ -174,17 +174,33 @@ namespace PPTPlugin
 
         private void button_option_Click(object sender, RibbonControlEventArgs e)
         {
-            UpdateWidget updateWidget = new UpdateWidget();
-            updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
-            VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
-            VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
-            updateWidget.setInfo(slogan, content);
-            updateWidget.setNeedUpdate(false);
-            DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
-            if(result == DialogResult.OK)
+            try
             {
-                VSTOUpdater.Update(); ;
+                UpdateWidget updateWidget = new UpdateWidget();
+                updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
+                VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
+                VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
+                updateWidget.setInfo(slogan, content);
+                updateWidget.setNeedUpdate(VSTOUpdater.NeedUpdate);
+                if(VSTOUpdater.NeedUpdate)
+                {
+                    Logger.LogInfo("需要更新版本：" + VSTOUpdater.ServerVersion);
+                }
+                Logger.LogInfo("开始更新从：" + Rigel.PluginVersion + "升级到：" + VSTOUpdater.ServerVersion);
+               
+                DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
+                if (result == DialogResult.OK && VSTOUpdater.Update())
+                {
+                    PromptBox.Prompt("更新完成，即将将重新启动软件。");
+                    System.Environment.Exit(0);
+                }
             }
+            catch(Exception ex)
+            {
+                PromptBox.Prompt("非常抱歉更新失败，请联系工作人员！");
+                Logger.LogError(ex.ToString());
+            }
+            
         }
 
         private void ResetButtonEnable(bool value)
@@ -215,7 +231,6 @@ namespace PPTPlugin
             button_option.Enabled = value;
         }
 
-        
     }
 
 }

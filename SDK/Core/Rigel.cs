@@ -14,8 +14,8 @@ namespace Core
         public static String BIMTempPath = System.Environment.GetEnvironmentVariable("TEMP");
 		public static String PluginVersion = String.Empty;
 		public static String PluginDir = "C:/Program Files/PPTer/";
-		public static String ServerUrl = "";
-		public static String UpdateUrl = "";
+		public static String ServerUrl = "http://www.catarc.ac.cn";
+		public static String UpdateUrl = "http://www.catarc.ac.cn/ppttools/static/update/publish/";
 
 
 		//用户
