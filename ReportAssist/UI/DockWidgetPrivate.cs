@@ -43,8 +43,12 @@ namespace PPTPlugin
             {
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
+                if()
+                {
 
-                Globals.ThisAddIn.Application.Presentations.Open(strPath);
+                }
+                PowerPoint.Slides slides = Globals.ThisAddIn.Application.ActivePresentation.Slides;
+                slides.InsertFromFile(strPath, slides.Count, 1, 1);
             }
         }
 
