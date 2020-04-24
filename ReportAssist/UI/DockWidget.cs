@@ -140,7 +140,8 @@ namespace PPTPlugin
             }
             CurrentIndex--;
             labelPage.Text = CurrentIndex + "/" + PageCount;
-            pageBox.Text = CurrentIndex.ToString();
+            //pageBox.Text = CurrentIndex.ToString();
+            pageBox.Text = CurrentIndex + "/" + PageCount;
             UpdateResourceList();
         }
 
@@ -152,7 +153,8 @@ namespace PPTPlugin
             }
             CurrentIndex++;
             labelPage.Text = CurrentIndex + "/" + PageCount;
-            pageBox.Text = CurrentIndex.ToString();
+            //pageBox.Text = CurrentIndex.ToString();
+            pageBox.Text = CurrentIndex + "/" + PageCount;
             UpdateResourceList();
         }
 

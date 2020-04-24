@@ -44,15 +44,17 @@ namespace PPTPlugin
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
                 PowerPoint.Presentation currentPPT = Globals.ThisAddIn.Application.ActivePresentation;
+                PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
                 if (App.ResourceType == ResourceType.Template)
                 {
                     Globals.ThisAddIn.Application.Presentations.Open(strPath);
                 }
                 else
                 {
-                    currentPPT.Slides.InsertFromFile(strPath, currentPPT.Slides.Count, 1, 1);
+
+                    currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
                 }
-                
+
             }
         }
 

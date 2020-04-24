@@ -75,7 +75,7 @@ namespace PPTPlugin
                     strName = "政策";
                     break;
                 case ResourceType.Product:
-                    strName = "图标";
+                    strName = "产品";
                     break;
                 case ResourceType.Predict:
                     strName = "预测";
@@ -116,7 +116,7 @@ namespace PPTPlugin
                     CustomTaskPanes.Remove(TaskWidget);
                 }
                 RightWidget = new DockWidget();
-                TaskWidget = CustomTaskPanes.Add(RightWidget, getTypeName(App.ResourceType) + "选择");
+                TaskWidget = CustomTaskPanes.Add(RightWidget, getTypeName(App.ResourceType) + "库");
                 TaskWidget.DockPosition =
                 Office.MsoCTPDockPosition.msoCTPDockPositionRight;
                 TaskWidget.Width = 260;

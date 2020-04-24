@@ -215,6 +215,7 @@ namespace PPTPlugin
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["page"].ToObject<JObject>();
                 resModel.ResCount = pageData["count"].ToObject<int>();
+                resModel.PageCount = (int)Math.Ceiling((float)resModel.ResCount / (float)prePageCount);
                 JArray dataArray = pageData["data"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
                 {
