@@ -160,8 +160,7 @@
             this.button_temp.Label = "模板库\n";
             this.button_temp.Name = "button_temp";
             this.button_temp.ShowImage = true;
-            this.button_temp.Tag = "0";
-            this.button_temp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_temp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_temp_Click);
             // 
             // label4
             // 
@@ -175,8 +174,7 @@
             this.button_legend.Label = "图例库\n";
             this.button_legend.Name = "button_legend";
             this.button_legend.ShowImage = true;
-            this.button_legend.Tag = "2";
-            this.button_legend.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_legend.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_legend_Click);
             // 
             // label5
             // 
@@ -190,8 +188,7 @@
             this.button_icon.Label = "图标库\n";
             this.button_icon.Name = "button_icon";
             this.button_icon.ShowImage = true;
-            this.button_icon.Tag = "1";
-            this.button_icon.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_icon.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_icon_Click);
             // 
             // label6
             // 
@@ -224,8 +221,7 @@
             this.button_market.Label = "市场\n";
             this.button_market.Name = "button_market";
             this.button_market.ShowImage = true;
-            this.button_market.Tag = "3";
-            this.button_market.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_market.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_market_Click);
             // 
             // label8
             // 
@@ -239,8 +235,7 @@
             this.button_product.Label = "产品\n";
             this.button_product.Name = "button_product";
             this.button_product.ShowImage = true;
-            this.button_product.Tag = "5";
-            this.button_product.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_product.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_product_Click);
             // 
             // label9
             // 
@@ -254,8 +249,7 @@
             this.button_predict.Label = "预测\n";
             this.button_predict.Name = "button_predict";
             this.button_predict.ShowImage = true;
-            this.button_predict.Tag = "6";
-            this.button_predict.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_predict.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_predict_Click);
             // 
             // label10
             // 
@@ -269,8 +263,7 @@
             this.button_macro.Label = "宏观\n";
             this.button_macro.Name = "button_macro";
             this.button_macro.ShowImage = true;
-            this.button_macro.Tag = "7";
-            this.button_macro.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_macro.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_macro_Click);
             // 
             // label15
             // 
@@ -304,8 +297,7 @@
             this.button_policy.Label = "政策\n";
             this.button_policy.Name = "button_policy";
             this.button_policy.ShowImage = true;
-            this.button_policy.Tag = "4";
-            this.button_policy.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
+            this.button_policy.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_policy_Click);
             // 
             // label13
             // 
@@ -320,7 +312,6 @@
             this.button_enterprise.Label = "企业\n";
             this.button_enterprise.Name = "button_enterprise";
             this.button_enterprise.ShowImage = true;
-            this.button_enterprise.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
             // 
             // label14
             // 
@@ -335,7 +326,6 @@
             this.button_carType.Label = "车型产品";
             this.button_carType.Name = "button_carType";
             this.button_carType.ShowImage = true;
-            this.button_carType.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
             // 
             // label11
             // 
@@ -350,7 +340,6 @@
             this.button_technology.Label = "技术\n";
             this.button_technology.Name = "button_technology";
             this.button_technology.ShowImage = true;
-            this.button_technology.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_Res_Click);
             // 
             // label16
             // 
