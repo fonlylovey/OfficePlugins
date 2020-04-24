@@ -15,7 +15,7 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tblb={3}&gjz={4}";
+                String strAPI = "{0}/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tblb={3}&gjz={4}";
             String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
             if (!String.IsNullOrEmpty(strQuery))
             {

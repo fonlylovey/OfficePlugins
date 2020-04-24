@@ -134,11 +134,19 @@ namespace PPTPlugin
 
         private void button_prePage_Click(object sender, EventArgs e)
         {
-            if(CurrentIndex == 1)
+            if (PageCount == 1)
             {
                 return;
             }
-            CurrentIndex--;
+            if(CurrentIndex == 1)
+            {
+                CurrentIndex = PageCount;
+            }
+            else
+            {
+                CurrentIndex--;
+            }
+           
             labelPage.Text = CurrentIndex + "/" + PageCount;
             pageBox.Text = CurrentIndex.ToString();
             UpdateResourceList();
@@ -146,11 +154,18 @@ namespace PPTPlugin
 
         private void button_nextPage_Click(object sender, EventArgs e)
         {
-            if(CurrentIndex == PageCount)
+            if (PageCount == 1)
             {
                 return;
             }
-            CurrentIndex++;
+            if (CurrentIndex == PageCount)
+            {
+                CurrentIndex = 1;
+            }
+            else
+            {
+                CurrentIndex++;
+            }
             labelPage.Text = CurrentIndex + "/" + PageCount;
             pageBox.Text = CurrentIndex.ToString();
             UpdateResourceList();

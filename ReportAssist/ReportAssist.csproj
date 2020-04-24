@@ -33,13 +33,13 @@
     <PublishUrl>D:\WorkSpace\Plugins\publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.27</ApplicationVersion>
+    <ApplicationVersion>1.0.0.47</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>Auto PPTer</ProductName>
-    <PublisherName>中国汽车技术研究中心</PublisherName>
+    <PublisherName>中汽研（天津）汽车信息咨询有限公司</PublisherName>
     <SupportUrl />
     <FriendlyName>Auto PPTer</FriendlyName>
     <OfficeApplicationDescription />
