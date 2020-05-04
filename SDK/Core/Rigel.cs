@@ -13,7 +13,7 @@ namespace Core
         public static int AppHwnd = -1;
         public static String BIMTempPath = System.Environment.GetEnvironmentVariable("TEMP");
 		public static String PluginVersion = String.Empty;
-		public static String PluginDir = "C:/Program Files/PPTer/";
+		public static String PluginDir = "";
 		public static String ServerUrl = "http://www.catarc.ac.cn";
 		public static String UpdateUrl = "http://www.catarc.ac.cn/ppttools/static/update/publish/";
 
@@ -22,7 +22,7 @@ namespace Core
 		public static String UserID = String.Empty;
 		public static String UserName = String.Empty;
 		public static String UserToken = String.Empty;
-		public static String UserRegKey = "Auto PPTer\\Users";
+		public static String UserRegKey = "Software\\Auto PPTer";
 
 
 		public static void InitWorkConfig()

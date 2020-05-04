@@ -36,25 +36,29 @@ namespace PPTPlugin
             }
         }
 
-        public static void ApplyTemplate(Object data)
+        public static async void ApplyTemplate(Object data)
         {
             ResourceData resourceData = data as ResourceData;
             if (resourceData != null)
             {
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
-                PowerPoint.Presentation currentPPT = Globals.ThisAddIn.Application.ActivePresentation;
-                PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
+                PPTPlugin.ThisAddIn.CurrentPPT = Globals.ThisAddIn.Application.ActivePresentation;
                 if (App.ResourceType == ResourceType.Template)
                 {
-                    Globals.ThisAddIn.Application.Presentations.Open(strPath);
+                    PPTPlugin.ThisAddIn.CurrentPPT = Globals.ThisAddIn.Application.Presentations.Open(strPath);
                 }
                 else
                 {
 
-                    currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
+                    PPTPlugin.ThisAddIn.CurrentPPT.Slides.InsertFromFile(strPath, 0/*currentIndexPPT.SlideIndex*/, 1, -1);
                 }
 
+                if(App.ResourceType == ResourceType.Predict)
+                {
+                    WriteSlide writer = new WriteSlide();
+                    await writer.WriteData(resourceData.ID);
+                }
             }
         }
 
