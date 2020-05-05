@@ -207,6 +207,9 @@ namespace PPTPlugin
             {
                if (Enum.TryParse<ResourceType>(button.Tag.ToString(), out App.ResourceType))
                 {
+                    Globals.ThisAddIn.RightWidget.CurrentIndex = 1;
+                    Globals.ThisAddIn.RightWidget.FilterText = textBox.Text;
+                    Globals.ThisAddIn.RightWidget.pageBox.Text = CurrentIndex.ToString();
                     Globals.ThisAddIn.RightWidget.ResetPageCount();
                     Globals.ThisAddIn.RightWidget.UpdateResourceList();
                 }

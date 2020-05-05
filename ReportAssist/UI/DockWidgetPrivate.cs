@@ -165,6 +165,8 @@ namespace PPTPlugin
                     rowIndex++;
                 }
             }
+            CurrentIndex = 1;
+            pageBox.Text = "1";
         }
 
     }
