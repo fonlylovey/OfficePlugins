@@ -9,6 +9,7 @@ using AutoUpdate;
 using System.Windows.Forms;
 using System.Deployment.Application;
 using Base;
+using Widgets;
 
 namespace PPTPlugin
 {
@@ -17,11 +18,17 @@ namespace PPTPlugin
         public CustomTaskPane TaskWidget = null;
         public DockWidget RightWidget = null;
         static public FormMgr FormShower = null;
+        static public PowerPoint.Presentation CurrentPPT = null;
         public Dictionary<PowerPoint.DocumentWindow, CustomTaskPane> TaskPaneDict = null;
         private async void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             TaskPaneDict = new Dictionary<PowerPoint.DocumentWindow, CustomTaskPane>();
-
+            Rigel.PluginDir = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, "InstallPath");
+            if(String.IsNullOrEmpty(Rigel.PluginDir))
+            {
+                PromptBox.Error("没有找到安装目录！");
+            }
+            Rigel.PluginDir += "/";
             Rigel.InitWorkConfig();
             FormShower = new FormMgr(new IntPtr(this.Application.HWND));
             App.ResourceType = ResourceType.None;

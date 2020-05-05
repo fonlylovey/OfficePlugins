@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 namespace PPTPlugin
 {
@@ -31,5 +32,33 @@ namespace PPTPlugin
         public string LastMessage { get; internal set; }
         public DateTime? LastMessageTime { get; internal set; }
         public string NickName { get; internal set; }
+    }
+
+    public class PPTAPI
+    {
+        public static PowerPoint.Shape getShape(PowerPoint.Shapes shapes, String name)
+        {
+            PowerPoint.Shape shape = null;
+            try
+            {
+                shape = shapes[name];
+                return shape;
+            }
+            catch
+            {
+
+            }
+            foreach(PowerPoint.Shape theShape in shapes)
+            {
+                String strTitle = theShape.Title;
+                String strName = theShape.Name;
+                if(name==strName || name == strTitle)
+                {
+                    shape = theShape;
+                    break;
+                }
+            }
+            return shape;
+        }
     }
 }
