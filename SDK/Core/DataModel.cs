@@ -30,6 +30,9 @@ namespace Core
         Policy = 4, //政策
         Product = 5, //产品
         Predict = 6, //预测
-        Macro = 7 //宏观
+        Macro = 7, //宏观
+        Upload_template = 0,
+        Upload_icon = 1,
+        Upload_legend = 2
     }
 }

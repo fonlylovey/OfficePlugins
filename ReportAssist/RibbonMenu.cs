@@ -11,6 +11,7 @@ using Core;
 using Widgets;
 using CustomControls;
 using AutoUpdate;
+using Microsoft.Win32;
 
 namespace PPTPlugin
 {
@@ -92,6 +93,7 @@ namespace PPTPlugin
         private void button_temp_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Template;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -101,6 +103,7 @@ namespace PPTPlugin
         private void button_legend_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Legend;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -110,6 +113,7 @@ namespace PPTPlugin
         private void button_icon_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Icon;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -124,6 +128,7 @@ namespace PPTPlugin
         private void button_market_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Market;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -133,6 +138,7 @@ namespace PPTPlugin
         private void button_policy_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Policy;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -142,6 +148,7 @@ namespace PPTPlugin
         private void button_product_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Product;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -151,6 +158,7 @@ namespace PPTPlugin
         private void button_predict_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Predict;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -160,6 +168,7 @@ namespace PPTPlugin
         private void button_macro_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Macro;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
             Globals.ThisAddIn.RightWidget.ResetPageCount();
             Globals.ThisAddIn.RightWidget.UpdateResourceList();
             Globals.ThisAddIn.RightWidget.ResetButton();
@@ -231,6 +240,20 @@ namespace PPTPlugin
             button_option.Enabled = value;
         }
 
+        private void button_upload_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Upload_template;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
+            Globals.ThisAddIn.RightWidget.ResetPageCount();
+            Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            Globals.ThisAddIn.RightWidget.ResetButton();
+            Globals.ThisAddIn.TaskWidget.Visible = true;
+        }
+
+        private void button_suggest_Click(object sender, RibbonControlEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.cn/ppttools/static/html/autoppter.html");
+        }
     }
 
 }

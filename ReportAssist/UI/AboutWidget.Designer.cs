@@ -155,7 +155,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(431, 19);
             this.label4.TabIndex = 2;
-            this.label4.Text = "联系人：肖倩  15822752779  022-84379386  xiqoqian@catarc.ac.cn";
+            this.label4.Text = "联系人：肖倩  15822752779  022-84379386  xiaoqian@catarc.ac.cn";
             // 
             // label5
             // 

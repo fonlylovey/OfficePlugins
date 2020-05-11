@@ -183,16 +183,54 @@ namespace PPTPlugin
 
         private void label_All_Click(object sender, EventArgs e)
         {
-
+            Label button = sender as Label;
+            if (button != null && button.Text.Equals("模板"))
+            {
+                button.Tag = ResourceType.Upload_template;
+            }
+            else
+            {
+                return;
+            }
+            if (button.Tag != null)
+            {
+                afterClick(button.Tag.ToString());
+            }
         }
 
         private void label_Mark_Click(object sender, EventArgs e)
         {
-
+            Label button = sender as Label;
+            if (button != null && button.Text.Equals("图标"))
+            {
+                button.Tag = ResourceType.Upload_icon;
+            }
+            else
+            {
+                return;
+            }
+            if (button.Tag != null)
+            {
+                afterClick(button.Tag.ToString());
+            }
         }
 
         private void label_Records_Click(object sender, EventArgs e)
         {
+            Label button = sender as Label;
+            if (button != null && button.Text.Equals("图例"))
+            {
+                button.Tag = ResourceType.Upload_legend;
+            }
+            else
+            {
+                return;
+            }
+            if (button.Tag != null)
+            {
+                afterClick(button.Tag.ToString());
+            }
+            
 
         }
 
@@ -210,6 +248,7 @@ namespace PPTPlugin
                     Globals.ThisAddIn.RightWidget.CurrentIndex = 1;
                     Globals.ThisAddIn.RightWidget.FilterText = textBox.Text;
                     Globals.ThisAddIn.RightWidget.pageBox.Text = CurrentIndex.ToString();
+                    Globals.ThisAddIn.RightWidget.updateRightLableText();
                     Globals.ThisAddIn.RightWidget.ResetPageCount();
                     Globals.ThisAddIn.RightWidget.UpdateResourceList();
                 }
@@ -251,5 +290,39 @@ namespace PPTPlugin
             }
         }
 
+        public void updateRightLableText()
+        {
+            if (App.ResourceType==ResourceType.Upload_icon || App.ResourceType==ResourceType.Upload_legend || App.ResourceType == ResourceType.Upload_template)
+            {
+                this.label_All.Text = "模板";
+                this.label_Mark.Text = "图标";
+                this.label_Records.Text = "图例";
+            }
+            else
+            {
+                this.label_All.Text = "全部";
+                this.label_Mark.Text = "我的收藏";
+                this.label_Records.Text = "历史记录";
+          
+            }
+        }
+
+        public void afterClick(string tag)
+        {
+
+               if (Enum.TryParse<ResourceType>(tag, out App.ResourceType))
+               {
+                    Globals.ThisAddIn.RightWidget.CurrentIndex = 1;
+                    Globals.ThisAddIn.RightWidget.FilterText = textBox.Text;
+                    Globals.ThisAddIn.RightWidget.pageBox.Text = CurrentIndex.ToString();
+                    Globals.ThisAddIn.RightWidget.ResetPageCount();
+                    Globals.ThisAddIn.RightWidget.UpdateResourceList();
+                }
+                else
+                {
+                    App.ResourceType = ResourceType.None;
+                }
+                ResetButton();
+        }
     }
 }
