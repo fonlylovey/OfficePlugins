@@ -393,6 +393,16 @@ namespace PPTPlugin.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap suggest {
+            get {
+                object obj = ResourceManager.GetObject("suggest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Technology {
             get {
                 object obj = ResourceManager.GetObject("Technology", resourceCulture);
@@ -416,6 +426,26 @@ namespace PPTPlugin.Properties {
         internal static System.Drawing.Bitmap updata_btn_1 {
             get {
                 object obj = ResourceManager.GetObject("updata_btn_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_line {
+            get {
+                object obj = ResourceManager.GetObject("upload_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_resource {
+            get {
+                object obj = ResourceManager.GetObject("upload_resource", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

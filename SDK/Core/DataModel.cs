@@ -31,8 +31,8 @@ namespace Core
         Product = 5, //产品
         Predict = 6, //预测
         Macro = 7, //宏观
-        Upload_template = 0,
-        Upload_icon = 1,
-        Upload_legend = 2
+        Upload_template = 8,
+        Upload_icon = 9,
+        Upload_legend = 10
     }
 }

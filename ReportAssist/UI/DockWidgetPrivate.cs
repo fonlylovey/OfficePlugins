@@ -116,6 +116,15 @@ namespace PPTPlugin
                 case ResourceType.Macro:
                     resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "宏观", FilterText);
                     break;
+                case ResourceType.Upload_template:
+                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "我的模板", FilterText);
+                    break;
+                case ResourceType.Upload_icon:
+                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "我的图标", FilterText);
+                    break;
+                case ResourceType.Upload_legend:
+                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "我的图例", FilterText);
+                    break;
             }
 
             PageCount = resModel.ResCount / PrePageCount;
