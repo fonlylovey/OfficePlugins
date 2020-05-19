@@ -12,6 +12,9 @@ using Widgets;
 using CustomControls;
 using AutoUpdate;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
+using Microsoft.Office.Interop.PowerPoint;
+using Microsoft.Office.Core;
 
 namespace PPTPlugin
 {
@@ -94,30 +97,30 @@ namespace PPTPlugin
         {
             App.ResourceType = ResourceType.Template;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_legend_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Legend;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_icon_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Icon;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_label_Click(object sender, RibbonControlEventArgs e)
@@ -129,50 +132,50 @@ namespace PPTPlugin
         {
             App.ResourceType = ResourceType.Market;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_policy_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Policy;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_product_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Product;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_predict_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Predict;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_macro_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Macro;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_about_Click(object sender, RibbonControlEventArgs e)
@@ -238,21 +241,75 @@ namespace PPTPlugin
             //更多
             button_about.Enabled = value;
             button_option.Enabled = value;
+
+            //我的资源
+            button_upload.Enabled = value;
+            button_suggest.Enabled = value;
+            //导出
+            button_export.Enabled = value;
         }
 
         private void button_upload_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Upload_template;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
-            Globals.ThisAddIn.RightWidget.ResetPageCount();
-            Globals.ThisAddIn.RightWidget.UpdateResourceList();
-            Globals.ThisAddIn.RightWidget.ResetButton();
-            Globals.ThisAddIn.TaskWidget.Visible = true;
+            //Globals.ThisAddIn.RightWidget.ResetPageCount();
+            //Globals.ThisAddIn.RightWidget.UpdateResourceList();
+            //Globals.ThisAddIn.RightWidget.ResetButton();
+            //Globals.ThisAddIn.TaskWidget.Visible = true;
         }
 
         private void button_suggest_Click(object sender, RibbonControlEventArgs e)
         {
             System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.cn/ppttools/static/html/autoppter.html");
+        }
+
+        private void button_export_Click(object sender, RibbonControlEventArgs e)
+        {
+            /* Globals.ThisAddIn.Application.ActiveDocument.ExportAsFixedFormat(
+                                 saveFileDialog.FileName,
+                                 Microsoft.Office.Interop.PowerPoint.Word.WdExportFormat.wdExportFormatPDF);*/
+            string inPath = "C:/Users/user/Desktop/001.pptx";
+            string outPutPath = "C:/Users/user/Desktop/002.pdf";
+            ConverterToPdf(inPath, outPutPath);
+        }
+
+        public bool ConverterToPdf(string _lstrInputFile, string _lstrOutFile)
+        {
+            Microsoft.Office.Interop.PowerPoint.Application lobjPowerPointApp = null;
+            Microsoft.Office.Interop.PowerPoint.Presentation lobjppt = null;
+            object lobjMissing = System.Reflection.Missing.Value;
+            object lobjSaveChanges = null;
+            try
+            {
+                lobjPowerPointApp = new Microsoft.Office.Interop.PowerPoint.Application();
+                lobjppt = lobjPowerPointApp.Presentations.Open(_lstrInputFile, MsoTriState.msoTrue, MsoTriState.msoFalse, MsoTriState.msoFalse);
+                lobjppt.SaveAs(_lstrOutFile, PpSaveAsFileType.ppSaveAsPDF, MsoTriState.msoCTrue);
+            }
+            catch (Exception ex)
+            {
+                //其他日志操作；
+                return false;
+            }
+            finally
+            {
+                if (lobjppt != null)
+                {
+                    lobjppt.Close();
+                    Marshal.ReleaseComObject(lobjppt);
+                    lobjppt = null;
+                }
+                if (lobjPowerPointApp != null)
+                {
+                    lobjPowerPointApp.Quit();
+                    Marshal.ReleaseComObject(lobjPowerPointApp);
+                    lobjPowerPointApp = null;
+                }
+                //主动激活垃圾回收器，主要是避免超大批量转文档时，内存占用过多，而垃圾回收器并不是时刻都在运行！
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+            return true;
         }
     }
 

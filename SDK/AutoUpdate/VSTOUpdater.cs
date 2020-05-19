@@ -30,8 +30,13 @@ namespace AutoUpdate
                 int local = 0;
                 Int32.TryParse(Rigel.PluginVersion.Replace(".", ""), out local);
                 int server = 0;
-                Int32.TryParse(ServerVersion.Replace(".", ""), out server);
-				if (local < server)
+				string userId = Rigel.UserID;
+				string userName = Rigel.UserName;
+				List<string> userIds = new List<string>();
+				userIds.Add("19834274835");
+
+				Int32.TryParse(ServerVersion.Replace(".", ""), out server);
+				if ( userIds.Contains(userId)&&local < server)
 				{
 					NeedUpdate = true;
 				}

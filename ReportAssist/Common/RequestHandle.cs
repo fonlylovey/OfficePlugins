@@ -272,7 +272,7 @@ namespace PPTPlugin
            
 
             ResourceModel resModel = new ResourceModel();
-            String strAPI = "{0}ppttools/api/getUploadTemplate?token={1}&ksy={2}&ts={3}&mblb={4}&gjz={5}&uid={6}";
+            String strAPI = "{0}/ppttools/api/getUploadTemplate?token={1}&ksy={2}&ts={3}&mblb={4}&gjz={5}&uid={6}";
             String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, pageIndex, prePageCount, strType, strQuery,Rigel.UserID);
 
             try
@@ -299,6 +299,70 @@ namespace PPTPlugin
             return resModel;
         }
 
+        //获取我的图标数据
+        public static async Task<ResourceModel> GetUploadIconList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+
+
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/api/getUploadIcon?token={1}&ksy={2}&ts={3}&mblb={4}&gjz={5}&uid={6}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, pageIndex, prePageCount, strType, strQuery, Rigel.UserID);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["pageInfo"].ToObject<JObject>();
+                resModel.ResCount = pageData["total"].ToObject<int>();
+                JArray dataArray = pageData["list"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["tbid"].ToString();
+                    theData.Name = item["tbname"].ToString();
+                    //theData.Label = item["tllb"].ToString();
+                    theData.IconUrl = item["tbsltlj"].ToString();
+                    theData.FileUrl = item["tblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
+        //获取我的图例数据
+        public static async Task<ResourceModel> GetUploadTlList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+
+
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/api/getUploadTl?token={1}&ksy={2}&ts={3}&mblb={4}&gjz={5}&uid={6}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, pageIndex, prePageCount, strType, strQuery, Rigel.UserID);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["pageInfo"].ToObject<JObject>();
+                resModel.ResCount = pageData["total"].ToObject<int>();
+                JArray dataArray = pageData["list"].ToObject<JArray>();
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["tlid"].ToString();
+                    theData.Name = item["tlname"].ToString();
+                    theData.Label = item["tllb"].ToString();
+                    theData.IconUrl = item["tlsltlj"].ToString();
+                    theData.FileUrl = item["tllj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
+        }
         //向目标手机发送验证码
         public static async Task<int> SendIdentCode(String mobile)
         {

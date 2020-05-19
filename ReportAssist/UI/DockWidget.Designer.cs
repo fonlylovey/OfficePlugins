@@ -58,6 +58,7 @@
             this.label_QY = new System.Windows.Forms.Label();
             this.label_CX = new System.Windows.Forms.Label();
             this.label_JS = new System.Windows.Forms.Label();
+            this.lable_upload = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             leftPlane = new System.Windows.Forms.Panel();
             leftPlane.SuspendLayout();
@@ -78,7 +79,7 @@
             leftPlane.Controls.Add(this.LTPanel);
             leftPlane.Dock = System.Windows.Forms.DockStyle.Fill;
             leftPlane.Location = new System.Drawing.Point(0, 0);
-            leftPlane.Margin = new System.Windows.Forms.Padding(4);
+            leftPlane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             leftPlane.Name = "leftPlane";
             leftPlane.Size = new System.Drawing.Size(275, 750);
             leftPlane.TabIndex = 8;
@@ -138,7 +139,7 @@
             this.pageBox.MaxLength = 32;
             this.pageBox.MinimumSize = new System.Drawing.Size(40, 32);
             this.pageBox.Name = "pageBox";
-            this.pageBox.Size = new System.Drawing.Size(40, 31);
+            this.pageBox.Size = new System.Drawing.Size(40, 32);
             this.pageBox.TabIndex = 9;
             this.pageBox.Text = "1";
             this.pageBox.WordWrap = false;
@@ -201,7 +202,7 @@
             this.LTPanel.Controls.Add(this.flowLayoutPanel2);
             this.LTPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LTPanel.Location = new System.Drawing.Point(0, 0);
-            this.LTPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.LTPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LTPanel.MaximumSize = new System.Drawing.Size(0, 90);
             this.LTPanel.MinimumSize = new System.Drawing.Size(0, 90);
             this.LTPanel.Name = "LTPanel";
@@ -216,7 +217,7 @@
             this.flowLayoutPanel3.Controls.Add(this.label_Records);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 55);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 38);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 38);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -277,7 +278,7 @@
             this.flowLayoutPanel2.Controls.Add(this.QueryButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(275, 55);
@@ -309,7 +310,7 @@
             this.textBox.MaximumSize = new System.Drawing.Size(149, 24);
             this.textBox.MinimumSize = new System.Drawing.Size(149, 24);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(149, 29);
+            this.textBox.Size = new System.Drawing.Size(149, 24);
             this.textBox.TabIndex = 3;
             this.textBox.WatermarkText = "搜索";
             // 
@@ -323,7 +324,7 @@
             this.QueryButton.MinimumSize = new System.Drawing.Size(30, 30);
             this.QueryButton.MouseMoveImage = null;
             this.QueryButton.Name = "QueryButton";
-            this.QueryButton.Padding = new System.Windows.Forms.Padding(4);
+            this.QueryButton.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.QueryButton.SelectedImage = null;
             this.QueryButton.Size = new System.Drawing.Size(30, 30);
             this.QueryButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -345,6 +346,7 @@
             this.VMenu.Controls.Add(this.label_QY);
             this.VMenu.Controls.Add(this.label_CX);
             this.VMenu.Controls.Add(this.label_JS);
+            this.VMenu.Controls.Add(this.lable_upload);
             this.VMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.VMenu.Location = new System.Drawing.Point(275, 0);
@@ -521,6 +523,21 @@
             this.toolTip.SetToolTip(this.label_JS, "技术");
             this.label_JS.Click += new System.EventHandler(this.label_Click);
             // 
+            // lable_upload
+            // 
+            this.lable_upload.AutoSize = true;
+            this.lable_upload.Image = global::PPTPlugin.Properties.Resources.upload_slide;
+            this.lable_upload.Location = new System.Drawing.Point(0, 539);
+            this.lable_upload.Margin = new System.Windows.Forms.Padding(0);
+            this.lable_upload.MaximumSize = new System.Drawing.Size(48, 48);
+            this.lable_upload.MinimumSize = new System.Drawing.Size(48, 48);
+            this.lable_upload.Name = "lable_upload";
+            this.lable_upload.Size = new System.Drawing.Size(48, 48);
+            this.lable_upload.TabIndex = 37;
+            this.lable_upload.Tag = "8";
+            this.toolTip.SetToolTip(this.lable_upload, "我的上传");
+            this.lable_upload.Click += new System.EventHandler(this.lable_upload_Click);
+            // 
             // DockWidget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -530,7 +547,7 @@
             this.Controls.Add(this.VMenu);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(1250, 1350);
-            this.MinimumSize = new System.Drawing.Size(312, 500);
+            this.MinimumSize = new System.Drawing.Size(312, 750);
             this.Name = "DockWidget";
             this.Size = new System.Drawing.Size(325, 750);
             this.SizeChanged += new System.EventHandler(this.DockWidget_SizeChanged);
@@ -580,5 +597,6 @@
         private WinForm.UI.Controls.FTextBox textBox;
         private WinForm.UI.Controls.CirclePictureBox QueryButton;
         private System.Windows.Forms.Button button_filter;
+        private System.Windows.Forms.Label lable_upload;
     }
 }

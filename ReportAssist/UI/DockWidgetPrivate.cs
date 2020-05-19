@@ -43,15 +43,16 @@ namespace PPTPlugin
             {
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
-                PPTPlugin.ThisAddIn.CurrentPPT = Globals.ThisAddIn.Application.ActivePresentation;
+                PowerPoint.Presentation currentPPT  = Globals.ThisAddIn.Application.ActivePresentation;
+                PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
                 if (App.ResourceType == ResourceType.Template)
                 {
-                    PPTPlugin.ThisAddIn.CurrentPPT = Globals.ThisAddIn.Application.Presentations.Open(strPath);
+                    Globals.ThisAddIn.Application.Presentations.Open(strPath);
                 }
                 else
                 {
 
-                    PPTPlugin.ThisAddIn.CurrentPPT.Slides.InsertFromFile(strPath, 0/*currentIndexPPT.SlideIndex*/, 1, -1);
+                    currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
                 }
 
                 if(App.ResourceType == ResourceType.Predict)
@@ -117,13 +118,16 @@ namespace PPTPlugin
                     resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "宏观", FilterText);
                     break;
                 case ResourceType.Upload_template:
-                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "我的模板", FilterText);
+                    resModel = await RequestHandle.GetUploadTemplateList(CurrentIndex, PrePageCount, "", FilterText);
+                    this.label_All.Text = "模板";
+                    this.label_Mark.Text = "图标";
+                    this.label_Records.Text = "图例";
                     break;
                 case ResourceType.Upload_icon:
-                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "我的图标", FilterText);
+                    resModel = await RequestHandle.GetUploadIconList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
                 case ResourceType.Upload_legend:
-                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "我的图例", FilterText);
+                    resModel = await RequestHandle.GetUploadTlList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
             }
 
@@ -138,11 +142,11 @@ namespace PPTPlugin
 
         public void ResetPageCount()
         {
-            int listWidgetH = this.Height - LTPanel.Height;//减去顶部菜单的高度
+            int listWidgetH = this.Size.Height - this.LTPanel.Height - this.flowLayoutPanel1.Height;//减去顶部菜单的高度
 
             int w = 206;
             int h = 125;
-            if (App.ResourceType == ResourceType.Icon)
+            if (App.ResourceType == ResourceType.Icon || App.ResourceType == ResourceType.Upload_icon)
             {
                 resourceList.ColumnCount = 3;
                 h = 68;
@@ -151,7 +155,7 @@ namespace PPTPlugin
             else
             {
                 resourceList.ColumnCount = 1;
-                h = 125;
+                h = 122;
                 w = 206;
             }
 

@@ -90,6 +90,15 @@ namespace PPTPlugin
                 case ResourceType.Macro:
                     strName = "宏观";
                     break;
+                case ResourceType.Upload_icon:
+                    strName = "我的图标";
+                    break;
+                case ResourceType.Upload_legend:
+                    strName = "我的图例";
+                    break;
+                case ResourceType.Upload_template:
+                    strName = "我的资源";
+                    break;
                 default:
                     strName = "模板";
                     break;

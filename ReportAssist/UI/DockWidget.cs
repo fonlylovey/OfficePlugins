@@ -56,7 +56,7 @@ namespace PPTPlugin
                     pictureBox.Picture.Tag = resModel.ResourceList[index - 1];
                     
 
-                    if (App.ResourceType == ResourceType.Icon)
+                    if (App.ResourceType == ResourceType.Icon || App.ResourceType == ResourceType.Upload_icon)
                     {
                         pictureBox.SetMarkVisible(false);
                         pictureBox.SetMenuVisible(true);
@@ -249,14 +249,14 @@ namespace PPTPlugin
                     Globals.ThisAddIn.RightWidget.FilterText = textBox.Text;
                     Globals.ThisAddIn.RightWidget.pageBox.Text = CurrentIndex.ToString();
                     Globals.ThisAddIn.RightWidget.updateRightLableText();
-                    Globals.ThisAddIn.RightWidget.ResetPageCount();
-                    Globals.ThisAddIn.RightWidget.UpdateResourceList();
+                    //Globals.ThisAddIn.RightWidget.ResetPageCount();
+                    //Globals.ThisAddIn.RightWidget.UpdateResourceList();
                 }
                else
                {
                     App.ResourceType = ResourceType.None;
                }
-               ResetButton();
+               //ResetButton();
             }
 
         }
@@ -292,6 +292,7 @@ namespace PPTPlugin
 
         public void updateRightLableText()
         {
+            Globals.ThisAddIn.ResetSidebar();
             if (App.ResourceType==ResourceType.Upload_icon || App.ResourceType==ResourceType.Upload_legend || App.ResourceType == ResourceType.Upload_template)
             {
                 this.label_All.Text = "模板";
@@ -323,6 +324,11 @@ namespace PPTPlugin
                     App.ResourceType = ResourceType.None;
                 }
                 ResetButton();
+        }
+
+        private void lable_upload_Click(object sender, EventArgs e)
+        {
+            label_Click(sender, e);
         }
     }
 }
