@@ -15,6 +15,13 @@ using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.PowerPoint;
 using Microsoft.Office.Core;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Collections;
 
 namespace PPTPlugin
 {
@@ -22,6 +29,10 @@ namespace PPTPlugin
     {
         readonly String StrUserName = "UserName";
         readonly String StrUserToken = "UserToken";
+        const int WWidth = 1200;
+        const int HHeight = 680;
+        List<System.Drawing.Image> AllName = new List<System.Drawing.Image>();
+        string FileName = "C://result.pdf";
 
         private async void RibbonMenu_Load(object sender, RibbonUIEventArgs e)
         {
@@ -32,10 +43,10 @@ namespace PPTPlugin
         private async Task<bool> LoadUserInfo()
         {
             String strUserName = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserName);
-            if(!String.IsNullOrEmpty(strUserName))
+            if (!String.IsNullOrEmpty(strUserName))
             {
                 String strUserToken = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, StrUserToken);
-                if(await RequestHandle.TokenValidity(strUserToken))
+                if (await RequestHandle.TokenValidity(strUserToken))
                 {
                     Rigel.UserID = strUserName;
                     Rigel.UserName = strUserName;
@@ -58,7 +69,7 @@ namespace PPTPlugin
                 result = loginWidget.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    if(String.IsNullOrEmpty(Rigel.UserID))
+                    if (String.IsNullOrEmpty(Rigel.UserID))
                     {
                         PromptBox.Error("登录失败！");
                         return;
@@ -90,7 +101,7 @@ namespace PPTPlugin
                     ResetButtonEnable(false);
                 }
             }
-            
+
         }
 
         private void button_temp_Click(object sender, RibbonControlEventArgs e)
@@ -194,12 +205,12 @@ namespace PPTPlugin
                 VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
                 updateWidget.setInfo(slogan, content);
                 updateWidget.setNeedUpdate(VSTOUpdater.NeedUpdate);
-                if(VSTOUpdater.NeedUpdate)
+                if (VSTOUpdater.NeedUpdate)
                 {
                     Logger.LogInfo("需要更新版本：" + VSTOUpdater.ServerVersion);
                 }
                 Logger.LogInfo("开始更新从：" + Rigel.PluginVersion + "升级到：" + VSTOUpdater.ServerVersion);
-               
+
                 DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
                 if (result == DialogResult.OK && VSTOUpdater.Update())
                 {
@@ -207,12 +218,12 @@ namespace PPTPlugin
                     System.Environment.Exit(0);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 PromptBox.Prompt("非常抱歉更新失败，请联系工作人员！");
                 Logger.LogError(ex.ToString());
             }
-            
+
         }
 
         private void ResetButtonEnable(bool value)
@@ -266,14 +277,183 @@ namespace PPTPlugin
 
         private void button_export_Click(object sender, RibbonControlEventArgs e)
         {
-            /* Globals.ThisAddIn.Application.ActiveDocument.ExportAsFixedFormat(
-                                 saveFileDialog.FileName,
-                                 Microsoft.Office.Interop.PowerPoint.Word.WdExportFormat.wdExportFormatPDF);*/
-            string inPath = "C:/Users/user/Desktop/001.pptx";
-            string outPutPath = "C:/Users/user/Desktop/002.pdf";
-            ConverterToPdf(inPath, outPutPath);
+            string pptPath = Globals.ThisAddIn.Application.ActivePresentation.FullName;
+            string imgPath = Rigel.PluginDir + "tmpImage";
+            FileName = Rigel.PluginDir + "pdf";
+            if (System.IO.Directory.Exists(imgPath = System.Text.RegularExpressions.Regex.Replace(imgPath, "/", "")) == false)//如果不存在就创建file文件夹
+            {
+                System.IO.Directory.CreateDirectory(imgPath);
+            }
+            if (System.IO.Directory.Exists(FileName = System.Text.RegularExpressions.Regex.Replace(FileName, "/", "")) == false)//如果不存在就创建file文件夹
+            {
+                System.IO.Directory.CreateDirectory(FileName);
+            }
+            //var app = new Microsoft.Office.Interop.PowerPointApplication();
+            Presentation pre = Globals.ThisAddIn.Application.ActivePresentation;
+            string path = pre.Path;
+            Console.Out.Write(path);
+            //var ppt = app.Presentations.Open(pptPath, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoFalse);
+
+            var index = 0;
+
+            //var fileName = Path.GetFileNameWithoutExtension(pptPath);
+
+            var slides = Globals.ThisAddIn.Application.ActivePresentation.Slides;
+            int cnt = slides.Count;
+            int[] arr = new int[cnt];
+            List<string> fileNameList = new List<string>();
+            string imgName = "";
+            for (int i = 0; i < cnt; i++)
+            {
+                arr[i] = i + 1;
+            }
+            foreach (Microsoft.Office.Interop.PowerPoint.Slide slid in slides.Range(arr))
+            {
+                ++index;
+                //设置图片大小
+                try
+                {
+                    imgName = imgPath + string.Format("\\{0}.jpg", index.ToString());
+                    slid.Export(imgName, "jpg", Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                    fileNameList.Add(imgName);
+
+
+                }
+                catch (Exception ex)
+                {
+                    Console.Write(ex.Message);
+                }
+
+            }
+            FolderBrowserDialog pdfpath = new FolderBrowserDialog();
+            pdfpath.ShowDialog();
+            FileName = pdfpath.SelectedPath + "\\" + GetTimeStamp() + ".pdf";
+            img2pdf(fileNameList);
+            //释放资源
+            GC.Collect();
         }
 
+        public void TurnTheImageToPdf(List<string> SourceImage)
+        {
+            try
+            {
+                ChangeTheImageToS(SourceImage);
+
+                FileStream fileStream = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.Write);
+                Console.WriteLine(Screen.PrimaryScreen.Bounds.Width);
+                Console.WriteLine(Screen.PrimaryScreen.Bounds.Height);
+                iTextSharp.text.Rectangle rtg = new iTextSharp.text.Rectangle(0, 0, 750, 500);
+                //iTextSharp.text.Rectangle rtg = new iTextSharp.text.Rectangle(170f,254f,1560f,885f);
+
+                Document doc = new Document();
+                doc.SetPageSize(rtg);
+                PdfWriter write = PdfWriter.GetInstance(doc, fileStream);
+
+
+                doc.Open();
+
+                iTextSharp.text.Image jpg;
+
+                for (int i = 0; i < AllName.Count; ++i)
+                {
+                    jpg = iTextSharp.text.Image.GetInstance(AllName[i], ImageFormat.Jpeg);
+                    doc.NewPage();
+                    doc.Add(jpg);
+                }
+                if (doc != null && doc.IsOpen())
+                {
+                    doc.Close();
+                }
+                if (write != null)
+                {
+                    write.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+        }
+
+
+        //change all the image to standard
+        private void ChangeTheImageToS(List<string> ImageName)
+        {
+            for (int i = 0; i < ImageName.Count; ++i)
+            {
+                Bitmap src = new Bitmap(ImageName[i]);
+
+                Bitmap bmImage = new Bitmap(1119, 680);
+                Graphics g = Graphics.FromImage(src);
+                g.InterpolationMode = InterpolationMode.Low;
+                //g.DrawImage(src, new System.Drawing.Rectangle(0, 0, bmImage.Width, bmImage.Height), new System.Drawing.Rectangle(0, 0, src.Width, src.Height), GraphicsUnit.Pixel);
+                g.DrawImage(src, new System.Drawing.Rectangle(0, 0, bmImage.Width, bmImage.Height), new System.Drawing.Rectangle(0, 0, src.Width, src.Height), GraphicsUnit.Pixel);
+                g.Dispose();
+                AllName.Add(bmImage);
+            }
+        }
+        private void img2pdf(List<string> ImageName)
+        {
+
+            string[] files = ImageName.ToArray();
+            iTextSharp.text.Document document = new iTextSharp.text.Document(new iTextSharp.text.Rectangle(100f, 100f, 800f, 500f, 0));
+            try
+            {
+                iTextSharp.text.pdf.PdfWriter.GetInstance(document, new FileStream(FileName, FileMode.Create, FileAccess.ReadWrite));
+                document.Open();
+                iTextSharp.text.Image image;
+                for (int i = 0; i < files.Length; i++)
+                {
+                    if (String.IsNullOrEmpty(files[i])) break;
+                    image = iTextSharp.text.Image.GetInstance(files[i]);
+                    if (image.Height > iTextSharp.text.PageSize.A4.Height - 25)
+                    {
+                        image.ScaleToFit(iTextSharp.text.PageSize.A4.Width - 25, iTextSharp.text.PageSize.A4.Height - 25);
+                    }
+                    else if (image.Width > iTextSharp.text.PageSize.A4.Width - 25)
+                    {
+                        image.ScaleToFit(iTextSharp.text.PageSize.A4.Width - 25, iTextSharp.text.PageSize.A4.Height - 25);
+                    }
+                    image.Alignment = iTextSharp.text.Image.ALIGN_MIDDLE;
+                    document.NewPage();
+                    document.Add(image);
+                    //iTextSharp.text.Chunk c1 = new iTextSharp.text.Chunk("Hello World");
+
+                    //iTextSharp.text.Phrase p1 = new iTextSharp.text.Phrase();
+
+                    //p1.Leading = 150;      //行间距
+
+                    //document.Add(p1);
+
+                }
+
+                Console.WriteLine("转换成功！");
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                Console.WriteLine("转换失败，原因：" + ex.Message);
+
+            }
+
+            document.Close();
+
+            Console.ReadKey();
+        }
+        /// <summary>
+        /// 获取时间戳
+        /// </summary>
+        /// <returns></returns>
+        public static string GetTimeStamp()
+        {
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalMilliseconds).ToString();
+        }
         public bool ConverterToPdf(string _lstrInputFile, string _lstrOutFile)
         {
             Microsoft.Office.Interop.PowerPoint.Application lobjPowerPointApp = null;
