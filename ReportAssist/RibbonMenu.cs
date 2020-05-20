@@ -203,8 +203,31 @@ namespace PPTPlugin
                 updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
                 VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
                 VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
+                VSTOUpdater.UpdateLog.TryGetValue("sjhs", out string sjhs);
+                List<string> lists = new List<string>();
+                if (sjhs != null)
+                {
+                    lists = sjhs.Split(',').ToList<string>();
+                }
                 updateWidget.setInfo(slogan, content);
+               
+                Int32.TryParse(Rigel.PluginVersion.Replace(".", ""), out int local);
+                Int32.TryParse(VSTOUpdater.ServerVersion.Replace(".", ""),out int server);
+                if (lists.Contains(Rigel.UserID)&&local < server)
+                {
+                    VSTOUpdater.NeedUpdate = true;
+                }
+                else
+                {
+                    updateWidget.setVersion(Rigel.PluginVersion, Rigel.PluginVersion);
+                    VSTOUpdater.NeedUpdate = false;
+                }
+
                 updateWidget.setNeedUpdate(VSTOUpdater.NeedUpdate);
+
+
+
+
                 if (VSTOUpdater.NeedUpdate)
                 {
                     Logger.LogInfo("需要更新版本：" + VSTOUpdater.ServerVersion);

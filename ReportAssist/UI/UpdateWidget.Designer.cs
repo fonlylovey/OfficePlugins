@@ -63,7 +63,6 @@
             // 
             this.CustomTitle.Controls.Add(this.flowLayoutPanel1);
             this.CustomTitle.Location = new System.Drawing.Point(1, 1);
-            this.CustomTitle.MaximumSize = new System.Drawing.Size(0, 40);
             this.CustomTitle.MinimumSize = new System.Drawing.Size(0, 40);
             this.CustomTitle.Size = new System.Drawing.Size(650, 40);
             this.CustomTitle.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
@@ -72,7 +71,7 @@
             // 
             this.button_close.Image = global::PPTPlugin.Properties.Resources.close;
             this.button_close.IsSelected = false;
-            this.button_close.Location = new System.Drawing.Point(585, 10);
+            this.button_close.Location = new System.Drawing.Point(580, 10);
             this.button_close.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.button_close.MouseMoveImage = global::PPTPlugin.Properties.Resources.close_s;
             this.button_close.Name = "button_close";
@@ -89,10 +88,10 @@
             this.flowLayoutPanel1.Controls.Add(this.button_close);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(25, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(630, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(625, 40);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -130,7 +129,7 @@
             this.label_local.Location = new System.Drawing.Point(33, 132);
             this.label_local.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label_local.Name = "label_local";
-            this.label_local.Size = new System.Drawing.Size(120, 20);
+            this.label_local.Size = new System.Drawing.Size(132, 20);
             this.label_local.TabIndex = 2;
             this.label_local.Text = "当前版本：1.0.0.1";
             // 
@@ -142,7 +141,7 @@
             this.label_server.Location = new System.Drawing.Point(33, 162);
             this.label_server.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label_server.Name = "label_server";
-            this.label_server.Size = new System.Drawing.Size(120, 20);
+            this.label_server.Size = new System.Drawing.Size(132, 20);
             this.label_server.TabIndex = 3;
             this.label_server.Text = "最新版本：1.0.0.1";
             // 

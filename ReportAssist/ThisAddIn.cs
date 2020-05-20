@@ -38,21 +38,30 @@ namespace PPTPlugin
             var aaaa = System.Reflection.Assembly.GetExecutingAssembly();
             if (ApplicationDeployment.IsNetworkDeployed)
             {
-                ApplicationDeployment applicationDeployment = ApplicationDeployment.CurrentDeployment;
-                Logger.LogInfo("UpdatedVersion:" + applicationDeployment.UpdatedVersion.ToString());
-                Logger.LogInfo("CurrentVersion" + applicationDeployment.CurrentVersion.ToString());
-                Rigel.PluginVersion = applicationDeployment.CurrentVersion.ToString();
+                try {
+                    ApplicationDeployment applicationDeployment = ApplicationDeployment.CurrentDeployment;
+                    Logger.LogInfo("UpdatedVersion:" + applicationDeployment.UpdatedVersion.ToString());
+                    Logger.LogInfo("CurrentVersion" + applicationDeployment.CurrentVersion.ToString());
+                    Rigel.PluginVersion = applicationDeployment.CurrentVersion.ToString();
+
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine( ex.Message);
+                }
+                
             }
-            await VSTOUpdater.CheckUpdate();
-            /*
-            if (VSTOUpdater.NeedUpdate)
+            VSTOUpdater.CheckUpdate().Wait();
+            
+            
+            /*if (VSTOUpdater.NeedUpdate)
             {
                 UpdateWidget updateWidget = new UpdateWidget();
                 updateWidget.setNeedUpdate(VSTOUpdater.NeedUpdate);
-                //updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
-                //VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
-                //VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
-                //updateWidget.setInfo(slogan, content);
+                updateWidget.setVersion(Rigel.PluginVersion, VSTOUpdater.ServerVersion);
+                VSTOUpdater.UpdateLog.TryGetValue("slogan", out string slogan);
+                VSTOUpdater.UpdateLog.TryGetValue("content", out string content);
+                updateWidget.setInfo(slogan, content);
                 DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
                 if (result == DialogResult.OK)
                 {

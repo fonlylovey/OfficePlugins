@@ -79,7 +79,7 @@
             leftPlane.Controls.Add(this.LTPanel);
             leftPlane.Dock = System.Windows.Forms.DockStyle.Fill;
             leftPlane.Location = new System.Drawing.Point(0, 0);
-            leftPlane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            leftPlane.Margin = new System.Windows.Forms.Padding(4);
             leftPlane.Name = "leftPlane";
             leftPlane.Size = new System.Drawing.Size(275, 750);
             leftPlane.TabIndex = 8;
@@ -139,7 +139,7 @@
             this.pageBox.MaxLength = 32;
             this.pageBox.MinimumSize = new System.Drawing.Size(40, 32);
             this.pageBox.Name = "pageBox";
-            this.pageBox.Size = new System.Drawing.Size(40, 32);
+            this.pageBox.Size = new System.Drawing.Size(40, 31);
             this.pageBox.TabIndex = 9;
             this.pageBox.Text = "1";
             this.pageBox.WordWrap = false;
@@ -202,7 +202,7 @@
             this.LTPanel.Controls.Add(this.flowLayoutPanel2);
             this.LTPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LTPanel.Location = new System.Drawing.Point(0, 0);
-            this.LTPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LTPanel.Margin = new System.Windows.Forms.Padding(4);
             this.LTPanel.MaximumSize = new System.Drawing.Size(0, 90);
             this.LTPanel.MinimumSize = new System.Drawing.Size(0, 90);
             this.LTPanel.Name = "LTPanel";
@@ -217,7 +217,7 @@
             this.flowLayoutPanel3.Controls.Add(this.label_Records);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 55);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 38);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 38);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -278,7 +278,7 @@
             this.flowLayoutPanel2.Controls.Add(this.QueryButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(275, 55);
@@ -310,7 +310,7 @@
             this.textBox.MaximumSize = new System.Drawing.Size(149, 24);
             this.textBox.MinimumSize = new System.Drawing.Size(149, 24);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(149, 24);
+            this.textBox.Size = new System.Drawing.Size(149, 29);
             this.textBox.TabIndex = 3;
             this.textBox.WatermarkText = "搜索";
             // 
@@ -324,7 +324,7 @@
             this.QueryButton.MinimumSize = new System.Drawing.Size(30, 30);
             this.QueryButton.MouseMoveImage = null;
             this.QueryButton.Name = "QueryButton";
-            this.QueryButton.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QueryButton.Padding = new System.Windows.Forms.Padding(4);
             this.QueryButton.SelectedImage = null;
             this.QueryButton.Size = new System.Drawing.Size(30, 30);
             this.QueryButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

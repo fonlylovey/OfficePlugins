@@ -8,6 +8,7 @@ using TG.INI;
 using System.Diagnostics;
 using System.IO;
 using Widgets;
+using System.Linq;
 
 namespace AutoUpdate
 {
@@ -33,15 +34,19 @@ namespace AutoUpdate
 				string userId = Rigel.UserID;
 				string userName = Rigel.UserName;
 				List<string> userIds = new List<string>();
-				userIds.Add("19834274835");
 
 				Int32.TryParse(ServerVersion.Replace(".", ""), out server);
+				UpdateLog.TryGetValue("sjhs", out string sjhs);
+				userIds = sjhs.Split(',').ToList<string>();
 				if ( userIds.Contains(userId)&&local < server)
 				{
 					NeedUpdate = true;
 				}
 				else
+				{
 					NeedUpdate = false;
+				}
+					
 			}
             catch (Exception ex)
             {
@@ -162,6 +167,9 @@ namespace AutoUpdate
 					pair = pair = document["setting"]["content"];
 					str = pair == null ? "" : pair.Value;
 					UpdateLog.Add("content", str);
+					pair = document["update"]["sjh"];
+					str = pair == null ? "" : pair.Value;
+					UpdateLog.Add("sjhs", str);
 				}
 				return true;
 			}
