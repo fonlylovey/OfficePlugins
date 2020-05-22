@@ -213,7 +213,7 @@ namespace PPTPlugin
                
                 Int32.TryParse(Rigel.PluginVersion.Replace(".", ""), out int local);
                 Int32.TryParse(VSTOUpdater.ServerVersion.Replace(".", ""),out int server);
-                if (lists.Contains(Rigel.UserID)&&local < server)
+                if ((lists.Contains(Rigel.UserID)||lists.Contains("all"))&&local < server)
                 {
                     VSTOUpdater.NeedUpdate = true;
                 }

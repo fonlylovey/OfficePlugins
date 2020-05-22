@@ -80,7 +80,7 @@ namespace CustomControls
                 markButton.Image = Properties.Resources.mark;
                 if(MarkFunction != null)
                 {
-                    Invoke(MarkFunction);
+                    Invoke(MarkFunction, Tag);
                 }
             }
             else

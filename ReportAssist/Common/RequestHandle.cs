@@ -15,7 +15,7 @@ namespace PPTPlugin
         public static async Task<ResourceModel> GetIconList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
             ResourceModel resModel = new ResourceModel();
-                String strAPI = "{0}/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tblb={3}&gjz={4}";
+            String strAPI = "{0}/ppttools/res/getTbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&tblb={3}&gjz={4}";
             String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
             if (!String.IsNullOrEmpty(strQuery))
             {
@@ -28,7 +28,7 @@ namespace PPTPlugin
                 JObject pageData = jsondata["page"].ToObject<JObject>();
                 resModel.ResCount = pageData["count"].ToObject<int>();
                 JArray dataArray = pageData["data"].ToObject<JArray>();
-                foreach(JToken item in dataArray)
+                foreach (JToken item in dataArray)
                 {
                     ResourceData theData = new ResourceData();
                     theData.ID = item["tbid"].ToString();
@@ -39,7 +39,7 @@ namespace PPTPlugin
                     resModel.ResourceList.Add(theData);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.LogError(ex.ToString());
             }
@@ -52,7 +52,7 @@ namespace PPTPlugin
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb={3}&gjz={4}";
             String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType, strQuery);
-            
+
             try
             {
 
@@ -146,7 +146,7 @@ namespace PPTPlugin
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getSjMbByUid?token=1&uid=18435106586&ksy={1}&ts={2}&mblb={3}";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount,strType);
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, pageIndex, prePageCount, strType);
 
             try
             {
@@ -269,11 +269,11 @@ namespace PPTPlugin
         //获取我的模板数据
         public static async Task<ResourceModel> GetUploadTemplateList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
         {
-           
+
 
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/api/getUploadTemplate?token={1}&ksy={2}&ts={3}&mblb={4}&gjz={5}&uid={6}";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, pageIndex, prePageCount, strType, strQuery,Rigel.UserID);
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, pageIndex, prePageCount, strType, strQuery, Rigel.UserID);
 
             try
             {
@@ -383,11 +383,11 @@ namespace PPTPlugin
 
         public static async Task<bool> Login(String mobile, String identCode, String inviteCode = "")
         {
-            
+
             String strMsg = "";
             try
             {
-                if(mobile == "admin")
+                if (mobile == "admin")
                 {
                     Rigel.UserID = "admin";
                     Rigel.UserName = "测试";
@@ -467,6 +467,85 @@ namespace PPTPlugin
             {
                 return false;
             }
+        }
+        public static async Task<bool> Wdsc(JObject jObject)
+        {
+            try
+            {
+                string strAPI = "{0}/ppttools/res/wdsc?token={1}";
+                string strUrl = string.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken);
+                JObject obj = await Request.HttpPost(jObject, strUrl);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static async Task<ResourceModel> GetWdscList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/res/wdscQuery?token={1}&uid={2}&ksy={3}&ts={4}&lb={5}&gjz={6}&type={7}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, Rigel.UserID, pageIndex, prePageCount, strType, strQuery, App.ResourceType);
+
+            try
+            {
+
+                JObject jsondata = await Request.HttpGet(strUrl);
+                if (jsondata != null)
+                {
+
+
+                    JObject pageData = jsondata["pageInfo"].ToObject<JObject>();
+                    resModel.ResCount = pageData["total"].ToObject<int>();
+                    JArray dataArray = pageData["list"].ToObject<JArray>();
+                    if (App.ResourceType == ResourceType.Template)
+                    {
+                        foreach (JToken item in dataArray)
+                        {
+                            ResourceData theData = new ResourceData();
+                            theData.ID = item["mbid"].ToString();
+                            theData.Name = item["mbname"].ToString();
+                            theData.Label = item["mblb"].ToString();
+                            theData.IconUrl = item["mbsltlj"].ToString();
+                            theData.FileUrl = item["mblj"].ToString();
+                            resModel.ResourceList.Add(theData);
+                        }
+                    }
+                    else if (App.ResourceType == ResourceType.Legend)
+                    {
+                        foreach (JToken item in dataArray)
+                        {
+                            ResourceData theData = new ResourceData();
+                            theData.ID = item["tlid"].ToString();
+                            theData.Name = item["tlname"].ToString();
+                            theData.Label = item["tllb"].ToString();
+                            theData.IconUrl = item["tlsltlj"].ToString();
+                            theData.FileUrl = item["tllj"].ToString();
+                            resModel.ResourceList.Add(theData);
+                        }
+                    }
+                    else
+                    {
+                        foreach (JToken item in dataArray)
+                        {
+                            ResourceData theData = new ResourceData();
+                            theData.ID = item["tbid"].ToString();
+                            theData.Name = item["tbname"].ToString();
+                            //theData.Label = item["tllb"].ToString();
+                            theData.IconUrl = item["tbsltlj"].ToString();
+                            theData.FileUrl = item["tblj"].ToString();
+                            resModel.ResourceList.Add(theData);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
         }
 
         public static List<GroupItem> GetIconFilter()
@@ -553,7 +632,7 @@ namespace PPTPlugin
             gItem.Children.Add(item);
             return group;
         }
-       
+
         public static List<GroupItem> GetLegendFilter()
         {
             List<GroupItem> group = new List<GroupItem>();

@@ -63,6 +63,21 @@ namespace PPTPlugin
             }
         }
 
+        public static async void store(Object data)
+        {
+            ResourceData resourceData = data as ResourceData;
+            if (resourceData != null)
+            {
+                Newtonsoft.Json.Linq.JObject jObject = new Newtonsoft.Json.Linq.JObject();
+                jObject.Add("sjh", Rigel.UserID);
+                jObject.Add("lb", App.ResourceType.ToString());
+                jObject.Add("tmid", resourceData.ID.ToString());
+                jObject.Add("scsj", DateTime.Now.Date.ToString("yyyyMMddHHmmss"));
+                await RequestHandle.Wdsc(jObject);
+            }
+            
+        }
+
         public static void ApplyIcon(Object data)
         {
             ResourceData resourceData = data as ResourceData;
@@ -94,7 +109,18 @@ namespace PPTPlugin
             switch (App.ResourceType)
             {
                 case ResourceType.Template:
-                    resModel = await RequestHandle.GetTempList(CurrentIndex, PrePageCount, "", FilterText);
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl) {
+                        //resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetTempList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    
                     break;
                 case ResourceType.Icon:
                     resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, "", FilterText);

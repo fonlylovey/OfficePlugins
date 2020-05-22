@@ -68,7 +68,7 @@ namespace PPTPlugin
                         pictureBox.SetMenuVisible(true);
                         pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
                     }
-
+                    pictureBox.MarkFunction = new  PicturePlane.DelegateApply(store);
                     if (resourceList.InvokeRequired)
                     {
                         if (Disposing || IsDisposed)
@@ -187,15 +187,15 @@ namespace PPTPlugin
             if (button != null && button.Text.Equals("模板"))
             {
                 button.Tag = ResourceType.Upload_template;
+                App.ItemType = ResourceType.Upload_template;
             }
             else
             {
-                return;
+                button.Tag = App.ResourceType;
+                App.ItemType = ResourceType.qb;
             }
-            if (button.Tag != null)
-            {
-                afterClick(button.Tag.ToString());
-            }
+
+            afterClick(button.Tag.ToString());
         }
 
         private void label_Mark_Click(object sender, EventArgs e)
@@ -204,15 +204,14 @@ namespace PPTPlugin
             if (button != null && button.Text.Equals("图标"))
             {
                 button.Tag = ResourceType.Upload_icon;
+                App.ItemType = ResourceType.Upload_icon;
             }
-            else
-            {
-                return;
+            else {
+                button.Tag = App.ResourceType;
+                App.ItemType = ResourceType.Wdsc;
             }
-            if (button.Tag != null)
-            {
-                afterClick(button.Tag.ToString());
-            }
+            //afterClick(App.ItemType.ToString());
+            afterClick(button.Tag.ToString());
         }
 
         private void label_Records_Click(object sender, EventArgs e)
@@ -221,16 +220,16 @@ namespace PPTPlugin
             if (button != null && button.Text.Equals("图例"))
             {
                 button.Tag = ResourceType.Upload_legend;
+                App.ItemType = ResourceType.Upload_legend;
             }
             else
             {
-                return;
+                button.Tag = App.ResourceType;
+                App.ItemType = ResourceType.Lsjl;
+
             }
-            if (button.Tag != null)
-            {
-                afterClick(button.Tag.ToString());
-            }
-            
+            afterClick(button.Tag.ToString());
+
 
         }
 

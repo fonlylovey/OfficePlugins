@@ -33,6 +33,9 @@ namespace Core
         Macro = 7, //宏观
         Upload_template = 8,
         Upload_icon = 9,
-        Upload_legend = 10
+        Upload_legend = 10,
+        Wdsc = 11, //我的收藏
+        Lsjl = 12, //历史记录
+        qb = 13 //全部
     }
 }

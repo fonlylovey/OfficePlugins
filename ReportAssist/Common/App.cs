@@ -11,6 +11,7 @@ namespace PPTPlugin
     public class App
     {
         public static ResourceType ResourceType = ResourceType.Template;
+        public static ResourceType ItemType = ResourceType.qb;
     }
 
     public class GroupItem
