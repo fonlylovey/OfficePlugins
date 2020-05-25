@@ -55,7 +55,7 @@ namespace PPTPlugin
                     pictureBox.Tag = resModel.ResourceList[index - 1];
                     pictureBox.Picture.Tag = resModel.ResourceList[index - 1];
                     
-
+                  
                     if (App.ResourceType == ResourceType.Icon || App.ResourceType == ResourceType.Upload_icon)
                     {
                         pictureBox.SetMarkVisible(false);
@@ -63,12 +63,25 @@ namespace PPTPlugin
                         pictureBox.Padding = new Padding(5);
                         pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyIcon);
                     }
+                    else if (App.ResourceType == ResourceType.Upload_template || App.ResourceType == ResourceType.Upload_legend)
+                    {
+                        pictureBox.SetMenuVisible(true);
+                        pictureBox.SetMarkVisible(false);
+                        pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
+                    }
                     else
                     {
                         pictureBox.SetMenuVisible(true);
+                        if (resData.MarkFlag == "1"|| App.ItemType == ResourceType.Wdsc)
+                        {
+                            pictureBox.SetMarkStatus(true);
+
+                        }
+                        
                         pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
                     }
                     pictureBox.MarkFunction = new  PicturePlane.DelegateApply(store);
+                    pictureBox.UnMarkFunction = new PicturePlane.DelegateApply(unMark);
                     if (resourceList.InvokeRequired)
                     {
                         if (Disposing || IsDisposed)
@@ -87,6 +100,7 @@ namespace PPTPlugin
                 index++;
             }
             resourceList.ResumeLayout();
+            App.ItemType = ResourceType.qb;
         }
 
         private void DockWidget_SizeChanged(object sender, EventArgs e)

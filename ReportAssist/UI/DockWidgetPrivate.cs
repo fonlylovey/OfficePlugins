@@ -1,4 +1,5 @@
 ﻿using Core;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -27,7 +28,7 @@ namespace PPTPlugin
                 {
                     if (Enum.TryParse<ResourceType>(control.Tag.ToString(), out ResourceType type))
                     {
-                        if(type == App.ResourceType)
+                        if (type == App.ResourceType)
                         {
                             control.BackColor = Color.White;
                         }
@@ -43,7 +44,14 @@ namespace PPTPlugin
             {
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
-                PowerPoint.Presentation currentPPT  = Globals.ThisAddIn.Application.ActivePresentation;
+                JObject jObject = new JObject();
+                jObject.Add("sjh", Rigel.UserID);
+                jObject.Add("lb", App.ResourceType.ToString());
+                jObject.Add("tmid", resourceData.ID);
+                String strAPI = "{0}/ppttools/lsjl/save?token={1}";
+                String url = String.Format(strAPI, Rigel.ServerUrl,Rigel.UserToken);
+                Request.HttpPost(jObject, url);
+                PowerPoint.Presentation currentPPT = Globals.ThisAddIn.Application.ActivePresentation;
                 PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
                 if (App.ResourceType == ResourceType.Template)
                 {
@@ -55,7 +63,7 @@ namespace PPTPlugin
                     currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
                 }
 
-                if(App.ResourceType == ResourceType.Predict)
+                if (App.ResourceType == ResourceType.Predict)
                 {
                     WriteSlide writer = new WriteSlide();
                     await writer.WriteData(resourceData.ID);
@@ -75,7 +83,20 @@ namespace PPTPlugin
                 jObject.Add("scsj", DateTime.Now.Date.ToString("yyyyMMddHHmmss"));
                 await RequestHandle.Wdsc(jObject);
             }
-            
+
+        }
+
+        public static async void unMark(Object data)
+        {
+            ResourceData resourceData = data as ResourceData;
+            if (resourceData != null)
+            {
+                Newtonsoft.Json.Linq.JObject jObject = new Newtonsoft.Json.Linq.JObject();
+                jObject.Add("sjh", Rigel.UserID);
+                jObject.Add("lb", App.ResourceType.ToString());
+                jObject.Add("tmid", resourceData.ID.ToString());
+                await RequestHandle.delWdsc(jObject);
+            }
         }
 
         public static void ApplyIcon(Object data)
@@ -85,19 +106,26 @@ namespace PPTPlugin
             {
                 string strUrl = resourceData.FileUrl;
                 string strPath = Request.HttpDownload(strUrl).Result;
+                JObject jObject = new JObject();
+                jObject.Add("sjh", Rigel.UserID);
+                jObject.Add("lb", App.ResourceType.ToString());
+                jObject.Add("tmid", resourceData.ID);
+                String strAPI = "{0}/ppttools/lsjl/save?token={1}";
+                String url = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken);
+                Request.HttpPost(jObject, url);
                 Image image = Image.FromFile(strPath);
 
                 PowerPoint.Slide slide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
                 if (slide != null)
                 {
-                    PowerPoint.Shape shape =  slide.Shapes.AddPicture(strPath, 
+                    PowerPoint.Shape shape = slide.Shapes.AddPicture(strPath,
                         Microsoft.Office.Core.MsoTriState.msoFalse,
                         Microsoft.Office.Core.MsoTriState.msoCTrue, 50, 50);
-                   /* if(shape != null && slide.ColorScheme.Count > 0)
-                    {
-                        PowerPoint.RGBColor color = slide.ColorScheme._Index(slide.ColorScheme.Count) as PowerPoint.RGBColor;
-                        shape.Fill.ForeColor.RGB = color.RGB;
-                    }*/
+                    /* if(shape != null && slide.ColorScheme.Count > 0)
+                     {
+                         PowerPoint.RGBColor color = slide.ColorScheme._Index(slide.ColorScheme.Count) as PowerPoint.RGBColor;
+                         shape.Fill.ForeColor.RGB = color.RGB;
+                     }*/
                 }
             }
         }
@@ -109,40 +137,123 @@ namespace PPTPlugin
             switch (App.ResourceType)
             {
                 case ResourceType.Template:
+                case ResourceType.Product:
+                case ResourceType.Predict:
+                case ResourceType.Macro:
+                case ResourceType.Market:
+                case ResourceType.Policy:
                     if (App.ItemType == ResourceType.Wdsc)
                     {
                         resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
                     }
-                    else if (App.ItemType == ResourceType.Lsjl) {
-                        //resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
                     }
                     else
                     {
                         resModel = await RequestHandle.GetTempList(CurrentIndex, PrePageCount, "", FilterText);
                     }
-                    
+
                     break;
                 case ResourceType.Icon:
-                    resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, "", FilterText);
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
                     break;
-                case ResourceType.Legend:
-                    resModel = await RequestHandle.GetLegendList(CurrentIndex, PrePageCount, "", FilterText);
+               case ResourceType.Legend:
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetLegendList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
                     break;
-                case ResourceType.Policy:
-                    resModel = await RequestHandle.GetPolicyList(CurrentIndex, PrePageCount, "", FilterText);
+                /* case ResourceType.Policy:
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                       resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetPolicyList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
                     break;
                 case ResourceType.Market:
-                    resModel = await RequestHandle.GetMarketList(CurrentIndex, PrePageCount, "", FilterText);
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetMarketList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
                     break;
                 case ResourceType.Product:
-                    resModel = await RequestHandle.GetProductList(CurrentIndex, PrePageCount, "产品", FilterText);
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetProductList(CurrentIndex, PrePageCount, "产品", FilterText);
+                    }
                     break;
                 case ResourceType.Predict:
-                    resModel = await RequestHandle.GetPredictList(CurrentIndex, PrePageCount, "预测", FilterText);
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetPredictList(CurrentIndex, PrePageCount, "预测", FilterText);
+                    }
                     break;
                 case ResourceType.Macro:
-                    resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "宏观", FilterText);
-                    break;
+                    if (App.ItemType == ResourceType.Wdsc)
+                    {
+                        resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsjl)
+                    {
+                        resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else
+                    {
+                        resModel = await RequestHandle.GetMacroList(CurrentIndex, PrePageCount, "宏观", FilterText);
+                    }
+                    break;*/
                 case ResourceType.Upload_template:
                     resModel = await RequestHandle.GetUploadTemplateList(CurrentIndex, PrePageCount, "", FilterText);
                     this.label_All.Text = "模板";
@@ -156,9 +267,9 @@ namespace PPTPlugin
                     resModel = await RequestHandle.GetUploadTlList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
             }
-
+            
             PageCount = resModel.ResCount / PrePageCount;
-            if(resModel.PageCount % PrePageCount > 0)
+            if (resModel.PageCount % PrePageCount > 0)
             {
                 PageCount++;
             }

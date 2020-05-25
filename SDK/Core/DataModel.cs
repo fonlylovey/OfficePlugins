@@ -10,6 +10,7 @@ namespace Core
         public String Label { set; get; } = String.Empty;
         public String IconUrl { set; get; } = String.Empty;
         public String FileUrl { set; get; } = String.Empty;
+        public String MarkFlag { set; get; } = String.Empty;
     }
 
     public class ResourceModel

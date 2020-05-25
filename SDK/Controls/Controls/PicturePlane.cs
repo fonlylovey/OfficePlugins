@@ -25,6 +25,12 @@ namespace CustomControls
             markButton.Visible = isVisible;
         }
 
+        public void SetMarkStatus(bool status)
+        {
+            IsMark = status;
+            markButton.Image = Properties.Resources.mark;
+        }
+
         public void SetMenuVisible(bool isVisible)
         {
             MenuVisible = isVisible;
@@ -86,6 +92,11 @@ namespace CustomControls
             else
             {
                 markButton.Image = Properties.Resources.unMark;
+                if (UnMarkFunction != null)
+                {
+                    Invoke(UnMarkFunction, Tag);
+                }
+
             }
             
         }
@@ -113,6 +124,7 @@ namespace CustomControls
         public delegate void DelegateMark();
         public DelegateApply ApplyFunction = null;
         public DelegateApply MarkFunction = null;
+        public DelegateApply UnMarkFunction = null;
 
         delegate void DelegateSetImage(Image image);
         delegate void DelegateSetImageUrl(String strUrl);

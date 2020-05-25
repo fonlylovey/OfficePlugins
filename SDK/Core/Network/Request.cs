@@ -171,7 +171,6 @@ namespace Core
             String strFilePath = "";
             FileStream fileStream = null;
             Directory.CreateDirectory(Rigel.BIMTempPath);  //创建临时文件目录
-
             try
             {
                 using (HttpClient httpClient = new HttpClient())
