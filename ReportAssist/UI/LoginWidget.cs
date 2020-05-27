@@ -106,8 +106,10 @@ namespace PPTPlugin
 
         private void OnTick(object sender, EventArgs eventArgs)
         {
-            m_TotalTime++;
-            if(m_TotalTime == 30)
+            m_TotalTime = 30;
+            i++;
+            m_TotalTime = m_TotalTime - i;
+            if (m_TotalTime == 0)
             {
                 button_identCode.Enabled = true;
                 m_timer.Stop();
@@ -116,13 +118,14 @@ namespace PPTPlugin
             }
             else
             {
-                String strText = String.Format("{0}s后发送", m_TotalTime);
+                String strText = String.Format("{0}秒后重发", m_TotalTime);
                 button_identCode.Text = strText;
                 button_identCode.Refresh();
             }
         }
 
         private Timer m_timer;
-        private int m_TotalTime;
+        private int m_TotalTime = 30;
+        private int i;
     }
 }
