@@ -98,6 +98,7 @@ namespace PPTPlugin
                         StrUserToken, String.Empty);
                     button_login.Label = "登录\r\n";
                     button_login.Image = Properties.Resources.Logout;
+                    Globals.ThisAddIn.TaskWidget.Visible = false;
                     ResetButtonEnable(false);
                 }
             }
@@ -107,6 +108,7 @@ namespace PPTPlugin
         private void button_temp_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Template;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -117,6 +119,7 @@ namespace PPTPlugin
         private void button_legend_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Legend;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -127,6 +130,7 @@ namespace PPTPlugin
         private void button_icon_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Icon;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -142,6 +146,7 @@ namespace PPTPlugin
         private void button_market_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Market;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -152,6 +157,7 @@ namespace PPTPlugin
         private void button_policy_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Policy;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -162,6 +168,7 @@ namespace PPTPlugin
         private void button_product_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Product;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -172,6 +179,7 @@ namespace PPTPlugin
         private void button_predict_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Predict;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -182,6 +190,7 @@ namespace PPTPlugin
         private void button_macro_Click(object sender, RibbonControlEventArgs e)
         {
             App.ResourceType = ResourceType.Macro;
+            App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
             //Globals.ThisAddIn.RightWidget.ResetPageCount();
             //Globals.ThisAddIn.RightWidget.UpdateResourceList();
@@ -237,8 +246,8 @@ namespace PPTPlugin
                 DialogResult result = ThisAddIn.FormShower.ShowDialog(updateWidget);
                 if (result == DialogResult.OK && VSTOUpdater.Update())
                 {
-                    PromptBox.Prompt("更新完成，即将将重新启动软件。");
-                    System.Environment.Exit(0);
+                    PromptBox.Prompt("更新完成，需要重新启动软件。");
+                    return;
                 }
             }
             catch (Exception ex)
@@ -295,7 +304,7 @@ namespace PPTPlugin
 
         private void button_suggest_Click(object sender, RibbonControlEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.cn/ppttools/static/html/autoppter.html");
+            System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.cn");
         }
 
         private void button_export_Click(object sender, RibbonControlEventArgs e)
@@ -465,7 +474,7 @@ namespace PPTPlugin
             }
 
             document.Close();
-
+            PromptBox.Prompt("导出完成！");
             Console.ReadKey();
         }
         /// <summary>

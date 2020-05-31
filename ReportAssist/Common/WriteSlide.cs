@@ -13,7 +13,7 @@ namespace PPTPlugin
     {
         public async Task<bool> WriteData(String strID)
         {
-            PowerPoint.Shapes shapes = PPTPlugin.ThisAddIn.CurrentPPT.Slides[1].Shapes;
+            PowerPoint.Shapes shapes = Globals.ThisAddIn.Application.ActivePresentation.Slides[1].Shapes;
             try
             {
                 JObject jsonData = await RequestData.GetPredictData(strID);

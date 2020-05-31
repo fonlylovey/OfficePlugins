@@ -209,7 +209,7 @@ namespace Core
                         byte[] strBuf = new byte[stream.Length];
                         stream.Read(strBuf, 0, strBuf.Length);
 
-                        strFilePath = Rigel.BIMTempPath + strFileName;
+                        strFilePath = Rigel.BIMTempPath + GetTimeStamp() + strFileName;
                         if (System.IO.File.Exists(strFilePath))
                         {
                             //判断是否被占用
@@ -245,6 +245,12 @@ namespace Core
             return strFilePath;
         }
 
+
+        public static string GetTimeStamp()
+        {
+            TimeSpan ts = DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalSeconds).ToString();
+        }
         // 从文件头得到远程文件的长度
         private static long GetHttpLength(String url)
         {

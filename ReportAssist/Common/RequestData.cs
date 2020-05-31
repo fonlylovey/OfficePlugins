@@ -14,8 +14,8 @@ namespace PPTPlugin
         //获取图标数据
         public static async Task<JObject> GetPredictData(String strMBID)
         {
-            String strAPI = "{0}/ppttools/res/getZcDataByMbId?token=1&mbid={1}";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl, strMBID);
+            String strAPI = "{0}/ppttools/res/getZcDataByMbId?token={1}&mbid={2}";
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl,Rigel.UserToken, strMBID);
 
             try
             {

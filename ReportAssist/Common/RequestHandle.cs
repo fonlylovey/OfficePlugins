@@ -57,6 +57,7 @@ namespace PPTPlugin
             {
                 JObject jsondata = await Request.HttpGet(strUrl);
                 JObject pageData = jsondata["pageInfo"].ToObject<JObject>();
+                resModel.PageCount = pageData["pages"].ToObject<int>();
                 resModel.ResCount = pageData["total"].ToObject<int>();
                 JArray dataArray = pageData["list"].ToObject<JArray>();
                 foreach (JToken item in dataArray)
@@ -421,7 +422,7 @@ namespace PPTPlugin
                 }
                 else
                 {
-                    throw new Exception(code + ":" + strMsg);
+                    throw new Exception(strMsg);
                 }
             }
             catch (Exception ex)
@@ -512,6 +513,7 @@ namespace PPTPlugin
 
 
                     JObject pageData = jsondata["pageInfo"].ToObject<JObject>();
+                    resModel.PageCount = pageData["pages"].ToObject<int>();
                     resModel.ResCount = pageData["total"].ToObject<int>();
                     JArray dataArray = pageData["list"].ToObject<JArray>();
                     
@@ -577,6 +579,7 @@ namespace PPTPlugin
                 if (jsondata != null)
                 {
                     JObject pageData = jsondata["pageInfo"].ToObject<JObject>();
+                    resModel.PageCount = pageData["pages"].ToObject<int>();
                     resModel.ResCount = pageData["total"].ToObject<int>();
                     JArray dataArray = pageData["list"].ToObject<JArray>();
 

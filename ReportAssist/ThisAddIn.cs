@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Deployment.Application;
 using Base;
 using Widgets;
+using System.Net.NetworkInformation;
 
 namespace PPTPlugin
 {
@@ -121,6 +122,33 @@ namespace PPTPlugin
             }
 
             return strName;
+        }
+
+        public bool PingNetAddress(string strNetAdd)
+        {
+            bool Flage = false;
+            Ping ping = new Ping();
+            try
+            {
+                PingReply pr = ping.Send(strNetAdd, 3000);
+                if (pr.Status == IPStatus.TimedOut)
+                {
+                    Flage = false;
+                }
+                if (pr.Status == IPStatus.Success)
+                {
+                    Flage = true;
+                }
+                else
+                {
+                    Flage = false;
+                }
+            }
+            catch
+            {
+                Flage = false;
+            }
+            return Flage;
         }
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {

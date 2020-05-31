@@ -44,7 +44,7 @@ namespace WinForm.UI.Controls
             base.Location = new Point(-50,-50);
             timer = new Timer();
             timer.Enabled = false;
-            timer.Interval = 4000;
+            timer.Interval = 2000;
             timer.Tick += Timer_Tick;
             BringToFront();
 

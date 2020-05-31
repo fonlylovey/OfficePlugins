@@ -267,12 +267,17 @@ namespace PPTPlugin
                     resModel = await RequestHandle.GetUploadTlList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
             }
-            
-            PageCount = resModel.ResCount / PrePageCount;
+                PageCount = (int)Math.Ceiling((double)resModel.ResCount / PrePageCount);
+                ///*if (resModel.PageCount % PrePageCount > 0)
+                //{
+                //    PageCount++;
+                //}*/
+            /*PageCount = resModel.ResCount / PrePageCount;
             if (resModel.PageCount % PrePageCount > 0)
             {
                 PageCount++;
-            }
+            }*/
+
 
             return resModel;
         }

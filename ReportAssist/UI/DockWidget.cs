@@ -100,7 +100,6 @@ namespace PPTPlugin
                 index++;
             }
             resourceList.ResumeLayout();
-            App.ItemType = ResourceType.qb;
         }
 
         private void DockWidget_SizeChanged(object sender, EventArgs e)
@@ -148,17 +147,13 @@ namespace PPTPlugin
 
         private void button_prePage_Click(object sender, EventArgs e)
         {
-            if (PageCount == 1)
+            if(CurrentIndex > 1)
             {
-                return;
-            }
-            if(CurrentIndex == 1)
-            {
-                CurrentIndex = PageCount;
+                CurrentIndex--;
             }
             else
             {
-                CurrentIndex--;
+                CurrentIndex = PageCount;
             }
            
             labelPage.Text = CurrentIndex + "/" + PageCount;
@@ -169,7 +164,7 @@ namespace PPTPlugin
 
         private void button_nextPage_Click(object sender, EventArgs e)
         {
-            if (PageCount == 1)
+            if (PageCount == 1|| PageCount == 0)
             {
                 return;
             }
@@ -177,9 +172,13 @@ namespace PPTPlugin
             {
                 CurrentIndex = 1;
             }
-            else
+            else if (CurrentIndex < PageCount)
             {
                 CurrentIndex++;
+            }
+            else
+            {
+                return;
             }
             labelPage.Text = CurrentIndex + "/" + PageCount;
             //pageBox.Text = CurrentIndex.ToString();
@@ -198,6 +197,9 @@ namespace PPTPlugin
         private void label_All_Click(object sender, EventArgs e)
         {
             Label button = sender as Label;
+            this.label_All.BackColor = Color.FromArgb(215, 215, 215);
+            this.label_Mark.BackColor = Color.White;
+            this.label_Records.BackColor = Color.White;
             if (button != null && button.Text.Equals("模板"))
             {
                 button.Tag = ResourceType.Upload_template;
@@ -215,6 +217,9 @@ namespace PPTPlugin
         private void label_Mark_Click(object sender, EventArgs e)
         {
             Label button = sender as Label;
+            this.label_All.BackColor = Color.White;
+            this.label_Mark.BackColor = Color.FromArgb(215, 215, 215);
+            this.label_Records.BackColor = Color.White;
             if (button != null && button.Text.Equals("图标"))
             {
                 button.Tag = ResourceType.Upload_icon;
@@ -231,6 +236,9 @@ namespace PPTPlugin
         private void label_Records_Click(object sender, EventArgs e)
         {
             Label button = sender as Label;
+            this.label_All.BackColor = Color.White;
+            this.label_Mark.BackColor = Color.White;
+            this.label_Records.BackColor = Color.FromArgb(215, 215, 215);
             if (button != null && button.Text.Equals("图例"))
             {
                 button.Tag = ResourceType.Upload_legend;

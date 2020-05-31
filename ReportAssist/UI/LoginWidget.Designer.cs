@@ -37,10 +37,10 @@
             this.account_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.lineEdit_account = new WinForm.UI.Controls.FTextBox();
-            this.button_identCode = new WinForm.UI.Controls.FButton();
             this.ident_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.lineEdit_identCode = new WinForm.UI.Controls.FTextBox();
+            this.button_identCode = new WinForm.UI.Controls.FButton();
             this.invite_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.lineEdit_inviteCode = new WinForm.UI.Controls.FTextBox();
@@ -152,7 +152,6 @@
             // 
             this.account_Layout.Controls.Add(this.label2);
             this.account_Layout.Controls.Add(this.lineEdit_account);
-            this.account_Layout.Controls.Add(this.button_identCode);
             this.account_Layout.Location = new System.Drawing.Point(32, 164);
             this.account_Layout.Margin = new System.Windows.Forms.Padding(0, 13, 0, 0);
             this.account_Layout.MaximumSize = new System.Drawing.Size(245, 40);
@@ -179,37 +178,19 @@
             this.lineEdit_account.HotColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(153)))), ((int)(((byte)(240)))));
             this.lineEdit_account.Location = new System.Drawing.Point(40, 0);
             this.lineEdit_account.Margin = new System.Windows.Forms.Padding(0);
-            this.lineEdit_account.MaximumSize = new System.Drawing.Size(120, 22);
-            this.lineEdit_account.MinimumSize = new System.Drawing.Size(120, 22);
+            this.lineEdit_account.MaximumSize = new System.Drawing.Size(190, 22);
+            this.lineEdit_account.MinimumSize = new System.Drawing.Size(190, 22);
             this.lineEdit_account.Name = "lineEdit_account";
-            this.lineEdit_account.Size = new System.Drawing.Size(120, 23);
+            this.lineEdit_account.Size = new System.Drawing.Size(190, 23);
             this.lineEdit_account.TabIndex = 1;
             this.lineEdit_account.WatermarkText = "请输入手机号";
             this.lineEdit_account.WordWrap = false;
-            // 
-            // button_identCode
-            // 
-            this.button_identCode.BackColor = System.Drawing.Color.Empty;
-            this.button_identCode.BackgroundImage = global::PPTPlugin.Properties.Resources.yzm_btn;
-            this.button_identCode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_identCode.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_identCode.ForeColor = System.Drawing.Color.White;
-            this.button_identCode.Location = new System.Drawing.Point(160, 0);
-            this.button_identCode.Margin = new System.Windows.Forms.Padding(0);
-            this.button_identCode.MaximumSize = new System.Drawing.Size(70, 23);
-            this.button_identCode.MinimumSize = new System.Drawing.Size(70, 23);
-            this.button_identCode.mouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_identCode.Name = "button_identCode";
-            this.button_identCode.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.button_identCode.Radius = 1;
-            this.button_identCode.Size = new System.Drawing.Size(70, 23);
-            this.button_identCode.TabIndex = 9;
-            this.button_identCode.Click += new System.EventHandler(this.button_identCode_Click);
             // 
             // ident_Layout
             // 
             this.ident_Layout.Controls.Add(this.label3);
             this.ident_Layout.Controls.Add(this.lineEdit_identCode);
+            this.ident_Layout.Controls.Add(this.button_identCode);
             this.ident_Layout.Location = new System.Drawing.Point(32, 207);
             this.ident_Layout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.ident_Layout.MaximumSize = new System.Drawing.Size(245, 40);
@@ -236,13 +217,32 @@
             this.lineEdit_identCode.HotColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(153)))), ((int)(((byte)(240)))));
             this.lineEdit_identCode.Location = new System.Drawing.Point(40, 0);
             this.lineEdit_identCode.Margin = new System.Windows.Forms.Padding(0);
-            this.lineEdit_identCode.MaximumSize = new System.Drawing.Size(190, 22);
-            this.lineEdit_identCode.MinimumSize = new System.Drawing.Size(190, 22);
+            this.lineEdit_identCode.MaximumSize = new System.Drawing.Size(120, 22);
+            this.lineEdit_identCode.MinimumSize = new System.Drawing.Size(120, 22);
             this.lineEdit_identCode.Name = "lineEdit_identCode";
-            this.lineEdit_identCode.Size = new System.Drawing.Size(190, 23);
+            this.lineEdit_identCode.Size = new System.Drawing.Size(120, 23);
             this.lineEdit_identCode.TabIndex = 2;
             this.lineEdit_identCode.WatermarkText = "请输入验证码";
             this.lineEdit_identCode.WordWrap = false;
+            // 
+            // button_identCode
+            // 
+            this.button_identCode.BackColor = System.Drawing.Color.Empty;
+            this.button_identCode.BackgroundImage = global::PPTPlugin.Properties.Resources.yzm_btn;
+            this.button_identCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_identCode.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_identCode.ForeColor = System.Drawing.Color.White;
+            this.button_identCode.Location = new System.Drawing.Point(160, 0);
+            this.button_identCode.Margin = new System.Windows.Forms.Padding(0);
+            this.button_identCode.MaximumSize = new System.Drawing.Size(70, 23);
+            this.button_identCode.MinimumSize = new System.Drawing.Size(70, 23);
+            this.button_identCode.mouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button_identCode.Name = "button_identCode";
+            this.button_identCode.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.button_identCode.Radius = 1;
+            this.button_identCode.Size = new System.Drawing.Size(70, 23);
+            this.button_identCode.TabIndex = 9;
+            this.button_identCode.Click += new System.EventHandler(this.button_identCode_Click);
             // 
             // invite_Layout
             // 
@@ -301,6 +301,7 @@
             // 
             // LoginWidget
             // 
+            this.AcceptButton = this.button_login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

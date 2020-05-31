@@ -34,6 +34,13 @@ namespace PPTPlugin
             {
                 try
                 {
+                    if (!IsHandset(lineEdit_account.Text))
+                    {
+                        errorProvider.ErrorAlignment = ErrorAlignment.Top;
+                        errorProvider.SetError(account_Layout, "手机号格式错误");
+                        return;
+                    }
+
                     int userFlag = await RequestHandle.SendIdentCode(lineEdit_account.Text);
                     button_identCode.Enabled = false;
                     m_TotalTime = 0;
@@ -43,24 +50,33 @@ namespace PPTPlugin
                     {
                         invite_Layout.Visible = true;
                     }
-                    else if(userFlag == 1)
+                    else if (userFlag == 1)
                     {
                         //none
                     }
                     else//2 出错
                     {
                         errorProvider.ErrorAlignment = ErrorAlignment.Top;
-                        errorProvider.SetError(lineEdit_account, "手机号输入错误");
+                        errorProvider.SetError(account_Layout, "手机号输入错误");
+                        return;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     PromptBox.Error(ex.Message);
                 }
-                
+
+            }
+            else
+            {
+                errorProvider.ErrorAlignment = ErrorAlignment.Top;
+                errorProvider.SetError(account_Layout, "请输入手机号");
             }
         }
-
+        public static bool IsHandset(string str_handset)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"^1[3456789]\d{9}$");
+        }
         private async void button_login_Click(object sender, EventArgs e)
         {
 
@@ -92,7 +108,7 @@ namespace PPTPlugin
                     this.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 PromptBox.Error(ex.Message);
             }
