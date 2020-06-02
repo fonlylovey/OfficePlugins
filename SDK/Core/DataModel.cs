@@ -37,6 +37,8 @@ namespace Core
         Upload_legend = 10,
         Wdsc = 11, //我的收藏
         Lsjl = 12, //历史记录
-        qb = 13 //全部
+        qb = 13, //全部
+        Enterprise = 14, //企业
+        Technology = 15 //技术
     }
 }

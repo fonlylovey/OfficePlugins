@@ -118,7 +118,7 @@ namespace PPTPlugin
                     }
                 }
             }
-            Close();
+            this.Visible = false;
         }
 
         private void button_reset_Click(object sender, EventArgs e)

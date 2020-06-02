@@ -142,6 +142,8 @@ namespace PPTPlugin
                 case ResourceType.Macro:
                 case ResourceType.Market:
                 case ResourceType.Policy:
+                case ResourceType.Enterprise:
+                case ResourceType.Technology:
                     if (App.ItemType == ResourceType.Wdsc)
                     {
                         resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
@@ -257,8 +259,8 @@ namespace PPTPlugin
                 case ResourceType.Upload_template:
                     resModel = await RequestHandle.GetUploadTemplateList(CurrentIndex, PrePageCount, "", FilterText);
                     this.label_All.Text = "模板";
-                    this.label_Mark.Text = "图标";
-                    this.label_Records.Text = "图例";
+                    this.label_Mark.Text = "图例";
+                    this.label_Records.Text = "图标";
                     break;
                 case ResourceType.Upload_icon:
                     resModel = await RequestHandle.GetUploadIconList(CurrentIndex, PrePageCount, "", FilterText);

@@ -220,10 +220,11 @@ namespace PPTPlugin
             this.label_All.BackColor = Color.White;
             this.label_Mark.BackColor = Color.FromArgb(215, 215, 215);
             this.label_Records.BackColor = Color.White;
-            if (button != null && button.Text.Equals("图标"))
+            if (button != null && button.Text.Equals("图例"))
             {
-                button.Tag = ResourceType.Upload_icon;
-                App.ItemType = ResourceType.Upload_icon;
+                button.Tag = ResourceType.Upload_legend;
+                App.ItemType = ResourceType.Upload_legend;
+
             }
             else {
                 button.Tag = App.ResourceType;
@@ -239,10 +240,10 @@ namespace PPTPlugin
             this.label_All.BackColor = Color.White;
             this.label_Mark.BackColor = Color.White;
             this.label_Records.BackColor = Color.FromArgb(215, 215, 215);
-            if (button != null && button.Text.Equals("图例"))
+            if (button != null && button.Text.Equals("图标"))
             {
-                button.Tag = ResourceType.Upload_legend;
-                App.ItemType = ResourceType.Upload_legend;
+                button.Tag = ResourceType.Upload_icon;
+                App.ItemType = ResourceType.Upload_icon;
             }
             else
             {
@@ -301,7 +302,15 @@ namespace PPTPlugin
             {
                 group = RequestHandle.GetIconFilter();
             }
-            if(group != null)
+            else if (App.ResourceType == ResourceType.Macro)
+            {
+                group = RequestHandle.GetMacroFilter();
+            }
+            else if (App.ResourceType == ResourceType.Market)
+            {
+                group = RequestHandle.GetMarketFilter();
+            }
+            if (group != null)
             {
                 filterWidget.AddFilterItem(group);
                 filterWidget.ShowDialog();

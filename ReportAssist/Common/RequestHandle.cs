@@ -716,7 +716,111 @@ namespace PPTPlugin
             gItem.Children.Add(item);
             return group;
         }
+        public static List<GroupItem> GetMacroFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem("金融指标");
+            group.Add(gItem);
+            GroupItem item = new GroupItem("汇率");
+            gItem.Children.Add(item);
+            item = new GroupItem("货币");
+            gItem.Children.Add(item);
+            item = new GroupItem("信贷");
+            gItem.Children.Add(item);
 
+            gItem = new GroupItem("经济指标");
+            group.Add(gItem);
+            item = new GroupItem("CPI");
+            gItem.Children.Add(item);
+            item = new GroupItem("GDP");
+            gItem.Children.Add(item);
+            item = new GroupItem("PMI");
+            gItem.Children.Add(item);
+            item = new GroupItem("PPI");
+            gItem.Children.Add(item);
+            item = new GroupItem("进出口");
+            gItem.Children.Add(item);
+            item = new GroupItem("投资");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("原材料");
+            group.Add(gItem);
+            item = new GroupItem("电解钴");
+            gItem.Children.Add(item);
+            item = new GroupItem("钢价");
+            gItem.Children.Add(item);
+            item = new GroupItem("硫酸钴");
+            gItem.Children.Add(item);
+            item = new GroupItem("石墨");
+            gItem.Children.Add(item);
+            item = new GroupItem("稀土");
+            gItem.Children.Add(item);
+            item = new GroupItem("油价");
+            gItem.Children.Add(item);
+
+            return group;
+        }
+
+        public static List<GroupItem> GetMarketFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem("MPV");
+            group.Add(gItem);
+            GroupItem item = new GroupItem("MPV车型");
+            gItem.Children.Add(item);
+            item = new GroupItem("MPV份额");
+            gItem.Children.Add(item);
+            item = new GroupItem("MPV销量");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("SUV");
+            group.Add(gItem);
+            item = new GroupItem("SUV车型");
+            gItem.Children.Add(item);
+            item = new GroupItem("SUV份额");
+            gItem.Children.Add(item);
+            item = new GroupItem("SUV销量");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("轿车");
+            group.Add(gItem);
+            item = new GroupItem("轿车车型");
+            gItem.Children.Add(item);
+            item = new GroupItem("轿车份额");
+            gItem.Children.Add(item);
+            item = new GroupItem("轿车销量");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("客车");
+            group.Add(gItem);
+            item = new GroupItem("大客市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("轻客市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("中客市场");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("总体市场");
+            group.Add(gItem);
+            item = new GroupItem("乘用车");
+            gItem.Children.Add(item);
+            item = new GroupItem("商用车");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("载货车");
+            group.Add(gItem);
+            item = new GroupItem("轻卡市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("微卡市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("中卡市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("重卡市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("总体市场");
+            gItem.Children.Add(item);
+            return group;
+        }
         public static List<GroupItem> GetLegendFilter()
         {
             List<GroupItem> group = new List<GroupItem>();
@@ -733,6 +837,20 @@ namespace PPTPlugin
             item = new GroupItem("递进");
             gItem.Children.Add(item);
             item = new GroupItem("循环");
+            gItem.Children.Add(item);
+            item = new GroupItem("饼状图");
+            gItem.Children.Add(item);
+            item = new GroupItem("柱形");
+            gItem.Children.Add(item);
+            item = new GroupItem("折线");
+            gItem.Children.Add(item);
+            item = new GroupItem("时间线");
+            gItem.Children.Add(item);
+            item = new GroupItem("环形");
+            gItem.Children.Add(item);
+            item = new GroupItem("层次");
+            gItem.Children.Add(item);
+            item = new GroupItem("包含");
             gItem.Children.Add(item);
             return group;
         }

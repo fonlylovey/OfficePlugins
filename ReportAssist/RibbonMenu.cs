@@ -273,9 +273,9 @@ namespace PPTPlugin
 
             //咨询
             button_policy.Enabled = value;
-            button_enterprise.Enabled = false;
+            button_enterprise.Enabled = value;
             button_carType.Enabled = false;
-            button_technology.Enabled = false;
+            button_technology.Enabled = value;
             //工具
             button_export.Enabled = false;
             button_zip.Enabled = false;
@@ -522,6 +522,20 @@ namespace PPTPlugin
                 GC.WaitForPendingFinalizers();
             }
             return true;
+        }
+
+        private void button_enterprise_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Enterprise;
+            App.ItemType = ResourceType.qb;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
+        }
+
+        private void button_technology_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Technology;
+            App.ItemType = ResourceType.qb;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
         }
     }
 
