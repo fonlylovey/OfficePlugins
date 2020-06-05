@@ -719,18 +719,9 @@ namespace PPTPlugin
         public static List<GroupItem> GetMacroFilter()
         {
             List<GroupItem> group = new List<GroupItem>();
-            GroupItem gItem = new GroupItem("金融指标");
+            GroupItem gItem = new GroupItem("经济指标");
             group.Add(gItem);
-            GroupItem item = new GroupItem("汇率");
-            gItem.Children.Add(item);
-            item = new GroupItem("货币");
-            gItem.Children.Add(item);
-            item = new GroupItem("信贷");
-            gItem.Children.Add(item);
-
-            gItem = new GroupItem("经济指标");
-            group.Add(gItem);
-            item = new GroupItem("CPI");
+            GroupItem item = new GroupItem("CPI");
             gItem.Children.Add(item);
             item = new GroupItem("GDP");
             gItem.Children.Add(item);
@@ -742,6 +733,16 @@ namespace PPTPlugin
             gItem.Children.Add(item);
             item = new GroupItem("投资");
             gItem.Children.Add(item);
+
+            gItem = new GroupItem("金融指标");
+            group.Add(gItem);
+            item = new GroupItem("汇率");
+            gItem.Children.Add(item);
+            item = new GroupItem("货币");
+            gItem.Children.Add(item);
+            item = new GroupItem("信贷");
+            gItem.Children.Add(item);
+
 
             gItem = new GroupItem("原材料");
             group.Add(gItem);
@@ -764,22 +765,12 @@ namespace PPTPlugin
         public static List<GroupItem> GetMarketFilter()
         {
             List<GroupItem> group = new List<GroupItem>();
-            GroupItem gItem = new GroupItem("MPV");
-            group.Add(gItem);
-            GroupItem item = new GroupItem("MPV车型");
-            gItem.Children.Add(item);
-            item = new GroupItem("MPV份额");
-            gItem.Children.Add(item);
-            item = new GroupItem("MPV销量");
-            gItem.Children.Add(item);
 
-            gItem = new GroupItem("SUV");
+            GroupItem gItem = new GroupItem("总体市场");
             group.Add(gItem);
-            item = new GroupItem("SUV车型");
+            GroupItem item = new GroupItem("乘用车");
             gItem.Children.Add(item);
-            item = new GroupItem("SUV份额");
-            gItem.Children.Add(item);
-            item = new GroupItem("SUV销量");
+            item = new GroupItem("商用车");
             gItem.Children.Add(item);
 
             gItem = new GroupItem("轿车");
@@ -791,21 +782,24 @@ namespace PPTPlugin
             item = new GroupItem("轿车销量");
             gItem.Children.Add(item);
 
-            gItem = new GroupItem("客车");
+            gItem = new GroupItem("SUV");
             group.Add(gItem);
-            item = new GroupItem("大客市场");
+            item = new GroupItem("SUV车型");
             gItem.Children.Add(item);
-            item = new GroupItem("轻客市场");
+            item = new GroupItem("SUV份额");
             gItem.Children.Add(item);
-            item = new GroupItem("中客市场");
+            item = new GroupItem("SUV销量");
             gItem.Children.Add(item);
 
-            gItem = new GroupItem("总体市场");
+            gItem = new GroupItem("MPV");
             group.Add(gItem);
-            item = new GroupItem("乘用车");
+             item = new GroupItem("MPV车型");
             gItem.Children.Add(item);
-            item = new GroupItem("商用车");
+            item = new GroupItem("MPV份额");
             gItem.Children.Add(item);
+            item = new GroupItem("MPV销量");
+            gItem.Children.Add(item);
+
 
             gItem = new GroupItem("载货车");
             group.Add(gItem);
@@ -819,6 +813,18 @@ namespace PPTPlugin
             gItem.Children.Add(item);
             item = new GroupItem("总体市场");
             gItem.Children.Add(item);
+
+
+            gItem = new GroupItem("客车");
+            group.Add(gItem);
+            item = new GroupItem("大客市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("轻客市场");
+            gItem.Children.Add(item);
+            item = new GroupItem("中客市场");
+            gItem.Children.Add(item);
+
+
             return group;
         }
         public static List<GroupItem> GetLegendFilter()
@@ -852,6 +858,108 @@ namespace PPTPlugin
             gItem.Children.Add(item);
             item = new GroupItem("包含");
             gItem.Children.Add(item);
+            return group;
+        }
+
+        public static List<GroupItem> GetPolicyFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem();
+            group.Add(gItem);
+            GroupItem item = new GroupItem("国家政策");
+            gItem.Children.Add(item);
+
+            item = new GroupItem("地方政策");
+            gItem.Children.Add(item);
+
+            item = new GroupItem("新能源政策");
+            gItem.Children.Add(item);
+            item = new GroupItem("智能网联政策");
+            gItem.Children.Add(item);
+            return group;
+        }
+
+        public static List<GroupItem> GetTechnologyFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem();
+            group.Add(gItem);
+            GroupItem item = new GroupItem("新能源技术");
+            gItem.Children.Add(item);
+            item = new GroupItem("智能网联技术");
+            gItem.Children.Add(item);
+            item = new GroupItem("技术概览");
+            gItem.Children.Add(item);
+            return group;
+        }
+        public static List<GroupItem> GetEnterpriseFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+
+            GroupItem gItem = new GroupItem("乘用车");
+            group.Add(gItem);
+            GroupItem item = new GroupItem("北京现代");
+            gItem.Children.Add(item);
+            item = new GroupItem("东风本田");
+            gItem.Children.Add(item);
+            item = new GroupItem("东风小康");
+            gItem.Children.Add(item);
+            item = new GroupItem("一汽丰田");
+            gItem.Children.Add(item);
+
+            gItem = new GroupItem("商用车");
+            group.Add(gItem);
+            item = new GroupItem("北汽福田");
+            gItem.Children.Add(item);
+            item = new GroupItem("东风商用车");
+            gItem.Children.Add(item);
+            item = new GroupItem("一汽解放");
+            gItem.Children.Add(item);
+
+            return group;
+        }
+        public static List<GroupItem> GetPredictFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+            GroupItem gItem = new GroupItem();
+            group.Add(gItem);
+            GroupItem item = new GroupItem("市场预测");
+            gItem.Children.Add(item);
+            item = new GroupItem("新上市车型");
+            gItem.Children.Add(item);
+            item = new GroupItem("车型分析");
+            gItem.Children.Add(item); 
+            item = new GroupItem("预测报表");
+            gItem.Children.Add(item);
+            return group;
+        }
+
+        public static List<GroupItem> GetProductFilter()
+        {
+            List<GroupItem> group = new List<GroupItem>();
+
+            GroupItem gItem = new GroupItem();
+            GroupItem item = new GroupItem("上市新产品");
+            group.Add(item);
+            item = new GroupItem("公告新产品");
+            group.Add(item);
+            item = new GroupItem("预上市产品");
+            group.Add(item);
+
+            gItem = new GroupItem("产品布局");
+            group.Add(gItem);
+            item = new GroupItem("北京现代");
+            gItem.Children.Add(item);
+            item = new GroupItem("东风本田");
+            gItem.Children.Add(item);
+            item = new GroupItem("东风小康");
+            gItem.Children.Add(item);
+            item = new GroupItem("一汽丰田");
+            gItem.Children.Add(item); 
+            item = new GroupItem("长安福特");
+            gItem.Children.Add(item);
+
+            
             return group;
         }
     }

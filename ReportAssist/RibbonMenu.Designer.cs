@@ -55,6 +55,7 @@
             Microsoft.Office.Tools.Ribbon.RibbonGroup group5;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label17;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label18;
+            Microsoft.Office.Tools.Ribbon.RibbonLabel label2;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label1;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label19;
             Microsoft.Office.Tools.Ribbon.RibbonLabel label20;
@@ -79,6 +80,7 @@
             this.button_carType = this.Factory.CreateRibbonButton();
             this.button_technology = this.Factory.CreateRibbonButton();
             this.button_upload = this.Factory.CreateRibbonButton();
+            this.button_toupload = this.Factory.CreateRibbonButton();
             this.button_export = this.Factory.CreateRibbonButton();
             this.button_zip = this.Factory.CreateRibbonButton();
             this.button_share = this.Factory.CreateRibbonButton();
@@ -106,6 +108,7 @@
             group5 = this.Factory.CreateRibbonGroup();
             label17 = this.Factory.CreateRibbonLabel();
             label18 = this.Factory.CreateRibbonLabel();
+            label2 = this.Factory.CreateRibbonLabel();
             label1 = this.Factory.CreateRibbonLabel();
             label19 = this.Factory.CreateRibbonLabel();
             label20 = this.Factory.CreateRibbonLabel();
@@ -246,6 +249,8 @@
             group5.Items.Add(label17);
             group5.Items.Add(this.button_upload);
             group5.Items.Add(label18);
+            group5.Items.Add(this.button_toupload);
+            group5.Items.Add(label2);
             group5.Items.Add(this.button_export);
             group5.Items.Add(label1);
             group5.Items.Add(this.button_zip);
@@ -264,6 +269,11 @@
             // 
             label18.Label = " ";
             label18.Name = "label18";
+            // 
+            // label2
+            // 
+            label2.Label = " ";
+            label2.Name = "label2";
             // 
             // label1
             // 
@@ -448,12 +458,21 @@
             // button_upload
             // 
             this.button_upload.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button_upload.Enabled = false;
             this.button_upload.Image = global::PPTPlugin.Properties.Resources.upload_resource;
             this.button_upload.Label = "我的上传";
             this.button_upload.Name = "button_upload";
             this.button_upload.ShowImage = true;
             this.button_upload.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_upload_Click);
+            // 
+            // button_toupload
+            // 
+            this.button_toupload.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button_toupload.Enabled = false;
+            this.button_toupload.Image = global::PPTPlugin.Properties.Resources.icon_test;
+            this.button_toupload.Label = "上传资源";
+            this.button_toupload.Name = "button_toupload";
+            this.button_toupload.ShowImage = true;
+            this.button_toupload.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button_toupload_Click);
             // 
             // button_export
             // 
@@ -558,6 +577,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_option;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_upload;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button_suggest;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button_toupload;
     }
 
     partial class ThisRibbonCollection

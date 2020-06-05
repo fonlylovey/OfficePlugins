@@ -33,7 +33,7 @@
     <PublishUrl>C:\Users\user\Desktop\pb1\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.62</ApplicationVersion>
+    <ApplicationVersion>1.0.0.68</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -344,8 +344,11 @@
     <None Include="Resources\prePage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\技术需求预测 %281%29.png" />
+    <None Include="Resources\关于我们.png" />
     <None Include="Resources\upload_slide.png" />
     <None Include="Resources\suggest.png" />
+    <None Include="Resources\icon-test.png" />
     <Content Include="Resources\upload_line.png" />
     <None Include="Resources\upload_resource.png" />
     <None Include="Resources\updata_btn_1.jpg" />

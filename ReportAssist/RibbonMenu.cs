@@ -288,6 +288,7 @@ namespace PPTPlugin
             //我的资源
             button_upload.Enabled = value;
             button_suggest.Enabled = value;
+            button_toupload.Enabled = value;
             //导出
             button_export.Enabled = value;
         }
@@ -304,7 +305,7 @@ namespace PPTPlugin
 
         private void button_suggest_Click(object sender, RibbonControlEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.cn");
+            System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.org.cn");
         }
 
         private void button_export_Click(object sender, RibbonControlEventArgs e)
@@ -536,6 +537,11 @@ namespace PPTPlugin
             App.ResourceType = ResourceType.Technology;
             App.ItemType = ResourceType.qb;
             Globals.ThisAddIn.RightWidget.updateRightLableText();
+        }
+
+        private void button_toupload_Click(object sender, RibbonControlEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.org.cn");
         }
     }
 

@@ -100,6 +100,7 @@ namespace PPTPlugin
                 index++;
             }
             resourceList.ResumeLayout();
+            
         }
 
         private void DockWidget_SizeChanged(object sender, EventArgs e)
@@ -196,6 +197,7 @@ namespace PPTPlugin
 
         private void label_All_Click(object sender, EventArgs e)
         {
+            textBox.Text = "";
             Label button = sender as Label;
             this.label_All.BackColor = Color.FromArgb(215, 215, 215);
             this.label_Mark.BackColor = Color.White;
@@ -216,6 +218,7 @@ namespace PPTPlugin
 
         private void label_Mark_Click(object sender, EventArgs e)
         {
+            textBox.Text = "";
             Label button = sender as Label;
             this.label_All.BackColor = Color.White;
             this.label_Mark.BackColor = Color.FromArgb(215, 215, 215);
@@ -236,6 +239,7 @@ namespace PPTPlugin
 
         private void label_Records_Click(object sender, EventArgs e)
         {
+            textBox.Text = "";
             Label button = sender as Label;
             this.label_All.BackColor = Color.White;
             this.label_Mark.BackColor = Color.White;
@@ -309,6 +313,26 @@ namespace PPTPlugin
             else if (App.ResourceType == ResourceType.Market)
             {
                 group = RequestHandle.GetMarketFilter();
+            }
+            else if (App.ResourceType == ResourceType.Product)
+            {
+                group = RequestHandle.GetProductFilter();
+            }
+            else if (App.ResourceType == ResourceType.Predict)
+            {
+                group = RequestHandle.GetPredictFilter();
+            }
+            else if (App.ResourceType == ResourceType.Technology)
+            {
+                group = RequestHandle.GetTechnologyFilter();
+            }
+            else if (App.ResourceType == ResourceType.Policy)
+            {
+                group = RequestHandle.GetPolicyFilter();
+            }
+            else if (App.ResourceType == ResourceType.Enterprise)
+            {
+                group = RequestHandle.GetEnterpriseFilter();
             }
             if (group != null)
             {

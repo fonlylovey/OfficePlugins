@@ -11,6 +11,7 @@ using System.Deployment.Application;
 using Base;
 using Widgets;
 using System.Net.NetworkInformation;
+using System.Diagnostics;
 
 namespace PPTPlugin
 {
@@ -25,10 +26,10 @@ namespace PPTPlugin
         {
             TaskPaneDict = new Dictionary<PowerPoint.DocumentWindow, CustomTaskPane>();
             Rigel.PluginDir = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, "InstallPath");
-            if(String.IsNullOrEmpty(Rigel.PluginDir))
+            /*if(String.IsNullOrEmpty(Rigel.PluginDir))
             {
                 PromptBox.Error("没有找到安装目录！");
-            }
+            }*/
             Rigel.PluginDir += "/";
             Rigel.InitWorkConfig();
             FormShower = new FormMgr(new IntPtr(this.Application.HWND));
@@ -109,6 +110,12 @@ namespace PPTPlugin
                 case ResourceType.Upload_template:
                     strName = "我的资源";
                     break;
+                case ResourceType.Enterprise:
+                    strName = "企业";
+                    break;
+                case ResourceType.Technology:
+                    strName = "技术";
+                    break;
                 default:
                     strName = "模板";
                     break;
@@ -172,7 +179,15 @@ namespace PPTPlugin
                 TaskWidget = CustomTaskPanes.Add(RightWidget, getTypeName(App.ResourceType) + "库");
                 TaskWidget.DockPosition =
                 Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-                TaskWidget.Width = 260;
+                //int SH = Screen.PrimaryScreen.Bounds.Height;
+                int SW = Screen.PrimaryScreen.Bounds.Width;
+                int widths = 260;
+                if (SW > 1600)
+                {
+                    widths = 320;
+                }
+                TaskWidget.Width = widths;
+
                 if (App.ResourceType != ResourceType.None)
                 {
                     RightWidget.ResetPageCount();
@@ -184,13 +199,14 @@ namespace PPTPlugin
                 {
                     TaskWidget.Visible = false;
                 }
-
             }
             catch
             {
 
             }
         }
+
+       
 
         #region VSTO 生成的代码
 

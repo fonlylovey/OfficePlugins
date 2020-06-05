@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.IO;
 using Widgets;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace AutoUpdate
 {
@@ -81,9 +82,14 @@ namespace AutoUpdate
 				}
 				else
 				{
-					PromptBox.Prompt("没有找到升级文件：" + strinstall);
+					bool flag = execCmd("i");
+					if (!flag)
+					{
+						PromptBox.Prompt("升级失败");
+					}
+					return flag;
 				}
-				return false;
+				
 			}
 			catch (Exception ex)
 			{
@@ -116,7 +122,11 @@ namespace AutoUpdate
 				}
 				else
 				{
-					Logger.LogError("没有找到升级文件：" + strUninstall);
+					bool flag = execCmd("u");
+					if (!flag)
+					{
+						Logger.LogError("升级失败");
+					}
 				}
 			}
 			catch(Exception ex)
@@ -124,7 +134,51 @@ namespace AutoUpdate
 				Logger.LogError(ex.ToString());
 			}
 		}
+		public static bool execCmd(string flag)
+		{
+			bool ret;
+			try
+			{
+				//创建一个进程
+				Process p = new Process();
+				p.StartInfo.FileName = "cmd.exe";
+				p.StartInfo.UseShellExecute = false;//是否使用操作系统shell启动
+				p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
+				p.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
+				p.StartInfo.RedirectStandardError = true;//重定向标准错误输出
+				p.StartInfo.CreateNoWindow = true;//不显示程序窗口
+				p.Start();//启动程序
 
+				string strCMD = "";
+				if (!string.IsNullOrEmpty(flag))
+				{
+					if (flag.Equals("i"))
+					{
+						strCMD = "\"" + @"C:\Program Files\Common Files\microsoft shared\VSTO\10.0\VSTOInstaller.exe" + "\" /i \"http://www.catarc.ac.cn/ppttools/static/update/publish/Auto PPTer.vsto\" /s";
+					}
+					else
+					{
+						strCMD = "\"" + @"C:\Program Files\Common Files\microsoft shared\VSTO\10.0\VSTOInstaller.exe" + "\" /i \"http://www.catarc.ac.cn/ppttools/static/update/publish/Auto PPTer.vsto\" /s";
+					}
+				}
+				//向cmd窗口发送输入信息
+				p.StandardInput.WriteLine(strCMD + "&exit");
+
+				p.StandardInput.AutoFlush = true;
+
+				//获取cmd窗口的输出信息
+				string output = p.StandardOutput.ReadToEnd();
+				//等待程序执行完退出进程
+				p.WaitForExit();
+				p.Close();
+				ret = true;
+			}
+			catch (Exception ex)
+			{
+				ret = false;
+			}
+			return ret;
+		}
 		private static async Task<bool> GetServerVersion(String fileUrl)
 		{
 			//下载云端vsto

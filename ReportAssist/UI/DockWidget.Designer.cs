@@ -81,14 +81,14 @@
             leftPlane.Location = new System.Drawing.Point(0, 0);
             leftPlane.Margin = new System.Windows.Forms.Padding(4);
             leftPlane.Name = "leftPlane";
-            leftPlane.Size = new System.Drawing.Size(262, 750);
+            leftPlane.Size = new System.Drawing.Size(262, 540);
             leftPlane.TabIndex = 8;
             // 
             // LBPanel
             // 
             this.LBPanel.Controls.Add(this.flowLayoutPanel1);
             this.LBPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LBPanel.Location = new System.Drawing.Point(0, 700);
+            this.LBPanel.Location = new System.Drawing.Point(0, 490);
             this.LBPanel.Margin = new System.Windows.Forms.Padding(0);
             this.LBPanel.MaximumSize = new System.Drawing.Size(0, 50);
             this.LBPanel.MinimumSize = new System.Drawing.Size(0, 50);
@@ -196,7 +196,7 @@
             this.resourceList.RowCount = 2;
             this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.resourceList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.resourceList.Size = new System.Drawing.Size(262, 660);
+            this.resourceList.Size = new System.Drawing.Size(262, 450);
             this.resourceList.TabIndex = 7;
             // 
             // LTPanel
@@ -337,6 +337,7 @@
             // 
             // VMenu
             // 
+            this.VMenu.AllowDrop = true;
             this.VMenu.BackColor = System.Drawing.Color.LightGray;
             this.VMenu.Controls.Add(this.label_MB);
             this.VMenu.Controls.Add(this.label_TL);
@@ -351,21 +352,22 @@
             this.VMenu.Controls.Add(this.label_JS);
             this.VMenu.Controls.Add(this.lable_upload);
             this.VMenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.VMenu.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.VMenu.Location = new System.Drawing.Point(262, 0);
             this.VMenu.Margin = new System.Windows.Forms.Padding(0);
             this.VMenu.MaximumSize = new System.Drawing.Size(50, 0);
             this.VMenu.MinimumSize = new System.Drawing.Size(50, 0);
             this.VMenu.Name = "VMenu";
             this.VMenu.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
-            this.VMenu.Size = new System.Drawing.Size(50, 750);
+            this.VMenu.Size = new System.Drawing.Size(50, 540);
             this.VMenu.TabIndex = 3;
+            this.VMenu.TabStop = true;
             // 
             // label_MB
             // 
             this.label_MB.AutoSize = true;
             this.label_MB.Image = global::PPTPlugin.Properties.Resources.模板;
-            this.label_MB.Location = new System.Drawing.Point(0, 11);
+            this.label_MB.Location = new System.Drawing.Point(2, 11);
             this.label_MB.Margin = new System.Windows.Forms.Padding(0);
             this.label_MB.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_MB.MinimumSize = new System.Drawing.Size(48, 48);
@@ -380,7 +382,7 @@
             // 
             this.label_TL.AutoSize = true;
             this.label_TL.Image = global::PPTPlugin.Properties.Resources.图例;
-            this.label_TL.Location = new System.Drawing.Point(0, 59);
+            this.label_TL.Location = new System.Drawing.Point(2, 59);
             this.label_TL.Margin = new System.Windows.Forms.Padding(0);
             this.label_TL.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_TL.MinimumSize = new System.Drawing.Size(48, 48);
@@ -395,7 +397,7 @@
             // 
             this.label_TB.AutoSize = true;
             this.label_TB.Image = global::PPTPlugin.Properties.Resources.图标;
-            this.label_TB.Location = new System.Drawing.Point(0, 107);
+            this.label_TB.Location = new System.Drawing.Point(2, 107);
             this.label_TB.Margin = new System.Windows.Forms.Padding(0);
             this.label_TB.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_TB.MinimumSize = new System.Drawing.Size(48, 48);
@@ -410,7 +412,7 @@
             // 
             this.label_SC.AutoSize = true;
             this.label_SC.Image = global::PPTPlugin.Properties.Resources.市场;
-            this.label_SC.Location = new System.Drawing.Point(0, 155);
+            this.label_SC.Location = new System.Drawing.Point(2, 155);
             this.label_SC.Margin = new System.Windows.Forms.Padding(0);
             this.label_SC.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_SC.MinimumSize = new System.Drawing.Size(48, 48);
@@ -425,7 +427,7 @@
             // 
             this.label_CP.AutoSize = true;
             this.label_CP.Image = global::PPTPlugin.Properties.Resources.产品;
-            this.label_CP.Location = new System.Drawing.Point(0, 203);
+            this.label_CP.Location = new System.Drawing.Point(2, 203);
             this.label_CP.Margin = new System.Windows.Forms.Padding(0);
             this.label_CP.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_CP.MinimumSize = new System.Drawing.Size(48, 48);
@@ -440,7 +442,7 @@
             // 
             this.label_YC.AutoSize = true;
             this.label_YC.Image = global::PPTPlugin.Properties.Resources.预测;
-            this.label_YC.Location = new System.Drawing.Point(0, 251);
+            this.label_YC.Location = new System.Drawing.Point(2, 251);
             this.label_YC.Margin = new System.Windows.Forms.Padding(0);
             this.label_YC.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_YC.MinimumSize = new System.Drawing.Size(48, 48);
@@ -455,7 +457,7 @@
             // 
             this.label_HG.AutoSize = true;
             this.label_HG.Image = global::PPTPlugin.Properties.Resources.宏观;
-            this.label_HG.Location = new System.Drawing.Point(0, 299);
+            this.label_HG.Location = new System.Drawing.Point(2, 299);
             this.label_HG.Margin = new System.Windows.Forms.Padding(0);
             this.label_HG.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_HG.MinimumSize = new System.Drawing.Size(48, 48);
@@ -470,7 +472,7 @@
             // 
             this.label_ZC.AutoSize = true;
             this.label_ZC.Image = global::PPTPlugin.Properties.Resources.政策;
-            this.label_ZC.Location = new System.Drawing.Point(0, 347);
+            this.label_ZC.Location = new System.Drawing.Point(2, 347);
             this.label_ZC.Margin = new System.Windows.Forms.Padding(0);
             this.label_ZC.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_ZC.MinimumSize = new System.Drawing.Size(48, 48);
@@ -485,14 +487,14 @@
             // 
             this.label_QY.AutoSize = true;
             this.label_QY.Image = global::PPTPlugin.Properties.Resources.企业;
-            this.label_QY.Location = new System.Drawing.Point(0, 395);
+            this.label_QY.Location = new System.Drawing.Point(2, 395);
             this.label_QY.Margin = new System.Windows.Forms.Padding(0);
             this.label_QY.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_QY.MinimumSize = new System.Drawing.Size(48, 48);
             this.label_QY.Name = "label_QY";
             this.label_QY.Size = new System.Drawing.Size(48, 48);
             this.label_QY.TabIndex = 34;
-            this.label_QY.Tag = "l";
+            this.label_QY.Tag = "14";
             this.toolTip.SetToolTip(this.label_QY, "企业");
             this.label_QY.Click += new System.EventHandler(this.label_Click);
             // 
@@ -500,7 +502,7 @@
             // 
             this.label_CX.AutoSize = true;
             this.label_CX.Image = global::PPTPlugin.Properties.Resources.车型;
-            this.label_CX.Location = new System.Drawing.Point(0, 443);
+            this.label_CX.Location = new System.Drawing.Point(2, 443);
             this.label_CX.Margin = new System.Windows.Forms.Padding(0);
             this.label_CX.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_CX.MinimumSize = new System.Drawing.Size(48, 48);
@@ -509,20 +511,21 @@
             this.label_CX.TabIndex = 35;
             this.label_CX.Tag = "l";
             this.toolTip.SetToolTip(this.label_CX, "车型");
+            this.label_CX.Visible = false;
             this.label_CX.Click += new System.EventHandler(this.label_Click);
             // 
             // label_JS
             // 
             this.label_JS.AutoSize = true;
             this.label_JS.Image = global::PPTPlugin.Properties.Resources.技术;
-            this.label_JS.Location = new System.Drawing.Point(0, 491);
+            this.label_JS.Location = new System.Drawing.Point(2, 491);
             this.label_JS.Margin = new System.Windows.Forms.Padding(0);
             this.label_JS.MaximumSize = new System.Drawing.Size(48, 48);
             this.label_JS.MinimumSize = new System.Drawing.Size(48, 48);
             this.label_JS.Name = "label_JS";
             this.label_JS.Size = new System.Drawing.Size(48, 48);
             this.label_JS.TabIndex = 36;
-            this.label_JS.Tag = "l";
+            this.label_JS.Tag = "15";
             this.toolTip.SetToolTip(this.label_JS, "技术");
             this.label_JS.Click += new System.EventHandler(this.label_Click);
             // 
@@ -530,7 +533,7 @@
             // 
             this.lable_upload.AutoSize = true;
             this.lable_upload.Image = global::PPTPlugin.Properties.Resources.upload_slide;
-            this.lable_upload.Location = new System.Drawing.Point(0, 539);
+            this.lable_upload.Location = new System.Drawing.Point(2, 539);
             this.lable_upload.Margin = new System.Windows.Forms.Padding(0);
             this.lable_upload.MaximumSize = new System.Drawing.Size(48, 48);
             this.lable_upload.MinimumSize = new System.Drawing.Size(48, 48);
@@ -551,9 +554,9 @@
             this.Controls.Add(this.VMenu);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(1250, 1350);
-            this.MinimumSize = new System.Drawing.Size(312, 750);
+            this.MinimumSize = new System.Drawing.Size(312, 540);
             this.Name = "DockWidget";
-            this.Size = new System.Drawing.Size(312, 750);
+            this.Size = new System.Drawing.Size(312, 540);
             this.SizeChanged += new System.EventHandler(this.DockWidget_SizeChanged);
             leftPlane.ResumeLayout(false);
             this.LBPanel.ResumeLayout(false);
@@ -576,7 +579,6 @@
         private System.Windows.Forms.Panel LBPanel;
         private System.Windows.Forms.Panel LTPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel resourceList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button_prePage;
@@ -602,5 +604,6 @@
         private WinForm.UI.Controls.CirclePictureBox QueryButton;
         private System.Windows.Forms.Button button_filter;
         private System.Windows.Forms.Label lable_upload;
+        private System.Windows.Forms.TableLayoutPanel resourceList;
     }
 }

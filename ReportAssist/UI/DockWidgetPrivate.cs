@@ -35,6 +35,7 @@ namespace PPTPlugin
                     }
                 }
             }
+            //pageBox.Text = CurrentIndex + "/" + PageCount;
         }
 
         public static async void ApplyTemplate(Object data)
@@ -270,37 +271,44 @@ namespace PPTPlugin
                     break;
             }
                 PageCount = (int)Math.Ceiling((double)resModel.ResCount / PrePageCount);
-                ///*if (resModel.PageCount % PrePageCount > 0)
-                //{
-                //    PageCount++;
-                //}*/
+            ///*if (resModel.PageCount % PrePageCount > 0)
+            //{
+            //    PageCount++;
+            //}*/
             /*PageCount = resModel.ResCount / PrePageCount;
             if (resModel.PageCount % PrePageCount > 0)
             {
                 PageCount++;
             }*/
 
-
+            pageBox.Text = CurrentIndex + "/" + PageCount;
             return resModel;
         }
 
         public void ResetPageCount()
         {
-            int listWidgetH = this.Size.Height - this.LTPanel.Height - this.flowLayoutPanel1.Height;//减去顶部菜单的高度
+            int SH = Screen.PrimaryScreen.Bounds.Height;
+            int sch = (int)Math.Floor(SH / 1.3);
+            //int SW = Screen.PrimaryScreen.Bounds.Width;
+            int listWidgetH = sch - 50 - this.LTPanel.Height - this.flowLayoutPanel1.Height;//减去顶部菜单的高度
 
-            int w = 206;
-            int h = 125;
+            int w = 260;
+            int h = 145;
             if (App.ResourceType == ResourceType.Icon || App.ResourceType == ResourceType.Upload_icon)
             {
-                resourceList.ColumnCount = 3;
                 h = 68;
                 w = 68;
+                //resourceList.ColumnCount = this.LTPanel.Width / h;
+                resourceList.ColumnCount = 3;
+               
             }
             else
             {
                 resourceList.ColumnCount = 1;
-                h = 122;
+                /*h = 122;
+                w = 206;*/
                 w = 206;
+                h = 115;
             }
 
             int rows = listWidgetH / h;
@@ -326,8 +334,8 @@ namespace PPTPlugin
                     rowIndex++;
                 }
             }
-            CurrentIndex = 1;
-            pageBox.Text = "1";
+            //CurrentIndex = 1;
+            //pageBox.Text = "1";
         }
 
     }

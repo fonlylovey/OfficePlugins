@@ -163,6 +163,16 @@ namespace PPTPlugin.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap icon_test {
+            get {
+                object obj = ResourceManager.GetObject("icon-test", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap icon1 {
             get {
                 object obj = ResourceManager.GetObject("icon1", resourceCulture);
@@ -503,6 +513,16 @@ namespace PPTPlugin.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 关于我们 {
+            get {
+                object obj = ResourceManager.GetObject("关于我们", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 图例 {
             get {
                 object obj = ResourceManager.GetObject("图例", resourceCulture);
@@ -546,6 +566,16 @@ namespace PPTPlugin.Properties {
         internal static System.Drawing.Bitmap 技术 {
             get {
                 object obj = ResourceManager.GetObject("技术", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 技术需求预测__1_ {
+            get {
+                object obj = ResourceManager.GetObject("技术需求预测 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
