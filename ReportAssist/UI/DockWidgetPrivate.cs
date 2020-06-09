@@ -54,7 +54,7 @@ namespace PPTPlugin
                 Request.HttpPost(jObject, url);
                 PowerPoint.Presentation currentPPT = Globals.ThisAddIn.Application.ActivePresentation;
                 PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
-                if (App.ResourceType == ResourceType.Template)
+                if (App.ResourceType == ResourceType.Template || App.ResourceType == ResourceType.Upload_template )
                 {
                     Globals.ThisAddIn.Application.Presentations.Open(strPath);
                 }
@@ -280,8 +280,15 @@ namespace PPTPlugin
             {
                 PageCount++;
             }*/
+            if (PageCount == 0)
+            {
 
-            pageBox.Text = CurrentIndex + "/" + PageCount;
+                pageBox.Text = "1";
+            }
+            else
+            {
+                pageBox.Text = CurrentIndex + "/" + PageCount;
+            }
             return resModel;
         }
 

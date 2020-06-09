@@ -340,7 +340,17 @@ namespace PPTPlugin
                 filterWidget.ShowDialog();
                 List<String> filterList = filterWidget.Selection;
                 FilterText = string.Join(",", filterList);
+                CurrentIndex = 1;
                 UpdateResourceList();
+                if (PageCount == 0)
+                {
+                    pageBox.Text = "1";
+                }
+                else
+                {
+                    pageBox.Text = CurrentIndex + "/" + PageCount;
+                }
+               
             }
         }
 
@@ -383,6 +393,17 @@ namespace PPTPlugin
         private void lable_upload_Click(object sender, EventArgs e)
         {
             label_Click(sender, e);
+        }
+
+        private void textBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                CurrentIndex = 1;
+                FilterText = textBox.Text;
+                pageBox.Text = CurrentIndex.ToString();
+                UpdateResourceList();
+            }
         }
     }
 }

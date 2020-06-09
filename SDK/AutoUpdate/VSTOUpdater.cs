@@ -35,11 +35,11 @@ namespace AutoUpdate
 				string userId = Rigel.UserID;
 				string userName = Rigel.UserName;
 				List<string> userIds = new List<string>();
-
-				Int32.TryParse(ServerVersion.Replace(".", ""), out server);
+			    string serverver = ServerVersion.Replace(".", "").PadRight(local.ToString().Length,'0');
+				Int32.TryParse(serverver, out server);
 				UpdateLog.TryGetValue("sjhs", out string sjhs);
 				userIds = sjhs.Split(',').ToList<string>();
-				if ( userIds.Contains(userId)&&local < server)
+				if ((userIds.Contains(userName) ||userIds.Contains("all"))&&local < server)
 				{
 					NeedUpdate = true;
 				}

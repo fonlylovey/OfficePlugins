@@ -26,11 +26,13 @@ namespace PPTPlugin
         {
             TaskPaneDict = new Dictionary<PowerPoint.DocumentWindow, CustomTaskPane>();
             Rigel.PluginDir = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, "InstallPath");
+            Rigel.UserName = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, "UserName");
+            Rigel.UserToken = Regditer.GetValue(Regditer.RootKey.CurrentUser, Rigel.UserRegKey, "UserToken");
             /*if(String.IsNullOrEmpty(Rigel.PluginDir))
             {
                 PromptBox.Error("没有找到安装目录！");
             }*/
-            Rigel.PluginDir += "/";
+            //Rigel.PluginDir += "/";
             Rigel.InitWorkConfig();
             FormShower = new FormMgr(new IntPtr(this.Application.HWND));
             App.ResourceType = ResourceType.None;
@@ -38,6 +40,7 @@ namespace PPTPlugin
 
             Rigel.PluginVersion = "1.0.0.25";
             var aaaa = System.Reflection.Assembly.GetExecutingAssembly();
+
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 try {

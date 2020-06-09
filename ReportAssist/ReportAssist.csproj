@@ -33,7 +33,7 @@
     <PublishUrl>C:\Users\user\Desktop\pb1\</PublishUrl>
     <InstallUrl />
     <TargetCulture>zh-chs</TargetCulture>
-    <ApplicationVersion>1.0.0.68</ApplicationVersion>
+    <ApplicationVersion>2.0.0.14</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -344,11 +344,23 @@
     <None Include="Resources\prePage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\图标-1.png" />
+    <None Include="Resources\技术_1.png" />
+    <None Include="Resources\企业_1.png" />
+    <None Include="Resources\政策_1.png" />
+    <None Include="Resources\宏观_1.png" />
+    <None Include="Resources\预测_1.png" />
+    <None Include="Resources\产品_1.png" />
+    <None Include="Resources\市场_1.png" />
+    <None Include="Resources\图标_1.png" />
+    <None Include="Resources\图例_1.png" />
+    <None Include="Resources\模板_红.png" />
     <None Include="Resources\技术需求预测 %281%29.png" />
     <None Include="Resources\关于我们.png" />
     <None Include="Resources\upload_slide.png" />
     <None Include="Resources\suggest.png" />
     <None Include="Resources\icon-test.png" />
+    <None Include="Resources\PPT.png" />
     <Content Include="Resources\upload_line.png" />
     <None Include="Resources\upload_resource.png" />
     <None Include="Resources\updata_btn_1.jpg" />

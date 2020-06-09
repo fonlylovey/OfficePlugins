@@ -316,6 +316,7 @@
             this.textBox.Size = new System.Drawing.Size(149, 29);
             this.textBox.TabIndex = 3;
             this.textBox.WatermarkText = "搜索";
+            this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // QueryButton
             // 

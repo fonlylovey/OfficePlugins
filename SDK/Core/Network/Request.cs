@@ -183,7 +183,7 @@ namespace Core
                     {
                         var stream = response.Content.ReadAsStreamAsync().Result;
                         String strHeads = response.Content.Headers.ToString();
-                        if (response.Content.Headers.ContentDisposition != null)
+                       /* if (response.Content.Headers.ContentDisposition != null)
                         {
                             strFileName = response.Content.Headers.ContentDisposition.FileName;
                             strFileName = strFileName.Replace("\"", "");
@@ -198,18 +198,18 @@ namespace Core
                             strFileName = strFileName.Replace("\r\n", "");
                         }
                         else
-                            strFileName = Path.GetFileName(url);
+                            strFileName = Path.GetFileName(url);*/
 
                         //如果最终都没有获取到文件名
-                        if(String.IsNullOrEmpty(strHeads))
+   /*                     if(String.IsNullOrEmpty(strHeads))
                         {
                             throw new Exception("下载文件的文件名称获取失败！");
-                        }
+                        }*/
 
                         byte[] strBuf = new byte[stream.Length];
                         stream.Read(strBuf, 0, strBuf.Length);
 
-                        strFilePath = Rigel.BIMTempPath + GetTimeStamp() + strFileName;
+                        strFilePath = Rigel.BIMTempPath + GetTimeStamp() + ".pptx";
                         if (System.IO.File.Exists(strFilePath))
                         {
                             //判断是否被占用
