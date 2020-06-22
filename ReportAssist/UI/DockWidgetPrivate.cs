@@ -50,19 +50,27 @@ namespace PPTPlugin
                 jObject.Add("lb", App.ResourceType.ToString());
                 jObject.Add("tmid", resourceData.ID);
                 String strAPI = "{0}/ppttools/lsjl/save?token={1}";
-                String url = String.Format(strAPI, Rigel.ServerUrl,Rigel.UserToken);
+                String url = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken);
                 Request.HttpPost(jObject, url);
                 PowerPoint.Presentation currentPPT = Globals.ThisAddIn.Application.ActivePresentation;
-                PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
-                if (App.ResourceType == ResourceType.Template || App.ResourceType == ResourceType.Upload_template )
+
+                if (App.ResourceType == ResourceType.Template || App.ResourceType == ResourceType.Upload_template)
                 {
                     Globals.ThisAddIn.Application.Presentations.Open(strPath);
                 }
                 else
                 {
-
-                    currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
+                    if (currentPPT.Slides.Count > 0)
+                    {
+                        PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
+                        currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
+                    }
+                    else
+                    {
+                        currentPPT.Slides.InsertFromFile(strPath, 0, 1, -1);
+                    }
                 }
+
 
                 if (App.ResourceType == ResourceType.Predict)
                 {
@@ -173,7 +181,7 @@ namespace PPTPlugin
                         resModel = await RequestHandle.GetIconList(CurrentIndex, PrePageCount, "", FilterText);
                     }
                     break;
-               case ResourceType.Legend:
+                case ResourceType.Legend:
                     if (App.ItemType == ResourceType.Wdsc)
                     {
                         resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
@@ -270,7 +278,7 @@ namespace PPTPlugin
                     resModel = await RequestHandle.GetUploadTlList(CurrentIndex, PrePageCount, "", FilterText);
                     break;
             }
-                PageCount = (int)Math.Ceiling((double)resModel.ResCount / PrePageCount);
+            PageCount = (int)Math.Ceiling((double)resModel.ResCount / PrePageCount);
             ///*if (resModel.PageCount % PrePageCount > 0)
             //{
             //    PageCount++;
@@ -307,7 +315,7 @@ namespace PPTPlugin
                 w = 68;
                 //resourceList.ColumnCount = this.LTPanel.Width / h;
                 resourceList.ColumnCount = 3;
-               
+
             }
             else
             {
