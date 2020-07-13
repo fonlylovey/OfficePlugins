@@ -623,6 +623,16 @@ namespace PPTPlugin.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 微信报告 {
+            get {
+                object obj = ResourceManager.GetObject("微信报告", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 技术 {
             get {
                 object obj = ResourceManager.GetObject("技术", resourceCulture);
@@ -666,6 +676,16 @@ namespace PPTPlugin.Properties {
         internal static System.Drawing.Bitmap 政策_1 {
             get {
                 object obj = ResourceManager.GetObject("政策_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 数据上传 {
+            get {
+                object obj = ResourceManager.GetObject("数据上传", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

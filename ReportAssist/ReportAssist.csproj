@@ -344,6 +344,8 @@
     <None Include="Resources\prePage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\微信报告.png" />
+    <None Include="Resources\数据上传.png" />
     <None Include="Resources\图标-1.png" />
     <None Include="Resources\技术_1.png" />
     <None Include="Resources\企业_1.png" />

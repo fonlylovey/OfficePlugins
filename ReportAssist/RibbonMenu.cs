@@ -219,10 +219,10 @@ namespace PPTPlugin
                     lists = sjhs.Split(',').ToList<string>();
                 }
                 updateWidget.setInfo(slogan, content);
-               
+
                 Int32.TryParse(Rigel.PluginVersion.Replace(".", ""), out int local);
-                Int32.TryParse(VSTOUpdater.ServerVersion.Replace(".", ""),out int server);
-                if ((lists.Contains(Rigel.UserID)||lists.Contains("all"))&&local < server)
+                Int32.TryParse(VSTOUpdater.ServerVersion.Replace(".", ""), out int server);
+                if ((lists.Contains(Rigel.UserID) || lists.Contains("all")) && local < server)
                 {
                     VSTOUpdater.NeedUpdate = true;
                 }
@@ -542,6 +542,45 @@ namespace PPTPlugin
         private void button_toupload_Click(object sender, RibbonControlEventArgs e)
         {
             System.Diagnostics.Process.Start("explorer.exe", "http://autoppter.autoinfo.org.cn");
+        }
+
+        private void button1_Click(object sender, RibbonControlEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = true;//该值确定是否可以选择多个文件
+            dialog.Title = "请选择文件";
+            dialog.Filter = "所有文件(*.*)|*.*";
+            string fileName = "";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                fileName = dialog.FileName;
+                string url = "{0}/ppttools/pptdata/save?token={1}";
+                url = String.Format(url, Rigel.ServerUrl, Rigel.UserToken);
+                ProgressWidget pro = new ProgressWidget();
+                pro.Show();
+                pro.SetInfoText("正在上传，请稍后···");
+                pro.Show();
+                string resultStr = Request.UploadFilesToRemoteUrl(url, fileName);
+                pro.Hide();
+                JObject jObject = JObject.Parse(resultStr);
+
+                if (jObject.Value<String>("code").Equals("200"))
+                {
+                    PromptBox.Prompt("数据上传成功!");
+                }
+                else
+                {
+                    PromptBox.Error("上传失败：" + jObject.Value<String>("msg"));
+                }
+            }
+
+        }
+
+        private void button_report_Click(object sender, RibbonControlEventArgs e)
+        {
+            App.ResourceType = ResourceType.Wxreport;
+            App.ItemType = ResourceType.qb;
+            Globals.ThisAddIn.RightWidget.updateRightLableText();
         }
     }
 

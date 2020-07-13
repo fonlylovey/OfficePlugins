@@ -74,8 +74,18 @@ namespace PPTPlugin
 
                 if (App.ResourceType == ResourceType.Predict)
                 {
+                    string id = resourceData.ID;
+                    
                     WriteSlide writer = new WriteSlide();
-                    await writer.WriteData(resourceData.ID);
+                    if (id.Equals("100"))
+                    {
+                        await writer.WriteDataFor100("164");
+                    }
+                    else if (id.Equals("164"))
+                    {
+                        await writer.WriteDataFor164();
+                    }
+                        
                 }
             }
         }
@@ -153,6 +163,7 @@ namespace PPTPlugin
                 case ResourceType.Policy:
                 case ResourceType.Enterprise:
                 case ResourceType.Technology:
+                case ResourceType.Wxreport:
                     if (App.ItemType == ResourceType.Wdsc)
                     {
                         resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);

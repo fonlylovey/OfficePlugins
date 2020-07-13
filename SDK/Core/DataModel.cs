@@ -39,6 +39,7 @@ namespace Core
         Lsjl = 12, //历史记录
         qb = 13, //全部
         Enterprise = 14, //企业
-        Technology = 15 //技术
+        Technology = 15, //技术
+        Wxreport = 16 //微信报告
     }
 }

@@ -119,6 +119,9 @@ namespace PPTPlugin
                 case ResourceType.Technology:
                     strName = "技术";
                     break;
+                case ResourceType.Wxreport:
+                    strName = "微信报告";
+                    break;
                 default:
                     strName = "模板";
                     break;
