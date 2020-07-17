@@ -19,6 +19,7 @@ namespace PPTPlugin
         public DockWidget()
         {
             InitializeComponent();
+            this.label_All.BackColor = Color.FromArgb(215, 215, 215);
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
 
