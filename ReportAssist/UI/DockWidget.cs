@@ -11,6 +11,7 @@ using Core;
 using CustomControls;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using WinForm.UI.Controls;
+using Widgets;
 
 namespace PPTPlugin
 {
@@ -19,6 +20,24 @@ namespace PPTPlugin
         public DockWidget()
         {
             InitializeComponent();
+            if (App.ResourceType.Equals(ResourceType.Template)|| 
+                App.ResourceType.Equals(ResourceType.Icon)|| 
+                App.ResourceType.Equals(ResourceType.Legend)||
+                App.ResourceType.Equals(ResourceType.Wxreport)||
+                App.ResourceType.Equals(ResourceType.Lsjl)||
+                App.ResourceType.Equals(ResourceType.Wdsc)||
+                App.ResourceType.Equals(ResourceType.Upload_icon)||
+                App.ResourceType.Equals(ResourceType.Upload_legend)||
+                App.ResourceType.Equals(ResourceType.Upload_template)||
+                App.ResourceType.Equals(ResourceType.qb))
+            {
+                this.label_lsbg.Visible = false;
+                this.flowLayoutPanel3.Padding = new Padding(30, 0, 0, 0);
+            }
+            else
+            {
+                this.label_lsbg.Visible = true;
+            }
             this.label_All.BackColor = Color.FromArgb(215, 215, 215);
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
@@ -67,7 +86,7 @@ namespace PPTPlugin
                     else if (App.ResourceType == ResourceType.Upload_template || App.ResourceType == ResourceType.Upload_legend)
                     {
                         pictureBox.SetMenuVisible(true);
-                        pictureBox.SetMarkVisible(false);
+                        pictureBox.SetMarkVisible(false);          
                         pictureBox.ApplyFunction = new PicturePlane.DelegateApply(ApplyTemplate);
                     }
                     else
@@ -203,6 +222,7 @@ namespace PPTPlugin
             this.label_All.BackColor = Color.FromArgb(215, 215, 215);
             this.label_Mark.BackColor = Color.White;
             this.label_Records.BackColor = Color.White;
+            this.label_lsbg.BackColor = Color.White;
             if (button != null && button.Text.Equals("模板"))
             {
                 button.Tag = ResourceType.Upload_template;
@@ -222,6 +242,7 @@ namespace PPTPlugin
             textBox.Text = "";
             Label button = sender as Label;
             this.label_All.BackColor = Color.White;
+            this.label_lsbg.BackColor = Color.White;
             this.label_Mark.BackColor = Color.FromArgb(215, 215, 215);
             this.label_Records.BackColor = Color.White;
             if (button != null && button.Text.Equals("图例"))
@@ -244,6 +265,7 @@ namespace PPTPlugin
             Label button = sender as Label;
             this.label_All.BackColor = Color.White;
             this.label_Mark.BackColor = Color.White;
+            this.label_lsbg.BackColor = Color.White;
             this.label_Records.BackColor = Color.FromArgb(215, 215, 215);
             if (button != null && button.Text.Equals("图标"))
             {
@@ -405,6 +427,28 @@ namespace PPTPlugin
                 pageBox.Text = CurrentIndex.ToString();
                 UpdateResourceList();
             }
+        }
+
+        private void label_lsbg_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "";
+            Label button = sender as Label;
+            this.label_All.BackColor = Color.White;
+            this.label_Mark.BackColor = Color.White;
+            this.label_Records.BackColor = Color.White;
+            this.label_lsbg.BackColor = Color.FromArgb(215, 215, 215);
+            if (button != null && button.Text.Equals("图标"))
+            {
+                button.Tag = ResourceType.Upload_icon;
+                App.ItemType = ResourceType.Upload_icon;
+            }
+            else
+            {
+                button.Tag = App.ResourceType;
+                App.ItemType = ResourceType.Lsbg;
+
+            }
+            afterClick(button.Tag.ToString());
         }
     }
 }

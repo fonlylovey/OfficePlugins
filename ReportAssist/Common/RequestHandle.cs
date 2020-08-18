@@ -51,7 +51,8 @@ namespace PPTPlugin
         {
             ResourceModel resModel = new ResourceModel();
             String strAPI = "{0}/ppttools/res/getAllMb?token={1}&uid={2}&ksy={3}&ts={4}&mblb={5}&gjz={6}&type={7}";
-            String strUrl = String.Format(strAPI, Rigel.ServerUrl,Rigel.UserToken,Rigel.UserID, pageIndex, prePageCount, strType, strQuery,App.ResourceType.ToString());
+            String type = App.ResourceType.ToString();
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, Rigel.UserID, pageIndex, prePageCount, strType, strQuery, type);
 
             try
             {
@@ -489,7 +490,7 @@ namespace PPTPlugin
             try
             {
                 string strAPI = "{0}/ppttools/res/delWdsc?token={1}";
-                string strUrl = string.Format(strAPI, Rigel.ServerUrl,Rigel.UserToken);
+                string strUrl = string.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken);
                 JObject obj = await Request.HttpPost(jObject, strUrl);
                 return true;
             }
@@ -516,7 +517,7 @@ namespace PPTPlugin
                     resModel.PageCount = pageData["pages"].ToObject<int>();
                     resModel.ResCount = pageData["total"].ToObject<int>();
                     JArray dataArray = pageData["list"].ToObject<JArray>();
-                    
+
                     if (App.ResourceType == ResourceType.Legend)
                     {
                         foreach (JToken item in dataArray)
@@ -793,7 +794,7 @@ namespace PPTPlugin
 
             gItem = new GroupItem("MPV");
             group.Add(gItem);
-             item = new GroupItem("MPV车型");
+            item = new GroupItem("MPV车型");
             gItem.Children.Add(item);
             item = new GroupItem("MPV份额");
             gItem.Children.Add(item);
@@ -928,7 +929,7 @@ namespace PPTPlugin
             item = new GroupItem("新上市车型");
             gItem.Children.Add(item);
             item = new GroupItem("车型分析");
-            gItem.Children.Add(item); 
+            gItem.Children.Add(item);
             item = new GroupItem("预测报表");
             gItem.Children.Add(item);
             return group;
@@ -955,12 +956,47 @@ namespace PPTPlugin
             item = new GroupItem("东风小康");
             gItem.Children.Add(item);
             item = new GroupItem("一汽丰田");
-            gItem.Children.Add(item); 
+            gItem.Children.Add(item);
             item = new GroupItem("长安福特");
             gItem.Children.Add(item);
 
-            
+
             return group;
+        }
+
+        //获取历史报告
+        public static async Task<ResourceModel> GetLsbgList(int pageIndex = 1, int prePageCount = 5, String strType = "", String strQuery = "")
+        {
+            ResourceModel resModel = new ResourceModel();
+            String strAPI = "{0}/ppttools/res/getHistoryReportByType?token={1}&type={2}&ksy={3}&ts={4}";
+            String type = App.ResourceType.ToString();
+            String strUrl = String.Format(strAPI, Rigel.ServerUrl, Rigel.UserToken, type, pageIndex, prePageCount);
+
+            try
+            {
+                JObject jsondata = await Request.HttpGet(strUrl);
+                JObject pageData = jsondata["data"].ToObject<JObject>();
+                resModel.PageCount = pageData["pages"].ToObject<int>();
+                resModel.ResCount = pageData["total"].ToObject<int>();
+                JArray dataArray = pageData["list"].ToObject<JArray>();
+
+
+                foreach (JToken item in dataArray)
+                {
+                    ResourceData theData = new ResourceData();
+                    theData.ID = item["mbid"].ToString();
+                    theData.Name = item["mbname"].ToString();
+                    theData.Label = item["mblb"].ToString();
+                    theData.IconUrl = item["mbsltlj"].ToString();
+                    theData.FileUrl = item["mblj"].ToString();
+                    resModel.ResourceList.Add(theData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+            }
+            return resModel;
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Core
         qb = 13, //全部
         Enterprise = 14, //企业
         Technology = 15, //技术
-        Wxreport = 16 //微信报告
+        Wxreport = 16, //微信报告
+        Lsbg = 17 //历史报告
     }
 }

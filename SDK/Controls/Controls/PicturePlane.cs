@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace CustomControls
 {
@@ -17,7 +18,7 @@ namespace CustomControls
             InitializeComponent();
             MenuPanel.Visible = false;
             MenuPanel.Parent = Picture;
-            MenuPanel.BackColor = Color.FromArgb(100, 0, 0, 0);
+            MenuPanel.BackColor = Color.FromArgb(100, 255, 255, 255);
         }
 
         public void SetMarkVisible(bool isVisible)
@@ -103,20 +104,26 @@ namespace CustomControls
 
         private void Picture_MouseMove(object sender, MouseEventArgs e)
         {
-            if(MenuVisible)
+            bool flag = false;
+            for (int i = 0; i < 50000; i++)
             {
-                Rectangle myRect = this.RectangleToScreen(this.ClientRectangle);
-                myRect = new Rectangle(myRect.X + 5, myRect.Y + 5, myRect.Width - 10, myRect.Height - 10);
-                if (!myRect.Contains(Cursor.Position))
-                {
-                    MenuPanel.Visible = false;
-                }
-                else
-                {
-                    MenuPanel.Visible = true;
-                }
+                flag = mouseFlag();
             }
+            MenuPanel.Visible = flag;
         }
+        public bool mouseFlag()
+        {
+            bool flag = false;
+            Rectangle myRect = this.RectangleToScreen(this.ClientRectangle);
+            myRect = new Rectangle(myRect.X + 5, myRect.Y + 5, myRect.Width - 10, myRect.Height - 10);
+            if (myRect.Contains(Cursor.Position))
+            {
+                flag = true;
+            }
+            return flag;
+
+        }
+       
 
         bool MenuVisible = false;
         bool IsMark = false;
@@ -140,5 +147,7 @@ namespace CustomControls
             int y = Height - applyButton.Height - Padding.Left - Padding.Right;
             applyButton.Location = new Point(x/2, y/2);
         }
+
+       
     }
 }

@@ -42,6 +42,7 @@
             this.label_All = new System.Windows.Forms.Label();
             this.label_Mark = new System.Windows.Forms.Label();
             this.label_Records = new System.Windows.Forms.Label();
+            this.label_lsbg = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_filter = new System.Windows.Forms.Button();
             this.textBox = new WinForm.UI.Controls.FTextBox();
@@ -216,12 +217,13 @@
             this.flowLayoutPanel3.Controls.Add(this.label_All);
             this.flowLayoutPanel3.Controls.Add(this.label_Mark);
             this.flowLayoutPanel3.Controls.Add(this.label_Records);
+            this.flowLayoutPanel3.Controls.Add(this.label_lsbg);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 44);
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.flowLayoutPanel3.Size = new System.Drawing.Size(210, 30);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
@@ -229,11 +231,11 @@
             // 
             this.label_All.AutoSize = true;
             this.label_All.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_All.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_All.Location = new System.Drawing.Point(33, 0);
+            this.label_All.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_All.Location = new System.Drawing.Point(8, 0);
             this.label_All.MinimumSize = new System.Drawing.Size(0, 28);
             this.label_All.Name = "label_All";
-            this.label_All.Size = new System.Drawing.Size(32, 28);
+            this.label_All.Size = new System.Drawing.Size(28, 28);
             this.label_All.TabIndex = 9;
             this.label_All.Text = "全部";
             this.label_All.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -243,11 +245,11 @@
             // 
             this.label_Mark.AutoSize = true;
             this.label_Mark.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_Mark.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Mark.Location = new System.Drawing.Point(71, 0);
+            this.label_Mark.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Mark.Location = new System.Drawing.Point(42, 0);
             this.label_Mark.MinimumSize = new System.Drawing.Size(0, 28);
             this.label_Mark.Name = "label_Mark";
-            this.label_Mark.Size = new System.Drawing.Size(56, 28);
+            this.label_Mark.Size = new System.Drawing.Size(48, 28);
             this.label_Mark.TabIndex = 11;
             this.label_Mark.Text = "我的收藏";
             this.label_Mark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,15 +259,29 @@
             // 
             this.label_Records.AutoSize = true;
             this.label_Records.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_Records.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_Records.Location = new System.Drawing.Point(133, 0);
+            this.label_Records.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Records.Location = new System.Drawing.Point(96, 0);
             this.label_Records.MinimumSize = new System.Drawing.Size(0, 28);
             this.label_Records.Name = "label_Records";
-            this.label_Records.Size = new System.Drawing.Size(56, 28);
+            this.label_Records.Size = new System.Drawing.Size(48, 28);
             this.label_Records.TabIndex = 12;
             this.label_Records.Text = "历史记录";
             this.label_Records.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_Records.Click += new System.EventHandler(this.label_Records_Click);
+            // 
+            // label_lsbg
+            // 
+            this.label_lsbg.AutoSize = true;
+            this.label_lsbg.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_lsbg.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_lsbg.Location = new System.Drawing.Point(150, 0);
+            this.label_lsbg.MinimumSize = new System.Drawing.Size(0, 28);
+            this.label_lsbg.Name = "label_lsbg";
+            this.label_lsbg.Size = new System.Drawing.Size(48, 28);
+            this.label_lsbg.TabIndex = 13;
+            this.label_lsbg.Text = "历史报告";
+            this.label_lsbg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_lsbg.Click += new System.EventHandler(this.label_lsbg_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -599,5 +615,6 @@
         private System.Windows.Forms.Button button_filter;
         private System.Windows.Forms.Label lable_upload;
         private System.Windows.Forms.TableLayoutPanel resourceList;
+        private System.Windows.Forms.Label label_lsbg;
     }
 }

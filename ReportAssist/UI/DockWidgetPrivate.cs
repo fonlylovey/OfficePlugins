@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Widgets;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 namespace PPTPlugin
@@ -19,6 +20,7 @@ namespace PPTPlugin
         private int PageCount = 1;
         private int PrePageCount = 5;
         private String FilterText = "";
+        ProgressWidget progress = new ProgressWidget();
         public void ResetButton()
         {
             foreach (Control control in VMenu.Controls)
@@ -64,6 +66,7 @@ namespace PPTPlugin
                     {
                         PowerPoint.Slide currentIndexPPT = (PowerPoint.Slide)Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
                         currentPPT.Slides.InsertFromFile(strPath, currentIndexPPT.SlideIndex, 1, -1);
+                        currentPPT. = currentIndexPPT.SlideIndex + 1;
                     }
                     else
                     {
@@ -117,7 +120,7 @@ namespace PPTPlugin
                 await RequestHandle.delWdsc(jObject);
             }
         }
-
+     
         public static void ApplyIcon(Object data)
         {
             ResourceData resourceData = data as ResourceData;
@@ -164,6 +167,7 @@ namespace PPTPlugin
                 case ResourceType.Enterprise:
                 case ResourceType.Technology:
                 case ResourceType.Wxreport:
+                case ResourceType.Lsbg:
                     if (App.ItemType == ResourceType.Wdsc)
                     {
                         resModel = await RequestHandle.GetWdscList(CurrentIndex, PrePageCount, "", FilterText);
@@ -171,6 +175,10 @@ namespace PPTPlugin
                     else if (App.ItemType == ResourceType.Lsjl)
                     {
                         resModel = await RequestHandle.GetLsjlList(CurrentIndex, PrePageCount, "", FilterText);
+                    }
+                    else if (App.ItemType == ResourceType.Lsbg)
+                    {
+                        resModel = await RequestHandle.GetLsbgList(CurrentIndex, PrePageCount, "", FilterText);
                     }
                     else
                     {

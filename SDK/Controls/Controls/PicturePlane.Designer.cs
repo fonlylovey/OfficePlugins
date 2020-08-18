@@ -40,8 +40,7 @@
             // 
             // MenuPanel
             // 
-            this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MenuPanel.BackgroundImage = global::CustomControls.Properties.Resources.transparentBG;
+            this.MenuPanel.BackColor = System.Drawing.Color.White;
             this.MenuPanel.Controls.Add(this.markButton);
             this.MenuPanel.Controls.Add(this.applyButton);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
